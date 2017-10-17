@@ -13,7 +13,9 @@ import Modele.Carte;
 import Vue.FenetreIndice;
 import Vue.FenetreParametre;
 import Vue.FenetrePrincipale;
-public class Controleur {
+
+public class Controleur implements Observateur{
+    
     //attributs
     private Carte carte;
     private FenetreIndice fenetreIndice;
@@ -21,4 +23,11 @@ public class Controleur {
     private FenetrePrincipale fenetrePrincipale;
     //methodes
     
+    
+    //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 
+
+    @Override
+    public void notification(Message m) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
