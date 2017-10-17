@@ -15,11 +15,13 @@ public class Carte extends Lieu{
     //Atribut
     private Icone icone;
     private ArrayList<Lieu> prerequis;
+    private ArrayList<Lieu> contiens;
     private String titreCarte;
 
     public Carte(Icone icone, String titre) {
         super(icone);
         this.titreCarte=titre;
+        this.contiens=new ArrayList(); 
     }
     
 }
