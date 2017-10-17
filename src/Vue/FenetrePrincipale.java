@@ -11,18 +11,21 @@ package Vue;
  */
 import Controleur.Message;
 import Controleur.Observateur;
+import Modele.Carte;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class FenetrePrincipale extends JFrame implements Observateur{
     //modifier les attributs!!
     private Observateur observateur;//observateur de la fenetre est controleur
     private static final long serialVersionUID = 1L;
-    private JPanel cardPanel, jp1, jp2, buttonPanel;
-    private JLabel jl1, jl2;
-    private JButton btn1, btn2;
+    private JPanel cardPanel;
+    private PanelJeu jp1,jp2;
+
+
     private CardLayout cardLayout = new CardLayout();
 
     public FenetrePrincipale() {
@@ -31,42 +34,31 @@ public class FenetrePrincipale extends JFrame implements Observateur{
         setSize(400, 300);
         //panel de cards, situer au centre
         cardPanel = new JPanel();
-        //panel qui va disparaitre, pour passer d'un monde a un autre
-        buttonPanel = new JPanel();
+
+
         cardPanel.setLayout(cardLayout);
         //panel 1
-        jp1 = new JPanel();
-        jl1 = new JLabel("Card 1");
-        jp1.add(jl1);
+        ArrayList<String> noms = new ArrayList<String>();
+        noms.add("Univers");
+        noms.add("Monde1");
+        jp1 = new PanelJeu(noms);
+        jp1.setObservateur(this);
         //panel 2
-        jp2 = new JPanel();
-        jl2 = new JLabel("Card 2");
-        jp2.add(jl2);
+        jp2 = new PanelJeu(noms);
+        jp2.setObservateur(this);
         //ajout de la carte 1 au panel
-        cardPanel.add(jp1, "1");
+        cardPanel.add(jp1, "Univers");
+        
         //ajout de la cartye 2 au panel
-        cardPanel.add(jp2, "2");
-        //def des boutons pour changer
-        btn1 = new JButton("Show Card 1");
-        btn1.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                cardLayout.show(cardPanel, "1");
-            }
-        });
-        btn2 = new JButton("Show Card 2");
-        btn2.addActionListener(new ActionListener() {
-
-            public void actionPerformed(ActionEvent e) {
-                cardLayout.show(cardPanel, "2");
-            }
-        });
-        buttonPanel.add(btn1);
-        buttonPanel.add(btn2);
+        cardPanel.add(jp2, "Monde1");
+        
         add(cardPanel, BorderLayout.NORTH);
-        add(buttonPanel, BorderLayout.SOUTH);
+        
     }
-    
+    ////////////////////////////////////////////////////////////////////////////////////
+    public void creeCarte(Carte c){
+        //crée un panel a partir d'une carte et l'affiche
+    }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     //main pour les test
     public static void main(String[] args) {
@@ -83,15 +75,18 @@ public class FenetrePrincipale extends JFrame implements Observateur{
     
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //methode pour ajuter l'observateur
-    public void ajouterObservateur(Observateur o){
+    public void setObservateur(Observateur o){
         this.observateur=o;
     }
     
     //methode de l'observateur
     @Override
     public void notification(Message m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String s = m.getIndice();
+        cardLayout.show(cardPanel, s);
     }
+    
+    
 }
 
 
