@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vue;
-
-import javax.swing.JPanel;
+package Controleur;
 
 /**
  *
  * @author Léa
  */
-public class PanelJeu extends JPanel{
-    
+public interface Observateur
+{
+        // Méthode appelée automatiquement lors de la reception d'un message
+        public void notification(Message m);
 }
