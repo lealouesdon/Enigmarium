@@ -37,7 +37,7 @@ public class Controleur implements Observateur{
     private void InitialiserModel() {
         Carte monde=new Carte(null,"Carte des mondes");
         Carte mMedie=new Carte(new Icone(100,10),"carte medieval");
-        Carte mArche=new Carte(new Icone(50,120),"carte medieval");
+        Carte mArche=new Carte(new Icone(50,120),"carte archeologie");
         
     }
     
