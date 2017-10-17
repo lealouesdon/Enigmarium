@@ -9,10 +9,16 @@ package Controleur;
  *
  * @author Léa
  */
+import Modele.Carte;
+import Vue.FenetreIndice;
+import Vue.FenetreParametre;
+import Vue.FenetrePrincipale;
 public class Controleur {
     //attributs
-    private int nbMondes;
-    
+    private Carte carte;
+    private FenetreIndice fenetreIndice;
+    private FenetreParametre fenetreParametre;
+    private FenetrePrincipale fenetrePrincipale;
     //methodes
     
 }
