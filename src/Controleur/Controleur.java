@@ -20,7 +20,7 @@ import java.util.Stack;
 public class Controleur implements Observateur{
     
     //attributs
-    private Stack<Lieu> cartes;
+    private Stack<Carte> cartes;
     private FenetreIndice fenetreIndice;
     private FenetreParametre fenetreParametre;
     private FenetrePrincipale fenetrePrincipale;
@@ -43,9 +43,13 @@ public class Controleur implements Observateur{
         Carte mMedie=new Carte(new Icone(100,10),"carte medieval");
         Carte mArche=new Carte(new Icone(50,120),"carte archeologie");
         monde.addContien(mMedie);
-        monde.addContien(mArche);
+        monde.addContien(mArche); 
+    }
+    private void CarteChoisi(String carte){
+        //Carte cae= cartes.peek().getContiens().get(carte);
         
     }
+    
     
     
     //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 

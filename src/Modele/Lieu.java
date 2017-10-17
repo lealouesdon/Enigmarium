@@ -34,6 +34,8 @@ public abstract class Lieu {
     public void setIcone(Icone icone) {
         this.icone = icone;
     }
+
+    
      
 }
 

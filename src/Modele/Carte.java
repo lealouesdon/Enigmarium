@@ -28,5 +28,9 @@ public class Carte extends Lieu{
     public void addContien(Lieu lieu){
         this.contiens.put(lieu.getNom(),lieu);
     }
+
+    public HashMap getContiens() {
+        return this.contiens;
+    }
     
 }
