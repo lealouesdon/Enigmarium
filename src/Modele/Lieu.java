@@ -5,10 +5,28 @@
  */
 package Modele;
 
+import java.util.ArrayList;
 /**
  *
  * @author Léa
  */
-public class Lieu {
-    
+public abstract class Lieu {
+    //Atribut
+    private Icone icone;
+    private ArrayList<Lieu> prerequis;
+    //Constructeur
+    public Lieu(Icone icone){
+        this.icone=icone;
+        prerequis=new ArrayList();
+    }
+
+    public Icone getIcone() {
+        return icone;
+    }
+
+    public void setIcone(Icone icone) {
+        this.icone = icone;
+    }
+     
 }
+
