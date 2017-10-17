@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author Léa
  */
-public class Lieu {
+public abstract class Lieu {
     //Atribut
     private Icone icone;
     private ArrayList<Lieu> prerequis;
