@@ -6,6 +6,7 @@
 package Modele;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -15,17 +16,17 @@ public class Carte extends Lieu{
     //Atribut
     private Icone icone;
     private ArrayList<Lieu> prerequis;
-    private ArrayList<Lieu> contiens;
+    private HashMap<String,Lieu> contiens;
     private String titreCarte;
+    private String nom;
 
-    public Carte(Icone icone, String titre) {
-        super(icone);
-        this.titreCarte=titre;
-        this.contiens=new ArrayList(); 
+    public Carte(Icone icone,String nom) {
+        super(icone,nom);
+        this.contiens=new HashMap(); 
     }
     
     public void addContien(Lieu lieu){
-        this.contiens.add(lieu);
+        this.contiens.put(lieu.getNom(),lieu);
     }
     
 }
