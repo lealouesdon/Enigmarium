@@ -5,10 +5,21 @@
  */
 package Modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Léa
  */
-public class Carte {
+public class Carte extends Lieu{
+    //Atribut
+    private Icone icone;
+    private ArrayList<Lieu> prerequis;
+    private String titreCarte;
+
+    public Carte(Icone icone, String titre) {
+        super(icone);
+        this.titreCarte=titre;
+    }
     
 }
