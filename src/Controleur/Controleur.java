@@ -11,19 +11,22 @@ package Controleur;
  */
 import Modele.Carte;
 import Modele.Icone;
+import Modele.Lieu;
 import Vue.FenetreIndice;
 import Vue.FenetreParametre;
 import Vue.FenetrePrincipale;
+import java.util.Stack;
 
 public class Controleur implements Observateur{
     
     //attributs
-    private Carte carte;
+    private Stack<Lieu> cartes;
     private FenetreIndice fenetreIndice;
     private FenetreParametre fenetreParametre;
     private FenetrePrincipale fenetrePrincipale;
     //Constructeur
     public Controleur(){
+        cartes=new Stack();
         InitialiserModel();
         InitialiserVue();
        
@@ -36,8 +39,11 @@ public class Controleur implements Observateur{
 
     private void InitialiserModel() {
         Carte monde=new Carte(null,"Carte des mondes");
+        cartes.push(monde);
         Carte mMedie=new Carte(new Icone(100,10),"carte medieval");
-        Carte mArche=new Carte(new Icone(50,120),"carte medieval");
+        Carte mArche=new Carte(new Icone(50,120),"carte archeologie");
+        monde.addContien(mMedie);
+        monde.addContien(mArche);
         
     }
     
