@@ -10,5 +10,21 @@ package Modele;
  * @author Léa
  */
 public class Icone {
+    //Atribut
+    private Position position;
+    //Constructeur
+    public Icone(Position position){
+        this.position=position;        
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+    
+    
     
 }
