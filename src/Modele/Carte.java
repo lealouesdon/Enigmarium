@@ -24,4 +24,8 @@ public class Carte extends Lieu{
         this.contiens=new ArrayList(); 
     }
     
+    public void addContien(Lieu lieu){
+        this.contiens.add(lieu);
+    }
+    
 }
