@@ -17,6 +17,10 @@ public class Icone {
         this.position=position;        
     }
 
+    public Icone(int x, int y) {
+        this.position=new Position(x,y);
+    }
+
     public Position getPosition() {
         return position;
     }
