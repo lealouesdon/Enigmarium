@@ -26,6 +26,8 @@ public class Controleur implements Observateur{
     private FenetrePrincipale fenetrePrincipale;
     //Constructeur
     public Controleur(){
+        fenetrePrincipale = new FenetrePrincipale();
+        fenetrePrincipale.setObservateur(this);
         cartes=new Stack();
         InitialiserModel();
         InitialiserVue();
