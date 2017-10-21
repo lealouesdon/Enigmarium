@@ -88,7 +88,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         
     }
     ////////////////////////////////////////////////////////////////////////////////////////
-    public void message(String message){
+    public void modifierMessage(String message){
         //methode pour modifier ce que dit la mascotte
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,6 +114,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     //methode de l'observateur
     @Override
     public void notification(Message m) {
+        //envoyer le message au controleur
         String s = m.getIndice();
         cardLayout.show(cardPanel, s);
     }

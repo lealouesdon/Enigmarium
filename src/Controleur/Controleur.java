@@ -47,7 +47,7 @@ public class Controleur implements Observateur{
         monde.addContien(mMedie);
         monde.addContien(mArche); 
     }
-    private void CarteChoisi(String carte){
+    private void CarteChoisie(String carte){
         //Carte cae= cartes.peek().getContiens().get(carte);
         
     }
