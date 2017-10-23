@@ -62,7 +62,8 @@ public class Controleur implements Observateur{
 
     public void carteChoisi(String titre){//Attention ne marche pas pour les enigme pour l instant !!!!!!!
         Carte c = (Carte) this.cartes.peek().getContiens().get(titre);
-        fenetrePrincipale.creeVue(c);
+        this.cartes.push(c);
+        fenetrePrincipale.creeVue(this.cartes.peek());
 
     }
 }
