@@ -75,7 +75,6 @@ public class Controleur implements Observateur{
         Carte c = (Carte) this.cartes.peek().getContiens().get(titre);
         this.cartes.push(c);
         fenetrePrincipale.creeVue(this.cartes.peek());
-
     }
     
     public void retourCarte(){//Si l'utilisateur clique sur le bouton retour
