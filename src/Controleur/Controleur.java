@@ -61,8 +61,12 @@ public class Controleur implements Observateur{
     //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 
     @Override
     public void notification(Message m) {
-        System.out.print(m.getIndice());
+        if (m.getEtat()="retour"){
+            
+        }else if(m.getEtat()="retour")){
         this.carteChoisi(m.getIndice());
+    }
+        
     }
 
     ////////////////////////////////////ACTION EN REPONSSE A NOTIFICATION////////////////////////////////////
