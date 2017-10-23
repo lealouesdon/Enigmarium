@@ -12,6 +12,8 @@ package Controleur;
 public class Message {
     //messages entre l'observateur et l'observé
     private String indice;
+    private String etat;
+
     
     public Message(){}
 
@@ -22,6 +24,12 @@ public class Message {
     public void setIndice(String indice) {
         this.indice = indice;
     }
-    
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
+
+    public String getEtat() {
+        return etat;
+    }
     
 }
