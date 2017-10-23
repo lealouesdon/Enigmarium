@@ -84,6 +84,9 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         //crée un panel a partir d'une carte et l'affiche
         
         PanelJeu panel = new PanelJeu(c.getContiens());
+        if (c.getRetour()){
+            panel.boutonRetour();
+        }
         panel.setName(c.getNom());
         panel.setObservateur(this);
         
@@ -102,20 +105,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     public void modifierMessage(String message){
         //methode pour modifier ce que dit la mascotte
     }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //main pour les test
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                FenetrePrincipale frame = new FenetrePrincipale();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-            }
-        });
-    }
-
+    
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //methode pour ajuter l'observateur
     public void setObservateur(Observateur o) {
@@ -130,7 +120,8 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         //cardLayout.show(cardPanel, s);
         observateur.notification(m);
     }
-
+    
+    
 }
 
 

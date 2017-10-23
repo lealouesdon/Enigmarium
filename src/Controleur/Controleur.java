@@ -64,7 +64,7 @@ public class Controleur implements Observateur{
         if (m.getEtat()=="retour"){
             retourCarte();
         }
-        else if(m.getEtat()=="retour"){
+        else if(m.getEtat()=="carteChoisi"){
         this.carteChoisi(m.getIndice());
         }
         
