@@ -14,12 +14,7 @@ import java.util.HashMap;
  */
 public class Carte extends Lieu{
     //Atribut
-    private Icone icone;
-    private ArrayList<Lieu> prerequis;
     private HashMap<String,Lieu> contiens;
-    private String titreCarte;
-    private String nom;
-
     public Carte(Icone icone,String nom) {
         super(icone,nom);
         this.contiens=new HashMap(); 
