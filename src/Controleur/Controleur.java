@@ -18,7 +18,7 @@ import Vue.FenetrePrincipale;
 import java.util.Stack;
 import javax.swing.JFrame;
 
-public class Controleur implements Observateur {
+public class Controleur implements Observateur{
 
     //attributs
     private Stack<Carte> cartes;
@@ -27,12 +27,10 @@ public class Controleur implements Observateur {
     private FenetrePrincipale fenetrePrincipale;
 
     //Constructeur
-    public Controleur() {
-
+    public Controleur(){
         fenetrePrincipale = new FenetrePrincipale();
-        fenetrePrincipale.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetrePrincipale.setObservateur(this);
-        cartes = new Stack();
+        cartes=new Stack();
         InitialiserModel();
         //InitialiserVue();
         fenetrePrincipale.creeVue(this.cartes.peek());
