@@ -14,9 +14,16 @@ import java.util.HashMap;
  */
 public class Carte extends Lieu{
     //Atribut
+    private boolean retour;
     private HashMap<String,Lieu> contiens;
     public Carte(Icone icone,String nom) {
         super(icone,nom);
+        this.retour=true;
+        this.contiens=new HashMap(); 
+    }
+    public Carte(Icone icone,String nom,boolean retour) {
+        super(icone,nom);
+        this.retour=retour;
         this.contiens=new HashMap(); 
     }
     
@@ -27,5 +34,9 @@ public class Carte extends Lieu{
     public HashMap getContiens() {
         return this.contiens;
     }
+    public boolean getRetour(){
+        return retour;
+    }
+    
     
 }
