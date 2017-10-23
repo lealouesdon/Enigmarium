@@ -42,7 +42,7 @@ public class Controleur implements Observateur{
     }
 
     private void InitialiserModel() {//initialise toute les carte du model
-        Carte monde = new Carte(null, "Carte des mondes");
+        Carte monde = new Carte(null, "Carte des mondes",false);
         cartes.push(monde);
         /////////////////////////////////MONDE///////////////////////////////////////
         Carte mMedie = new Carte(new Icone(100, 10), "carte medieval");
