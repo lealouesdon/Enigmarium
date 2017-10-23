@@ -26,11 +26,11 @@ public class Controleur implements Observateur{
     private FenetrePrincipale fenetrePrincipale;
     //Constructeur
     public Controleur(){
-        fenetrePrincipale = new FenetrePrincipale();
-        fenetrePrincipale.setObservateur(this);
+        /*fenetrePrincipale = new FenetrePrincipale();
+        fenetrePrincipale.setObservateur(this);*/
         cartes=new Stack();
         InitialiserModel();
-        InitialiserVue();
+        //InitialiserVue();
        
     }
     //methodes
@@ -46,6 +46,7 @@ public class Controleur implements Observateur{
         Carte mArche=new Carte(new Icone(50,120),"carte archeologie");
         monde.addContien(mMedie);
         monde.addContien(mArche); 
+        
     }
     private void CarteChoisie(String carte){
         //Carte cae= cartes.peek().getContiens().get(carte);
@@ -58,6 +59,11 @@ public class Controleur implements Observateur{
 
     @Override
     public void notification(Message m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+    }
+    public void carteChoisi(String titre){//Attention ne marche pas pour les enigme pour l instant !!!!!!!
+        Carte c = (Carte) this.cartes.peek().getContiens().get(titre);
+        fenetrePrincipale.creeVue(c);
     }
 }
+ 
