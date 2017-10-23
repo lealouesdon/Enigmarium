@@ -71,6 +71,7 @@ public class PanelJeu extends JPanel {
                 Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
             }*/
             //set la position du bouton
+            bouton.setLocation(cartes.get(string).getIcone().getX(), cartes.get(string).getIcone().getY());
             //set l'action listener
             bouton.addActionListener(new ActionListener() {
                 @Override
