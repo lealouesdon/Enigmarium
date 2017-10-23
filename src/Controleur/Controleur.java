@@ -28,28 +28,33 @@ public class Controleur implements Observateur{
 
     //Constructeur
     public Controleur(){
-        System.out.print("controleur");
-        fenetrePrincipale = new FenetrePrincipale();
-        fenetrePrincipale.setObservateur(this);
         cartes=new Stack();
         InitialiserModel();
-        //InitialiserVue();
+        InitialiserVue();
         fenetrePrincipale.creeVue(this.cartes.peek());
-        fenetrePrincipale.setVisible(true);
+        fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
     }
     //methodes
 
     private void InitialiserVue() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        fenetrePrincipale = new FenetrePrincipale();
+        fenetrePrincipale.setObservateur(this);
     }
 
-    private void InitialiserModel() {
+    private void InitialiserModel() {//initialise toute les carte du model
         Carte monde = new Carte(null, "Carte des mondes");
         cartes.push(monde);
+        /////////////////////////////////MONDE///////////////////////////////////////
         Carte mMedie = new Carte(new Icone(100, 10), "carte medieval");
         Carte mArche = new Carte(new Icone(50, 120), "carte archeologie");
         monde.addContien(mMedie);
         monde.addContien(mArche);
+        ///////////////////////////////PERSONAGE/////////////////////////////////////
+        Carte pBoul =new Carte(new Icone(100, 10), "perso boulager");
+        mMedie.addContien(pBoul);
+        Carte psoupe =new Carte(new Icone(100, 10), "perso soupe");
+        mMedie.addContien(psoupe);
+        
 
     }
 
@@ -60,7 +65,7 @@ public class Controleur implements Observateur{
         this.carteChoisi(m.getIndice());
     }
 
-
+    ////////////////////////////////////ACTION EN REPONSSE A NOTIFICATION////////////////////////////////////
     public void carteChoisi(String titre){//Attention ne marche pas pour les enigme pour l instant !!!!!!!
         Carte c = (Carte) this.cartes.peek().getContiens().get(titre);
         this.cartes.push(c);
@@ -68,7 +73,7 @@ public class Controleur implements Observateur{
 
     }
     
-    public void retourCarte(){
+    public void retourCarte(){//Si l'utilisateur clique sur le bouton retour
         this.cartes.pop();
         fenetrePrincipale.creeVue(this.cartes.peek());
     }
