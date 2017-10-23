@@ -60,7 +60,7 @@ public class Controleur implements Observateur{
     //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 
     @Override
     public void notification(Message m) {
-        System.out.print(m.getIndice());
+        System.out.println(m.getIndice());
     }
 
 

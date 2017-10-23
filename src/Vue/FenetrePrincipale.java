@@ -16,6 +16,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javafx.scene.layout.Border;
 import javax.swing.*;
 
@@ -26,7 +27,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     private static final long serialVersionUID = 1L;
     private JPanel cardPanel, panelHaut;
     //faire un vecteur de PanelJeu
-    private ArrayList<PanelJeu> panels;
+    //private HashMap<String,PanelJeu> panels;
     //pour le panel haut
     JLabel mascotte, message;
     //attributs pour la taille de l'écrant
@@ -34,6 +35,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     private CardLayout cardLayout = new CardLayout();
 
     public FenetrePrincipale() {
+        
         setTitle("Enigmarium");
         //initialise la taille de l'écrant
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -74,6 +76,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
 
         //positionnement du panelHaut
         add(panelHaut, BorderLayout.NORTH);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////
@@ -82,13 +85,15 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         
         PanelJeu panel = new PanelJeu(c.getContiens());
         panel.setName(c.getNom());
-        panels.contains(panel);
-        panels.add(panel);
+        panel.setObservateur(this);
+        System.out.print("montre fenetre");
         //cree le PanelJeu avec l'arrayList de cartes de la carte donnée
         
         //mettre le fond 
-        //panel.setFond(c.getFond);
+        panel.setFond();
         //setFond
+        cardPanel.add(panel, c.getNom());
+        cardLayout.show(cardPanel, c.getNom());
         
         
         

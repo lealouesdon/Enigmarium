@@ -41,7 +41,8 @@ public class PanelJeu extends JPanel {
     public PanelJeu(HashMap<String,Lieu> cartes) {
         boutons = new ArrayList<JButton>();
         Dimension dim = this.getSize();
-        //fond.setSize(dim);//nullptr
+        fond = new JLabel();
+        fond.setSize(dim);
         
         initBoutons(cartes);
         //methode a évolué avec les images
@@ -53,6 +54,8 @@ public class PanelJeu extends JPanel {
         // crée autant d'objet que dans la liste
 
         for (String string : cartes.keySet()) {
+            System.out.print("ajout de");
+            System.out.print(string);
             JButton bouton = new JButton(string);
             //set le nom du bouton au nom de la carte
             bouton.setName(string);
@@ -75,15 +78,15 @@ public class PanelJeu extends JPanel {
                 public void actionPerformed(ActionEvent e) {
                     Message m = new Message();
                     //renvoyer le nom du bouton pas le texte
-                    m.setIndice(bouton.getName());
+                    m.setIndice(cartes.get(string).getNom());
                     observateur.notification(m);
-                    System.out.println("Message envoyé");
+                    //System.out.println("Message envoyé");
                 }
 
             }
             );
             boutons.add(bouton);
-            fond.add(bouton);
+            this.add(bouton);
 
         }
 
@@ -106,16 +109,16 @@ public class PanelJeu extends JPanel {
         }
     }*/
     //////////////////////////////////////////////7
-    public void setFond(String image){
+    public void setFond(){
         //permet de mettre un fond d'écrant
-        /*Random rand = new Random();
+        Random rand = new Random();
         // Java 'Color' class takes 3 floats, from 0 to 1.
         float r = rand.nextFloat();
         float g = rand.nextFloat();
         float b = rand.nextFloat();
         Color randomColor = new Color(r, g, b);
-        this.setBackground(randomColor);*/
-        fond.setIcon(new ImageIcon(new ImageIcon(image).getImage().getScaledInstance(fond.getWidth(), fond.getHeight(), Image.SCALE_DEFAULT)));
+        this.setBackground(randomColor);
+        //fond.setIcon(new ImageIcon(new ImageIcon(image).getImage().getScaledInstance(fond.getWidth(), fond.getHeight(), Image.SCALE_DEFAULT)));
         
     }
     //////////////////////////////////////////////
