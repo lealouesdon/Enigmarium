@@ -26,7 +26,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     private static final long serialVersionUID = 1L;
     private JPanel cardPanel, panelHaut;
     //faire un vecteur de PanelJeu
-    private PanelJeu jp1, jp2;
+    private ArrayList<PanelJeu> panels;
     //pour le panel haut
     JLabel mascotte, message;
     //attributs pour la taille de l'écrant
@@ -48,7 +48,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         //panel 1
         //exemple d'utilisation
         //arrayList qui sera replacé par une carte et l'appel de la fonction creeVue
-        ArrayList<String> noms = new ArrayList<String>();
+        /*ArrayList<String> noms = new ArrayList<String>();
         noms.add("Univers");
         noms.add("Monde1");
         jp1 = new PanelJeu(noms);
@@ -59,7 +59,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         //ajout de la carte 1 au panel
         cardPanel.add(jp1, "Univers");
         //ajout de la cartye 2 au panel
-        cardPanel.add(jp2, "Monde1");
+        cardPanel.add(jp2, "Monde1");*/
         //positionnement du cardPanel
         add(cardPanel, BorderLayout.CENTER);
         ////////////////////////////////////////////////
@@ -79,9 +79,13 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     ////////////////////////////////////////////////////////////////////////////////////
     public void creeVue(Carte c) {
         //crée un panel a partir d'une carte et l'affiche
-        
+        PanelJeu panel = new PanelJeu(c.getContiens());
+        panel.setName(c.getNom());
+        panels.add(panel);
         //cree le PanelJeu avec l'arrayList de cartes de la carte donnée
+        
         //mettre le fond 
+        //panel.setFond(c.getFond);
         //setFond
         
         
@@ -115,8 +119,9 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     @Override
     public void notification(Message m) {
         //envoyer le message au controleur
-        String s = m.getIndice();
-        cardLayout.show(cardPanel, s);
+        //String s = m.getIndice();
+        //cardLayout.show(cardPanel, s);
+        observateur.notification(m);
     }
 
 }
