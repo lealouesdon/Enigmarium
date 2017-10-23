@@ -45,8 +45,8 @@ public class PanelJeu extends JPanel {
         Dimension dim = this.getSize();
         fond = new JLabel();
         fond.setSize(dim);
-
         initBoutons(cartes);
+        
         //methode a évolué avec les images
 
         //setFond();
@@ -88,6 +88,7 @@ public class PanelJeu extends JPanel {
                     Message m = new Message();
                     //renvoyer le nom du bouton pas le texte
                     m.setIndice(cartes.get(string).getNom());
+                    m.setEtat("carteChoisi");
                     observateur.notification(m);
                     //System.out.println("Message envoyé");
                 }
@@ -98,9 +99,27 @@ public class PanelJeu extends JPanel {
             this.add(bouton);
 
         }
+        
 
     }
+    public void boutonRetour(){
+        
+        JButton retour = new JButton("retour");
+        retour.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Message m = new Message();
+                    //renvoyer le nom du bouton pas le texte
+                    m.setEtat("retour");
+                    observateur.notification(m);
+                    //System.out.println("Message envoyé");
+                }
 
+            }
+            );
+        //manque la position et l'image du bouton
+        this.add(retour);
+    }
     //methode inutile car faite dans initBoutons
     /*private void setEnvoyerMessage() {
         //avec le vecteur de boutons initialisé permet de faire les action listener et envoyer le message a l'observateur
