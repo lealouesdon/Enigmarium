@@ -47,6 +47,20 @@ public class PanelJeu extends JPanel {
         fond.setSize(dim);
 
         initBoutons(cartes);
+        JButton retour = new JButton("retour");
+        retour.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Message m = new Message();
+                    //renvoyer le nom du bouton pas le texte
+                    m.setEtat("retour");
+                    observateur.notification(m);
+                    //System.out.println("Message envoyé");
+                }
+
+            }
+            );
+        this.add(retour);
         //methode a évolué avec les images
 
         //setFond();
@@ -88,6 +102,7 @@ public class PanelJeu extends JPanel {
                     Message m = new Message();
                     //renvoyer le nom du bouton pas le texte
                     m.setIndice(cartes.get(string).getNom());
+                    m.setEtat("carteChoisi");
                     observateur.notification(m);
                     //System.out.println("Message envoyé");
                 }
@@ -98,6 +113,7 @@ public class PanelJeu extends JPanel {
             this.add(bouton);
 
         }
+        
 
     }
 
