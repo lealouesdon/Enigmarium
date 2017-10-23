@@ -61,11 +61,12 @@ public class Controleur implements Observateur{
     //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 
     @Override
     public void notification(Message m) {
-        if (m.getEtat()="retour"){
-            
-        }else if(m.getEtat()="retour")){
+        if (m.getEtat()=="retour"){
+            retourCarte();
+        }
+        else if(m.getEtat()=="retour"){
         this.carteChoisi(m.getIndice());
-    }
+        }
         
     }
 
