@@ -10,9 +10,11 @@ import Controleur.Observateur;
 import Modele.Lieu;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,23 +40,23 @@ public class PanelJeu extends JPanel {
 
     /////////////////////////////////////////////////////////////////
     //constructeur
-    public PanelJeu(HashMap<String,Lieu> cartes) {
+    public PanelJeu(HashMap<String, Lieu> cartes) {
         boutons = new ArrayList<JButton>();
         Dimension dim = this.getSize();
         fond = new JLabel();
         fond.setSize(dim);
-        
+
         initBoutons(cartes);
         //methode a évolué avec les images
-        
+
         //setFond();
     }
 
-    private void initBoutons(HashMap<String,Lieu> cartes) {
+    private void initBoutons(HashMap<String, Lieu> cartes) {
         // crée autant d'objet que dans la liste
 
         for (String string : cartes.keySet()) {
-            
+
             JButton bouton = new JButton(string);
             //set le nom du bouton au nom de la carte
             bouton.setName(string);
@@ -62,8 +64,14 @@ public class PanelJeu extends JPanel {
             bouton.setOpaque(false);
             bouton.setContentAreaFilled(false);
             bouton.setBorderPainted(false);
-            /*
-            try {
+            bouton.setSize(100, 100);
+            ImageIcon icon = new ImageIcon("images/mondeCuisiniersIcone.png");
+            Image img = icon.getImage();
+            Image newimg = img.getScaledInstance(230, 310, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon newIcon = new ImageIcon(newimg);
+            bouton.setIcon(newIcon);
+
+            /*try {
                 Image img = ImageIO.read(getClass().getResource("images/mondeCuisiniersIcone.png"));
                 
                 bouton.setIcon(new ImageIcon(img));
@@ -71,8 +79,9 @@ public class PanelJeu extends JPanel {
                 Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
             }*/
             //set la position du bouton
-            bouton.setLocation(cartes.get(string).getIcone().getX(), cartes.get(string).getIcone().getY());
+            bouton.setLocation(1500,2000);
             //set l'action listener
+            //bouton.setIcon(new ImageIcon(new ImageIcon("images/mondeCuisiniersIcone.png").getImage().getScaledInstance(bouton.getWidth(), bouton.getHeight(), Image.SCALE_DEFAULT)));
             bouton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -91,6 +100,7 @@ public class PanelJeu extends JPanel {
         }
 
     }
+
     //methode inutile car faite dans initBoutons
     /*private void setEnvoyerMessage() {
         //avec le vecteur de boutons initialisé permet de faire les action listener et envoyer le message a l'observateur
@@ -109,7 +119,7 @@ public class PanelJeu extends JPanel {
         }
     }*/
     //////////////////////////////////////////////7
-    public void setFond(){
+    public void setFond() {
         //permet de mettre un fond d'écrant
         Random rand = new Random();
         // Java 'Color' class takes 3 floats, from 0 to 1.
@@ -119,8 +129,9 @@ public class PanelJeu extends JPanel {
         Color randomColor = new Color(r, g, b);
         this.setBackground(randomColor);
         //fond.setIcon(new ImageIcon(new ImageIcon(image).getImage().getScaledInstance(fond.getWidth(), fond.getHeight(), Image.SCALE_DEFAULT)));
-        
+
     }
+
     //////////////////////////////////////////////
     public void setObservateur(Observateur o) {
         this.observateur = o;
