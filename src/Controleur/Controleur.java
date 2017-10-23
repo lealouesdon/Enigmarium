@@ -52,21 +52,23 @@ public class Controleur implements Observateur{
 
     }
 
-    private void CarteChoisie(String carte) {
-        //Carte cae= cartes.peek().getContiens().get(carte);
-
-    }
-
     //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 
     @Override
     public void notification(Message m) {
-        System.out.println(m.getIndice());
+        System.out.print(m.getIndice());
+        this.carteChoisi(m.getIndice());
     }
 
 
     public void carteChoisi(String titre){//Attention ne marche pas pour les enigme pour l instant !!!!!!!
         Carte c = (Carte) this.cartes.peek().getContiens().get(titre);
-        fenetrePrincipale.creeVue(c);
+        this.cartes.push(c);
+        fenetrePrincipale.creeVue(this.cartes.peek());
 
+    }
+    
+    public void retourCarte(){
+        this.cartes.pop();
+        fenetrePrincipale.creeVue(this.cartes.peek());
     }
 }

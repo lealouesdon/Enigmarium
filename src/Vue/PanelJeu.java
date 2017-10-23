@@ -54,8 +54,7 @@ public class PanelJeu extends JPanel {
         // crée autant d'objet que dans la liste
 
         for (String string : cartes.keySet()) {
-            System.out.print("ajout de");
-            System.out.print(string);
+            
             JButton bouton = new JButton(string);
             //set le nom du bouton au nom de la carte
             bouton.setName(string);

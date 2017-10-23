@@ -86,7 +86,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         PanelJeu panel = new PanelJeu(c.getContiens());
         panel.setName(c.getNom());
         panel.setObservateur(this);
-        System.out.print("montre fenetre");
+        
         //cree le PanelJeu avec l'arrayList de cartes de la carte donnée
         
         //mettre le fond 
