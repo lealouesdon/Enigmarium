@@ -41,7 +41,7 @@ public class PanelJeu extends JPanel {
     public PanelJeu(HashMap<String,Lieu> cartes) {
         boutons = new ArrayList<JButton>();
         Dimension dim = this.getSize();
-        fond.setSize(dim);
+        //fond.setSize(dim);//nullptr
         
         initBoutons(cartes);
         //methode a évolué avec les images
