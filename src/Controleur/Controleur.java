@@ -28,6 +28,7 @@ public class Controleur implements Observateur{
 
     //Constructeur
     public Controleur(){
+        System.out.print("controleur");
         fenetrePrincipale = new FenetrePrincipale();
         fenetrePrincipale.setObservateur(this);
         cartes=new Stack();
