@@ -11,23 +11,31 @@ package Modele;
  */
 public class Icone {
     //Atribut
-    private Position position;
+    private int x;
+    private int y;
     //Constructeur
-    public Icone(Position position){
-        this.position=position;        
+    public Icone(int x, int y){
+        this.x=x;
+        this.y=y;
     }
 
-    public Icone(int x, int y) {
-        this.position=new Position(x,y);
+    public int getX() {
+        return x;
     }
 
-    public Position getPosition() {
-        return position;
+    public int getY() {
+        return y;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
+    public void setX(int x) {
+        this.x = x;
     }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+    
+    
     
     
     
