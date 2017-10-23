@@ -16,6 +16,7 @@ import Vue.FenetreIndice;
 import Vue.FenetreParametre;
 import Vue.FenetrePrincipale;
 import java.util.Stack;
+import javax.swing.JFrame;
 
 public class Controleur implements Observateur{
     
@@ -26,12 +27,15 @@ public class Controleur implements Observateur{
     private FenetrePrincipale fenetrePrincipale;
     //Constructeur
     public Controleur(){
+        
         fenetrePrincipale = new FenetrePrincipale();
+        fenetrePrincipale.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         fenetrePrincipale.setObservateur(this);
         cartes=new Stack();
         InitialiserModel();
         InitialiserVue();
-       
+        fenetrePrincipale.setVisible(true);
     }
     //methodes
 
