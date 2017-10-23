@@ -66,4 +66,9 @@ public class Controleur implements Observateur{
         fenetrePrincipale.creeVue(this.cartes.peek());
 
     }
+    
+    public void retourCarte(){
+        this.cartes.pop();
+        fenetrePrincipale.creeVue(this.cartes.peek());
+    }
 }
