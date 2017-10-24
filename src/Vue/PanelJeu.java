@@ -11,7 +11,9 @@ import Modele.Lieu;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -41,6 +43,7 @@ public class PanelJeu extends JPanel {
     /////////////////////////////////////////////////////////////////
     //constructeur
     public PanelJeu(HashMap<String, Lieu> cartes) {
+        this.setLayout(null);
         boutons = new ArrayList<JButton>();
         Dimension dim = this.getSize();
         fond = new JLabel();
@@ -56,7 +59,6 @@ public class PanelJeu extends JPanel {
         // crée autant d'objet que dans la liste
 
         for (String string : cartes.keySet()) {
-
             JButton bouton = new JButton(string);
             //set le nom du bouton au nom de la carte
             bouton.setName(string);
@@ -64,22 +66,23 @@ public class PanelJeu extends JPanel {
             bouton.setOpaque(false);
             bouton.setContentAreaFilled(false);
             bouton.setBorderPainted(false);
-            bouton.setSize(100, 100);
-            ImageIcon icon = new ImageIcon("images/mondeCuisiniersIcone.png");
-            Image img = icon.getImage();
-            Image newimg = img.getScaledInstance(230, 310, java.awt.Image.SCALE_SMOOTH);
-            ImageIcon newIcon = new ImageIcon(newimg);
-            bouton.setIcon(newIcon);
-
-            /*try {
-                Image img = ImageIO.read(getClass().getResource("images/mondeCuisiniersIcone.png"));
+            bouton.setSize(350, 400);
+            
+            //si u icone est set
+            if (cartes.get(string).getIcone().getImage()!=null){
+                try {
+                    //ouvre l'image et la met dans le bouton
+                Image img = ImageIO.read(getClass().getResource(cartes.get(string).getIcone().getImage()));
+                ImageIcon icon=new ImageIcon(getScaledImage(img,350,400));
                 
-                bouton.setIcon(new ImageIcon(img));
-            } catch (IOException ex) {
+                bouton.setIcon(icon);
+                } catch (IOException ex) {
                 Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+                }
+            }
+            
             //set la position du bouton
-            bouton.setLocation(1500,2000);
+            bouton.setLocation(cartes.get(string).getIcone().getX(),cartes.get(string).getIcone().getY());
             //set l'action listener
             //bouton.setIcon(new ImageIcon(new ImageIcon("images/mondeCuisiniersIcone.png").getImage().getScaledInstance(bouton.getWidth(), bouton.getHeight(), Image.SCALE_DEFAULT)));
             bouton.addActionListener(new ActionListener() {
@@ -105,6 +108,8 @@ public class PanelJeu extends JPanel {
     public void boutonRetour(){
         
         JButton retour = new JButton("retour");
+        retour.setSize(70, 70);
+        retour.setLocation(0, 0);
         retour.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -155,4 +160,15 @@ public class PanelJeu extends JPanel {
     public void setObservateur(Observateur o) {
         this.observateur = o;
     }
+    /////////////////////////////////////////////
+    private Image getScaledImage(Image srcImg, int w, int h){
+    BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D g2 = resizedImg.createGraphics();
+
+    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+    g2.drawImage(srcImg, 0, 0, w, h, null);
+    g2.dispose();
+
+    return resizedImg;
+}
 }

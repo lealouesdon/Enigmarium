@@ -13,6 +13,11 @@ public class Icone {
     //Atribut
     private int x;
     private int y;
+    String image;
+
+    public String getImage() {
+        return image;
+    }
     //Constructeur
     public Icone(int x, int y){
         this.x=x;
@@ -33,6 +38,10 @@ public class Icone {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
     
     

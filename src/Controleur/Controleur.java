@@ -45,14 +45,21 @@ public class Controleur implements Observateur{
         Carte monde = new Carte(null, "Carte des mondes",false);
         cartes.push(monde);
         /////////////////////////////////MONDE///////////////////////////////////////
-        Carte mMedie = new Carte(new Icone(100, 10), "carte medieval");
-        Carte mArche = new Carte(new Icone(50, 120), "carte archeologie");
+        Icone icone =new Icone(200, 100);
+        icone.setImage("images/mondeCuisiniers.png");
+        //tester une erreur d'ouveture...
+        Carte mMedie = new Carte(icone, "carte medieval");
+        icone =new Icone(500, 50);
+        icone.setImage("images/mondeArcheologue.png");
+        Carte mArche = new Carte(icone, "carte archeologie");
         monde.addContien(mMedie);
         monde.addContien(mArche);
         ///////////////////////////////PERSONAGE/////////////////////////////////////
-        Carte pBoul =new Carte(new Icone(100, 10), "perso boulager");
+        icone =new Icone(600, 50);
+        icone.setImage("images/bob.jpg");
+        Carte pBoul =new Carte(icone, "perso boulager");
         mMedie.addContien(pBoul);
-        Carte psoupe =new Carte(new Icone(100, 10), "perso soupe");
+        Carte psoupe =new Carte(new Icone(200, 250), "perso soupe");
         mMedie.addContien(psoupe);
         
 
