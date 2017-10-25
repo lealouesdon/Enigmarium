@@ -16,6 +16,9 @@ public class Carte extends Lieu{
     //Atribut
     private boolean retour;
     private HashMap<String,Lieu> contiens;
+    private String fond;
+
+   
     public Carte(Icone icone,String nom) {
         super(icone,nom);
         this.retour=true;
@@ -37,6 +40,12 @@ public class Carte extends Lieu{
     public boolean getRetour(){
         return retour;
     }
-    
+    public void setFond(String fond) {
+        this.fond = fond;
+    }
+
+    public String getFond() {
+        return fond;
+    }
     
 }

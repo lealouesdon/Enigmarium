@@ -43,12 +43,15 @@ public class Controleur implements Observateur{
 
     private void InitialiserModel() {//initialise toute les carte du model
         Carte monde = new Carte(null, "Carte des mondes",false);
+        monde.setFond("images/galaxy.jpg");
         cartes.push(monde);
         /////////////////////////////////MONDE///////////////////////////////////////
         Icone icone =new Icone(200, 100);
         icone.setImage("images/mondeCuisiniers.png");
+        
         //tester une erreur d'ouveture...
         Carte mMedie = new Carte(icone, "carte medieval");
+        mMedie.setFond("images/placeMarcheSansCouleur.jpg");
         icone =new Icone(500, 50);
         icone.setImage("images/mondeArcheologue.png");
         Carte mArche = new Carte(icone, "carte archeologie");
@@ -56,7 +59,6 @@ public class Controleur implements Observateur{
         monde.addContien(mArche);
         ///////////////////////////////PERSONAGE/////////////////////////////////////
         icone =new Icone(600, 50);
-        icone.setImage("images/bob.jpg");
         Carte pBoul =new Carte(icone, "perso boulager");
         mMedie.addContien(pBoul);
         Carte psoupe =new Carte(new Icone(200, 250), "perso soupe");

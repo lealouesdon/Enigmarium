@@ -7,6 +7,7 @@ package Vue;
 
 import Controleur.Message;
 import Controleur.Observateur;
+import Modele.Carte;
 import Modele.Lieu;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -37,54 +38,46 @@ public class PanelJeu extends JPanel {
 
     //attributs
     private Observateur observateur;
-    private ArrayList<JButton> boutons;
-    private JLabel fond;
+    private Carte carte;
 
     /////////////////////////////////////////////////////////////////
     //constructeur
     public PanelJeu(HashMap<String, Lieu> cartes) {
         this.setLayout(null);
-        boutons = new ArrayList<JButton>();
-        Dimension dim = this.getSize();
-        fond = new JLabel();
-        fond.setSize(dim);
-        initBoutons(cartes);
-        
-        //methode a évolué avec les images
 
-        //setFond();
+        //cree les boutons
+        initBoutons(cartes);
     }
+//////////////////////////////////////////////////////////////////////////////
 
     private void initBoutons(HashMap<String, Lieu> cartes) {
         // crée autant d'objet que dans la liste
-
         for (String string : cartes.keySet()) {
             JButton bouton = new JButton(string);
-            //set le nom du bouton au nom de la carte
+            //met le nom du bouton au nom de la carte
             bouton.setName(string);
-            //met l'icone de la carte dans le bouton et rend le bouton trensparent
+            //rend le bouton trensparent
             bouton.setOpaque(false);
             bouton.setContentAreaFilled(false);
             bouton.setBorderPainted(false);
+            //taille du bouton (a modifier avec des valeurs de icone)!!!
             bouton.setSize(350, 400);
-            
-            //si u icone est set
-            if (cartes.get(string).getIcone().getImage()!=null){
+            //si un icone est defini
+            if (cartes.get(string).getIcone().getImage() != null) {
                 try {
                     //ouvre l'image et la met dans le bouton
-                Image img = ImageIO.read(getClass().getResource(cartes.get(string).getIcone().getImage()));
-                ImageIcon icon=new ImageIcon(getScaledImage(img,350,400));
-                
-                bouton.setIcon(icon);
+                    Image img = ImageIO.read(getClass().getResource(cartes.get(string).getIcone().getImage()));
+                    //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+                    ImageIcon icon = new ImageIcon(getScaledImage(img, 350, 400));
+                    bouton.setIcon(icon);
                 } catch (IOException ex) {
-                Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            
-            //set la position du bouton
-            bouton.setLocation(cartes.get(string).getIcone().getX(),cartes.get(string).getIcone().getY());
+
+            //met la position du bouton en fonction des attributs de l'icone
+            bouton.setLocation(cartes.get(string).getIcone().getX(), cartes.get(string).getIcone().getY());
             //set l'action listener
-            //bouton.setIcon(new ImageIcon(new ImageIcon("images/mondeCuisiniersIcone.png").getImage().getScaledInstance(bouton.getWidth(), bouton.getHeight(), Image.SCALE_DEFAULT)));
             bouton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -98,77 +91,73 @@ public class PanelJeu extends JPanel {
 
             }
             );
-            boutons.add(bouton);
             this.add(bouton);
-
         }
-        
-
     }
-    public void boutonRetour(){
-        
-        JButton retour = new JButton("retour");
-        retour.setSize(70, 70);
-        retour.setLocation(0, 0);
-        retour.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Message m = new Message();
-                    //renvoyer le nom du bouton pas le texte
-                    m.setEtat("retour");
-                    observateur.notification(m);
-                    //System.out.println("Message envoyé");
-                }
+//////////////////////////////////////////////////////////////////////////////////////////
 
+    public void boutonRetour() {
+        //met en place tous les boutons sur le Jpanel
+        JButton retour = new JButton("retour");
+        //taille par défault du bouton
+        retour.setSize(70, 70);
+        //localisation par défaut du bouton
+        retour.setLocation(0, 0);
+        //action listener pour retourner "retour" a l'appuye du bouton
+        retour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Message m = new Message();
+                //renvoyer le nom du bouton pas le texte
+                m.setEtat("retour");
+                observateur.notification(m);
             }
-            );
-        //manque la position et l'image du bouton
+        }
+        );
+        //ajouter une image pour le bouton retour!!!
         this.add(retour);
     }
-    //methode inutile car faite dans initBoutons
-    /*private void setEnvoyerMessage() {
-        //avec le vecteur de boutons initialisé permet de faire les action listener et envoyer le message a l'observateur
-        for (JButton bouton : boutons) {
-            bouton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Message m = new Message();
-                    m.setIndice(bouton.getText());
-                    observateur.notification(m);
-                    System.out.println("Message envoyé");
-                }
 
-            }
-            );
-        }
-    }*/
     //////////////////////////////////////////////7
-    public void setFond() {
-        //permet de mettre un fond d'écrant
-        Random rand = new Random();
-        // Java 'Color' class takes 3 floats, from 0 to 1.
-        float r = rand.nextFloat();
-        float g = rand.nextFloat();
-        float b = rand.nextFloat();
-        Color randomColor = new Color(r, g, b);
-        this.setBackground(randomColor);
-        //fond.setIcon(new ImageIcon(new ImageIcon(image).getImage().getScaledInstance(fond.getWidth(), fond.getHeight(), Image.SCALE_DEFAULT)));
-
+    public void setFond(Carte carte) {
+        //met le fond du JPanel
+        //met la carte utilisé pour le fond en attribut
+        this.carte = carte;
+        //redessine le jpanel
+        this.repaint();
     }
 
     //////////////////////////////////////////////
     public void setObservateur(Observateur o) {
         this.observateur = o;
     }
+
     /////////////////////////////////////////////
-    private Image getScaledImage(Image srcImg, int w, int h){
-    BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = resizedImg.createGraphics();
+    private Image getScaledImage(Image srcImg, int w, int h) {
+        //pour redimensionner une image pour un bouton
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
 
-    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-    g2.drawImage(srcImg, 0, 0, w, h, null);
-    g2.dispose();
+        return resizedImg;
+    }
+/////////////////////////////////////////////////////////////
 
-    return resizedImg;
-}
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); // paint the background image and scale it to fill the entire space
+        //si l'image est rentrée l'afficher
+        if (carte.getFond() != null) {
+            try {
+                //affiche l'image de la carte
+                Image img = ImageIO.read(getClass().getResource(carte.getFond()));
+                g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), Color.white, this);
+            } catch (IOException ex) {
+                Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
 }

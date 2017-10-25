@@ -13,11 +13,6 @@ import Controleur.Message;
 import Controleur.Observateur;
 import Modele.Carte;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.HashMap;
-import javafx.scene.layout.Border;
 import javax.swing.*;
 
 public class FenetrePrincipale extends JFrame implements Observateur {
@@ -26,8 +21,6 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     private Observateur observateur;//observateur de la fenetre est controleur
     private static final long serialVersionUID = 1L;
     private JPanel cardPanel, panelHaut;
-    //faire un vecteur de PanelJeu
-    //private HashMap<String,PanelJeu> panels;
     //pour le panel haut
     JLabel mascotte, message;
     //attributs pour la taille de l'écrant
@@ -35,45 +28,27 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     private CardLayout cardLayout = new CardLayout();
 
     public FenetrePrincipale() {
-        
         setTitle("Enigmarium");
         //initialise la taille de l'écrant
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         largeur = gd.getDisplayMode().getWidth();
         hauteur = gd.getDisplayMode().getHeight();
         setSize(largeur, hauteur);
-
         //////////////////////////////////////////////
         //panel de cards, situer au centre
         cardPanel = new JPanel();
         cardPanel.setLayout(cardLayout);
-        //panel 1
-        //exemple d'utilisation
-        //arrayList qui sera replacé par une carte et l'appel de la fonction creeVue
-        /*ArrayList<String> noms = new ArrayList<String>();
-        noms.add("Univers");
-        noms.add("Monde1");
-        jp1 = new PanelJeu(noms);
-        jp1.setObservateur(this);
-        //panel 2
-        jp2 = new PanelJeu(noms);
-        jp2.setObservateur(this);
-        //ajout de la carte 1 au panel
-        cardPanel.add(jp1, "Univers");
-        //ajout de la cartye 2 au panel
-        cardPanel.add(jp2, "Monde1");*/
         //positionnement du cardPanel
         add(cardPanel, BorderLayout.CENTER);
         ////////////////////////////////////////////////
-        //Panel du haut //faire une nouvelle classe?
+        //Panel du haut 
         panelHaut = new JPanel();
         mascotte = new JLabel("masotte");
         mascotte.setBorder(BorderFactory.createLineBorder(Color.black));
         panelHaut.add(mascotte, BorderLayout.WEST);
-        message = new JLabel("message a modifier");
+        message = new JLabel("/////////////////message a modifier//////////////////////");
         message.setBorder(BorderFactory.createLineBorder(Color.black));
         panelHaut.add(message, BorderLayout.CENTER);
-
         //positionnement du panelHaut
         add(panelHaut, BorderLayout.NORTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,24 +57,19 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     ////////////////////////////////////////////////////////////////////////////////////
     public void creeVue(Carte c) {
         //crée un panel a partir d'une carte et l'affiche
-        
+        //cree le PanelJeu avec l'arrayList de cartes de la carte donnée
         PanelJeu panel = new PanelJeu(c.getContiens());
         if (c.getRetour()){
             panel.boutonRetour();
         }
+        //donne le nom de la carte au panel
         panel.setName(c.getNom());
         panel.setObservateur(this);
-        
-        //cree le PanelJeu avec l'arrayList de cartes de la carte donnée
-        
         //mettre le fond 
-        panel.setFond();
-        //setFond
+        panel.setFond(c);
+        //ajoute et montre le panel
         cardPanel.add(panel, c.getNom());
         cardLayout.show(cardPanel, c.getNom());
-        
-        
-        
     }
     ////////////////////////////////////////////////////////////////////////////////////////
     public void modifierMessage(String message){
@@ -116,15 +86,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     @Override
     public void notification(Message m) {
         //envoyer le message au controleur
-        //String s = m.getIndice();
-        //cardLayout.show(cardPanel, s);
         observateur.notification(m);
-    }
-    
-    
+    } 
 }
 
-
-
-
-//elle est observé par controleur et elle observe ses panels
