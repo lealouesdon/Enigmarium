@@ -61,14 +61,14 @@ public class PanelJeu extends JPanel {
             bouton.setContentAreaFilled(false);
             bouton.setBorderPainted(false);
             //taille du bouton (a modifier avec des valeurs de icone)!!!
-            bouton.setSize(350, 400);
+            bouton.setSize(cartes.get(string).getIcone().getLargeur(), cartes.get(string).getIcone().getHauteur());
             //si un icone est defini
             if (cartes.get(string).getIcone().getImage() != null) {
                 try {
                     //ouvre l'image et la met dans le bouton
                     Image img = ImageIO.read(getClass().getResource(cartes.get(string).getIcone().getImage()));
                     //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-                    ImageIcon icon = new ImageIcon(getScaledImage(img, 350, 400));
+                    ImageIcon icon = new ImageIcon(getScaledImage(img, cartes.get(string).getIcone().getLargeur(), cartes.get(string).getIcone().getHauteur()));
                     bouton.setIcon(icon);
                 } catch (IOException ex) {
                     Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);

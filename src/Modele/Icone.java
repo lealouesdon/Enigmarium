@@ -14,14 +14,19 @@ public class Icone {
     private int x;
     private int y;
     String image;
+    int largeur;
+    int hauteur;
 
     public String getImage() {
         return image;
     }
     //Constructeur
-    public Icone(int x, int y){
+    public Icone(int x, int y,String image, int largeur, int hauteur){
+        setImage(image);
         this.x=x;
         this.y=y;
+        this.hauteur=hauteur;
+        this.largeur=largeur;
     }
 
     public int getX() {
@@ -40,8 +45,16 @@ public class Icone {
         this.y = y;
     }
 
-    public void setImage(String image) {
+    private void setImage(String image) {
         this.image = image;
+    }
+
+    public int getLargeur() {
+        return largeur;
+    }
+
+    public int getHauteur() {
+        return hauteur;
     }
     
     
