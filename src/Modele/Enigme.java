@@ -15,19 +15,23 @@ import java.util.PriorityQueue;
 public class Enigme extends Lieu {
 
     private ArrayList<Ingredient> ingredients;
+    private static String DESCRIPTION="description de l'enigme lalalalalalalalalala";
     public Enigme() {
         super(null, null);
-        this.ingredients=new ArrayList();
-        this.ingredients.add(new Ingredient(" lait "));
-        this.ingredients.add(new Ingredient(" oeuf "));
-        this.ingredients.add(new Ingredient(" eau "));
-        this.ingredients.add(new Ingredient(" pieuvre "));
+        enigme1();
         melangeIngre();
     }
 
     private void melangeIngre() {
       //  PriorityQueue<Ingredient> =new PriorityQueue();
         
+    }
+    public void enigme1(){
+        this.ingredients=new ArrayList();
+        this.ingredients.add(new Ingredient(" lait ",null));
+        this.ingredients.add(new Ingredient(" oeuf ",null));
+        this.ingredients.add(new Ingredient(" eau ",null));
+        this.ingredients.add(new Ingredient(" pieuvre ",null));
     }
     
 }
