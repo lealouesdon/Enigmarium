@@ -11,7 +11,6 @@ package Controleur;
  */
 import Modele.Carte;
 import Modele.Icone;
-import Modele.Lieu;
 import Vue.FenetreIndice;
 import Vue.FenetreParametre;
 import Vue.FenetrePrincipale;
@@ -61,6 +60,7 @@ public class Controleur implements Observateur{
         mMedie.addContien(pBoul);
         Carte psoupe =new Carte(new Icone(200, 300,null,200,200), "perso soupe");
         mMedie.addContien(psoupe);
+      
         
 
     }

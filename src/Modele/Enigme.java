@@ -12,14 +12,13 @@ import java.util.PriorityQueue;
  *
  * @author Léa
  */
-public class Enigme extends Lieu {
+public class Enigme extends Carte {
 
     private ArrayList<Ingredient> ingredients;
     private static String DESCRIPTION="description de l'enigme lalalalalalalalalala";
-    public Enigme() {
-        super(null, null);
-        enigme1();
-        melangeIngre();
+    public Enigme(Icone icone,String nom,boolean retour) {
+       super(icone,nom,retour);
+       enigme1();
     }
 
     private void melangeIngre() {

@@ -12,26 +12,33 @@ import java.util.HashMap;
  *
  * @author Léa
  */
-public class Carte extends Lieu{
+public class Carte {
     //Atribut
     private boolean retour;
-    private HashMap<String,Lieu> contiens;
+    private HashMap<String,Carte> contiens;
     private String fond;
+    private Icone icone;
+    private ArrayList<Carte> prerequis;
+    private String nom; 
 
    
     public Carte(Icone icone,String nom) {
-        super(icone,nom);
         this.retour=true;
         this.contiens=new HashMap(); 
+        this.icone=icone;
+        this.nom=nom;
+        prerequis=new ArrayList();
     }
     public Carte(Icone icone,String nom,boolean retour) {
-        super(icone,nom);
         this.retour=retour;
         this.contiens=new HashMap(); 
+        this.icone=icone;
+        this.nom=nom;
+        prerequis=new ArrayList();
     }
     
-    public void addContien(Lieu lieu){
-        this.contiens.put(lieu.getNom(),lieu);
+    public void addContien(Carte carte){
+        this.contiens.put(carte.getNom(),carte);
     }
 
     public HashMap getContiens() {
@@ -47,5 +54,13 @@ public class Carte extends Lieu{
     public String getFond() {
         return fond;
     }
+    public String getNom(){
+        return this.nom;
+    }
+
+    public Icone getIcone() {
+        return icone;
+    }
+    
     
 }

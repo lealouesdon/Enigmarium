@@ -17,9 +17,7 @@ public abstract class Lieu {
     private String nom; 
     //Constructeur
     public Lieu(Icone icone,String nom){
-        this.icone=icone;
-        this.nom=nom;
-        prerequis=new ArrayList();
+        
     }
 
     public Icone getIcone() {
