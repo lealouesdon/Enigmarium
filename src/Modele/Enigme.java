@@ -16,8 +16,8 @@ public class Enigme extends Carte {
 
     private ArrayList<Ingredient> ingredients;
     private static String DESCRIPTION="description de l'enigme lalalalalalalalalala";
-    public Enigme(Icone icone,String nom,boolean retour) {
-       super(icone,nom,retour);
+    public Enigme(Icone icone,String nom) {
+       super(icone,nom);
        enigme1();
     }
 
