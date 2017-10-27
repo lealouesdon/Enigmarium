@@ -72,6 +72,21 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         cardLayout.show(cardPanel, c.getNom());
     }
     ////////////////////////////////////////////////////////////////////////////////////////
+    public void creeVueEnigme(Carte c){
+        PanelEnigmeComposite panel = new PanelEnigmeComposite(c.getContiens());
+        if (c.getRetour()){
+            panel.boutonRetour();
+        }
+        //donne le nom de la carte au panel
+        panel.setName(c.getNom());
+        panel.setObservateur(this);
+        //mettre le fond 
+        panel.setFond(c);
+        //ajoute et montre le panel
+        cardPanel.add(panel, c.getNom());
+        cardLayout.show(cardPanel, c.getNom());
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////
     public void modifierMessage(String message){
         //methode pour modifier ce que dit la mascotte
     }
