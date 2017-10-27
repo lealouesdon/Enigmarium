@@ -10,6 +10,7 @@ package Controleur;
  * @author Léa
  */
 import Modele.Carte;
+import Modele.Enigme;
 import Modele.Icone;
 import Vue.FenetreIndice;
 import Vue.FenetreParametre;
@@ -24,7 +25,6 @@ public class Controleur implements Observateur{
     private FenetreIndice fenetreIndice;
     private FenetreParametre fenetreParametre;
     private FenetrePrincipale fenetrePrincipale;
-
     //Constructeur
     public Controleur(){
         cartes=new Stack();
@@ -60,8 +60,9 @@ public class Controleur implements Observateur{
         mMedie.addContien(pBoul);
         Carte psoupe =new Carte(new Icone(200, 300,null,200,200), "perso soupe");
         mMedie.addContien(psoupe);
-      
-        
+        Enigme enigmeTest= new Enigme(new Icone(120,100,null,200,300),"enigmeTest");
+        mMedie.addContien(enigmeTest);
+         
 
     }
 
