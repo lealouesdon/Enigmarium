@@ -10,7 +10,6 @@ import Controleur.Observateur;
 import Modele.Carte;
 import Modele.Lieu;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -19,15 +18,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -39,12 +35,12 @@ public class PanelJeu extends JPanel {
     //attributs
     private Observateur observateur;
     private Carte carte;
+    private Message m;
 
     /////////////////////////////////////////////////////////////////
     //constructeur
     public PanelJeu(HashMap<String, Carte> cartes) {
         this.setLayout(null);
-
         //cree les boutons
         initBoutons(cartes);
     }
@@ -81,9 +77,9 @@ public class PanelJeu extends JPanel {
             bouton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Message m = new Message();
+                    m = new Message();
                     //renvoyer le nom du bouton pas le texte
-                    m.setIndice(cartes.get(string).getNom());
+                    m.setMessage(cartes.get(string).getNom());
                     m.setEtat("carteChoisi");
                     observateur.notification(m);
                     //System.out.println("Message envoyé");
@@ -107,7 +103,7 @@ public class PanelJeu extends JPanel {
         retour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Message m = new Message();
+                m = new Message();
                 //renvoyer le nom du bouton pas le texte
                 m.setEtat("retour");
                 observateur.notification(m);

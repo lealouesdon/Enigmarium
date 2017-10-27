@@ -73,7 +73,7 @@ public class Controleur implements Observateur{
             retourCarte();
         }
         else if(m.getEtat()=="carteChoisi"){
-        this.carteChoisi(m.getIndice());
+        this.carteChoisi(m.getMessage());
         }
         
     }
