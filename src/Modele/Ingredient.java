@@ -9,21 +9,20 @@ package Modele;
  *
  * @author etien
  */
-public class Ingredient extends Lieu {
+public class Ingredient {
     private static int MINRAY=1;
     private static int MAXRAY=7; 
     private static int MINHAU=4;
     private static int MAXHAU=15;
-    private String icone;
-    private int x;
-    private int y;
+    private Icone icone;
     private float volIngredient;
     private String nom;
     private int rayon;
     private int hauteur;
     
     public Ingredient(String nom,Icone icone){
-        super(icone,nom);
+        this.icone=icone;
+        this.nom=nom;
         this.rayon=(int)(Math.random()*(MAXRAY+1-MINRAY) + MINRAY);
         this.hauteur=(int)(Math.random()*(MAXHAU+1-MINHAU) + MINHAU);
         this.volIngredient=3.14f*(getHauteur()*getRayon()*getRayon());
