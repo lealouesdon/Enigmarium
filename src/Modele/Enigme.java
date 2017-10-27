@@ -5,10 +5,32 @@
  */
 package Modele;
 
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
 /**
  *
  * @author Léa
  */
-public class Enigme {
+public class Enigme extends Carte {
+
+    private ArrayList<Ingredient> ingredients;
+    private static String DESCRIPTION="description de l'enigme lalalalalalalalalala";
+    public Enigme(Icone icone,String nom) {
+       super(icone,nom);
+       enigme1();
+    }
+
+    private void melangeIngre() {
+      //  PriorityQueue<Ingredient> =new PriorityQueue();
+        
+    }
+    public void enigme1(){
+        this.ingredients=new ArrayList();
+        this.ingredients.add(new Ingredient(" lait ",null));
+        this.ingredients.add(new Ingredient(" oeuf ",null));
+        this.ingredients.add(new Ingredient(" eau ",null));
+        this.ingredients.add(new Ingredient(" pieuvre ",null));
+    }
     
 }

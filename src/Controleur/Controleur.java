@@ -11,7 +11,6 @@ package Controleur;
  */
 import Modele.Carte;
 import Modele.Icone;
-import Modele.Lieu;
 import Vue.FenetreIndice;
 import Vue.FenetreParametre;
 import Vue.FenetrePrincipale;

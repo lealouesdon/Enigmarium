@@ -39,14 +39,14 @@ public class PanelJeu extends JPanel {
 
     /////////////////////////////////////////////////////////////////
     //constructeur
-    public PanelJeu(HashMap<String, Lieu> cartes) {
+    public PanelJeu(HashMap<String, Carte> cartes) {
         this.setLayout(null);
         //cree les boutons
         initBoutons(cartes);
     }
 //////////////////////////////////////////////////////////////////////////////
 
-    private void initBoutons(HashMap<String, Lieu> cartes) {
+    private void initBoutons(HashMap<String, Carte> cartes) {
         // crée autant d'objet que dans la liste
         for (String string : cartes.keySet()) {
             JButton bouton = new JButton(string);
