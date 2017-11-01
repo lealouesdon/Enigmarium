@@ -82,7 +82,7 @@ public class PanelEnigmeComposite extends JPanel {
             bouton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    try {
+                    /*try {
                         //ouvre l'image et la met dans le bouton
                         Image img = ImageIO.read(getClass().getResource(ingredient.getIcone().getImage()));
                         //redimensionement de l'image
@@ -90,8 +90,8 @@ public class PanelEnigmeComposite extends JPanel {
                         boite2.setIcon(icon);
                     } catch (IOException ex) {
                         Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    
+                    }*/
+                    boite2.setText(bouton.getText());
                     
                     //renvoyer le nom du bouton pas le texte
                     m.setAtt2(ingredient.getNom());

@@ -49,7 +49,7 @@ public class Controleur implements Observateur{
         
         //tester une erreur d'ouveture...
         Carte mMedie = new Carte(icone, "carte medieval");
-        mMedie.setFond("images/placeMarcheSansCouleur.jpg");
+        mMedie.setFond("images/placeMarche.jpg");
         icone =new Icone(500, 50,"images/mondeArcheologue.png",350,400);
         Carte mArche = new Carte(icone, "carte archeologie");
         monde.addContien(mMedie);
