@@ -12,6 +12,7 @@ package Vue;
 import Controleur.Message;
 import Controleur.Observateur;
 import Modele.Carte;
+import Modele.Enigme;
 import java.awt.*;
 import javax.swing.*;
 
@@ -72,19 +73,17 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         cardLayout.show(cardPanel, c.getNom());
     }
     ////////////////////////////////////////////////////////////////////////////////////////
-    public void creeVueEnigme(Carte c){
-        PanelEnigmeComposite panel = new PanelEnigmeComposite(c.getContiens());
-        if (c.getRetour()){
-            panel.boutonRetour();
-        }
+    public void creeVueEnigme(Enigme e){
+        PanelEnigmeComposite panel = new PanelEnigmeComposite(e.getIngredients());
+        
         //donne le nom de la carte au panel
-        panel.setName(c.getNom());
+        panel.setName(e.getNom());
         panel.setObservateur(this);
         //mettre le fond 
-        panel.setFond(c);
+        panel.setFond(e);
         //ajoute et montre le panel
-        cardPanel.add(panel, c.getNom());
-        cardLayout.show(cardPanel, c.getNom());
+        cardPanel.add(panel, e.getNom());
+        cardLayout.show(cardPanel, e.getNom());
     }
     /////////////////////////////////////////////////////////////////////////////////////////
     public void modifierMessage(String message){

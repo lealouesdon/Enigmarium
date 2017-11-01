@@ -8,7 +8,6 @@ package Vue;
 import Controleur.Message;
 import Controleur.Observateur;
 import Modele.Carte;
-import Modele.Lieu;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;

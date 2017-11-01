@@ -32,5 +32,11 @@ public class Enigme extends Carte {
         this.ingredients.add(new Ingredient(" eau ",new Icone(100,200,null,200,200)));
         this.ingredients.add(new Ingredient(" pieuvre ",new Icone(100,250,null,200,200)));
     }
+
+    public ArrayList<Ingredient> getIngredients() {
+        return ingredients;
+    }
+    
+    
     
 }

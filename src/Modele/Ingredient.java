@@ -11,10 +11,12 @@ package Modele;
  */
 public class Ingredient {
     private static int MINRAY=1;
-    private static int MAXRAY=7; 
+    private static int MAXRAY=7;
     private static int MINHAU=4;
     private static int MAXHAU=15;
     private Icone icone;
+
+    
     private float volIngredient;
     private String nom;
     private int rayon;
@@ -49,5 +51,9 @@ public class Ingredient {
         System.out.println(getVolIngredient()+"cm3 de"+getNom()+"dans un pot de "+getRayon()+"  "+getHauteur());
         
         
+    }
+    
+    public Icone getIcone() {
+        return icone;
     }
 }
