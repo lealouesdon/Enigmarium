@@ -20,11 +20,15 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -36,9 +40,10 @@ public class PanelEnigmeComposite extends JPanel {
     private String att1;
     private String att2;
     private Observateur observateur;
-    private Carte carte;
+    private Enigme carte;
     private Message m;
     private ArrayList<JButton> att1s, att2s;
+    private JPanel recette;
 
     public PanelEnigmeComposite(ArrayList<Ingredient> ingredients,int largeur, int hauteur) {
         this.setSize(largeur, hauteur);
@@ -51,13 +56,20 @@ public class PanelEnigmeComposite extends JPanel {
         att1s = new ArrayList<JButton>();
         att2s = new ArrayList<JButton>();
         this.setLayout(null);
+        recette = new JPanel();
+        recette.setSize(200, 100);
+        recette.setOpaque(false);
+        recette.setLocation((int) (this.getWidth() * 0.43),(int) (this.getHeight()* 0.65));
+        recette.setLayout(new BoxLayout(recette,BoxLayout.Y_AXIS));
         initBoutons(ingredients);
+        melange(att1s);
+        this.add(recette);
     }
 
     /////////////////////////////////////////////////////////////////////////////
     private void initBoutons(ArrayList<Ingredient> ingredients) {
         // crée autant d'objet que dans la liste
-        int x =200;
+        
         for (Ingredient ingredient : ingredients) {
             if (ingredient.getNom() != null) {
                 JButton bouton = new JButton(ingredient.getNom());
@@ -120,7 +132,7 @@ public class PanelEnigmeComposite extends JPanel {
                 //son nom est le nom de son ingredient
                 pot.setName(ingredient.getNom());
                 pot.setSize(100, 100);
-                pot.setLocation(x, 250);
+                
                 att1s.add(pot);
                 pot.addActionListener(new ActionListener() {
                     @Override
@@ -146,14 +158,28 @@ public class PanelEnigmeComposite extends JPanel {
                     }
 
                 });
-                this.add(pot);
-                x=x+150;
+                
+                
 
+            }
+            if (ingredient.getNom()!=null){
+            JLabel ligne = new JLabel(ingredient.getNom()+" : "+ingredient.getVolIngredient()+" cm3");
+            recette.add(ligne);
             }
         }
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
+    private void melange(ArrayList<JButton> boutons){
+        Collections.shuffle(boutons);
+        float x =(float)0.19;
+        for (JButton bouton : boutons){
+            bouton.setLocation((int)(this.getWidth()*x),(int) (this.getHeight()*0.15));
+            x=x+(float)0.10;
+            this.add(bouton);
+        }
+    }
+
     /////////////////////////////////////////////////////////////////////////////////
     private Image getScaledImage(Image srcImg, int w, int h) {
         //pour redimensionner une image pour un bouton

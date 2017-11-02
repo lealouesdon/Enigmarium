@@ -27,10 +27,10 @@ public class Enigme extends Carte {
     }
     public void enigme1(){
         this.ingredients=new ArrayList();
-        this.ingredients.add(new Ingredient(" lait ",new Icone((float) 0.19,(float) 0.42,null,100,100)));
-        this.ingredients.add(new Ingredient(" oeuf ",new Icone((float) 0.29,(float) 0.42,null,100,100)));
-        this.ingredients.add(new Ingredient(" eau ",new Icone((float) 0.39,(float) 0.42,null,100,100)));
-        this.ingredients.add(new Ingredient(" pieuvre ",new Icone((float) 0.49,(float) 0.42,null,100,100)));
+        this.ingredients.add(new Ingredient(" lait ",new Icone((float) 0.19,(float) 0.38,null,100,100)));
+        this.ingredients.add(new Ingredient(" oeuf ",new Icone((float) 0.29,(float) 0.38,null,100,100)));
+        this.ingredients.add(new Ingredient(" eau ",new Icone((float) 0.39,(float) 0.38,null,100,100)));
+        this.ingredients.add(new Ingredient(" pieuvre ",new Icone((float) 0.49,(float) 0.38,null,100,100)));
     }
 
     public ArrayList<Ingredient> getIngredients() {
