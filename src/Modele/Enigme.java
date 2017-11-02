@@ -6,7 +6,6 @@
 package Modele;
 
 import java.util.ArrayList;
-import java.util.PriorityQueue;
 
 /**
  *
@@ -16,9 +15,15 @@ public class Enigme extends Carte {
 
     private ArrayList<Ingredient> ingredients;
     private static String DESCRIPTION="description de l'enigme lalalalalalalalalala";
-    public Enigme(Icone icone,String nom) {
+    private String indice;
+    public Enigme(Icone icone,String nom,String indice) {
        super(icone,nom);
+       this.indice=indice;
        enigme1();
+    }
+
+    public String getIndice() {
+        return indice;
     }
 
     private void melangeIngre() {

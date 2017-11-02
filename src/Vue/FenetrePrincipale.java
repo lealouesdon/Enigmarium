@@ -75,13 +75,11 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     }
     ////////////////////////////////////////////////////////////////////////////////////////
     public void creeVueEnigme(Enigme e){
-        PanelEnigmeComposite panel = new PanelEnigmeComposite(e.getIngredients(),this.getWidth(),this.getHeight());
+        PanelEnigmeComposite panel = new PanelEnigmeComposite(e,this.getWidth(),this.getHeight());
         System.out.print("passe");
         //donne le nom de la carte au panel
         panel.setName(e.getNom());
-        panel.setObservateur(this);
-        //mettre le fond 
-        panel.setFond(e);
+        panel.setObservateur(this);     
         //ajoute et montre le panel
         cardPanel.add(panel, e.getNom());
         cardLayout.show(cardPanel, e.getNom());

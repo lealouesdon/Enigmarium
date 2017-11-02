@@ -57,7 +57,7 @@ public class Controleur implements Observateur {
         monde.addContien(mMedie);
         monde.addContien(mArche);
         ///////////////////////////////PERSONAGE/////////////////////////////////////
-        icone = new Icone((float)0.38, (float)0.30, null, 200, 200);
+        icone = new Icone((float)0.38, (float)0.30, null, 300, 200);
         Carte pBoul = new Carte(icone, "perso boulager");
         mMedie.addContien(pBoul);
         Carte psoupe = new Carte(new Icone((float)0.10, (float)0.39, null, 200, 200), "perso soupe");
@@ -65,7 +65,7 @@ public class Controleur implements Observateur {
         //Enigme enigmeTest = new Enigme(new Icone(120, 100, null, 200, 300), "enigmeTest");
         //mMedie.addContien(enigmeTest);
         ///////////////////////////////ENIGMES/////////////////////////////////////
-        Enigme enigme = new Enigme(new Icone((float)0.38, (float)0.30, "images/vueJeu.png", 200, 200), "enigme");
+        Enigme enigme = new Enigme(new Icone((float)0.38, (float)0.30, "images/vueJeu.png", 200, 200), "enigme","images/indice.png");
         enigme.setFond("images/vueJeu.png");
         pBoul.addContien(enigme);
     }

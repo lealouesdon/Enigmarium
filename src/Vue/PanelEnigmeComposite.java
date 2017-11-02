@@ -7,7 +7,6 @@ package Vue;
 
 import Controleur.Message;
 import Controleur.Observateur;
-import Modele.Carte;
 import Modele.Enigme;
 import Modele.Ingredient;
 import java.awt.Color;
@@ -21,13 +20,13 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -45,7 +44,8 @@ public class PanelEnigmeComposite extends JPanel {
     private ArrayList<JButton> att1s, att2s;
     private JPanel recette;
 
-    public PanelEnigmeComposite(ArrayList<Ingredient> ingredients,int largeur, int hauteur) {
+    public PanelEnigmeComposite(Enigme e, int largeur, int hauteur) {
+        this.carte = e;
         this.setSize(largeur, hauteur);
         m = new Message();
         m.setAtt1(null);
@@ -59,17 +59,21 @@ public class PanelEnigmeComposite extends JPanel {
         recette = new JPanel();
         recette.setSize(200, 100);
         recette.setOpaque(false);
-        recette.setLocation((int) (this.getWidth() * 0.43),(int) (this.getHeight()* 0.65));
-        recette.setLayout(new BoxLayout(recette,BoxLayout.Y_AXIS));
-        initBoutons(ingredients);
-        melange(att1s);
+        recette.setLocation((int) (this.getWidth() * 0.43), (int) (this.getHeight() * 0.65));
+        recette.setLayout(new BoxLayout(recette, BoxLayout.Y_AXIS));
+        initBoutons(e.getIngredients());
+        melange(att1s,(float)0.15);
+        melange(att2s,(float)0.38);
+        indice();
         this.add(recette);
+        repaint();
+        
     }
 
     /////////////////////////////////////////////////////////////////////////////
     private void initBoutons(ArrayList<Ingredient> ingredients) {
         // crée autant d'objet que dans la liste
-        
+
         for (Ingredient ingredient : ingredients) {
             if (ingredient.getNom() != null) {
                 JButton bouton = new JButton(ingredient.getNom());
@@ -95,8 +99,8 @@ public class PanelEnigmeComposite extends JPanel {
                 }
 
                 //met la position du bouton en fonction des attributs de l'icone
-                bouton.setLocation((int) (ingredient.getIcone().getX() * this.getWidth()), (int)(ingredient.getIcone().getY() * this.getHeight()));
-                
+                bouton.setLocation((int) (ingredient.getIcone().getX() * this.getWidth()), (int) (ingredient.getIcone().getY() * this.getHeight()));
+
                 att2s.add(bouton);
                 //set l'action listener
                 bouton.addActionListener(new ActionListener() {
@@ -128,25 +132,28 @@ public class PanelEnigmeComposite extends JPanel {
                 );
                 this.add(bouton);
                 // l'ecriture de bouton est sa hauteur suivie de son rayon
-                JButton pot = new JButton(String.valueOf(ingredient.getHauteur()) + " - " + String.valueOf(ingredient.getRayon()));
+                JButton pot = new JButton();
+                pot.setLayout(new BoxLayout(pot,BoxLayout.Y_AXIS));
+                JLabel hauteur = new JLabel("Hauteur : "+String.valueOf(ingredient.getHauteur()));
+                pot.add(hauteur);
+                JLabel rayon = new JLabel("Rayon : "+String.valueOf(ingredient.getRayon()));
+                pot.add(rayon);
                 //son nom est le nom de son ingredient
                 pot.setName(ingredient.getNom());
                 pot.setSize(100, 100);
-                
+
                 att1s.add(pot);
                 pot.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                       
+                        for (JButton b : att1s) {
+                            if (b.getName() == att1) {
+                                b.setBackground(Color.GRAY);
+                            }
 
-                            for (JButton b : att1s) {
-                                if (b.getName() == att1) {
-                                    b.setBackground(Color.GRAY);
-                                }
-                            
                         }
-                         att1 = bouton.getName();
-                        
+                        att1 = bouton.getName();
+
                         m.setAtt1(ingredient.getNom());
                         if (m.getAtt2() != null) {
                             System.out.println(m.getAtt1());
@@ -158,24 +165,22 @@ public class PanelEnigmeComposite extends JPanel {
                     }
 
                 });
-                
-                
 
             }
-            if (ingredient.getNom()!=null){
-            JLabel ligne = new JLabel(ingredient.getNom()+" : "+ingredient.getVolIngredient()+" cm3");
-            recette.add(ligne);
+            if (ingredient.getNom() != null) {
+                JLabel ligne = new JLabel(ingredient.getNom() + " : " + ingredient.getVolIngredient() + " cm3");
+                recette.add(ligne);
             }
         }
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////
-    private void melange(ArrayList<JButton> boutons){
+    private void melange(ArrayList<JButton> boutons,float y) {
         Collections.shuffle(boutons);
-        float x =(float)0.19;
-        for (JButton bouton : boutons){
-            bouton.setLocation((int)(this.getWidth()*x),(int) (this.getHeight()*0.15));
-            x=x+(float)0.10;
+        float x = (float) 0.19;
+        for (JButton bouton : boutons) {
+            bouton.setLocation((int) (this.getWidth() * x), (int) (this.getHeight() * y));
+            x = x + (float) 0.10;
             this.add(bouton);
         }
     }
@@ -191,17 +196,24 @@ public class PanelEnigmeComposite extends JPanel {
 
         return resizedImg;
     }
-
+/////////////////////////////////////////////////////////////////////////////////////////////
+    private void indice(){
+        JButton indice = new JButton("indice");
+        indice.setSize(100, 100);
+        indice.setLocation(this.getWidth()-150, 0);
+        indice.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FenetreIndice ind= new FenetreIndice();
+                ind.setIndice(carte.getIndice());
+                ind.setVisible(true);
+            }
+            
+        });
+        this.add(indice);
+    }
     public void setObservateur(Observateur o) {
         this.observateur = o;
-    }
-
-    public void setFond(Enigme e) {
-        //met le fond du JPanel
-        //met la carte utilisé pour le fond en attribut
-        this.carte = e;
-        //redessine le jpanel
-        this.repaint();
     }
 
     @Override
