@@ -56,4 +56,8 @@ public class Ingredient {
     public Icone getIcone() {
         return icone;
     }
+    
+    public void setNom(String s){
+        nom=s;
+    }
 }
