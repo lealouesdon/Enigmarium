@@ -11,8 +11,8 @@ package Modele;
  */
 public class Icone {
     //Atribut
-    private int x;
-    private int y;
+    private float x;
+    private float y;
     String image;
     int largeur;
     int hauteur;
@@ -21,7 +21,7 @@ public class Icone {
         return image;
     }
     //Constructeur
-    public Icone(int x, int y,String image, int largeur, int hauteur){
+    public Icone(float x, float y,String image, int largeur, int hauteur){
         setImage(image);
         this.x=x;
         this.y=y;
@@ -29,19 +29,19 @@ public class Icone {
         this.largeur=largeur;
     }
 
-    public int getX() {
+    public float getX() {
         return x;
     }
 
-    public int getY() {
+    public float getY() {
         return y;
     }
 
-    public void setX(int x) {
+    public void setX(float x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public void setY(float y) {
         this.y = y;
     }
 

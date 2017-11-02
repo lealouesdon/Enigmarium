@@ -38,9 +38,11 @@ public class PanelJeu extends JPanel {
 
     /////////////////////////////////////////////////////////////////
     //constructeur
-    public PanelJeu(HashMap<String, Carte> cartes) {
+    public PanelJeu(HashMap<String, Carte> cartes,int largeur, int hauteur) {
         this.setLayout(null);
+        this.setSize(largeur, hauteur);
         //cree les boutons
+        this.repaint();
         initBoutons(cartes);
     }
 //////////////////////////////////////////////////////////////////////////////
@@ -71,7 +73,7 @@ public class PanelJeu extends JPanel {
             }
 
             //met la position du bouton en fonction des attributs de l'icone
-            bouton.setLocation(cartes.get(string).getIcone().getX(), cartes.get(string).getIcone().getY());
+            bouton.setLocation((int) (cartes.get(string).getIcone().getX() * this.getWidth()), (int) (cartes.get(string).getIcone().getY() * this.getHeight()));
             //set l'action listener
             bouton.addActionListener(new ActionListener() {
                 @Override

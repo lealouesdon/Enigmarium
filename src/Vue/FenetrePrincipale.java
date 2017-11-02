@@ -59,7 +59,8 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     public void creeVue(Carte c) {
         //crée un panel a partir d'une carte et l'affiche
         //cree le PanelJeu avec l'arrayList de cartes de la carte donnée
-        PanelJeu panel = new PanelJeu(c.getContiens());
+        PanelJeu panel = new PanelJeu(c.getContiens(),this.getWidth(),this.getHeight());
+        
         if (c.getRetour()){
             panel.boutonRetour();
         }
@@ -74,7 +75,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     }
     ////////////////////////////////////////////////////////////////////////////////////////
     public void creeVueEnigme(Enigme e){
-        PanelEnigmeComposite panel = new PanelEnigmeComposite(e.getIngredients());
+        PanelEnigmeComposite panel = new PanelEnigmeComposite(e.getIngredients(),this.getWidth(),this.getHeight());
         System.out.print("passe");
         //donne le nom de la carte au panel
         panel.setName(e.getNom());

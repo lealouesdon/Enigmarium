@@ -40,7 +40,8 @@ public class PanelEnigmeComposite extends JPanel {
     private Message m;
     private ArrayList<JButton> att1s, att2s;
 
-    public PanelEnigmeComposite(ArrayList<Ingredient> ingredients) {
+    public PanelEnigmeComposite(ArrayList<Ingredient> ingredients,int largeur, int hauteur) {
+        this.setSize(largeur, hauteur);
         m = new Message();
         m.setAtt1(null);
         m.setAtt2(null);
@@ -82,7 +83,8 @@ public class PanelEnigmeComposite extends JPanel {
                 }
 
                 //met la position du bouton en fonction des attributs de l'icone
-                bouton.setLocation(ingredient.getIcone().getX(), ingredient.getIcone().getY());
+                bouton.setLocation((int) (ingredient.getIcone().getX() * this.getWidth()), (int)(ingredient.getIcone().getY() * this.getHeight()));
+                
                 att2s.add(bouton);
                 //set l'action listener
                 bouton.addActionListener(new ActionListener() {
