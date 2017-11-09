@@ -14,17 +14,14 @@ import Modele.Enigme;
 import Modele.EnigmeComposite;
 import Modele.Icone;
 import Vue.FenetreIndice;
-import Vue.FenetreParametre;
 import Vue.FenetrePrincipale;
 import java.util.Stack;
-import javax.swing.JFrame;
 
 public class Controleur implements Observateur {
 
     //attributs
     private Stack<Carte> cartes;
     private FenetreIndice fenetreIndice;
-    private FenetreParametre fenetreParametre;
     private FenetrePrincipale fenetrePrincipale;
     private Enigme enigmeCoutante;
 
@@ -99,7 +96,7 @@ public class Controleur implements Observateur {
 
     }
 
-    ////////////////////////////////////ACTION EN REPONSSE A NOTIFICATION////////////////////////////////////
+    ////////////////////////////////////ACTION EN RÉPONSE À NOTIFICATION////////////////////////////////////
     public void carteChoisi(String titre) {//Attention ne marche pas pour les enigme pour l instant !!!!!!!
         Carte c = (Carte) this.cartes.peek().getContiens().get(titre);
         this.cartes.push(c);

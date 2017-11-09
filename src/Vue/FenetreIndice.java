@@ -139,7 +139,7 @@ public class FenetreIndice extends JFrame {
             ImageIcon icon = new ImageIcon(getScaledImage(img, Indice.getWidth(), Indice.getHeight()));
             Indice.setIcon(icon);
         } catch (IOException ex) {
-            Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     private Image getScaledImage(Image srcImg, int w, int h) {

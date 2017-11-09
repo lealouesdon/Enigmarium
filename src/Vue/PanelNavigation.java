@@ -29,7 +29,7 @@ import javax.swing.JPanel;
  *
  * @author Léa
  */
-public class PanelJeu extends JPanel {
+public class PanelNavigation extends JPanel {
 
     //attributs
     private Observateur observateur;
@@ -38,7 +38,7 @@ public class PanelJeu extends JPanel {
 
     /////////////////////////////////////////////////////////////////
     //constructeur
-    public PanelJeu(HashMap<String, Carte> cartes,int largeur, int hauteur) {
+    public PanelNavigation(HashMap<String, Carte> cartes,int largeur, int hauteur) {
         this.setLayout(null);
         this.setSize(largeur, hauteur);
         //cree les boutons
@@ -68,7 +68,7 @@ public class PanelJeu extends JPanel {
                     ImageIcon icon = new ImageIcon(getScaledImage(img, cartes.get(string).getIcone().getLargeur(), cartes.get(string).getIcone().getHauteur()));
                     bouton.setIcon(icon);
                 } catch (IOException ex) {
-                    Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
 
@@ -152,7 +152,7 @@ public class PanelJeu extends JPanel {
                 Image img = ImageIO.read(getClass().getResource(carte.getFond()));
                 g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), Color.white, this);
             } catch (IOException ex) {
-                Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 

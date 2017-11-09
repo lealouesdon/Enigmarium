@@ -60,8 +60,8 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     ////////////////////////////////////////////////////////////////////////////////////
     public void creeVue(Carte c) {
         //crée un panel a partir d'une carte et l'affiche
-        //cree le PanelJeu avec l'arrayList de cartes de la carte donnée
-        PanelJeu panel = new PanelJeu(c.getContiens(),this.getWidth(),this.getHeight());
+        //cree le PanelNavigation avec l'arrayList de cartes de la carte donnée
+        PanelNavigation panel = new PanelNavigation(c.getContiens(),this.getWidth(),this.getHeight());
         
         if (c.getRetour()){
             panel.boutonRetour();

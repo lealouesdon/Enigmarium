@@ -114,7 +114,7 @@ public class PanelEnigmeComposite extends JPanel {
                 ImageIcon icon = new ImageIcon(getScaledImage(img, elem.getIcone().getLargeur(), elem.getIcone().getHauteur()));
                 bouton.setIcon(icon);
             } catch (IOException ex) {
-                Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         //met la position du bouton en fonction des attributs de l'icone
@@ -234,7 +234,7 @@ public class PanelEnigmeComposite extends JPanel {
                 Image img = ImageIO.read(getClass().getResource(carte.getFond()));
                 g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), Color.white, this);
             } catch (IOException ex) {
-                Logger.getLogger(PanelJeu.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
