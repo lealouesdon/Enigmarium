@@ -9,55 +9,25 @@ package Modele;
  *
  * @author etien
  */
-public class Ingredient {
-    private static int MINRAY=1;
-    private static int MAXRAY=7;
-    private static int MINHAU=4;
-    private static int MAXHAU=15;
-    private Icone icone;
+public class Ingredient extends Element {
 
-    
     private float volIngredient;
-    private String nom;
-    private int rayon;
-    private int hauteur;
-    
-    public Ingredient(String nom,Icone icone){
-        this.icone=icone;
-        this.nom=nom;
-        this.rayon=(int)(Math.random()*(MAXRAY+1-MINRAY) + MINRAY);
-        this.hauteur=(int)(Math.random()*(MAXHAU+1-MINHAU) + MINHAU);
-        this.volIngredient=3.14f*(getHauteur()*getRayon()*getRayon());
-        afficherIngre();
-    }
 
-    public String getNom() {
-        return nom;
-    }
-
-    public int getHauteur() {
-        return hauteur;
-    }
-    
-
-    public int getRayon() {
-        return rayon;
+    public Ingredient(String nom, Icone icone, float volIngredient) {
+        super(nom, icone);
+        this.volIngredient = volIngredient;
     }
 
     public float getVolIngredient() {
         return volIngredient;
     }
-    public void afficherIngre(){
-        System.out.println(getVolIngredient()+"cm3 de"+getNom()+"dans un pot de "+getRayon()+"  "+getHauteur());
-        
-        
+    /*public void afficherIngre(){
+        System.out.println(getVolIngredient()+"cm3 de"+getNom()+"dans un pot de "+getRayon()+"  "+getHauteur());   
+    }*/
+
+    @Override
+    public String affichage() {
+        return "";
     }
-    
-    public Icone getIcone() {
-        return icone;
-    }
-    
-    public void setNom(String s){
-        nom=s;
-    }
+
 }

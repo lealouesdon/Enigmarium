@@ -22,18 +22,20 @@ public class Carte {
     private String nom; 
 
    
-    public Carte(Icone icone,String nom) {
+    public Carte(Icone icone,String nom,String fond) {
         this.retour=true;
         this.contiens=new HashMap(); 
         this.icone=icone;
         this.nom=nom;
+        setFond(fond);
         prerequis=new ArrayList();
     }
-    public Carte(Icone icone,String nom,boolean retour) {
+    public Carte(Icone icone,String nom,String fond,boolean retour) {
         this.retour=retour;
         this.contiens=new HashMap(); 
         this.icone=icone;
         this.nom=nom;
+        setFond(fond);
         prerequis=new ArrayList();
     }
     

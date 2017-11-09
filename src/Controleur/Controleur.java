@@ -11,6 +11,7 @@ package Controleur;
  */
 import Modele.Carte;
 import Modele.Enigme;
+import Modele.EnigmeComposite;
 import Modele.Icone;
 import Vue.FenetreIndice;
 import Vue.FenetreParametre;
@@ -43,30 +44,29 @@ public class Controleur implements Observateur {
     }
 
     private void InitialiserModel() {//initialise toute les carte du model
-        Carte monde = new Carte(null, "Carte des mondes", false);
-        monde.setFond("images/galaxy.jpg");
+        Carte monde = new Carte(null, "Carte des mondes","images/galaxy.jpg" ,false);
+        
         cartes.push(monde);
         /////////////////////////////////MONDE///////////////////////////////////////
         Icone icone = new Icone((float)0.20,(float) 0.2, "images/mondeCuisiniers.png", 350, 450);
 
         //tester une erreur d'ouveture...
-        Carte mMedie = new Carte(icone, "carte medieval");
-        mMedie.setFond("images/placeMarche.jpg");
+        Carte mMedie = new Carte(icone, "carte medieval","images/placeMarche.jpg");
         icone = new Icone((float)0.5,(float)0.1, "images/mondeArcheologue.png", 350, 400);
-        Carte mArche = new Carte(icone, "carte archeologie");
+        Carte mArche = new Carte(icone, "carte archeologie",null);
         monde.addContien(mMedie);
         monde.addContien(mArche);
         ///////////////////////////////PERSONAGE/////////////////////////////////////
         icone = new Icone((float)0.38, (float)0.30, null, 300, 200);
-        Carte pBoul = new Carte(icone, "perso boulager");
+        Carte pBoul = new Carte(icone, "perso boulager",null);
         mMedie.addContien(pBoul);
-        Carte psoupe = new Carte(new Icone((float)0.10, (float)0.39, null, 200, 200), "perso soupe");
+        Carte psoupe = new Carte(new Icone((float)0.10, (float)0.39, null, 200, 200), "perso soupe",null);
         mMedie.addContien(psoupe);
         //Enigme enigmeTest = new Enigme(new Icone(120, 100, null, 200, 300), "enigmeTest");
         //mMedie.addContien(enigmeTest);
         ///////////////////////////////ENIGMES/////////////////////////////////////
-        Enigme enigme = new Enigme(new Icone((float)0.38, (float)0.30, "images/vueJeu.png", 200, 200), "enigme","images/indice.png");
-        enigme.setFond("images/vueJeu.png");
+        EnigmeComposite enigme = new EnigmeComposite(new Icone((float)0.38, (float)0.30, "images/vueJeu.png", 200, 200), "enigmeVolume","images/vueJeu.png");
+        enigme.enigmeVolume();
         pBoul.addContien(enigme);
     }
 
@@ -76,20 +76,25 @@ public class Controleur implements Observateur {
         System.out.println(m.getEtat());
         if (m.getEtat() == "retour") {
             retourCarte();
-        } else if (m.getMessage() == "enigme") {
+        } else if (m.getMessage() == "enigmeVolume") {
             System.out.println("passe");
-            Enigme e = (Enigme) this.cartes.peek().getContiens().get(m.getMessage());
-            e.enigme1();
+            EnigmeComposite e = (EnigmeComposite) this.cartes.peek().getContiens().get(m.getMessage());
             enigmeCoutante = e;
-            enigmeChoisi();
+            
+            //trouve la carte énigme volume et la met en enigme courante
+            enigmeComposite();
         } else if (m.getEtat() == "carteChoisi") {
             System.out.println("passe");
             this.carteChoisi(m.getMessage());
-        } else if (m.getEtat() == "IngredientChoisi") {
-            if (m.getAtt1() == m.getAtt2()) {
-                enigmeCoutante.remove(m.getAtt1());
-            }
-            enigmeChoisi();
+        } else if (m.getEtat() == "MessageComposite") {
+            //doit etre fait dans l'énigme
+            //utiliser enigmeCourante.proposition?
+            //anayler comment lire la répose
+            //faire un messageComposite?
+            EnigmeComposite e = (EnigmeComposite)enigmeCoutante;
+            e.proposition(m);
+            enigmeCoutante=e;
+            enigmeComposite();
         }
 
     }
@@ -106,8 +111,8 @@ public class Controleur implements Observateur {
         fenetrePrincipale.creeVue(this.cartes.peek());
     }
 
-    private void enigmeChoisi() {
+    private void enigmeComposite() {
         this.cartes.push(enigmeCoutante);
-        fenetrePrincipale.creeVueEnigme(enigmeCoutante);
+        fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite)enigmeCoutante);
     }
 }

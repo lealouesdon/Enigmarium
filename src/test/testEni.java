@@ -17,7 +17,7 @@ public class testEni {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Enigme e=new Enigme(null,"enigme 1");
+        Enigme e=new Enigme(null,"enigme 1",null);
     }
     
 }

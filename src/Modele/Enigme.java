@@ -11,44 +11,36 @@ import java.util.ArrayList;
  *
  * @author Léa
  */
-public class Enigme extends Carte {
+public abstract class Enigme extends Carte {
 
-    private ArrayList<Ingredient> ingredients;
-    private static String DESCRIPTION="description de l'enigme lalalalalalalalalala";
+    private static String DESCRIPTION;
     private String indice;
-    public Enigme(Icone icone,String nom,String indice) {
-       super(icone,nom);
-       this.indice=indice;
-       enigme1();
+
+    public Enigme(Icone icone,String nom, String fond) {
+       super(icone,nom,fond);
+       
     }
+    
+    public static void setDESCRIPTION(String DESCRIPTION) {
+        Enigme.DESCRIPTION = DESCRIPTION;
+    }
+
+    public static String getDESCRIPTION() {
+        return DESCRIPTION;
+    }
+    
+    
 
     public String getIndice() {
         return indice;
     }
-
-    private void melangeIngre() {
-      //  PriorityQueue<Ingredient> =new PriorityQueue();
-        
-    }
-    public void enigme1(){
-        this.ingredients=new ArrayList();
-        this.ingredients.add(new Ingredient(" lait ",new Icone((float) 0.19,(float) 0.38,null,100,100)));
-        this.ingredients.add(new Ingredient(" oeuf ",new Icone((float) 0.29,(float) 0.38,null,100,100)));
-        this.ingredients.add(new Ingredient(" eau ",new Icone((float) 0.39,(float) 0.38,null,100,100)));
-        this.ingredients.add(new Ingredient(" pieuvre ",new Icone((float) 0.49,(float) 0.38,null,100,100)));
-    }
-
-    public ArrayList<Ingredient> getIngredients() {
-        return ingredients;
-    }
-    public void remove(String i){
-        for(Ingredient ing : ingredients){
-            if (ing.getNom()==i){
-                ing.setNom(null);
-            }
-        }
+    
+    
+    public void setIndice(String indice){
+        this.indice=indice;
     }
     
+   
     
     
 }

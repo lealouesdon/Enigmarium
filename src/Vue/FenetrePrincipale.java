@@ -13,6 +13,7 @@ import Controleur.Message;
 import Controleur.Observateur;
 import Modele.Carte;
 import Modele.Enigme;
+import Modele.EnigmeComposite;
 import java.awt.*;
 import javax.swing.*;
 
@@ -30,6 +31,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
 
     public FenetrePrincipale() {
         setTitle("Enigmarium");
+        setResizable(false);
         //initialise la taille de l'écrant
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         largeur = gd.getDisplayMode().getWidth();
@@ -74,9 +76,9 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         cardLayout.show(cardPanel, c.getNom());
     }
     ////////////////////////////////////////////////////////////////////////////////////////
-    public void creeVueEnigme(Enigme e){
+    public void creeVueEnigmeComposite(EnigmeComposite e){
         PanelEnigmeComposite panel = new PanelEnigmeComposite(e,this.getWidth(),this.getHeight());
-        System.out.print("passe");
+        
         //donne le nom de la carte au panel
         panel.setName(e.getNom());
         panel.setObservateur(this);     
