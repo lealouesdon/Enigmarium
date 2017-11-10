@@ -14,6 +14,7 @@ import Controleur.Observateur;
 import Modele.Carte;
 import Modele.Enigme;
 import Modele.EnigmeComposite;
+import Modele.Lieu;
 import java.awt.*;
 import javax.swing.*;
 

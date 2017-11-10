@@ -9,9 +9,7 @@ import Controleur.Message;
 import Controleur.Observateur;
 import Modele.Composition;
 import Modele.Element;
-import Modele.Enigme;
 import Modele.EnigmeComposite;
-import Modele.Ingredient;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -22,7 +20,6 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -59,17 +56,18 @@ public class PanelEnigmeComposite extends JPanel {
         att1s = new ArrayList<JButton>();
         att2s = new ArrayList<JButton>();
         this.setLayout(null);
+        ///////////ENONCE///////////////////
         enonce = new JPanel();
         enonce.setSize(200, 100);
         enonce.setOpaque(false);
         enonce.setLocation((int) (this.getWidth() * 0.43), (int) (this.getHeight() * 0.65));
         enonce.setLayout(new BoxLayout(enonce, BoxLayout.Y_AXIS));
         creeEnonce();
-        initBoutons(e.getCompositions());
-
-        //melange(att2s, (float) 0.38);
-        indice();
         this.add(enonce);
+        ///////////////////Compositions////////////////////////////
+        initBoutons(e.getCompositions());
+        //////////////////////////Indice///////////////////////////////
+        indice();
         repaint();
 
     }
@@ -207,7 +205,7 @@ public class PanelEnigmeComposite extends JPanel {
     private void indice() {
         JButton indice = new JButton("indice");
         indice.setSize(100, 100);
-        indice.setLocation(this.getWidth() - 150, 0);
+        indice.setLocation(this.getWidth() - 100, 0);
         indice.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

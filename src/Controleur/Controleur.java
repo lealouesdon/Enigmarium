@@ -13,6 +13,7 @@ import Modele.Carte;
 import Modele.Enigme;
 import Modele.EnigmeComposite;
 import Modele.Icone;
+import Modele.Lieu;
 import Vue.FenetreIndice;
 import Vue.FenetrePrincipale;
 import java.util.Stack;
@@ -20,7 +21,7 @@ import java.util.Stack;
 public class Controleur implements Observateur {
 
     //attributs
-    private Stack<Carte> cartes;
+    private Stack<Lieu> cartes;
     private FenetreIndice fenetreIndice;
     private FenetrePrincipale fenetrePrincipale;
     private Enigme enigmeCoutante;
@@ -30,7 +31,7 @@ public class Controleur implements Observateur {
         cartes = new Stack();
         InitialiserModel();
         InitialiserVue();
-        fenetrePrincipale.creeVue(this.cartes.peek());
+        fenetrePrincipale.creeVue((Carte)this.cartes.peek());
         fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
     }
     //methodes
@@ -75,7 +76,7 @@ public class Controleur implements Observateur {
             retourCarte();
         } else if (m.getMessage() == "enigmeVolume") {
             System.out.println("passe");
-            EnigmeComposite e = (EnigmeComposite) this.cartes.peek().getContiens().get(m.getMessage());
+            EnigmeComposite e = (EnigmeComposite)((Carte)this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             
             //trouve la carte énigme volume et la met en enigme courante
@@ -98,14 +99,14 @@ public class Controleur implements Observateur {
 
     ////////////////////////////////////ACTION EN RÉPONSE À NOTIFICATION////////////////////////////////////
     public void carteChoisi(String titre) {//Attention ne marche pas pour les enigme pour l instant !!!!!!!
-        Carte c = (Carte) this.cartes.peek().getContiens().get(titre);
+        Carte c = (Carte) ((Carte)this.cartes.peek()).getContiens().get(titre);
         this.cartes.push(c);
-        fenetrePrincipale.creeVue(this.cartes.peek());
+        fenetrePrincipale.creeVue((Carte)this.cartes.peek());
     }
 
     public void retourCarte() {//Si l'utilisateur clique sur le bouton retour
         this.cartes.pop();
-        fenetrePrincipale.creeVue(this.cartes.peek());
+        fenetrePrincipale.creeVue((Carte)this.cartes.peek());
     }
 
     private void enigmeComposite() {

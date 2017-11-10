@@ -8,6 +8,7 @@ package Vue;
 import Controleur.Message;
 import Controleur.Observateur;
 import Modele.Carte;
+import Modele.Lieu;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -38,7 +39,7 @@ public class PanelNavigation extends JPanel {
 
     /////////////////////////////////////////////////////////////////
     //constructeur
-    public PanelNavigation(HashMap<String, Carte> cartes,int largeur, int hauteur) {
+    public PanelNavigation(HashMap<String, Lieu> cartes,int largeur, int hauteur) {
         this.setLayout(null);
         this.setSize(largeur, hauteur);
         //cree les boutons
@@ -47,7 +48,7 @@ public class PanelNavigation extends JPanel {
     }
 //////////////////////////////////////////////////////////////////////////////
 
-    private void initBoutons(HashMap<String, Carte> cartes) {
+    private void initBoutons(HashMap<String, Lieu> cartes) {
         // crée autant d'objet que dans la liste
         for (String string : cartes.keySet()) {
             JButton bouton = new JButton(string);
@@ -56,7 +57,7 @@ public class PanelNavigation extends JPanel {
             //rend le bouton trensparent
             bouton.setOpaque(false);
             bouton.setContentAreaFilled(false);
-            //bouton.setBorderPainted(false);
+            bouton.setBorderPainted(false);
             //taille du bouton (a modifier avec des valeurs de icone)!!!
             bouton.setSize(cartes.get(string).getIcone().getLargeur(), cartes.get(string).getIcone().getHauteur());
             //si un icone est defini

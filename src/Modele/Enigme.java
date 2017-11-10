@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Léa
  */
-public abstract class Enigme extends Carte {
+public abstract class Enigme extends Lieu {
 
     private static String DESCRIPTION;
     private String indice;
