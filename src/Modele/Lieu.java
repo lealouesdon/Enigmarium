@@ -5,6 +5,8 @@
  */
 package Modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Léa
@@ -15,12 +17,14 @@ public abstract class Lieu {
     private String fond;
     private Icone icone;
     private boolean retour;
+    private ArrayList<Lieu> prerequis;
 
     public Lieu(Icone icone, String nom, String fond) {
         this.icone = icone;
         this.nom = nom;
         setFond(fond);
         this.retour = true;
+        prerequis = new ArrayList();
     }
 
     public Lieu(Icone icone, String nom, String fond, boolean retour) {
@@ -28,6 +32,7 @@ public abstract class Lieu {
         this.nom = nom;
         setFond(fond);
         this.retour = retour;
+        prerequis = new ArrayList();
     }
 
     public void setFond(String fond) {

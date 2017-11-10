@@ -13,9 +13,9 @@ public class Ingredient extends Element {
 
     private float volIngredient;
 
-    public Ingredient(String nom, Icone icone, float volIngredient) {
+    public Ingredient(String nom, Icone icone, int hauteur, int rayon) {
         super(nom, icone);
-        this.volIngredient = volIngredient;
+        init(hauteur,rayon);
     }
 
     public float getVolIngredient() {
@@ -30,4 +30,7 @@ public class Ingredient extends Element {
         return "";
     }
 
+    private void init(int hauteur, int rayon){
+        this.volIngredient = 3.14f * (hauteur * rayon * rayon);
+    }
 }
