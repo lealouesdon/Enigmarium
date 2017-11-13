@@ -55,28 +55,25 @@ public class Controleur implements Observateur {
         Carte mArche = new Carte(icone, "carte archeologie",null);
         monde.addContien(mMedie);
         monde.addContien(mArche);
-        ///////////////////////////////PERSONAGE/////////////////////////////////////
+        ///////////////////////////////PERSONAGE ET ENIGMES/////////////////////////////////////
         icone = new Icone((float)0.38, (float)0.30, null, 300, 200);
-        Carte pBoul = new Carte(icone, "perso boulager",null);
+        EnigmeComposite pBoul = new EnigmeComposite(icone, "enigmeVolume","images/vueJeu.png");
         mMedie.addContien(pBoul);
         Carte psoupe = new Carte(new Icone((float)0.10, (float)0.39, null, 200, 200), "perso soupe",null);
         mMedie.addContien(psoupe);
         //Enigme enigmeTest = new Enigme(new Icone(120, 100, null, 200, 300), "enigmeTest");
         //mMedie.addContien(enigmeTest);
         ///////////////////////////////ENIGMES/////////////////////////////////////
-        EnigmeComposite enigme = new EnigmeComposite(new Icone((float)0.38, (float)0.30, "images/vueJeu.png", 200, 200), "enigmeVolume","images/vueJeu.png");
         
-        pBoul.addContien(enigme);
+        
     }
 
     //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 
     @Override
     public void notification(Message m) {
-        System.out.println(m.getEtat());
         if (m.getEtat() == "retour") {
             retourCarte();
         } else if (m.getMessage() == "enigmeVolume") {
-            System.out.println("passe");
             EnigmeComposite e = (EnigmeComposite)((Carte)this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.enigmeVolume();
@@ -84,7 +81,6 @@ public class Controleur implements Observateur {
             //trouve la carte énigme volume et la met en enigme courante
             enigmeComposite();
         } else if (m.getEtat() == "carteChoisi") {
-            System.out.println("passe");
             this.carteChoisi(m.getMessage());
         } else if (m.getEtat() == "MessageComposite") {
             //doit etre fait dans l'énigme

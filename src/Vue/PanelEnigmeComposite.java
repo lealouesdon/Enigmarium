@@ -77,7 +77,6 @@ public class PanelEnigmeComposite extends JPanel {
         // crée autant d'objet que dans la liste
 
         for (Composition composition : compositions) {
-            System.out.println(composition.getElem1().getNom());
             //if (composition.getNom() != null) {
             JButton attribut1 = afficherElem(composition.getElem1());
             defBoutonAtt1(attribut1);
@@ -141,13 +140,10 @@ public class PanelEnigmeComposite extends JPanel {
                 m.setAtt1(bouton.getName());
 
                 if (m.getAtt2() != null) {
-                    System.out.println(m.getAtt1());
-                    System.out.println(m.getAtt2());
-                    System.out.println("envoyé");
+
                     observateur.notification(m);
                 }
                 bouton.setBackground(Color.BLUE);
-                //System.out.println("Message envoyé");
             }
         }
         );
@@ -170,13 +166,10 @@ public class PanelEnigmeComposite extends JPanel {
                 m.setAtt2(bouton.getName());
 
                 if (m.getAtt1() != null) {
-                    System.out.println(m.getAtt1());
-                    System.out.println(m.getAtt2());
-                    System.out.println("envoyé");
+
                     observateur.notification(m);
                 }
                 bouton.setBackground(Color.BLUE);
-                //System.out.println("Message envoyé");
             }
         }
         );
