@@ -9,6 +9,7 @@ import Controleur.Message;
 import static java.nio.file.Files.list;
 import static java.rmi.Naming.list;
 import java.util.ArrayList;
+import java.util.Collections;
 import static java.util.Collections.list;
 import java.util.Iterator;
 
@@ -28,6 +29,8 @@ public class EnigmeComposite extends Enigme {
     }
 
     public void enigmeVolume() {
+        compositions.clear();
+        enonce.clear();
         //defiition des attributs:
         //atributs1 = recipients
         //attributs 2= ingredients
@@ -69,6 +72,20 @@ public class EnigmeComposite extends Enigme {
         //////////////////////////////////////////////////////////
         //indice
         super.setIndice("images/indice.png");
+        //melangeIconeConpositions(0.19f,0.10f);
+    }
+    
+    void melangeIconeConpositions(float valDepart,float ecartemment){
+        ArrayList<Float> valeurs = new ArrayList();
+        float position=valDepart;
+        for(int i=0;i<compositions.size();i++){
+            float valeur=position;
+            position=position+ecartemment;            
+        }
+         Collections.shuffle(valeurs);
+         for(int i=0;i<compositions.size();i++){
+              compositions.get(i).getElem1().getIcone().setX(valeurs.get(i));
+         }
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public void proposition(Message message) {
