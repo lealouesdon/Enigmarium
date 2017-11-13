@@ -16,13 +16,12 @@ import Modele.Enigme;
 import Modele.EnigmeComposite;
 import Modele.Lieu;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class FenetrePrincipale extends JFrame implements Observateur {
-
-    //modifier les attributs!!
     private Observateur observateur;//observateur de la fenetre est controleur
-    private static final long serialVersionUID = 1L;
     private JPanel cardPanel, panelHaut;
     //pour le panel haut
     JLabel mascotte, message;
@@ -53,9 +52,31 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         message = new JLabel("/////////////////message a modifier//////////////////////");
         message.setBorder(BorderFactory.createLineBorder(Color.black));
         panelHaut.add(message, BorderLayout.CENTER);
+        //bouton menu
+        JButton menu = new JButton("menu");
+        menu.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //crée et ouvre une fenetre menu
+            }
+            
+        });
+        panelHaut.add(menu);
+        JButton fermer = new JButton("fermer");
+        fermer.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+            
+        });
+        panelHaut.add(fermer);
         //positionnement du panelHaut
         add(panelHaut, BorderLayout.NORTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setUndecorated(true);
+
     }
 
     ////////////////////////////////////////////////////////////////////////////////////

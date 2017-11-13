@@ -16,6 +16,7 @@ import Modele.Icone;
 import Modele.Lieu;
 import Vue.FenetreIndice;
 import Vue.FenetrePrincipale;
+import Vue.FenetreResultat;
 import java.util.Stack;
 
 public class Controleur implements Observateur {
@@ -64,7 +65,7 @@ public class Controleur implements Observateur {
         //mMedie.addContien(enigmeTest);
         ///////////////////////////////ENIGMES/////////////////////////////////////
         EnigmeComposite enigme = new EnigmeComposite(new Icone((float)0.38, (float)0.30, "images/vueJeu.png", 200, 200), "enigmeVolume","images/vueJeu.png");
-        enigme.enigmeVolume();
+        
         pBoul.addContien(enigme);
     }
 
@@ -78,7 +79,8 @@ public class Controleur implements Observateur {
             System.out.println("passe");
             EnigmeComposite e = (EnigmeComposite)((Carte)this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
-            
+            e.enigmeVolume();
+            this.cartes.push(enigmeCoutante);
             //trouve la carte énigme volume et la met en enigme courante
             enigmeComposite();
         } else if (m.getEtat() == "carteChoisi") {
@@ -91,8 +93,16 @@ public class Controleur implements Observateur {
             //faire un messageComposite?
             EnigmeComposite e = (EnigmeComposite)enigmeCoutante;
             e.proposition(m);
-            enigmeCoutante=e;
-            enigmeComposite();
+            if (e.getCompositions().size()==0){
+                //ouvrir une fenetre resultat
+                FenetreResultat f = new FenetreResultat();
+                f.setVisible(true);
+                retourCarte();
+            }else{
+                enigmeCoutante=e;
+                enigmeComposite();
+            }
+            
         }
 
     }
@@ -110,7 +120,7 @@ public class Controleur implements Observateur {
     }
 
     private void enigmeComposite() {
-        this.cartes.push(enigmeCoutante);
+        
         fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite)enigmeCoutante);
     }
 }
