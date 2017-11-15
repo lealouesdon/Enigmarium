@@ -72,19 +72,24 @@ public class EnigmeComposite extends Enigme {
         //////////////////////////////////////////////////////////
         //indice
         super.setIndice("images/indice.png");
-        //melangeIconeConpositions(0.19f,0.10f);
+        melangeIconeConpositions(0.19f,0.10f);
     }
     
     void melangeIconeConpositions(float valDepart,float ecartemment){
+        //metdode pour melanger la position des composition
         ArrayList<Float> valeurs = new ArrayList();
         float position=valDepart;
         for(int i=0;i<compositions.size();i++){
             float valeur=position;
+            valeurs.add(valeur);
             position=position+ecartemment;            
         }
          Collections.shuffle(valeurs);
          for(int i=0;i<compositions.size();i++){
-              compositions.get(i).getElem1().getIcone().setX(valeurs.get(i));
+             Composition c=compositions.get(i);
+              Element e=c.getElem1();
+              Icone ic=e.getIcone();
+              ic.setX(valeurs.get(i));
          }
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
