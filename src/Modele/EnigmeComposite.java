@@ -32,7 +32,7 @@ public class EnigmeComposite extends Enigme {
         compositions.clear();
         enonce.clear();
         //defiition des attributs:
-        //atributs1 = recipients
+        //atributs 1 = recipients
         //attributs 2= ingredients
         
         //Création d'éléments et de compositions
