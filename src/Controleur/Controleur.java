@@ -92,6 +92,7 @@ public class Controleur implements Observateur {
             if (e.getCompositions().size()==0){
                 //ouvrir une fenetre resultat
                 FenetreResultat f = new FenetreResultat();
+                f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
             }else{
