@@ -116,18 +116,24 @@ public class Controleur implements Observateur {
 
     ////////////////////////////////////ACTION EN RÉPONSE À NOTIFICATION////////////////////////////////////
     public void carteChoisi(String titre) {//Attention ne marche pas pour les enigme pour l instant !!!!!!!
-        Carte c = (Carte) ((Carte) this.cartes.peek()).getContiens().get(titre);
-        this.cartes.push(c);
-        fenetrePrincipale.creeVue((Carte) this.cartes.peek());
+        Carte c = (Carte) ((Carte)this.cartes.peek()).getContiens().get(titre);
+        this.addCarte(c);
+        fenetrePrincipale.creeVue((Carte)this.cartes.peek());
     }
 
     public void retourCarte() {//Si l'utilisateur clique sur le bouton retour
-        this.cartes.pop();
-        fenetrePrincipale.creeVue((Carte) this.cartes.peek());
+        this.delCarte();
+        fenetrePrincipale.creeVue((Carte)this.cartes.peek());
     }
 
     private void enigmeComposite() {
 
         fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
+    }
+    private void addCarte(Carte carte){
+        this.cartes.push(carte);
+    }
+    private void delCarte(){
+        this.cartes.pop();
     }
 }
