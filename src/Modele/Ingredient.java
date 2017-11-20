@@ -21,9 +21,6 @@ public class Ingredient extends Element {
     public float getVolIngredient() {
         return volIngredient;
     }
-    /*public void afficherIngre(){
-        System.out.println(getVolIngredient()+"cm3 de"+getNom()+"dans un pot de "+getRayon()+"  "+getHauteur());   
-    }*/
 
     @Override
     public String affichage() {

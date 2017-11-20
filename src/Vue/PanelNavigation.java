@@ -51,7 +51,7 @@ public class PanelNavigation extends JPanel {
     private void initBoutons(HashMap<String, Lieu> cartes) {
         // crée autant d'objet que dans la liste
         for (String string : cartes.keySet()) {
-            JButton bouton = new JButton(string);
+            JButton bouton = new JButton();
             //met le nom du bouton au nom de la carte
             bouton.setName(string);
             //rend le bouton trensparent
