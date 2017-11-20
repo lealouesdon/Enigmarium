@@ -28,7 +28,6 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     private CardLayout cardLayout = new CardLayout();
 
     public FenetrePrincipale() {
-        setTitle("Enigmarium");
         setResizable(false);
         //initialise la taille de l'écrant
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();

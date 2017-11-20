@@ -25,106 +25,157 @@ public class EnigmeComposite extends Enigme {
 
     public EnigmeComposite(Icone icone, String nom, String fond) {
         super(icone, nom, fond);
-        compositions=new ArrayList<Composition>();
+        compositions = new ArrayList<Composition>();
         enonce = new ArrayList<String>();
     }
 
     public void enigmeVolume() {
         compositions.clear();
         enonce.clear();
-        points=0;
+        points = 0;
         //defiition des attributs:
         //atributs 1 = recipients
         //attributs 2= ingredients
-        
+
         //Création d'éléments et de compositions
-        //mettre des positions aléatoires?
         /////////////////////////////////////////////////////////
         Recipient r1 = new Recipient("farine", new Icone((float) 0.19, (float) 0.13, "images/recipients/recipient22vide.png", 100, 100));
-        Ingredient i1 = new Ingredient("farine",new Icone((float) 0.19, (float) 0.37, "images/ingredients/pieuvre.png", 100, 100),r1.getHauteur() ,r1.getRayon());
-        Composition c1=new Composition(r1,i1);
+        Ingredient i1 = new Ingredient("farine", new Icone((float) 0.19, (float) 0.37, "images/ingredients/pieuvre.png", 100, 100), r1.getHauteur(), r1.getRayon());
+        Composition c1 = new Composition(r1, i1);
         //ajout de la compositio a la list
         compositions.add(c1);
         //ajout de la ligne de la recette a la description
-        enonce.add(i1.getNom()+" : "+i1.getVolIngredient());
+        enonce.add(i1.getNom() + " : " + i1.getVolIngredient());
         //////////////////////////////////////////////////////////
         Recipient r2 = new Recipient("lait", new Icone((float) 0.29, (float) 0.13, "images/recipients/recipients12Vide.png", 100, 100));
-        Ingredient i2 = new Ingredient("lait",new Icone((float) 0.29, (float) 0.37, "images/ingredients/lait.png", 50, 100),r2.getHauteur() ,r2.getRayon());
-        Composition c2=new Composition(r2,i2);
+        Ingredient i2 = new Ingredient("lait", new Icone((float) 0.29, (float) 0.37, "images/ingredients/lait.png", 50, 100), r2.getHauteur(), r2.getRayon());
+        Composition c2 = new Composition(r2, i2);
         //ajout de la compositio a la list
         compositions.add(c2);
         //ajout de la ligne de la recette a la description
-        enonce.add(i2.getNom()+" : "+i2.getVolIngredient());
+        enonce.add(i2.getNom() + " : " + i2.getVolIngredient());
         //////////////////////////////////////////////////////////
         Recipient r3 = new Recipient("eau", new Icone((float) 0.39, (float) 0.13, "images/recipients/recipient22vide.png", 100, 100));
-        Ingredient i3 = new Ingredient("eau",new Icone((float) 0.39, (float) 0.37, "images/ingredients/eau.png", 100, 100),r3.getHauteur() ,r3.getRayon());
-        Composition c3=new Composition(r3,i3);
+        Ingredient i3 = new Ingredient("eau", new Icone((float) 0.39, (float) 0.37, "images/ingredients/eau.png", 100, 100), r3.getHauteur(), r3.getRayon());
+        Composition c3 = new Composition(r3, i3);
         //ajout de la compositio a la list
         compositions.add(c3);
         //ajout de la ligne de la recette a la description
-        enonce.add(i3.getNom()+" : "+i3.getVolIngredient());
+        enonce.add(i3.getNom() + " : " + i3.getVolIngredient());
         //////////////////////////////////////////////////////////
         Recipient r4 = new Recipient("oeuf", new Icone((float) 0.49, (float) 0.13, "images/recipients/recipients12Vide.png", 100, 100));
-        Ingredient i4 = new Ingredient("oeuf",new Icone((float) 0.49, (float) 0.37, "images/ingredients/oeuf.png", 100, 100),r4.getHauteur() ,r4.getRayon());
-        Composition c4=new Composition(r4,i4);
+        Ingredient i4 = new Ingredient("oeuf", new Icone((float) 0.49, (float) 0.37, "images/ingredients/oeuf.png", 100, 100), r4.getHauteur(), r4.getRayon());
+        Composition c4 = new Composition(r4, i4);
         //ajout de la compositio a la list
         compositions.add(c4);
         //ajout de la ligne de la recette a la description
-        enonce.add(i4.getNom()+" : "+i4.getVolIngredient());
+        enonce.add(i4.getNom() + " : " + i4.getVolIngredient());
         //////////////////////////////////////////////////////////
         //indice
         super.setIndice("images/indices/indice1.png");
-        melangeIconeConpositions(0.19f,0.10f);
+        melangeIconeConpositions(0.19f, 0.10f);
     }
-    
-    void melangeIconeConpositions(float valDepart,float ecartemment){
+
+    //////////////////////////////////////////////////////////////////////////////
+    public void enigmeExpression() {
+        compositions.clear();
+        enonce.clear();
+        points = 0;
+        //defiition des attributs:
+        //atributs 1 = reponses
+        //attributs 2= expression 
+
+        //Création d'éléments et de compositions
+        /////////////////////////////////////////////////////////
+        Expression e1 = new Expression("e1", new Icone((float) 0.59, (float) 0.05, null, 400, 100));
+        Resultat r1 = new Resultat("r1", new Icone((float) 0.65, (float) 0.65, null, 100, 100), e1.getX());
+        Composition c1 = new Composition(r1, e1);
+        //ajout de la compositio a la list
+        compositions.add(c1);
+        //ajout de la ligne de la recette a la description
+        enonce.add("");
+        /////////////////////////////////////////////////////
+        Expression e2 = new Expression("e2", new Icone((float) 0.59, (float) 0.2, null, 400, 100));
+        Resultat r2 = new Resultat("r2", new Icone((float) 0.55, (float) 0.65, null, 100, 100), e2.getX());
+        Composition c2 = new Composition(r2, e2);
+        //ajout de la compositio a la list
+        compositions.add(c2);
+        //ajout de la ligne de la recette a la description
+        enonce.add("");
+        ///////////////////////////////////
+        Expression e3 = new Expression("e3", new Icone((float) 0.59, (float) 0.38, null, 400, 100));
+        Resultat r3 = new Resultat("r3", new Icone((float) 0.70, (float) 0.65, null, 100, 100), e3.getX());
+        Composition c3 = new Composition(r3, e3);
+        //ajout de la compositio a la list
+        compositions.add(c3);
+        //ajout de la ligne de la recette a la description
+        enonce.add("");
+        ///////////////////////////////////////////////////
+        Resultat r4 = new Resultat("r4", new Icone((float) 0.75, (float) 0.65, null, 100, 100));
+        Composition c4 = new Composition(r4, null);
+        //ajout de la compositio a la list
+        compositions.add(c4);
+        //ajout de la ligne de la recette a la description
+        enonce.add("");
+        
+        melangeIconeConpositions(0.55f, 0.1f);
+    }
+
+    void melangeIconeConpositions(float valDepart, float ecartemment) {
         //metdode pour melanger la position des composition
         ArrayList<Float> valeurs = new ArrayList();
-        float position=valDepart;
-        for(int i=0;i<compositions.size();i++){
-            float valeur=position;
+        float position = valDepart;
+        for (int i = 0; i < compositions.size(); i++) {
+            float valeur = position;
             valeurs.add(valeur);
-            position=position+ecartemment;            
+            position = position + ecartemment;
         }
-         Collections.shuffle(valeurs);
-         for(int i=0;i<compositions.size();i++){
-             Composition c=compositions.get(i);
-              Element e=c.getElem1();
-              Icone ic=e.getIcone();
-              ic.setX(valeurs.get(i));
-         }
+        Collections.shuffle(valeurs);
+        for (int i = 0; i < compositions.size(); i++) {
+            Composition c = compositions.get(i);
+            Element e = c.getElem1();
+            Icone ic = e.getIcone();
+            ic.setX(valeurs.get(i));
+        }
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public void proposition(Message message) {
         //vérifier que att1 et att2 soit une composition
         //check si fin de jeu ou pas
-        boolean passe=false;
+        boolean passe = false;
+
         for (Iterator<Composition> iterator = compositions.iterator(); iterator.hasNext();) {
-            Composition c=iterator.next();
-            if(c.getElem1().getNom()==message.getAtt1()){
-                if(c.getElem2().getNom()==message.getAtt2()){
-                    points =points+200;
-                    passe=true;
-                    iterator.remove();
-                }                
+            Composition c = iterator.next();
+            if (c.getElem1() != null && c.getElem2() != null) {
+
+                if (c.getElem1().getNom() == message.getAtt1()) {
+                    if (c.getElem2().getNom() == message.getAtt2()) {
+                        points = points + 200;
+                        passe = true;
+                        iterator.remove();
+                    }
+                }
             }
         }
-        if (passe==false){
-            points=points-100;
-            if( points<0){
-                points=0;
+
+        if (passe == false) {
+            points = points - 100;
+            if (points < 0) {
+                points = 0;
             }
         }
     }
+
     public ArrayList<Composition> getCompositions() {
         return compositions;
     }
-    
-    public ArrayList<String> getDescription(){
+
+    public ArrayList<String> getDescription() {
         return enonce;
     }
-    
-    public int getPoints(){
+
+    public int getPoints() {
         return points;
     }
 

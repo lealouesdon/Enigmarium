@@ -15,8 +15,8 @@ public class Expression extends Element {
     private static int MINa = 10;
     private static int MAXb = 20;
     private static int MINb = 0;
-    private static float MAXx = 5;
-    private static float MINx = 1;
+    private static int MAXx = 5;
+    private static int MINx = 1;
 
     private int a;
     private int b;
@@ -51,7 +51,7 @@ public class Expression extends Element {
     private void init() {
         this.a = (int) (Math.random() * (MAXa + 1 - MINa) + MINa);
         this.b = (int) (Math.random() * (MAXb + 1 - MINb) + MINb);
-        this.x = (float) (Math.random() * (MAXx + 1 - MINx) + MINx);
+        this.x = (int) (Math.random() * (MAXx + 1 - MINx) + MINx);
         int i =(int) (a*x+b);
         b=b-i;
     }

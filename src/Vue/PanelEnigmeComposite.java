@@ -70,7 +70,7 @@ public class PanelEnigmeComposite extends JPanel {
         indice();
         repaint();
         /////////////////////Retour//////////////////
-        if (e.getRetour()){
+        if (e.getRetour()) {
             boutonRetour();
         }
 
@@ -82,15 +82,17 @@ public class PanelEnigmeComposite extends JPanel {
 
         for (Composition composition : compositions) {
             //if (composition.getNom() != null) {
-            JButton attribut1 = afficherElem(composition.getElem1());
-            defBoutonAtt1(attribut1);
-            this.add(attribut1);
-            // l'ecriture de bouton est sa hauteur suivie de son rayon
-            JButton attribut2 = afficherElem(composition.getElem2());
-            defBoutonAtt2(attribut2);
-            this.add(attribut2);
+            if (composition.getElem1() != null) {
+                JButton attribut1 = afficherElem(composition.getElem1());
+                defBoutonAtt1(attribut1);
+                this.add(attribut1);
+            }
+            if (composition.getElem2() != null) {
+                JButton attribut2 = afficherElem(composition.getElem2());
+                defBoutonAtt2(attribut2);
+                this.add(attribut2);
 
-            //}
+            }
         }
 
     }
@@ -207,6 +209,7 @@ public class PanelEnigmeComposite extends JPanel {
         //ajouter une image pour le bouton retour!!!
         this.add(retour);
     }
+
     /////////////////////////////////////////////////////////////////////////////////
     private Image getScaledImage(Image srcImg, int w, int h) {
         //pour redimensionner une image pour un bouton

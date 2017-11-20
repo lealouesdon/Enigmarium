@@ -32,7 +32,7 @@ public class Controleur implements Observateur {
         cartes = new Stack();
         InitialiserModel();
         InitialiserVue();
-        fenetrePrincipale.creeVue((Carte)this.cartes.peek());
+        fenetrePrincipale.creeVue((Carte) this.cartes.peek());
         fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
     }
     //methodes
@@ -43,29 +43,32 @@ public class Controleur implements Observateur {
     }
 
     private void InitialiserModel() {//initialise toute les carte du model
-        Carte monde = new Carte(null, "Carte des mondes","images/galaxy.jpg" ,false);
-        
+        Carte monde = new Carte(null, "Carte des mondes", "images/galaxy.jpg", false);
+
         cartes.push(monde);
         /////////////////////////////////MONDE///////////////////////////////////////
-        Icone icone = new Icone((float)0.20,(float) 0.2, "images/mondeCuisiniers.png", 350, 450);
+        Icone icone = new Icone((float) 0.20, (float) 0.2, "images/mondeCuisiniers.png", 350, 450);
 
         //tester une erreur d'ouveture...
-        Carte mMedie = new Carte(icone, "carte medieval","images/placeMarche.jpg");
-        icone = new Icone((float)0.5,(float)0.1, "images/mondeArcheologue.png", 350, 400);
-        Carte mArche = new Carte(icone, "carte archeologie",null);
+        Carte mMedie = new Carte(icone, "carte medieval", "images/placeMarche.jpg");
+        icone = new Icone((float) 0.5, (float) 0.1, "images/mondeArcheologue.png", 350, 400);
+        Carte mArche = new Carte(icone, "carte archeologie", null);
         monde.addContien(mMedie);
         monde.addContien(mArche);
         ///////////////////////////////PERSONAGE ET ENIGMES/////////////////////////////////////
-        icone = new Icone((float)0.38, (float)0.30, null, 300, 200);
-        EnigmeComposite pBoul = new EnigmeComposite(icone, "enigmeVolume","images/vueJeu.png");
+        //monde de la nouriture
+        icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
+        EnigmeComposite pBoul = new EnigmeComposite(icone, "enigmeVolume", "images/vueJeu.png");
         mMedie.addContien(pBoul);
-        Carte psoupe = new Carte(new Icone((float)0.10, (float)0.39, null, 200, 200), "perso soupe",null);
+        Carte psoupe = new Carte(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "perso soupe", null);
         mMedie.addContien(psoupe);
-        //Enigme enigmeTest = new Enigme(new Icone(120, 100, null, 200, 300), "enigmeTest");
-        //mMedie.addContien(enigmeTest);
+        //monde des archéologues
+        //personnage a déveloper
+        icone = new Icone((float) 0.38, (float) 0.30, "images/fond-bleu.jpg", 300, 200);
+        EnigmeComposite perso = new EnigmeComposite(icone, "enigmeExpression", "images/enigme v2.jpg");
+        mArche.addContien(perso);
         ///////////////////////////////ENIGMES/////////////////////////////////////
-        
-        
+
     }
 
     //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 
@@ -74,9 +77,16 @@ public class Controleur implements Observateur {
         if (m.getEtat() == "retour") {
             retourCarte();
         } else if (m.getMessage() == "enigmeVolume") {
-            EnigmeComposite e = (EnigmeComposite)((Carte)this.cartes.peek()).getContiens().get(m.getMessage());
+            EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.enigmeVolume();
+            this.cartes.push(enigmeCoutante);
+            //trouve la carte énigme volume et la met en enigme courante
+            enigmeComposite();
+        } else if (m.getMessage() == "enigmeExpression") {
+            EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
+            enigmeCoutante = e;
+            e.enigmeExpression();
             this.cartes.push(enigmeCoutante);
             //trouve la carte énigme volume et la met en enigme courante
             enigmeComposite();
@@ -87,37 +97,37 @@ public class Controleur implements Observateur {
             //utiliser enigmeCourante.proposition?
             //anayler comment lire la répose
             //faire un messageComposite?
-            EnigmeComposite e = (EnigmeComposite)enigmeCoutante;
+            EnigmeComposite e = (EnigmeComposite) enigmeCoutante;
             e.proposition(m);
-            if (e.getCompositions().size()==0){
+            if (e.getCompositions().size() == 0) {
                 //ouvrir une fenetre resultat
                 FenetreResultat f = new FenetreResultat();
                 f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
-            }else{
-                enigmeCoutante=e;
+            } else {
+                enigmeCoutante = e;
                 enigmeComposite();
             }
-            
+
         }
 
     }
 
     ////////////////////////////////////ACTION EN RÉPONSE À NOTIFICATION////////////////////////////////////
     public void carteChoisi(String titre) {//Attention ne marche pas pour les enigme pour l instant !!!!!!!
-        Carte c = (Carte) ((Carte)this.cartes.peek()).getContiens().get(titre);
+        Carte c = (Carte) ((Carte) this.cartes.peek()).getContiens().get(titre);
         this.cartes.push(c);
-        fenetrePrincipale.creeVue((Carte)this.cartes.peek());
+        fenetrePrincipale.creeVue((Carte) this.cartes.peek());
     }
 
     public void retourCarte() {//Si l'utilisateur clique sur le bouton retour
         this.cartes.pop();
-        fenetrePrincipale.creeVue((Carte)this.cartes.peek());
+        fenetrePrincipale.creeVue((Carte) this.cartes.peek());
     }
 
     private void enigmeComposite() {
-        
-        fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite)enigmeCoutante);
+
+        fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
     }
 }
