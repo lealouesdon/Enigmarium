@@ -15,6 +15,7 @@ import Modele.EnigmeComposite;
 import Modele.Icone;
 import Modele.Lieu;
 import Vue.FenetreIndice;
+import Vue.FenetreIntro;
 import Vue.FenetrePrincipale;
 import Vue.FenetreResultat;
 import java.util.Stack;
@@ -33,7 +34,10 @@ public class Controleur implements Observateur {
         InitialiserModel();
         InitialiserVue();
         fenetrePrincipale.creeVue((Carte) this.cartes.peek());
+        FenetreIntro fIntro = new FenetreIntro();//pour la démo
         fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
+        fIntro.setVisible(true);
+        fIntro.toFront();
     }
     //methodes
 
