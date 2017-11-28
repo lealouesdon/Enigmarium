@@ -30,6 +30,7 @@ public class Controleur implements Observateur {
 
     //Constructeur
     public Controleur() {
+        
         cartes = new Stack();
         InitialiserModel();
         InitialiserVue();
@@ -56,7 +57,7 @@ public class Controleur implements Observateur {
         //tester une erreur d'ouveture...
         Carte mMedie = new Carte(icone, "carte medieval", "images/placeMarche.jpg");
         icone = new Icone((float) 0.5, (float) 0.1, "images/mondeArcheologue.png", 350, 400);
-        Carte mArche = new Carte(icone, "carte archeologie", null);
+        Carte mArche = new Carte(icone, "carte archeologie", "images/mondeA.jpg");
         monde.addContien(mMedie);
         monde.addContien(mArche);
         ///////////////////////////////PERSONAGE ET ENIGMES/////////////////////////////////////
@@ -68,7 +69,7 @@ public class Controleur implements Observateur {
         mMedie.addContien(psoupe);
         //monde des archéologues
         //personnage a déveloper
-        icone = new Icone((float) 0.38, (float) 0.30, "images/fond-bleu.jpg", 300, 200);
+        icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
         EnigmeComposite perso = new EnigmeComposite(icone, "enigmeExpression", "images/enigme v2.jpg");
         mArche.addContien(perso);
         ///////////////////////////////ENIGMES/////////////////////////////////////
@@ -103,7 +104,7 @@ public class Controleur implements Observateur {
             //faire un messageComposite?
             EnigmeComposite e = (EnigmeComposite) enigmeCoutante;
             e.proposition(m);
-            if (e.getCompositions().size() == 0) {
+            if (e.getNbCompositionsRestantes()==0) {
                 //ouvrir une fenetre resultat
                 FenetreResultat f = new FenetreResultat();
                 f.setPoints(String.valueOf(e.getPoints()));

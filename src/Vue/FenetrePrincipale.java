@@ -54,7 +54,8 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         menu.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                //crée et ouvre une fenetre menu
+                FenetreIntro f = new FenetreIntro();
+                f.setVisible(true);
             }
             
         });

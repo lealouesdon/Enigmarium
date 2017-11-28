@@ -22,6 +22,7 @@ public class EnigmeComposite extends Enigme {
     private ArrayList<Composition> compositions;
     private ArrayList<String> enonce;  //équivalent de la recette pour enigmeVolume
     private int points;
+    private int nbCompositionsRestantes; //nombre de compositions pas encore trouvé
 
     public EnigmeComposite(Icone icone, String nom, String fond) {
         super(icone, nom, fond);
@@ -74,6 +75,8 @@ public class EnigmeComposite extends Enigme {
         //indice
         super.setIndice("images/indices/indice1.png");
         melangeIconeConpositions(0.19f, 0.10f);
+        //initialisation de nbCompositionsRestantes
+        nbCompositionsRestantes=4;
     }
 
     //////////////////////////////////////////////////////////////////////////////
@@ -119,6 +122,8 @@ public class EnigmeComposite extends Enigme {
         enonce.add("");
         
         melangeIconeConpositions(0.55f, 0.1f);
+        //initialisation de nbCompositionsRestantes
+        nbCompositionsRestantes=3;
     }
 
     void melangeIconeConpositions(float valDepart, float ecartemment) {
@@ -148,12 +153,12 @@ public class EnigmeComposite extends Enigme {
         for (Iterator<Composition> iterator = compositions.iterator(); iterator.hasNext();) {
             Composition c = iterator.next();
             if (c.getElem1() != null && c.getElem2() != null) {
-
                 if (c.getElem1().getNom() == message.getAtt1()) {
                     if (c.getElem2().getNom() == message.getAtt2()) {
                         points = points + 200;
                         passe = true;
                         iterator.remove();
+                        nbCompositionsRestantes=nbCompositionsRestantes-1;
                     }
                 }
             }
@@ -178,5 +183,11 @@ public class EnigmeComposite extends Enigme {
     public int getPoints() {
         return points;
     }
+
+    public int getNbCompositionsRestantes() {
+        return nbCompositionsRestantes;
+    }
+    
+    
 
 }
