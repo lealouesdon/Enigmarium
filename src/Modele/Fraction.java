@@ -9,7 +9,12 @@ package Modele;
  *
  * @author etien
  */
-public class Fraction {
+public class Fraction extends Place{
+    
+    public Fraction(float res) {
+        super(res);
+        fraction qef=
+    }
     
     
 }

@@ -10,10 +10,10 @@ package Modele;
  * @author etien
  */
 public abstract class Place {
-    private float valeur;
+    private float res;
 
-    public Place(float valeur) {
-        this.valeur = valeur;
+    public Place(float res) {
+        this.res = res;
     }
     
 }

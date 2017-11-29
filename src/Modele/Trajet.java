@@ -21,11 +21,17 @@ class Trajet {
 
     private void initialyserTrajet(int nbEtapes, int typeEnigme) {
         if(typeEnigme==1){
-            
-            for(int i=0;i<nbEtapes;i++){
-                places.add(e);
+            float resMa=resultat;
+            float resMi=0;
+            for(int i=0;i<nbEtapes-1;i++){
+                float tier=(resMi+resMa)/(2/3);
+                float nouv=(float)Math.random()* (tier +1f - resMi )+resMi;
+                resMa=resMa-nouv;
+                places.add(new Fraction(nouv));
             }
+            places.add(new Fraction(resMa));
         }
     }
     
 }
+//(int) (Math.random() * (MAXHAU + 1 - MINHAU) + MINHAU)
