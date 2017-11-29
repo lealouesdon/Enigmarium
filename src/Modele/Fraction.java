@@ -13,7 +13,6 @@ public class Fraction extends Place{
     
     public Fraction(float res) {
         super(res);
-        fraction qef=
     }
     
     
