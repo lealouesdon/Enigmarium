@@ -81,7 +81,10 @@ public class Controleur implements Observateur {
     public void notification(Message m) {
         if (m.getEtat() == "retour") {
             retourCarte();
-        } else if (m.getMessage() == "enigmeVolume") {
+        } 
+        
+////////////////////////Initialisation d'énigme//////////////////////////////////////////////
+        else if (m.getMessage() == "enigmeVolume") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.enigmeVolume();
@@ -93,11 +96,15 @@ public class Controleur implements Observateur {
             enigmeCoutante = e;
             e.enigmeExpression();
             this.cartes.push(enigmeCoutante);
-            //trouve la carte énigme volume et la met en enigme courante
+            //trouve la carte énigme expression et la met en enigme courante
             enigmeComposite();
-        } else if (m.getEtat() == "carteChoisi") {
+        } 
+////////////////////////////Navigation/////////////////////////////////
+        else if (m.getEtat() == "carteChoisi") {
             this.carteChoisi(m.getMessage());
-        } else if (m.getEtat() == "MessageComposite") {
+        } 
+//////////////////////////Traitement Message énigme///////////////////////////////
+        else if (m.getEtat() == "MessageComposite") {
             //doit etre fait dans l'énigme
             //utiliser enigmeCourante.proposition?
             //anayler comment lire la répose
