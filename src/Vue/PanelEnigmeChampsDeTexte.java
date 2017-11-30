@@ -99,5 +99,5 @@ public class PanelEnigmeChampsDeTexte extends javax.swing.JPanel {
     private javax.swing.JLabel question;
     private javax.swing.JTextField reponse;
     private javax.swing.JButton valider;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration//GEN-END:variables*/
 }
