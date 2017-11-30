@@ -11,6 +11,7 @@ package Controleur;
  */
 import Modele.Carte;
 import Modele.Enigme;
+import Modele.EnigmeChampsDeTexte;
 import Modele.EnigmeComposite;
 import Modele.Icone;
 import Modele.Lieu;
@@ -30,7 +31,7 @@ public class Controleur implements Observateur {
 
     //Constructeur
     public Controleur() {
-        
+
         cartes = new Stack();
         InitialiserModel();
         InitialiserVue();
@@ -81,71 +82,72 @@ public class Controleur implements Observateur {
     public void notification(Message m) {
         if (m.getEtat() == "retour") {
             retourCarte();
-        } 
-        
-////////////////////////Initialisation d'énigme//////////////////////////////////////////////
+        } ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
         else if (m.getMessage() == "enigmeVolume") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.enigmeVolume();
             this.cartes.push(enigmeCoutante);
             //trouve la carte énigme volume et la met en enigme courante
-            enigmeComposite();
+            fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
         } else if (m.getMessage() == "enigmeExpression") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.enigmeExpression();
             this.cartes.push(enigmeCoutante);
             //trouve la carte énigme expression et la met en enigme courante
-            enigmeComposite();
-        } 
-////////////////////////////Navigation/////////////////////////////////
+            fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
+        } ////////////////////////////Navigation/////////////////////////////////
         else if (m.getEtat() == "carteChoisi") {
             this.carteChoisi(m.getMessage());
-        } 
-//////////////////////////Traitement Message énigme///////////////////////////////
+        } //////////////////////////Traitement Message énigme///////////////////////////////
         else if (m.getEtat() == "MessageComposite") {
-            //doit etre fait dans l'énigme
-            //utiliser enigmeCourante.proposition?
             //anayler comment lire la répose
-            //faire un messageComposite?
             EnigmeComposite e = (EnigmeComposite) enigmeCoutante;
             e.proposition(m);
-            if (e.getNbCompositionsRestantes()==0) {
+            if (e.getNbCompositionsRestantes() == 0) {
                 //ouvrir une fenetre resultat
                 FenetreResultat f = new FenetreResultat();
                 f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
             } else {
-                enigmeCoutante = e;
-                enigmeComposite();
+                fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
             }
 
+        } else if (m.getEtat() == "MessageChampsDeTexte") {
+            EnigmeChampsDeTexte e = (EnigmeChampsDeTexte) enigmeCoutante;
+            boolean juste;
+            juste = e.proposition(m);
+            if (juste) {
+                FenetreResultat f = new FenetreResultat();
+                //f.setPoints(String.valueOf(e.getPoints()));
+                f.setVisible(true);
+                retourCarte();
+            } else {
+                fenetrePrincipale.creeVueEnigmeChampsDeTexte((EnigmeChampsDeTexte) enigmeCoutante);
+            }
         }
 
     }
 
     ////////////////////////////////////ACTION EN RÉPONSE À NOTIFICATION////////////////////////////////////
     public void carteChoisi(String titre) {//Attention ne marche pas pour les enigme pour l instant !!!!!!!
-        Carte c = (Carte) ((Carte)this.cartes.peek()).getContiens().get(titre);
+        Carte c = (Carte) ((Carte) this.cartes.peek()).getContiens().get(titre);
         this.addCarte(c);
-        fenetrePrincipale.creeVue((Carte)this.cartes.peek());
+        fenetrePrincipale.creeVue((Carte) this.cartes.peek());
     }
 
     public void retourCarte() {//Si l'utilisateur clique sur le bouton retour
         this.delCarte();
-        fenetrePrincipale.creeVue((Carte)this.cartes.peek());
+        fenetrePrincipale.creeVue((Carte) this.cartes.peek());
     }
 
-    private void enigmeComposite() {
-
-        fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
-    }
-    private void addCarte(Carte carte){
+    private void addCarte(Carte carte) {
         this.cartes.push(carte);
     }
-    private void delCarte(){
+
+    private void delCarte() {
         this.cartes.pop();
     }
 }

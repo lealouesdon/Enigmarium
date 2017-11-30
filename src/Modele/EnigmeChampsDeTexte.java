@@ -26,6 +26,14 @@ public class EnigmeChampsDeTexte extends Enigme{
         //iniialise l'énigme
         
     }
+
+    public String getValAttendu() {
+        return valAttendu;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
     
     public boolean proposition(Message m){
         if (m.getAtt1()==valAttendu){

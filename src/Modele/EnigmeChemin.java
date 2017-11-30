@@ -50,6 +50,10 @@ public class EnigmeChemin extends Enigme {
     public float getResultat() {
         return resultat;
     }
+
+    public ArrayList<Trajet> getTrajets() {
+        return trajets;
+    }
     
     
 }

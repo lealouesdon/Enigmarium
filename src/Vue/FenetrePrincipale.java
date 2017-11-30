@@ -12,6 +12,8 @@ package Vue;
 import Controleur.Message;
 import Controleur.Observateur;
 import Modele.Carte;
+import Modele.EnigmeChampsDeTexte;
+import Modele.EnigmeChemin;
 import Modele.EnigmeComposite;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -107,6 +109,27 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         cardLayout.show(cardPanel, e.getNom());
     }
     /////////////////////////////////////////////////////////////////////////////////////////
+    public void creeVueEnigmeChampsDeTexte(EnigmeChampsDeTexte e){
+        PanelEnigmeChampsDeTexte panel = new PanelEnigmeChampsDeTexte(e,this.getWidth(),this.getHeight());
+        
+        //donne le nom de la carte au panel
+        panel.setName(e.getNom());
+        panel.setObservateur(this);     
+        //ajoute et montre le panel
+        cardPanel.add(panel, e.getNom());
+        cardLayout.show(cardPanel, e.getNom());
+    }
+    //////////////////////////////////////////////////////////////////////////////////
+    public void creeVueEnigmeChemin(EnigmeChemin e){
+        PanelEnigmeChemin panel = new PanelEnigmeChemin(e,this.getWidth(),this.getHeight());
+        //donne le nom de la carte au panel
+        panel.setName(e.getNom());
+        panel.setObservateur(this);     
+        //ajoute et montre le panel
+        cardPanel.add(panel, e.getNom());
+        cardLayout.show(cardPanel, e.getNom());
+    }
+    ////////////////////////////////////////////////////////////////////////
     public void modifierMessage(String message){
         //methode pour modifier ce que dit la mascotte
     }
