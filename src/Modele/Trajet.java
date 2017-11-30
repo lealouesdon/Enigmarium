@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author etien
  */
-class Trajet {
+public class Trajet {
     private float resultat;
     private ArrayList<Place> places; 
     Trajet(float resultat, int nbEtapes, int typeEnigme) {
@@ -23,7 +23,7 @@ class Trajet {
         if(typeEnigme==1){
             
             for(int i=0;i<nbEtapes;i++){
-                places.add(e);
+                //places.add(e);
             }
         }
     }
