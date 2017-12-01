@@ -49,9 +49,9 @@ public class PanelEnigmeChemin extends JPanel {
         float x=0.25f;
         float y=0.25f;
         int i;
-        for (Trajet trajet : enigme.getTrajets()) {
+        for (Trajet trajet : enigme.getTrajets().values()) {
             i=enigme.getNbEtapes();
-            for(Place place : trajet.getPlaces()){
+            for(Place place : trajet.getPlaces().values()){
                 etapes.get(i-1).add(place);
                 i--;
             }

@@ -36,7 +36,7 @@ public class Trajet {
         }
     }
 
-    public ArrayList<Place> getPlaces() {
+    public HashMap<Integer,Place> getPlaces() {
         return places;
     }
     
