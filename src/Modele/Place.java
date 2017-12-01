@@ -14,6 +14,13 @@ public abstract class Place {
 
     public Place(float res) {
         this.res = res;
+        
     }
+
+    public float getRes() {
+        return res;
+    }
+    
+    
     
 }
