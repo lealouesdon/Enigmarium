@@ -5,6 +5,7 @@
  */
 package Vue;
 
+import Controleur.Message;
 import Controleur.Observateur;
 import Modele.EnigmeChemin;
 import Modele.Fraction;
@@ -27,53 +28,62 @@ public class PanelEnigmeChemin extends JPanel {
     private EnigmeChemin enigme;
     private int largeur;
     private int hauteur;
+    private int etape;
+    private Message message;
 
     public PanelEnigmeChemin(EnigmeChemin e, int largeur, int hauteur) {
+        message = new Message();
+        etape = 1;
         this.setSize(largeur, hauteur);
-        this.hauteur=hauteur;
-        this.largeur=largeur;
+        this.hauteur = hauteur;
+        this.largeur = largeur;
         etapes = new ArrayList();
         enigme = e;
         initEtapes();
         initPanel();
     }
 
-    private void initEtapes(){
-        for(int i=0; i<enigme.getNbEtapes();i++){
+    private void initEtapes() {
+        for (int i = 0; i < enigme.getNbEtapes(); i++) {
             ArrayList<Place> etape = new ArrayList<Place>();
             etapes.add(etape);
         }
     }
+
     private void initPanel() {
         //pour le positionnement
-        float x=0.25f;
-        float y=0.25f;
+        float x = 0.25f;
+        float y = 0.25f;
         int i;
         for (Trajet trajet : enigme.getTrajets().values()) {
-            i=enigme.getNbEtapes();
-            for(Place place : trajet.getPlaces().values()){
-                etapes.get(i-1).add(place);
+            i = enigme.getNbEtapes();
+            for (Place place : trajet.getPlaces().values()) {
+                etapes.get(i - 1).add(place);
                 i--;
             }
         }
-        for (ArrayList<Place> places : etapes){
-            x=0.25f;
-            for (Place place : places){
-                JButton bouton = new JButton(((Fraction)place).getFraction());
-                bouton.setLocation((int)x*largeur, (int)y*hauteur);
+        for (ArrayList<Place> places : etapes) {
+            x = 0.25f;
+            for (Place place : places) {
+                JButton bouton = new JButton(((Fraction) place).getFraction());
+                bouton.setLocation((int) x * largeur, (int) y * hauteur);
                 bouton.setSize(100, 100);
-                //bouton.setName();
-                x=x+0.1f;
-                bouton.addActionListener(new ActionListener(){
+                bouton.setName(String.valueOf(place.getRes()));
+                x = x + 0.1f;
+                bouton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        
+                        message.addFraction(Float.parseFloat(bouton.getName()));
+                        if (etape == enigme.getNbEtapes()) {
+                            observateur.notification(message);
+                        } else {
+                            etape++;
+                        }
                     }
-                    
                 });
                 this.add(bouton);
             }
-            y=y+0.2f;
+            y = y + 0.2f;
         }
     }
 
