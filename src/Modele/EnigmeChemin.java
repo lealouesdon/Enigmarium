@@ -38,8 +38,10 @@ public class EnigmeChemin extends Enigme {
     public boolean proposition(Message message){
         //message.fractions
         float res=0;
-        for (int i; )
-        return true;
+        for (int i=0;i<message.getFractions().size();i++ ){
+            res=res+message.getFractions().get(i);
+        }
+        return res==this.resultat;
     }
     
 
