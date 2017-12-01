@@ -58,5 +58,8 @@ public class Message {
     public ArrayList<Float> getFractions(){
         return fractions;
     }
+    public void addFraction(float f){
+        fractions.add(f);
+    }
     
 }
