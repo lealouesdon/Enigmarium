@@ -36,8 +36,12 @@ public class EnigmeChemin extends Enigme {
         }
     }
     public boolean proposition(Message message){
-        
-        return true;
+        //message.fractions
+        float res=0;
+        for (int i=0;i<message.getFractions().size();i++ ){
+            res=res+message.getFractions().get(i);
+        }
+        return res==this.resultat;
     }
     
 
