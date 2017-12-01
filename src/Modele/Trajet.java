@@ -32,6 +32,10 @@ public class Trajet {
             places.add(new Fraction(resMa));
         }
     }
+
+    public ArrayList<Place> getPlaces() {
+        return places;
+    }
     
 }
 //(int) (Math.random() * (MAXHAU + 1 - MINHAU) + MINHAU)
