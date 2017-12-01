@@ -78,6 +78,7 @@ public class PanelEnigmeChemin extends JPanel {
                             observateur.notification(message);
                         } else {
                             etape++;
+                            selectionnerBouton();
                         }
                     }
                 });
@@ -86,6 +87,11 @@ public class PanelEnigmeChemin extends JPanel {
             y = y + 0.2f;
         }
     }
+    
+    private void selectionnerBouton(){
+        //selectionner et deselectionner les boutons en fonction de l'étape
+    }
+    
 
     public void setObservateur(Observateur observateur) {
         this.observateur = observateur;
