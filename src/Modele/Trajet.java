@@ -35,6 +35,10 @@ public class Trajet {
             places.put(i+1,new Fraction(resMa));
         }
     }
+
+    public HashMap<Integer,Place> getPlaces() {
+        return places;
+    }
     
 }
 //(int) (Math.random() * (MAXHAU + 1 - MINHAU) + MINHAU)

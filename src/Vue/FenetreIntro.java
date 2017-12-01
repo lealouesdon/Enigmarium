@@ -29,6 +29,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         int hauteur = gd.getDisplayMode().getHeight();
         setSize(largeur, hauteur);
         //bouton crée une nouvelle partie
+        
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -85,7 +86,6 @@ public class FenetreIntro extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
         partie = new javax.swing.JButton();
         para = new javax.swing.JButton();
         start = new javax.swing.JButton();
@@ -97,44 +97,67 @@ public class FenetreIntro extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1500, 1500));
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         partie.setText("Charger une partie");
+        partie.setPreferredSize(new java.awt.Dimension(150, 26));
+        partie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partieActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        jPanel1.add(partie, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 145, 0, 142);
+        getContentPane().add(partie, gridBagConstraints);
 
         para.setText("Parametres");
+        para.setPreferredSize(new java.awt.Dimension(150, 26));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        jPanel1.add(para, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 165, 0, 0);
+        getContentPane().add(para, gridBagConstraints);
 
         start.setText("Nouvelle Partie");
+        start.setPreferredSize(new java.awt.Dimension(150, 26));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        jPanel1.add(start, gridBagConstraints);
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(79, 155, 0, 0);
+        getContentPane().add(start, gridBagConstraints);
 
         credits.setText("Credits");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        jPanel1.add(credits, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 175, 0, 0);
+        getContentPane().add(credits, gridBagConstraints);
 
         quitter.setText("Quitter");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
-        jPanel1.add(quitter, gridBagConstraints);
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 177, 67, 0);
+        getContentPane().add(quitter, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void partieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_partieActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,7 +196,6 @@ public class FenetreIntro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton credits;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton para;
     private javax.swing.JButton partie;
     private javax.swing.JButton quitter;

@@ -5,6 +5,9 @@
  */
 package Controleur;
 
+import Modele.Fraction;
+import java.util.ArrayList;
+
 /**
  *
  * @author Léa
@@ -15,11 +18,15 @@ public class Message {
     private String etat;
     private String att1;
     private String att2;
+    private ArrayList<Float> fractions;
     
-    public Message(){}
+    public Message(){
+        fractions = new ArrayList();
+    }
 
     public String getMessage() {
         return message;
+        
     }
 
     public void setAtt1(String att1) {
@@ -47,6 +54,9 @@ public class Message {
 
     public String getEtat() {
         return etat;
+    }
+    public ArrayList<Float> getFractions(){
+        return fractions;
     }
     
 }
