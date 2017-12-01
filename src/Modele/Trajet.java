@@ -6,6 +6,7 @@
 package Modele;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -13,9 +14,10 @@ import java.util.ArrayList;
  */
 public class Trajet {
     private float resultat;
-    private ArrayList<Place> places; 
+    private HashMap<Integer,Place> places; 
     Trajet(float resultat, int nbEtapes, int typeEnigme) {
        this.resultat=resultat;
+       this.places=new HashMap();
        initialyserTrajet(nbEtapes,typeEnigme);
     }
 
@@ -23,13 +25,14 @@ public class Trajet {
         if(typeEnigme==1){
             float resMa=resultat;
             float resMi=0;
-            for(int i=0;i<nbEtapes-1;i++){
+            int i=0;
+            for(;i<nbEtapes-1;i++){
                 float tier=(resMi+resMa)/(2/3);
                 float nouv=(float)Math.random()* (tier +1f - resMi )+resMi;
                 resMa=resMa-nouv;
-                places.add(new Fraction(nouv));
+                places.put(i,new Fraction(nouv));
             }
-            places.add(new Fraction(resMa));
+            places.put(i+1,new Fraction(resMa));
         }
     }
     

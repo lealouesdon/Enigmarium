@@ -5,18 +5,19 @@
  */
 package Modele;
 
+import Controleur.Message;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author etien
  */
 public class EnigmeChemin extends Enigme {
-    
     private float resultat;
     private int nbChemins;
     private int nbEtapes;
-    private ArrayList<Trajet> trajets;
+    private HashMap<Integer,Trajet> trajets;
     private int typeEnigme;
     
     public EnigmeChemin(Icone icone, String nom, String fond,float resultat,int nbChemins, int nbEtapes,int typeEnigme) {
@@ -25,15 +26,20 @@ public class EnigmeChemin extends Enigme {
         this.nbEtapes=nbEtapes;
         this.resultat=resultat;
         this.typeEnigme=typeEnigme;
-        this.trajets=new ArrayList<>();
+        this.trajets=new HashMap();
         initialiserEnigme();
     }
 
     private void initialiserEnigme() {
         for(int i=0;i<this.getNbChemins();i++){
-            trajets.add(new Trajet(this.getResultat(),this.getNbEtapes(),this.getTypeEnigme()));
+            trajets.put(i,new Trajet(this.getResultat(),this.getNbEtapes(),this.getTypeEnigme()));
         }
     }
+    public boolean proposition(Message message){
+        
+        return true;
+    }
+    
 
     public int getNbEtapes() {
         return nbEtapes;
@@ -51,7 +57,7 @@ public class EnigmeChemin extends Enigme {
         return resultat;
     }
 
-    public ArrayList<Trajet> getTrajets() {
+    public HashMap<Integer,Trajet> getTrajets() {
         return trajets;
     }
     
