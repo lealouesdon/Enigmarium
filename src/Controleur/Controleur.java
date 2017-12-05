@@ -67,7 +67,7 @@ public class Controleur implements Observateur {
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
         EnigmeComposite pBoul = new EnigmeComposite(icone, "enigmeVolume", "images/vueJeu.png");
         mMedie.addContien(pBoul);
-        EnigmeChemin psoupe = new EnigmeChemin(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "perso soupe", null,1,4,1);
+        EnigmeChemin psoupe = new EnigmeChemin(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "enigmeChemin", null,1,4,1);
         mMedie.addContien(psoupe);
         //monde des archéologues
         //personnage a déveloper
@@ -98,7 +98,15 @@ public class Controleur implements Observateur {
             this.cartes.push(enigmeCoutante);
             //trouve la carte énigme expression et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
-        } ////////////////////////////Navigation///////////////////// ////////////
+        }else if(m.getMessage() == "enigmeChemin"){
+            EnigmeChemin e = (EnigmeChemin) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
+            enigmeCoutante = e;
+            e.initialiserEnigme();
+            this.cartes.push(enigmeCoutante);
+            //trouve la carte énigme expression et la met en enigme courante
+            fenetrePrincipale.creeVueEnigmeChemin((EnigmeChemin) enigmeCoutante);
+        }
+        ////////////////////////////Navigation///////////////////// ////////////
         else if (m.getEtat() == "carteChoisi") {
             this.carteChoisi(m.getMessage());
         } //////////////////////////Traitement Message énigme///////////////////////////////
