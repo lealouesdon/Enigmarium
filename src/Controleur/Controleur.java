@@ -12,6 +12,7 @@ package Controleur;
 import Modele.Carte;
 import Modele.Enigme;
 import Modele.EnigmeChampsDeTexte;
+import Modele.EnigmeChemin;
 import Modele.EnigmeComposite;
 import Modele.Icone;
 import Modele.Lieu;
@@ -97,7 +98,7 @@ public class Controleur implements Observateur {
             this.cartes.push(enigmeCoutante);
             //trouve la carte énigme expression et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
-        } ////////////////////////////Navigation/////////////////////////////////
+        } ////////////////////////////Navigation///////////////////// ////////////
         else if (m.getEtat() == "carteChoisi") {
             this.carteChoisi(m.getMessage());
         } //////////////////////////Traitement Message énigme///////////////////////////////
@@ -126,6 +127,17 @@ public class Controleur implements Observateur {
                 retourCarte();
             } else {
                 fenetrePrincipale.creeVueEnigmeChampsDeTexte((EnigmeChampsDeTexte) enigmeCoutante);
+            }
+            
+        }else if(m.getEtat() == "MessageChemin"){
+            EnigmeChemin e = (EnigmeChemin) enigmeCoutante;
+            if (e.proposition(m)) {
+                FenetreResultat f = new FenetreResultat();
+                //f.setPoints(String.valueOf(e.getPoints()));
+                f.setVisible(true);
+                retourCarte();
+            } else {
+                fenetrePrincipale.creeVueEnigmeChemin((EnigmeChemin) enigmeCoutante);
             }
         }
 
