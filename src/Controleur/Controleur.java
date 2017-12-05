@@ -67,7 +67,7 @@ public class Controleur implements Observateur {
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
         EnigmeComposite pBoul = new EnigmeComposite(icone, "enigmeVolume", "images/vueJeu.png");
         mMedie.addContien(pBoul);
-        Carte psoupe = new Carte(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "perso soupe", null);
+        EnigmeChemin psoupe = new EnigmeChemin(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "perso soupe", null,1,4,1);
         mMedie.addContien(psoupe);
         //monde des archéologues
         //personnage a déveloper
@@ -75,7 +75,7 @@ public class Controleur implements Observateur {
         EnigmeComposite perso = new EnigmeComposite(icone, "enigmeExpression", "images/enigme v2.jpg");
         mArche.addContien(perso);
         ///////////////////////////////ENIGMES/////////////////////////////////////
-
+        icone = new Icone((float)0.38, (float) 0.30, null, 300, 200);
     }
 
     //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 
