@@ -20,17 +20,17 @@ public class EnigmeChemin extends Enigme {
     private HashMap<Integer,Trajet> trajets;
     private int typeEnigme;
     
-    public EnigmeChemin(Icone icone, String nom, String fond,float resultat,int nbChemins, int nbEtapes,int typeEnigme) {
+    public EnigmeChemin(Icone icone, String nom, String fond,int nbChemins, int nbEtapes,int typeEnigme) {
         super(icone, nom, fond);
         this.nbChemins=nbChemins;
         this.nbEtapes=nbEtapes;
-        this.resultat=resultat;
+        this.resultat=13f;
         this.typeEnigme=typeEnigme;
         this.trajets=new HashMap();
-        initialiserEnigme();
     }
 
-    private void initialiserEnigme() {
+    public void initialiserEnigme() {
+        this.trajets.clear();
         for(int i=0;i<this.getNbChemins();i++){
             trajets.put(i,new Trajet(this.getResultat(),this.getNbEtapes(),this.getTypeEnigme()));
         }
@@ -41,7 +41,9 @@ public class EnigmeChemin extends Enigme {
         for (int i=0;i<message.getFractions().size();i++ ){
             res=res+message.getFractions().get(i);
         }
+        System.out.print("zergzergergzergergertger");
         return res==this.resultat;
+        
     }
     
 

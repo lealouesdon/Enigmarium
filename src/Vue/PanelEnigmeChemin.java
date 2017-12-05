@@ -33,6 +33,7 @@ public class PanelEnigmeChemin extends JPanel {
 
     public PanelEnigmeChemin(EnigmeChemin e, int largeur, int hauteur) {
         message = new Message();
+        message.setEtat("MessageChemin");
         etape = 1;
         this.setSize(largeur, hauteur);
         this.hauteur = hauteur;
@@ -64,6 +65,7 @@ public class PanelEnigmeChemin extends JPanel {
                         message.addFraction(Float.parseFloat(bouton.getName()));
                         if (etape == enigme.getNbEtapes()) {
                             observateur.notification(message);
+                            
                         } else {
                             etape++;
                             selectionnerBouton();
