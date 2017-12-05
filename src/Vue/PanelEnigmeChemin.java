@@ -23,7 +23,7 @@ import javax.swing.JButton;
  */
 public class PanelEnigmeChemin extends JPanel {
 
-    private Observateur observateur;
+    private Observateur observateur;  
     private ArrayList<ArrayList<JButton>> etapes;
     private EnigmeChemin enigme;
     private int largeur;
@@ -62,7 +62,7 @@ public class PanelEnigmeChemin extends JPanel {
                 bouton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        message.addFraction(Float.parseFloat(bouton.getName()));
+                        message.addFraction(Float.parseFloat(bouton.getName()));    
                         if (etape == enigme.getNbEtapes()) {
                             observateur.notification(message);
                             

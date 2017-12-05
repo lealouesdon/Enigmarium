@@ -24,7 +24,7 @@ public class EnigmeChemin extends Enigme {
         super(icone, nom, fond);
         this.nbChemins=nbChemins;
         this.nbEtapes=nbEtapes;
-        this.resultat=13f;
+        this.resultat=2f;
         this.typeEnigme=typeEnigme;
         this.trajets=new HashMap();
     }
@@ -41,7 +41,8 @@ public class EnigmeChemin extends Enigme {
         for (int i=0;i<message.getFractions().size();i++ ){
             res=res+message.getFractions().get(i);
         }
-        System.out.print("zergzergergzergergertger");
+        System.out.print(res);
+        System.out.print(this.resultat);
         return res==this.resultat;
         
     }

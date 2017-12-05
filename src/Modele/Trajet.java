@@ -27,8 +27,7 @@ public class Trajet {
             float resMi=0;
             int i=0;
             for(;i<nbEtapes-1;i++){
-                float tier=(resMi+resMa)/(2/3);
-                float nouv=(float)Math.random()* (tier +1f - resMi )+resMi;
+                float nouv=(float)(Math.random()* (resMa +1f - resMi )+resMi);
                 resMa=resMa-nouv;
                 places.put(i,new Fraction(nouv));
             }

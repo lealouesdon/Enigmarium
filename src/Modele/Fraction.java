@@ -15,7 +15,7 @@ public class Fraction extends Place{
     
     public Fraction(float res) {
         super(res);
-        this.fraction=toFraction(super.getRes(),1000000);
+        this.fraction=toFraction(super.getRes(),10000000);
     }
     
     public static String toFraction(float d, int factor) {
