@@ -144,7 +144,8 @@ public class EnigmeComposite extends Enigme {
         }
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+ 
+    @Override
     public void proposition(Message message) {
         //vérifier que att1 et att2 soit une composition
         //check si fin de jeu ou pas

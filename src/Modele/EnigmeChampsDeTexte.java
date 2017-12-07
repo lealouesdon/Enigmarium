@@ -34,6 +34,7 @@ public class EnigmeChampsDeTexte extends Enigme{
         return question;
     }
     
+    @Override
     public boolean proposition(Message m){
         if (m.getAtt1()==valAttendu){
             return true;
