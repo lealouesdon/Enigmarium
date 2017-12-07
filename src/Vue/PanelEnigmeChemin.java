@@ -44,6 +44,7 @@ public class PanelEnigmeChemin extends JPanel {
         initEtapes();
         initBoutons();
         selectionnerBouton();
+        //boutonRetour();
     }
 
     
@@ -87,6 +88,28 @@ public class PanelEnigmeChemin extends JPanel {
             ArrayList<JButton> etape = new ArrayList<JButton>();
             etapes.add(etape);
         }
+    }
+    
+    public void boutonRetour() {
+        //met en place tous les boutons sur le Jpanel
+        JButton retour = new JButton("retour");
+        //taille par défault du bouton
+        retour.setSize(70, 70);
+        //localisation par défaut du bouton
+        retour.setLocation(0, 0);
+        //action listener pour retourner "retour" a l'appuye du bouton
+        retour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Message m = new Message();
+                //renvoyer le nom du bouton pas le texte
+                m.setEtat("retour");
+                observateur.notification(m);
+            }
+        }
+        );
+        //ajouter une image pour le bouton retour!!!
+        this.add(retour);
     }
 
     /*private void initPanel() {

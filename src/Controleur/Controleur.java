@@ -122,8 +122,8 @@ public class Controleur implements Observateur {
         else if (m.getEtat() == "MessageComposite") {
             //anayler comment lire la répose
             EnigmeComposite e = (EnigmeComposite) enigmeCoutante;
-            e.proposition(m);
-            if (e.getNbCompositionsRestantes() == 0) {
+            boolean fini = e.proposition(m);
+            if (fini) {
                 //ouvrir une fenetre resultat
                 FenetreResultat f = new FenetreResultat();
                 f.setPoints(String.valueOf(e.getPoints()));

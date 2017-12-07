@@ -145,7 +145,7 @@ public class EnigmeComposite extends Enigme {
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void proposition(Message message) {
+    public boolean proposition(Message message) {
         //vérifier que att1 et att2 soit une composition
         //check si fin de jeu ou pas
         boolean passe = false;
@@ -170,6 +170,7 @@ public class EnigmeComposite extends Enigme {
                 points = 0;
             }
         }
+        return getNbCompositionsRestantes() == 0;
     }
 
     public ArrayList<Composition> getCompositions() {
