@@ -34,8 +34,9 @@ public class PanelEnigmeChemin extends JPanel {
     public PanelEnigmeChemin(EnigmeChemin e, int largeur, int hauteur) {
         message = new Message();
         message.setEtat("MessageChemin");
-        etape = 1;
         this.setSize(largeur, hauteur);
+        this.setLayout(null);
+        etape = 1;
         this.hauteur = hauteur;
         this.largeur = largeur;
         etapes = new ArrayList();
@@ -55,7 +56,7 @@ public class PanelEnigmeChemin extends JPanel {
             x = 0.25f;
             for (Place place : trajet.getPlaces().values()) {
                 JButton bouton = new JButton(((Fraction) place).getFraction());
-                bouton.setLocation((int) x * largeur, (int) y * hauteur);
+                bouton.setLocation((int) (x * largeur), (int) (y * hauteur));
                 bouton.setSize(100, 100);
                 bouton.setName(String.valueOf(place.getRes()));
                 x = x + 0.1f;
@@ -72,11 +73,13 @@ public class PanelEnigmeChemin extends JPanel {
                         }
                     }
                 });
-                this.add(bouton);
+                //this.add(bouton);
                 etapes.get(i - 1).add(bouton);
                 i--;
+                
             }
             y = y + 0.2f;
+            
         }
     }
     private void initEtapes() {

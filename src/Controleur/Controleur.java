@@ -54,7 +54,7 @@ public class Controleur implements Observateur {
 
         cartes.push(monde);
         /////////////////////////////////MONDE///////////////////////////////////////
-        Icone icone = new Icone((float) 0.20, (float) 0.2, "images/mondeCuisiniers.png", 350, 450);
+        Icone icone = new Icone((float) 0.20, (float) 0.2, "images/mondeCuisiniers.png", 300, 450);
 
         //tester une erreur d'ouveture...
         Carte mMedie = new Carte(icone, "carte medieval", "images/placeMarche.jpg");

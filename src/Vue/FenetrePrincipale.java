@@ -110,7 +110,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     }
     /////////////////////////////////////////////////////////////////////////////////////////
     public void creeVueEnigmeChampsDeTexte(EnigmeChampsDeTexte e){
-        PanelEnigmeChampsDeTexte panel = new PanelEnigmeChampsDeTexte(e,this.getWidth(),this.getHeight());
+        PanelEnigmeCDT panel = new PanelEnigmeCDT(e,this.getWidth(),this.getHeight());
         
         //donne le nom de la carte au panel
         panel.setName(e.getNom());
