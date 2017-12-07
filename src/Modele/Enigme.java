@@ -5,6 +5,7 @@
  */
 package Modele;
 
+import Controleur.Message;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +21,8 @@ public abstract class Enigme extends Lieu {
        super(icone,nom,fond);
        
     }
+    
+    abstract boolean proposition(Message message);
     
     public static void setDESCRIPTION(String DESCRIPTION) {
         Enigme.DESCRIPTION = DESCRIPTION;

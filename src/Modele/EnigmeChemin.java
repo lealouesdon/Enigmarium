@@ -35,6 +35,7 @@ public class EnigmeChemin extends Enigme {
             trajets.put(i,new Trajet(this.getResultat(),this.getNbEtapes(),this.getTypeEnigme()));
         }
     }
+    @Override
     public boolean proposition(Message message){
         //message.fractions
         float res=0;
