@@ -75,7 +75,9 @@ public class Controleur implements Observateur {
         EnigmeComposite perso = new EnigmeComposite(icone, "enigmeExpression", "images/enigme v2.jpg");
         mArche.addContien(perso);
         ///////////////////////////////ENIGMES/////////////////////////////////////
-        icone = new Icone((float)0.38, (float) 0.30, null, 300, 200);
+        icone = new Icone((float)0.40, (float) 0.50, null, 300, 200);
+        EnigmeChampsDeTexte persojesaispluscommentilsapelleducoutjimprovise =new EnigmeChampsDeTexte(icone,"enigmeChampsDeTextes",null);
+        mMedie.addContien(persojesaispluscommentilsapelleducoutjimprovise);
     }
 
     //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 
@@ -105,6 +107,13 @@ public class Controleur implements Observateur {
             this.cartes.push(enigmeCoutante);
             //trouve la carte énigme expression et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeChemin((EnigmeChemin) enigmeCoutante);
+        } else if (m.getMessage() == "enigmeChampsDeTextes") {
+            EnigmeChampsDeTexte e = (EnigmeChampsDeTexte) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
+            enigmeCoutante = e;
+            e.initialiseEnigme1();
+            this.cartes.push(enigmeCoutante);
+            //trouve la carte énigme volume et la met en enigme courante
+            fenetrePrincipale.creeVueEnigmeChampsDeTexte((EnigmeChampsDeTexte) enigmeCoutante);
         }
         ////////////////////////////Navigation///////////////////// ////////////
         else if (m.getEtat() == "carteChoisi") {

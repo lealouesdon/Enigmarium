@@ -16,7 +16,7 @@ public class Connexion {
     }
     public static Connection ConnexterDB(){
     try {
-      Class.forName("com.mysql.jdbc.Driver"); /* chemin du driver*/
+      //Class.forName("com.mysql.jdbc.Driver"); /* chemin du driver*/
       System.out.println("Driver O.K.");
 
       String url = "jdbc:postgresql://localhost:5432/Ecole"; /* url a changer en fonctio de la base 

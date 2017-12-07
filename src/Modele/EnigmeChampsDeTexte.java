@@ -21,9 +21,8 @@ public class EnigmeChampsDeTexte extends Enigme{
     }
     
     public void initialiseEnigme1(){
-        //initilise la question
-        
-        //iniialise l'énigme
+        this.valAttendu="10";
+        this.question="La reponce est dix en chifre";
         
     }
 
