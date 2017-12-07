@@ -91,6 +91,8 @@ public class FenetreIntro extends javax.swing.JFrame {
         start = new javax.swing.JButton();
         credits = new javax.swing.JButton();
         quitter = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -99,10 +101,13 @@ public class FenetreIntro extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(1500, 1500));
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
+        getContentPane().setLayout(layout);
 
         partie.setText("Charger une partie");
-        partie.setPreferredSize(new java.awt.Dimension(150, 26));
+        partie.setPreferredSize(new java.awt.Dimension(150, 50));
         partie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 partieActionPerformed(evt);
@@ -110,47 +115,73 @@ public class FenetreIntro extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 145, 0, 142);
         getContentPane().add(partie, gridBagConstraints);
 
         para.setText("Parametres");
-        para.setPreferredSize(new java.awt.Dimension(150, 26));
+        para.setPreferredSize(new java.awt.Dimension(150, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 165, 0, 0);
         getContentPane().add(para, gridBagConstraints);
 
         start.setText("Nouvelle Partie");
-        start.setPreferredSize(new java.awt.Dimension(150, 26));
+        start.setPreferredSize(new java.awt.Dimension(150, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(79, 155, 0, 0);
         getContentPane().add(start, gridBagConstraints);
 
         credits.setText("Credits");
+        credits.setPreferredSize(new java.awt.Dimension(75, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 175, 0, 0);
         getContentPane().add(credits, gridBagConstraints);
 
         quitter.setText("Quitter");
+        quitter.setPreferredSize(new java.awt.Dimension(73, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 177, 67, 0);
         getContentPane().add(quitter, gridBagConstraints);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/logo.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 7;
+        getContentPane().add(jLabel1, gridBagConstraints);
+
+        jLabel2.setFont(new java.awt.Font("Open Sans", 1, 48)); // NOI18N
+        jLabel2.setText("Enigmarium");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 3;
+        getContentPane().add(jLabel2, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -196,6 +227,8 @@ public class FenetreIntro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton credits;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton para;
     private javax.swing.JButton partie;
     private javax.swing.JButton quitter;
