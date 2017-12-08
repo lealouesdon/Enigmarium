@@ -1,5 +1,5 @@
 Drop table Testee;
-Drop table Reussi;
+Drop table Reussie;
 Drop table EAppartientQ;
 Drop table QAppartientH;
 Drop table Enigme;

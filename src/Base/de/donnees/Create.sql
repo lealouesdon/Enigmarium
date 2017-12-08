@@ -41,7 +41,7 @@ Create table OAppartientC(
 	objet varchar(50), /*objet se trouvant dans la case*/
 	primary key(numCase, objet),
 	foreign key (numCase) references Cases(numCase),
-	foreign key (objet) references Objet(Objet)
+	foreign key (objet) references Objet(objet)
 );
 
 Create table Monde(
@@ -74,7 +74,7 @@ Create table Testee( /*enigme teste et echoue */
 	foreign key(nomE) references Enigme(nomE)
 );
 
-Create table Reussi(
+Create table Reussie(
 	idJ int, /*id du joueur qui à reussi l'enigme*/
 	nomE varchar(20), /* nom de l'enigme reussi*/
 	nbReussi int, /* nombre de fois que l'enigme a ete reussi*/
@@ -86,12 +86,13 @@ Create table Reussi(
 Create table Histoire(
 	hist int primary key, /* histoire générale*/
 	nbQuetes int not null, /* nombre de quete à realiser*/
+        description varchar(5000)
 );
 
 Create table Quete(
 	numQuete int primary key, /*numero de la quete*/
 	description varchar(5000) not null, /*description de la quete*/
-	nbenigmes int not null, /*nombre d'enigmes a realiser*/
+	nbenigmes int not null /*nombre d'enigmes a realiser*/
 );
 
 Create table QAppartientH( /*permet le lien entre 1 quete et l'histoire générale*/
