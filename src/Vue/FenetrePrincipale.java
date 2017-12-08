@@ -52,7 +52,6 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         message = new JLabel("/////////////////message a modifier//////////////////////");
         message.setBorder(BorderFactory.createLineBorder(Color.black));
         panelHaut.add(message, BorderLayout.CENTER);*/
-       
         //bouton menu
         JButton menu = new JButton("menu");
         menu.setLocation(largeur-100, 0);
@@ -84,6 +83,8 @@ public class FenetrePrincipale extends JFrame implements Observateur {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //ouvre une fenetre inventaire
+                FenetreInventaire fenetre = new FenetreInventaire();
+                fenetre.setVisible(true);
             }
             
         });
