@@ -24,15 +24,23 @@ public class Trajet {
     private void initialyserTrajet(int nbEtapes, int typeEnigme) {
         if(typeEnigme==1){
             float resMa=resultat;
-            float interval =resMa/nbEtapes;
-            interval=((int)(interval*100))/100f;
+            float interval=((int)((resMa/nbEtapes)*100))/100f;
+            float resMi=interval/2;
             int i=0;
             for(;i<nbEtapes-1;i++){
-                float nouv=(float)(Math.random()* (interval +1f - interval/2f )+interval/2f);
-                nouv=((int)(nouv*100))/100f;
+                float nouv=(float)(Math.random() * ( interval*100+ 1 -resMi*100 ) + resMi*100);
+                System.out.println(nouv);
+                int nouv2=(int) nouv;
+                System.out.println(nouv2);
+                nouv= (float)nouv2/100f;
+                System.out.println(nouv);
                 resMa=resMa-nouv;
                 places.put(i,new Fraction(nouv));
+                System.out.println();
+                
             }
+            System.out.println(resMa);
+            System.out.println("fff");
             places.put(i,new Fraction(resMa));
         }
     }
@@ -58,3 +66,5 @@ if(typeEnigme==1){
         }
     }
 */
+//(float)(Math.random()* (interval +1f - interval/2f )+interval/2f)
+//((int)((float)(Math.random()* (0.33 +1f - 0.33/2f )+0.33/2f)*10))/10f;
