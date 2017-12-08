@@ -6,6 +6,8 @@
 package test;
 
 import Modele.Fraction;
+import Modele.Trajet;
+
 
 /**
  *
@@ -18,6 +20,7 @@ public class testPlace {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Trajet trajet=new Trajet(1f,2,1);
         Fraction place=new Fraction(1.26f);
         System.out.print(place.getFraction());
     }

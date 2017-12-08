@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class Trajet {
     private float resultat;
     private HashMap<Integer,Place> places; 
-    Trajet(float resultat, int nbEtapes, int typeEnigme) {
+    public Trajet(float resultat, int nbEtapes, int typeEnigme) {
        this.resultat=resultat;
        this.places=new HashMap();
        initialyserTrajet(nbEtapes,typeEnigme);
