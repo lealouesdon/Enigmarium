@@ -32,7 +32,7 @@ public class Trajet {
                 places.put(i,new Fraction(nouv));
                 System.out.println("ipi");
             }
-            places.put(i+1,new Fraction(resMa));
+            places.put(i,new Fraction(resMa));
             System.out.println("ipi");
         }
         for(int i=0;i<2;i++){
