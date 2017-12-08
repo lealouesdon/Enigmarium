@@ -45,14 +45,18 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         ////////////////////////////////////////////////
         //Panel du haut 
         panelHaut = new JPanel();
+        panelHaut.setSize(largeur, 100);
         mascotte = new JLabel("masotte");
         mascotte.setBorder(BorderFactory.createLineBorder(Color.black));
         panelHaut.add(mascotte, BorderLayout.WEST);
         message = new JLabel("/////////////////message a modifier//////////////////////");
         message.setBorder(BorderFactory.createLineBorder(Color.black));
         panelHaut.add(message, BorderLayout.CENTER);
+        //panelHaut.setLayout(null);
         //bouton menu
         JButton menu = new JButton("menu");
+        menu.setLocation(largeur-100, 0);
+        menu.setSize(100, 100);
         menu.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,7 +66,10 @@ public class FenetrePrincipale extends JFrame implements Observateur {
             
         });
         panelHaut.add(menu);
+        //bouton fermer
         JButton fermer = new JButton("fermer");
+        fermer.setLocation(0, 0);
+        fermer.setSize(100, 100);
         fermer.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,6 +78,16 @@ public class FenetrePrincipale extends JFrame implements Observateur {
             
         });
         panelHaut.add(fermer);
+        //bouton inventaire
+        JButton inventaire = new JButton("Inventaire");
+        inventaire.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //ouvre une fenetre inventaire
+            }
+            
+        });
+        panelHaut.add(inventaire);
         //positionnement du panelHaut
         add(panelHaut, BorderLayout.NORTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

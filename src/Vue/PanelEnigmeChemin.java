@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import Modele.Trajet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
 import javax.swing.JButton;
 
 /**
@@ -43,24 +44,25 @@ public class PanelEnigmeChemin extends JPanel {
         enigme = e;
         initEtapes();
         initBoutons();
+        affichage();
         selectionnerBouton();
-        //boutonRetour();
+        boutonRetour();
+        
     }
 
     
     private void initBoutons(){
-        float x = 0.25f;
-        float y = 0.25f;
+        
         int i;
         for (Trajet trajet : enigme.getTrajets().values()) {
             i = enigme.getNbEtapes();
-            x = 0.25f;
+            
             for (Place place : trajet.getPlaces().values()) {
                 JButton bouton = new JButton(((Fraction) place).getFraction());
-                bouton.setLocation((int) (x * largeur), (int) (y * hauteur));
+                
                 bouton.setSize(100, 100);
                 bouton.setName(String.valueOf(place.getRes()));
-                x = x + 0.1f;
+                
                 bouton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -74,13 +76,29 @@ public class PanelEnigmeChemin extends JPanel {
                         }
                     }
                 });
-                //this.add(bouton);
+                
                 etapes.get(i - 1).add(bouton);
                 i--;
                 
             }
-            y = y + 0.2f;
             
+            
+        }
+    }
+    private void affichage(){
+        float x = 0.25f;
+        float y = 0.25f;
+        for (ArrayList<JButton> places : etapes){
+            Collections.shuffle(places);
+            y = 0.25f;
+            for (JButton bouton : places){
+                bouton.setLocation((int) (x * largeur), (int) (y * hauteur));
+                this.add(bouton);
+                y = y + 0.2f;
+            }
+            x = x + 0.1f;
+
+
         }
     }
     private void initEtapes() {
@@ -112,37 +130,6 @@ public class PanelEnigmeChemin extends JPanel {
         this.add(retour);
     }
 
-    /*private void initPanel() {
-        //pour le positionnement
-        float x = 0.25f;
-        float y = 0.25f;
-        int i;
-        
-        for (ArrayList<Place> places : etapes) {
-            x = 0.25f;
-            for (Place place : places) {
-                JButton bouton = new JButton(((Fraction) place).getFraction());
-                bouton.setLocation((int) x * largeur, (int) y * hauteur);
-                bouton.setSize(100, 100);
-                bouton.setName(String.valueOf(place.getRes()));
-                x = x + 0.1f;
-                bouton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        message.addFraction(Float.parseFloat(bouton.getName()));
-                        if (etape == enigme.getNbEtapes()) {
-                            observateur.notification(message);
-                        } else {
-                            etape++;
-                            selectionnerBouton();
-                        }
-                    }
-                });
-                this.add(bouton);
-            }
-            y = y + 0.2f;
-        }
-    }*/
     
     private void selectionnerBouton(){
         //selectionner et deselectionner les boutons en fonction de l'étape

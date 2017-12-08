@@ -75,7 +75,7 @@ public class Controleur implements Observateur {
         EnigmeComposite perso = new EnigmeComposite(icone, "enigmeExpression", "images/enigme v2.jpg");
         mArche.addContien(perso);
         ///////////////////////////////ENIGMES/////////////////////////////////////
-        icone = new Icone((float)0.40, (float) 0.50, null, 300, 200);
+        icone = new Icone((float)0.75, (float) 0.35, null, 300, 200);
         EnigmeChampsDeTexte persojesaispluscommentilsapelleducoutjimprovise =new EnigmeChampsDeTexte(icone,"enigmeChampsDeTextes",null);
         mMedie.addContien(persojesaispluscommentilsapelleducoutjimprovise);
     }
