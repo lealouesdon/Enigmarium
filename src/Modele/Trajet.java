@@ -24,10 +24,11 @@ public class Trajet {
     private void initialyserTrajet(int nbEtapes, int typeEnigme) {
         if(typeEnigme==1){
             float resMa=resultat;
-            float resMi=0;
+            float interval =resMa/nbEtapes;
+            interval=((int)(interval*100))/100f;
             int i=0;
             for(;i<nbEtapes-1;i++){
-                float nouv=(float)(Math.random()* (resMa +1f - resMi )+resMi);
+                float nouv=(float)(Math.random()* (interval +1f - interval/2f )+interval/2f);
                 nouv=((int)(nouv*100))/100f;
                 resMa=resMa-nouv;
                 places.put(i,new Fraction(nouv));
@@ -42,3 +43,18 @@ public class Trajet {
     
 }
 //(int) (Math.random() * (MAXHAU + 1 - MINHAU) + MINHAU)
+/*
+if(typeEnigme==1){
+            float resMa=resultat;
+            float resMi=0;
+            int i=0;
+            for(;i<nbEtapes-1;i++){
+                float nouv=(float)(Math.random()* (resMa +1f - resMi )+resMi);
+                nouv=((int)(nouv*100))/100f;
+                resMa=resMa-nouv;
+                places.put(i,new Fraction(nouv));
+            }
+            places.put(i,new Fraction(resMa));
+        }
+    }
+*/
