@@ -29,18 +29,13 @@ public class Trajet {
             int i=0;
             for(;i<nbEtapes-1;i++){
                 float nouv=(float)(Math.random() * ( interval*100+ 1 -resMi*100 ) + resMi*100);
-                System.out.println(nouv);
                 int nouv2=(int) nouv;
-                System.out.println(nouv2);
                 nouv= (float)nouv2/100f;
-                System.out.println(nouv);
                 resMa=resMa-nouv;
-                places.put(i,new Fraction(nouv));
-                System.out.println();
                 
+                places.put(i,new Fraction(nouv));
             }
-            System.out.println(resMa);
-            System.out.println("fff");
+            
             places.put(i,new Fraction(resMa));
         }
     }
