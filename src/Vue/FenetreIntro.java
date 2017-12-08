@@ -43,6 +43,8 @@ public class FenetreIntro extends javax.swing.JFrame {
         partie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                FenetreChargement fenetre = new FenetreChargement();
+                fenetre.setVisible(true);
                 dispose();
             }
 
@@ -95,7 +97,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setAlwaysOnTop(true);
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1500, 1500));
@@ -166,6 +168,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(quitter, gridBagConstraints);
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/logo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -174,7 +177,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 7;
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("Open Sans", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 1, 48)); // NOI18N
         jLabel2.setText("Enigmarium");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

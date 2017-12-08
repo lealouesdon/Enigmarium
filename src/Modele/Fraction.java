@@ -46,5 +46,10 @@ public class Fraction extends Place{
         return fraction;
     }
     
+    @Override
+    public String afficher(){
+        return "<html>Probabilité : " + getFraction() + " <br /> " + "Montant : 10R </html>";
+    }
+    
     
 }

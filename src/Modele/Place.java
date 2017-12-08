@@ -21,6 +21,10 @@ public abstract class Place {
         return res;
     }
     
+    public String afficher(){
+        return String.valueOf(res);
+    }
+    
     
     
 }
