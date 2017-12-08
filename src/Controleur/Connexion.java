@@ -14,7 +14,7 @@ public class Connexion {
     public static void main(String[] args) {   
         
     }
-    public static Connection ConnexterDB(){
+    public static Connection ConnecterDB(){
     try {
       //Class.forName("com.mysql.jdbc.Driver"); /* chemin du driver*/
       System.out.println("Driver O.K.");
