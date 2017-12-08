@@ -28,16 +28,11 @@ public class Trajet {
             int i=0;
             for(;i<nbEtapes-1;i++){
                 float nouv=(float)(Math.random()* (resMa +1f - resMi )+resMi);
+                nouv=((int)(nouv*100))/100f;
                 resMa=resMa-nouv;
                 places.put(i,new Fraction(nouv));
-                System.out.println("ipi");
             }
             places.put(i,new Fraction(resMa));
-            System.out.println("ipi");
-        }
-        for(int i=0;i<2;i++){
-            
-            System.out.println("valeur "+i+" "+this.getPlaces().get(i).getRes());
         }
     }
 
