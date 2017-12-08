@@ -30,8 +30,14 @@ public class Trajet {
                 float nouv=(float)(Math.random()* (resMa +1f - resMi )+resMi);
                 resMa=resMa-nouv;
                 places.put(i,new Fraction(nouv));
+                System.out.println("ipi");
             }
             places.put(i+1,new Fraction(resMa));
+            System.out.println("ipi");
+        }
+        for(int i=0;i<2;i++){
+            
+            System.out.println("valeur "+i+" "+this.getPlaces().get(i).getRes());
         }
     }
 

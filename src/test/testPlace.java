@@ -20,9 +20,12 @@ public class testPlace {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Trajet trajet=new Trajet(1f,2,1);
-        Fraction place=new Fraction(1.26f);
-        System.out.print(place.getFraction());
+        Trajet trajet=new Trajet(1f,3,1);
+        for(int i=0;i<2;i++){
+            System.out.println("valeur "+i+" "+trajet.getPlaces().get(i).getRes());
+        }
+        /*Fraction place=new Fraction(1.26f);
+        System.out.print(place.getFraction());*/
     }
     
 }
