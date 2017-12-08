@@ -17,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -46,6 +47,7 @@ public class PanelEnigmeChemin extends JPanel {
         initBoutons();
         affichage();
         selectionnerBouton();
+        afficherResultat();
         boutonRetour();
         
     }
@@ -107,6 +109,13 @@ public class PanelEnigmeChemin extends JPanel {
             ArrayList<JButton> etape = new ArrayList<JButton>();
             etapes.add(etape);
         }
+    }
+    
+    private void afficherResultat(){
+        JLabel enonce = new JLabel(enigme.getEnonce());
+        enonce.setSize(150, 100);
+        enonce.setLocation((int) ( 0.4 * largeur), (int) (0 * hauteur));
+        this.add(enonce);
     }
     
     public void boutonRetour() {
