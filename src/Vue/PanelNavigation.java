@@ -40,7 +40,7 @@ public class PanelNavigation extends JPanel {
 
     /////////////////////////////////////////////////////////////////
     //constructeur
-    public PanelNavigation(HashMap<String, Lieu> cartes,int largeur, int hauteur) {
+    public PanelNavigation(HashMap<String, Lieu> cartes, int largeur, int hauteur) {
         this.setLayout(null);
         this.setSize(largeur, hauteur);
         //cree les boutons
@@ -100,11 +100,23 @@ public class PanelNavigation extends JPanel {
         JButton retour = new JButton("retour");
         //taille par défault du bouton
         retour.setSize(100, 100);
-                retour.setFont(new Font("Liberation Sans",14,14));
+        retour.setFont(new Font("Liberation Sans", 14, 14));
 
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
         //action listener pour retourner "retour" a l'appuye du bouton
+
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            retour.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        retour.setLocation(0, 0);
+
         retour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
