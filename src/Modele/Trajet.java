@@ -22,7 +22,9 @@ public class Trajet {
     }
 
     private void initialyserTrajet(int nbEtapes, int typeEnigme) {
-        if(typeEnigme==1){
+        if(typeEnigme==1){//si on a afair a l'enigme des fraction de lasVegas
+            //cree le bon nombre le trajet avec le bon nombre d'etape 
+            //en repartissant le resultat de facon a sse que les fraction soit bonne
             float resMa=resultat;
             float interval=((int)((resMa/nbEtapes)*100))/100f;
             float resMi=interval/2;
@@ -31,12 +33,10 @@ public class Trajet {
                 float nouv=(float)(Math.random() * ( interval*100+ 1 -resMi*100 ) + resMi*100);
                 int nouv2=(int) nouv;
                 nouv= (float)(nouv2/100f);
-
                 resMa=resMa-nouv;
                 places.put(i,new Fraction(nouv));
             }
             float derniere = (int)(resMa*100)/100f;
-            System.out.println(derniere);
             places.put(i,new Fraction(derniere));
         }
     }
