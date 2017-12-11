@@ -30,7 +30,8 @@ public class Trajet {
             for(;i<nbEtapes-1;i++){
                 float nouv=(float)(Math.random() * ( interval*100+ 1 -resMi*100 ) + resMi*100);
                 int nouv2=(int) nouv;
-                nouv= (float)nouv2/100f;
+                nouv= (float)(nouv2/100f);
+
                 resMa=resMa-nouv;
                 
                 places.put(i,new Fraction(nouv));

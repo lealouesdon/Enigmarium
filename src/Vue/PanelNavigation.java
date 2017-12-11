@@ -10,6 +10,7 @@ import Controleur.Observateur;
 import Modele.Carte;
 import Modele.Lieu;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -57,7 +58,7 @@ public class PanelNavigation extends JPanel {
             //rend le bouton trensparent
             bouton.setOpaque(false);
             bouton.setContentAreaFilled(false);
-            bouton.setBorderPainted(true);
+            bouton.setBorderPainted(false);
             //taille du bouton (a modifier avec des valeurs de icone)!!!
             bouton.setSize(cartes.get(string).getIcone().getLargeur(), cartes.get(string).getIcone().getHauteur());
             //si un icone est defini
@@ -98,7 +99,9 @@ public class PanelNavigation extends JPanel {
         //met en place tous les boutons sur le Jpanel
         JButton retour = new JButton("retour");
         //taille par défault du bouton
-        retour.setSize(70, 70);
+        retour.setSize(100, 100);
+                retour.setFont(new Font("Liberation Sans",14,14));
+
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
         //action listener pour retourner "retour" a l'appuye du bouton
