@@ -13,7 +13,7 @@ import java.util.HashMap;
  * @author etien
  */
 public class EnigmeChemin extends Enigme {
-    private float resultat;
+    private static float resultat=1f;
     private int nbChemins;
     private int nbEtapes;
     private HashMap<Integer,Trajet> trajets;
@@ -24,7 +24,6 @@ public class EnigmeChemin extends Enigme {
         super(icone, nom, fond);
         this.nbChemins=nbChemins;
         this.nbEtapes=nbEtapes;
-        this.resultat=1f;
         enonce = "La probabilité a avoir est : "+String.valueOf(resultat);
         this.typeEnigme=typeEnigme;
         this.trajets=new HashMap();
