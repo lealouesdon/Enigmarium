@@ -32,11 +32,11 @@ public class Trajet {
                 int nouv2=(int) nouv;
                 nouv= (float)nouv2/100f;
                 resMa=resMa-nouv;
-                
                 places.put(i,new Fraction(nouv));
             }
-            
-            places.put(i,new Fraction(resMa));
+            float derniere = (int)(resMa*100)/100f;
+            System.out.println(derniere);
+            places.put(i,new Fraction(derniere));
         }
     }
 

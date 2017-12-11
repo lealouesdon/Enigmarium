@@ -24,7 +24,7 @@ public class EnigmeChemin extends Enigme {
         super(icone, nom, fond);
         this.nbChemins=nbChemins;
         this.nbEtapes=nbEtapes;
-        this.resultat=2f;
+        this.resultat=1f;
         enonce = "La probabilité a avoir est : "+String.valueOf(resultat);
         this.typeEnigme=typeEnigme;
         this.trajets=new HashMap();
