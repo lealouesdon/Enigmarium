@@ -5,16 +5,10 @@
  */
 package Vue;
 
-import java.awt.Image;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-
 
 /**
  *
@@ -25,13 +19,22 @@ public class FenetrePerso extends javax.swing.JFrame {
     /**
      * Creates new form FenetrePerso
      */
+    private String perso;
+
     public FenetrePerso() {
         initComponents();
+        fille.setName("fille");
+        garcon.setName("garcon");
+        valider.setEnabled(false);
         //bouton valider
         valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
+                if(perso!=null){
+                    //update base de données
+                    dispose();
+                }
+                
             }
 
         });
@@ -45,6 +48,31 @@ public class FenetrePerso extends javax.swing.JFrame {
             }
 
         });
+        //bouton perso file
+        fille.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                garcon.setBackground(Color.LIGHT_GRAY);
+                fille.setBackground(Color.red);
+                perso = fille.getName();
+                System.out.println(perso);
+                valider.setEnabled(true);
+            }
+
+        });
+        //bouton perso mec
+        garcon.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fille.setBackground(Color.LIGHT_GRAY);
+                garcon.setBackground(Color.red);
+                perso = garcon.getName();
+                System.out.println(perso);
+                valider.setEnabled(true);
+            }
+
+        });
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
@@ -61,68 +89,72 @@ public class FenetrePerso extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         valider = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        pseudo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        garcon = new javax.swing.JButton();
+        fille = new javax.swing.JButton();
         retour = new javax.swing.JButton();
 
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
+        jPanel1Layout.columnWidths = new int[] {0, 5, 0, 5, 0};
+        jPanel1Layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0};
+        jPanel1.setLayout(jPanel1Layout);
 
+        valider.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         valider.setText("Valider");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(valider, gridBagConstraints);
-
-        jTextField1.setText("Nom...");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 136;
         gridBagConstraints.ipady = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(jTextField1, gridBagConstraints);
+        jPanel1.add(pseudo, gridBagConstraints);
 
-        jLabel1.setText("Choisir un personnage et lui donner un nom :");
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel1.setText("Choisir un personnage et son pseudo :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/perso_masculin.png"))); // NOI18N
+        garcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/perso_masculin.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 8;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(jButton2, gridBagConstraints);
+        jPanel1.add(garcon, gridBagConstraints);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/perso_feminin.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        fille.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/perso_feminin.png"))); // NOI18N
+        fille.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                filleActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(jButton1, gridBagConstraints);
+        jPanel1.add(fille, gridBagConstraints);
 
+        retour.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         retour.setText("Retour");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(retour, gridBagConstraints);
 
@@ -131,9 +163,9 @@ public class FenetrePerso extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void filleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_filleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,11 +203,11 @@ public class FenetrePerso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton fille;
+    private javax.swing.JButton garcon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField pseudo;
     private javax.swing.JButton retour;
     private javax.swing.JButton valider;
     // End of variables declaration//GEN-END:variables

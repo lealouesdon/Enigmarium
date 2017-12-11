@@ -11,6 +11,7 @@ import Modele.Composition;
 import Modele.Element;
 import Modele.EnigmeComposite;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -102,7 +103,7 @@ public class PanelEnigmeComposite extends JPanel {
         //met le nom du bouton au nom de la carte
         bouton.setName(elem.getNom());
         //rend le bouton trensparent
-        bouton.setBackground(Color.gray);
+        bouton.setBackground(Color.LIGHT_GRAY);
         //bouton.setOpaque(false);
         //bouton.setContentAreaFilled(false);
         bouton.setBorderPainted(false);
@@ -126,6 +127,8 @@ public class PanelEnigmeComposite extends JPanel {
         bouton.setVerticalTextPosition(SwingConstants.CENTER);
         bouton.setHorizontalTextPosition(SwingConstants.CENTER);
         bouton.setText(elem.affichage());
+        bouton.setFont(new Font("Liberation Sans", 14, 14));
+
         return bouton;
     }
 
@@ -192,7 +195,7 @@ public class PanelEnigmeComposite extends JPanel {
         //met en place tous les boutons sur le Jpanel
         JButton retour = new JButton("retour");
         //taille par défault du bouton
-        retour.setSize(70, 70);
+        retour.setSize(100, 100);
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
         //action listener pour retourner "retour" a l'appuye du bouton
@@ -206,7 +209,9 @@ public class PanelEnigmeComposite extends JPanel {
             }
         }
         );
-        //ajouter une image pour le bouton retour!!!
+        
+        retour.setFont(new Font("Liberation Sans", 14, 14));
+
         this.add(retour);
     }
 
@@ -224,19 +229,23 @@ public class PanelEnigmeComposite extends JPanel {
 /////////////////////////////////////////////////////////////////////////////////////////////
 
     private void indice() {
-        JButton indice = new JButton("indice");
-        indice.setSize(100, 100);
-        indice.setLocation(this.getWidth() - 100, 0);
-        indice.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                FenetreIndice ind = new FenetreIndice();
-                ind.setIndice(carte.getIndice());
-                ind.setVisible(true);
-            }
+        if (carte.getIndice() != null) {
+            JButton indice = new JButton("indice");
+            indice.setFont(new Font("Liberation Sans", 14, 14));
 
-        });
-        this.add(indice);
+            indice.setSize(100, 100);
+            indice.setLocation(this.getWidth() - 100, 0);
+            indice.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    FenetreIndice ind = new FenetreIndice();
+                    ind.setIndice(carte.getIndice());
+                    ind.setVisible(true);
+                }
+
+            });
+            this.add(indice);
+        }
     }
 
     public void setObservateur(Observateur o) {

@@ -5,6 +5,8 @@
  */
 package Vue;
 
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,6 +21,11 @@ public class FenetreInventaire extends javax.swing.JFrame {
      */
     public FenetreInventaire() {
         initComponents();
+        GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        //int largeur = gd.getDisplayMode().getWidth();
+        
+        int hauteur = gd.getDisplayMode().getHeight();
+        this.setSize(500, hauteur);
         fermer.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,11 +55,11 @@ public class FenetreInventaire extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(500, 700));
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("MV Boli", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Inventaire : ");
 
-        fermer.setFont(new java.awt.Font("MV Boli", 1, 14)); // NOI18N
+        fermer.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         fermer.setText("Fermer");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -63,7 +70,7 @@ public class FenetreInventaire extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 306, Short.MAX_VALUE)
+            .addGap(0, 321, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

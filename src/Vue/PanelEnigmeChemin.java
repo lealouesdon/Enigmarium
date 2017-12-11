@@ -8,11 +8,11 @@ package Vue;
 import Controleur.Message;
 import Controleur.Observateur;
 import Modele.EnigmeChemin;
-import Modele.Fraction;
 import Modele.Place;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import Modele.Trajet;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
@@ -25,7 +25,7 @@ import javax.swing.JLabel;
  */
 public class PanelEnigmeChemin extends JPanel {
 
-    private Observateur observateur;  
+    private Observateur observateur;
     private ArrayList<ArrayList<JButton>> etapes;
     private EnigmeChemin enigme;
     private int largeur;
@@ -49,80 +49,87 @@ public class PanelEnigmeChemin extends JPanel {
         selectionnerBouton();
         afficherResultat();
         boutonRetour();
-        
-    }
+        indice();
 
-    
-    private void initBoutons(){
-        
+    }
+////////////////////////////////////////////////////////////////
+    private void initBoutons() {
+        //initialise les boutons de la vue
         int i;
         for (Trajet trajet : enigme.getTrajets().values()) {
             i = enigme.getNbEtapes();
-            
+
             for (Place place : trajet.getPlaces().values()) {
                 JButton bouton = new JButton(place.afficher());
-                
+
                 bouton.setSize(150, 100);
                 bouton.setName(String.valueOf(place.getRes()));
-                
+                bouton.setFont(new Font("Liberation Sans", 14, 14));
+
                 bouton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        message.addFraction(Float.parseFloat(bouton.getName()));    
+                        message.addFraction(Float.parseFloat(bouton.getName()));
                         if (etape == enigme.getNbEtapes()) {
                             observateur.notification(message);
-                            
+
                         } else {
                             etape++;
                             selectionnerBouton();
                         }
                     }
                 });
-                
+
                 etapes.get(i - 1).add(bouton);
                 i--;
-                
+
             }
-            
-            
+
         }
     }
-    private void affichage(){
+//////////////////////////////////////////////////////////////
+    private void affichage() {
+        //affiche les boutons de la vue aléatoirement
         float x = 0.50f;
         float y = 0.60f;
-        for (ArrayList<JButton> places : etapes){
+        for (ArrayList<JButton> places : etapes) {
             Collections.shuffle(places);
             x = 0.50f;
-            for (JButton bouton : places){
+            for (JButton bouton : places) {
                 bouton.setLocation((int) (x * largeur), (int) (y * hauteur));
                 this.add(bouton);
                 x = x - 0.2f;
             }
             y = y - 0.2f;
-            
-
 
         }
     }
+///////////////////////////////////////////////////////////////////
     private void initEtapes() {
+        //initialise les arraylist en fonction du nombre d'étapes
         for (int i = 0; i < enigme.getNbEtapes(); i++) {
             ArrayList<JButton> etape = new ArrayList<JButton>();
             etapes.add(etape);
         }
     }
-    
-    private void afficherResultat(){
+/////////////////////////////////////////////////////////////////
+    private void afficherResultat() {
+        //affiche l'énoncé de l'énigme
         JLabel enonce = new JLabel(enigme.getEnonce());
-        enonce.setSize(150, 100);
-        enonce.setLocation((int) ( 0.4 * largeur), (int) (0 * hauteur));
+        enonce.setSize(250, 100);
+        enonce.setLocation((int) (0.4 * largeur), (int) (0 * hauteur));
+        enonce.setFont(new Font("Liberation Sans", 14, 14));
         this.add(enonce);
     }
-    
+/////////////////////////////////////////////////////////////////////////
     public void boutonRetour() {
+        //affiche le bouton retour du jeu
         //met en place tous les boutons sur le Jpanel
         JButton retour = new JButton("retour");
         //taille par défault du bouton
-        retour.setSize(70, 70);
+        retour.setSize(100, 100);
+        retour.setFont(new Font("Liberation Sans", 14, 14));
+
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
         //action listener pour retourner "retour" a l'appuye du bouton
@@ -139,23 +146,43 @@ public class PanelEnigmeChemin extends JPanel {
         //ajouter une image pour le bouton retour!!!
         this.add(retour);
     }
-
-    
-    private void selectionnerBouton(){
+//////////////////////////////////////////////////////
+    private void selectionnerBouton() {
+        //permet de séléctionner l'étape courante
         //selectionner et deselectionner les boutons en fonction de l'étape
-        for (ArrayList<JButton> places : etapes){
-            for (JButton bouton : places){
+        for (ArrayList<JButton> places : etapes) {
+            for (JButton bouton : places) {
                 bouton.setEnabled(false);
             }
         }
         //selectionne le bon : 
-        for (JButton bouton : etapes.get(etape-1)){
+        for (JButton bouton : etapes.get(etape - 1)) {
             bouton.setEnabled(true);
         }
-        
-    }
-    
 
+    }
+//////////////////////////////////////////////////////////////
+    private void indice() {
+        //permet d'afficher l'indice, si il y en a un
+        if (enigme.getIndice() != null) {
+            JButton indice = new JButton("indice");
+            indice.setFont(new Font("Liberation Sans", 14, 14));
+
+            indice.setSize(100, 100);
+            indice.setLocation(this.getWidth() - 100, 0);
+            indice.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    FenetreIndice ind = new FenetreIndice();
+                    ind.setIndice(enigme.getIndice());
+                    ind.setVisible(true);
+                }
+
+            });
+            this.add(indice);
+        }
+    }
+//////////////////////////////////////////////////////////////////////
     public void setObservateur(Observateur observateur) {
         this.observateur = observateur;
     }
