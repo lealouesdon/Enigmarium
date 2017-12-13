@@ -66,4 +66,9 @@ public abstract class Lieu {
     public boolean getRetour() {
         return retour;
     }
+
+    public String getSon() {
+        return son;
+    }
+    
 }
