@@ -37,6 +37,9 @@ public class EnigmeChemin extends Enigme {
         
     }
     @Override
+    //La vue envoi un message composé d'un arrayList de de place
+    //proposition doit donc verifier que la somme des place est 
+    //egale a resultat.
     public boolean proposition(Message message){
         //message.fractions
         float res=0;

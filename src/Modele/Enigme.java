@@ -21,7 +21,8 @@ public abstract class Enigme extends Lieu {
        super(icone,nom,fond);
        
     }
-    
+    //Proposition est un methode abstrait qui a pour objectif de valider ou non
+    //le choix fait par l'utilisateur
     abstract boolean proposition(Message message);
     
     public static void setDESCRIPTION(String DESCRIPTION) {
