@@ -71,7 +71,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     public void creeVue(Carte c) {
         //crée un panel a partir d'une carte et l'affiche
         //cree le PanelNavigation avec l'arrayList de cartes de la carte donnée
-        PanelNavigation panel = new PanelNavigation(c.getContiens(), this.getWidth(), this.getHeight());
+        PanelNavigation panel = new PanelNavigation(c, this.getWidth(), this.getHeight());
 
         if (c.getRetour()) {
             panel.boutonRetour();
@@ -79,8 +79,6 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         //donne le nom de la carte au panel
         panel.setName(c.getNom());
         panel.setObservateur(this);
-        //mettre le fond 
-        panel.setFond(c);
         //ajoute et montre le panel
         cardPanel.add(panel, c.getNom());
         cardLayout.show(cardPanel, c.getNom());
@@ -143,7 +141,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     private void boutonMenu() {
         JButton menu = new JButton();
         menu.setLocation(largeur - 100, 0);
-        menu.setSize(100, 120);
+        menu.setSize(50, 70);
         menu.setOpaque(false);
         menu.setContentAreaFilled(false);
         menu.setBorderPainted(false);
