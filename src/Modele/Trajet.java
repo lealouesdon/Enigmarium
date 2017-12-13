@@ -40,7 +40,7 @@ public class Trajet {
             places.put(i,new Fraction(derniere));
         }
     }
-
+ 
     public HashMap<Integer,Place> getPlaces() {
         return places;
     }
