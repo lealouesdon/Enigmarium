@@ -35,6 +35,8 @@ public class EnigmeChampsDeTexte extends Enigme{
     }
     
     @Override
+    //proposition verifi que la valeur envoyer dans le message 
+    //correspond a valAttendu.
     public boolean proposition(Message m){
         return m.getAtt1().equals(valAttendu);
         

@@ -19,6 +19,7 @@ public class Fraction extends Place{
     }
     
     public static String toFraction(float d, int factor) {
+    //methode pour retourner le string d'un fraction a partire d'un float
     StringBuilder sb = new StringBuilder();
     if (d < 0) {
         sb.append('-');

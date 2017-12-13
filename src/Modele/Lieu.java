@@ -46,7 +46,7 @@ public abstract class Lieu {
         prerequis = new ArrayList();
         this.son=null;
     }
-
+ 
     public void setFond(String fond) {
         this.fond = fond;
     }

@@ -9,6 +9,7 @@ package Modele;
  *
  * @author Léa
  */
+//composition corespond a l'association de deux elements elem1 et elem2
 public class Composition {
     private Element elem1;
     private Element elem2;
