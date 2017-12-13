@@ -18,11 +18,16 @@ import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import static javax.sound.sampled.Clip.LOOP_CONTINUOUSLY;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -37,15 +42,23 @@ public class PanelNavigation extends JPanel {
     private Observateur observateur;
     private Carte carte;
     private Message m;
+    private String son;
 
     /////////////////////////////////////////////////////////////////
     //constructeur
-    public PanelNavigation(HashMap<String, Lieu> cartes, int largeur, int hauteur) {
+    public PanelNavigation(Carte carte, int largeur, int hauteur) {
         this.setLayout(null);
         this.setSize(largeur, hauteur);
+        this.carte=carte;
+        setFond();
         //cree les boutons
         this.repaint();
-        initBoutons(cartes);
+        initBoutons(carte.getContiens());
+        //son=carte.getSon();
+        //if (son!=null){
+        //File sonDeFond= new File(son);
+        //PlaySound(sonDeFond);
+        
     }
 //////////////////////////////////////////////////////////////////////////////
 
@@ -132,10 +145,7 @@ public class PanelNavigation extends JPanel {
     }
 
     //////////////////////////////////////////////7
-    public void setFond(Carte carte) {
-        //met le fond du JPanel
-        //met la carte utilisé pour le fond en attribut
-        this.carte = carte;
+    private void setFond() {
         //redessine le jpanel
         this.repaint();
     }
@@ -172,5 +182,18 @@ public class PanelNavigation extends JPanel {
             }
         }
 
+    }
+    ///////////////////////////////////////////////////////
+    static void PlaySound(File sound){
+        try{
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(sound);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+            clip.loop(LOOP_CONTINUOUSLY);
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
     }
 }
