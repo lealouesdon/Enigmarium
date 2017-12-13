@@ -198,6 +198,15 @@ public class PanelEnigmeComposite extends JPanel {
         retour.setSize(100, 100);
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            retour.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //action listener pour retourner "retour" a l'appuye du bouton
         retour.addActionListener(new ActionListener() {
             @Override
