@@ -54,10 +54,11 @@ public class PanelNavigation extends JPanel {
         //cree les boutons
         this.repaint();
         initBoutons(carte.getContiens());
-        //son=carte.getSon();
-        //if (son!=null){
-        //File sonDeFond= new File(son);
-        //PlaySound(sonDeFond);
+        son=carte.getSon();
+        if (son!=null){
+            File sonDeFond= new File(son);
+            PlaySound(sonDeFond);
+        }
         
     }
 //////////////////////////////////////////////////////////////////////////////
