@@ -9,14 +9,14 @@ package Modele;
  *
  * @author lorentzr
  */
-public abstract class Personnage extends Lieu{
-    private String nomPersonnage;
+public class Personnage extends Lieu{
+    private Enigme enigme;
     private String sexe;
 
-    public Personnage(Icone icone, String nom, String fond, String nomPersonnage, String sexe) {
+    public Personnage(Icone icone, String nom, String fond, String sexe,Enigme enigme) {
         super(icone, nom, fond);
-        this.nomPersonnage = nomPersonnage;
         this.sexe = sexe;
+        this.enigme=enigme;
     }
 
     
