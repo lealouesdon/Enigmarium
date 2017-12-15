@@ -173,6 +173,7 @@ public class PanelNavigation extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); // paint the background image and scale it to fill the entire space
         //si l'image est rentrée l'afficher
+        String fond = carte.getFond();
         if (carte.getFond() != null) {
             try {
                 //affiche l'image de la carte
@@ -197,4 +198,5 @@ public class PanelNavigation extends JPanel {
             System.out.println(e);
         }
     }
+    
 }
