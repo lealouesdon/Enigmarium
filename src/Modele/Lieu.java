@@ -19,6 +19,7 @@ public abstract class Lieu {
     private Icone icone;
     private boolean retour;
     private ArrayList<Lieu> prerequis;
+    private String descriptife;
     
     public Lieu(Icone icone, String nom, String fond,String son) {
         this.icone = icone;
@@ -27,6 +28,7 @@ public abstract class Lieu {
         this.retour = true;
         prerequis = new ArrayList();
         this.son=son;
+        this.descriptife="descriptife a ecrire";
     }
 
     public Lieu(Icone icone, String nom, String fond) {
@@ -36,6 +38,7 @@ public abstract class Lieu {
         this.retour = true;
         prerequis = new ArrayList();
         this.son=null;
+        this.descriptife="descriptife a ecrire";
     }
 
     public Lieu(Icone icone, String nom, String fond, boolean retour) {
@@ -45,6 +48,7 @@ public abstract class Lieu {
         this.retour = retour;
         prerequis = new ArrayList();
         this.son=null;
+        this.descriptife="descriptife a ecrire";
     }
  
     public void setFond(String fond) {
