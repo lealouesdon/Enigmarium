@@ -102,6 +102,7 @@ public class PanelNavigation extends JPanel {
 
                 @Override
                 public void mousePressed(MouseEvent e) {
+                    //changer par les vrai valeurs SI ELLES EXISTENT!!
                     fInfo= new FenetreInfoPerso("monNom","MaDeskjsnfvjndfkbqlmv");
                     fInfo.setVisible(true);
                 }
@@ -120,17 +121,7 @@ public class PanelNavigation extends JPanel {
                 }
                 
             });
-            bouton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    /*m = new Message();
-                    //renvoyer le nom du bouton pas le texte
-                    m.setMessage(cartes.get(string).getNom());
-                    m.setEtat("carteChoisi");
-                    observateur.notification(m);*/
-                }
-            }
-            );
+            
             this.add(bouton);
         }
     }

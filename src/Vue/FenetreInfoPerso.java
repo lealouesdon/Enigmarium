@@ -21,6 +21,7 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
         this.nom.setText(nom);
         this.desc.setText(desc);
         this.setLocation(MouseInfo.getPointerInfo().getLocation());
+        
     }
 
     /**
