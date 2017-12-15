@@ -16,7 +16,8 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
      */
     public FenetreInfoPerso(String nom,String desc) {
         initComponents();
-        
+        this.nom.setText(nom);
+        this.desc.setText(desc);
     }
 
     /**
@@ -29,38 +30,37 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
     private void initComponents() {
 
         nom = new javax.swing.JLabel();
-        desctiption = new javax.swing.JLabel();
+        desc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(200, 250));
+        setResizable(false);
+        setSize(new java.awt.Dimension(200, 250));
 
-        nom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        nom.setText("perso");
-        nom.setToolTipText("");
+        nom.setText("jLabel1");
 
-        desctiption.setText("jLabel2");
+        desc.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(desctiption, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                    .addComponent(desc)
+                    .addComponent(nom))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(desctiption, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addComponent(nom)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addComponent(desc)
+                .addGap(63, 63, 63))
         );
 
         pack();
@@ -96,13 +96,13 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FenetreInfoPerso().setVisible(true);
+                //new FenetreInfoPerso().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel desctiption;
+    private javax.swing.JLabel desc;
     private javax.swing.JLabel nom;
     // End of variables declaration//GEN-END:variables
 }

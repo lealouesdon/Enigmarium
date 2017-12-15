@@ -44,7 +44,7 @@ public class PanelNavigation extends JPanel {
     private Observateur observateur;
     private Carte carte;
     private Message m;
-    private String son;
+    private FenetreInfoPerso fInfo;
 
     /////////////////////////////////////////////////////////////////
     //constructeur
@@ -56,11 +56,7 @@ public class PanelNavigation extends JPanel {
         //cree les boutons
         this.repaint();
         initBoutons(carte.getContiens());
-        son=carte.getSon();
-        if (son!=null){
-            File sonDeFond= new File(son);
-            PlaySound(sonDeFond);
-        }
+        
         
     }
 //////////////////////////////////////////////////////////////////////////////
@@ -93,6 +89,7 @@ public class PanelNavigation extends JPanel {
             //met la position du bouton en fonction des attributs de l'icone
             bouton.setLocation((int) (cartes.get(string).getIcone().getX() * this.getWidth()), (int) (cartes.get(string).getIcone().getY() * this.getHeight()));
             //set l'action listener
+            //FenetreInfoPerso fInfo;
             bouton.addMouseListener(new MouseListener(){
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -105,11 +102,13 @@ public class PanelNavigation extends JPanel {
 
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    System.out.print("passe");
+                    fInfo= new FenetreInfoPerso("monNom","MaDeskjsnfvjndfkbqlmv");
+                    fInfo.setVisible(true);
                 }
 
                 @Override
                 public void mouseReleased(MouseEvent e) {
+                    fInfo.dispose();
                 }
 
                 @Override
@@ -214,17 +213,6 @@ public class PanelNavigation extends JPanel {
 
     }
     ///////////////////////////////////////////////////////
-    static void PlaySound(File sound){
-        try{
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(sound);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioIn);
-            clip.start();
-            clip.loop(LOOP_CONTINUOUSLY);
-            
-        } catch(Exception e){
-            System.out.println(e);
-        }
-    }
+    
     
 }
