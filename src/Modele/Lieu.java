@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Léa
  */
 public abstract class Lieu {
-
+  
     private String nom;
     private String son;
     private String fond;
@@ -73,6 +73,10 @@ public abstract class Lieu {
 
     public String getSon() {
         return son;
+    }
+
+    public String getDescriptife() {
+        return descriptife;
     }
     
 }
