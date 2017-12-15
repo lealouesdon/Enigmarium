@@ -99,9 +99,7 @@ public class PanelNavigation extends JPanel {
                     m.setMessage(cartes.get(string).getNom());
                     m.setEtat("carteChoisi");
                     observateur.notification(m);
-                    //System.out.println("Message envoyé");
                 }
-
             }
             );
             this.add(bouton);
