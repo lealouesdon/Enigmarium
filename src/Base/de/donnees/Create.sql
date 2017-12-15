@@ -11,6 +11,7 @@ Create table Avatar(
 	sexe varchar(10) not null, /* sexe de l'avatar*/
         avanceeQ int, /*avancee d'une quete quand avancee = nbenigmes => fin*/
         avanceeH int, /*avancee d'une histoire quand nbQuetes = avancee => fin */
+        chapitre int, /*N° du chapitre*/
 	foreign key (idAvatar) references Joueur(id)
 );
 
