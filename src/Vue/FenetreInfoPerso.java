@@ -5,6 +5,8 @@
  */
 package Vue;
 
+import java.awt.MouseInfo;
+
 /**
  *
  * @author Léa
@@ -18,6 +20,7 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
         initComponents();
         this.nom.setText(nom);
         this.desc.setText(desc);
+        this.setLocation(MouseInfo.getPointerInfo().getLocation());
     }
 
     /**
@@ -33,13 +36,16 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
         desc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(200, 200));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(200, 250));
         setResizable(false);
         setSize(new java.awt.Dimension(200, 250));
 
+        nom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nom.setText("jLabel1");
 
+        desc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         desc.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -47,20 +53,22 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(desc)
-                    .addComponent(nom))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(desc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(43, 43, 43)
                 .addComponent(nom)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(desc)
-                .addGap(63, 63, 63))
+                .addGap(46, 46, 46)
+                .addComponent(desc, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
