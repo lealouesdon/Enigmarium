@@ -16,6 +16,7 @@ import Modele.EnigmeChemin;
 import Modele.EnigmeComposite;
 import Modele.Icone;
 import Modele.Lieu;
+import Modele.Personnage;
 import Vue.FenetreIndice;
 import Vue.FenetreIntro;
 import Vue.FenetrePrincipale;
@@ -67,7 +68,8 @@ public class Controleur implements Observateur {
         //monde de la nouriture
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
         EnigmeComposite pBoul = new EnigmeComposite(icone, "enigmeVolume", "images/vueJeu.png");
-        mMedie.addContien(pBoul);
+        Personnage persoBoulanger =new Personnage(icone,"boulanger",null,null,pBoul);
+        mMedie.addContien(persoBoulanger);
         EnigmeChemin psoupe = new EnigmeChemin(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "enigmeChemin", null,2,3,1);
         mMedie.addContien(psoupe);
         //monde des archéologues
