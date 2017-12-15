@@ -7,8 +7,18 @@ package Vue;
 import Controleur.Message;
 import Controleur.Observateur;
 import Modele.EnigmeChampsDeTexte;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 /**
  *
@@ -20,6 +30,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
      * Creates new form PanelEnigmeCDT
      */
     private Observateur observateur;
+    private EnigmeChampsDeTexte enigme;
     
     public PanelEnigmeCDT(EnigmeChampsDeTexte e, int largeur, int hauteur) {
         initComponents();
@@ -36,6 +47,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
             
         });
         boutonRetour();
+        indice();
     }
     
     public void setObservateur(Observateur observateur) {
@@ -49,6 +61,15 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         retour.setSize(70, 70);
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            retour.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //action listener pour retourner "retour" a l'appuye du bouton
         retour.addActionListener(new ActionListener() {
             @Override
@@ -62,6 +83,37 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         );
         //ajouter une image pour le bouton retour!!!
         this.add(retour);
+    }
+    
+    private void indice() {
+        if (enigme.getIndice() != null) {
+            JButton indice = new JButton("indice");
+            indice.setFont(new Font("Liberation Sans", 14, 14));
+
+            indice.setSize(100, 100);
+            indice.setLocation(this.getWidth() - 100, 0);
+            indice.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    FenetreIndice ind = new FenetreIndice();
+                    ind.setIndice(enigme.getIndice());
+                    ind.setVisible(true);
+                }
+
+            });
+            this.add(indice);
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////
+    private Image getScaledImage(Image srcImg, int w, int h) {
+        //pour redimensionner une image pour un bouton
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
     }
 
     /**
@@ -79,9 +131,10 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
 
         setLayout(null);
 
+        valider.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         valider.setText("Valider");
         add(valider);
-        valider.setBounds(167, 118, 74, 26);
+        valider.setBounds(150, 120, 90, 40);
 
         reponse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,10 +144,11 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         add(reponse);
         reponse.setBounds(126, 80, 159, 20);
 
+        question.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         question.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         question.setText("---");
         add(question);
-        question.setBounds(0, 46, 388, 16);
+        question.setBounds(0, 32, 388, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void reponseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reponseActionPerformed

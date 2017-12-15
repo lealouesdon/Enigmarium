@@ -18,15 +18,21 @@ import Modele.EnigmeComposite;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class FenetrePrincipale extends JFrame implements Observateur {
+
     private Observateur observateur;//observateur de la fenetre est controleur
     private JPanel cardPanel, panelHaut;
     //pour le panel haut
     JLabel mascotte, message;
     //attributs pour la taille de l'écrant
-    int hauteur,largeur;
+    int hauteur, largeur;
     private CardLayout cardLayout = new CardLayout();
 
     public FenetrePrincipale() {
@@ -45,32 +51,14 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         ////////////////////////////////////////////////
         //Panel du haut 
         panelHaut = new JPanel();
-        mascotte = new JLabel("masotte");
-        mascotte.setBorder(BorderFactory.createLineBorder(Color.black));
-        panelHaut.add(mascotte, BorderLayout.WEST);
-        message = new JLabel("/////////////////message a modifier//////////////////////");
-        message.setBorder(BorderFactory.createLineBorder(Color.black));
-        panelHaut.add(message, BorderLayout.CENTER);
+        panelHaut.setBackground(Color.WHITE);
+        panelHaut.setLayout(new BorderLayout());
         //bouton menu
-        JButton menu = new JButton("menu");
-        menu.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                FenetreIntro f = new FenetreIntro();
-                f.setVisible(true);
-            }
-            
-        });
-        panelHaut.add(menu);
-        JButton fermer = new JButton("fermer");
-        fermer.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-            
-        });
-        panelHaut.add(fermer);
+        boutonMenu();
+        //bouton fermer
+        boutonFermer();
+        //bouton inventaire
+        boutonInventaire();
         //positionnement du panelHaut
         add(panelHaut, BorderLayout.NORTH);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,57 +71,59 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     public void creeVue(Carte c) {
         //crée un panel a partir d'une carte et l'affiche
         //cree le PanelNavigation avec l'arrayList de cartes de la carte donnée
-        PanelNavigation panel = new PanelNavigation(c.getContiens(),this.getWidth(),this.getHeight());
-        
-        if (c.getRetour()){
+        PanelNavigation panel = new PanelNavigation(c, this.getWidth(), this.getHeight());
+
+        if (c.getRetour()) {
             panel.boutonRetour();
         }
         //donne le nom de la carte au panel
         panel.setName(c.getNom());
         panel.setObservateur(this);
-        //mettre le fond 
-        panel.setFond(c);
         //ajoute et montre le panel
         cardPanel.add(panel, c.getNom());
         cardLayout.show(cardPanel, c.getNom());
     }
+
     ////////////////////////////////////////////////////////////////////////////////////////
-    public void creeVueEnigmeComposite(EnigmeComposite e){
-        PanelEnigmeComposite panel = new PanelEnigmeComposite(e,this.getWidth(),this.getHeight());
-        
+    public void creeVueEnigmeComposite(EnigmeComposite e) {
+        PanelEnigmeComposite panel = new PanelEnigmeComposite(e, this.getWidth(), this.getHeight());
+
         //donne le nom de la carte au panel
         panel.setName(e.getNom());
-        panel.setObservateur(this);     
+        panel.setObservateur(this);
         //ajoute et montre le panel
         cardPanel.add(panel, e.getNom());
         cardLayout.show(cardPanel, e.getNom());
     }
+
     /////////////////////////////////////////////////////////////////////////////////////////
-    public void creeVueEnigmeChampsDeTexte(EnigmeChampsDeTexte e){
-        PanelEnigmeCDT panel = new PanelEnigmeCDT(e,this.getWidth(),this.getHeight());
-        
+    public void creeVueEnigmeChampsDeTexte(EnigmeChampsDeTexte e) {
+        PanelEnigmeCDT panel = new PanelEnigmeCDT(e, this.getWidth(), this.getHeight());
+
         //donne le nom de la carte au panel
         panel.setName(e.getNom());
-        panel.setObservateur(this);     
+        panel.setObservateur(this);
         //ajoute et montre le panel
         cardPanel.add(panel, e.getNom());
         cardLayout.show(cardPanel, e.getNom());
     }
+
     //////////////////////////////////////////////////////////////////////////////////
-    public void creeVueEnigmeChemin(EnigmeChemin e){
-        PanelEnigmeChemin panel = new PanelEnigmeChemin(e,this.getWidth(),this.getHeight());
+    public void creeVueEnigmeChemin(EnigmeChemin e) {
+        PanelEnigmeChemin panel = new PanelEnigmeChemin(e, this.getWidth(), this.getHeight());
         //donne le nom de la carte au panel
         panel.setName(e.getNom());
-        panel.setObservateur(this);     
+        panel.setObservateur(this);
         //ajoute et montre le panel
         cardPanel.add(panel, e.getNom());
         cardLayout.show(cardPanel, e.getNom());
     }
+
     ////////////////////////////////////////////////////////////////////////
-    public void modifierMessage(String message){
+    public void modifierMessage(String message) {
         //methode pour modifier ce que dit la mascotte
     }
-    
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //methode pour ajuter l'observateur
     public void setObservateur(Observateur o) {
@@ -145,6 +135,96 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     public void notification(Message m) {
         //envoyer le message au controleur
         observateur.notification(m);
-    } 
-}
+    }
 
+    //////////////////////////////////////////////
+    private void boutonMenu() {
+        JButton menu = new JButton();
+        menu.setLocation(largeur - 100, 0);
+        menu.setSize(50, 70);
+        menu.setOpaque(false);
+        menu.setContentAreaFilled(false);
+        menu.setBorderPainted(false);
+        menu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FenetreIntro f = new FenetreIntro();
+                f.setVisible(true);
+            }
+
+        });
+        menu.setFont(new Font("Liberation Sans", 14, 14));
+
+        panelHaut.add(menu, BorderLayout.WEST);
+
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/menu.jpg"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, menu.getHeight(), menu.getWidth()));
+            menu.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void boutonInventaire() {
+        JButton inventaire = new JButton("Inventaire");
+        /*try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            inventaire.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        inventaire.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //ouvre une fenetre inventaire
+                FenetreInventaire fenetre = new FenetreInventaire();
+                fenetre.setVisible(true);
+            }
+
+        });
+        inventaire.setFont(new Font("Liberation Sans", 14, 14));
+
+        panelHaut.add(inventaire, BorderLayout.CENTER);
+    }
+
+    private void boutonFermer() {
+        JButton fermer = new JButton("fermer");
+        fermer.setLocation(0, 0);
+        fermer.setSize(100, 100);
+        /*try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            fermer.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        fermer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+
+        });
+        fermer.setFont(new Font("Liberation Sans", 14, 14));
+        panelHaut.add(fermer, BorderLayout.EAST);
+    }
+
+    private Image getScaledImage(Image srcImg, int w, int h) {
+        //pour redimensionner une image pour un bouton
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
+    }
+}

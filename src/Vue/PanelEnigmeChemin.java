@@ -8,15 +8,25 @@ package Vue;
 import Controleur.Message;
 import Controleur.Observateur;
 import Modele.EnigmeChemin;
-import Modele.Fraction;
 import Modele.Place;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import Modele.Trajet;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Collections;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -24,7 +34,7 @@ import javax.swing.JButton;
  */
 public class PanelEnigmeChemin extends JPanel {
 
-    private Observateur observateur;  
+    private Observateur observateur;
     private ArrayList<ArrayList<JButton>> etapes;
     private EnigmeChemin enigme;
     private int largeur;
@@ -46,73 +56,97 @@ public class PanelEnigmeChemin extends JPanel {
         initBoutons();
         affichage();
         selectionnerBouton();
+        afficherResultat();
         boutonRetour();
-        
-    }
+        indice();
 
-    
-    private void initBoutons(){
-        
+    }
+////////////////////////////////////////////////////////////////
+    private void initBoutons() {
+        //initialise les boutons de la vue
         int i;
         for (Trajet trajet : enigme.getTrajets().values()) {
             i = enigme.getNbEtapes();
-            
+
             for (Place place : trajet.getPlaces().values()) {
-                JButton bouton = new JButton(((Fraction) place).getFraction());
-                
-                bouton.setSize(100, 100);
+                JButton bouton = new JButton(place.afficher());
+
+                bouton.setSize(150, 100);
                 bouton.setName(String.valueOf(place.getRes()));
-                
+                bouton.setFont(new Font("Liberation Sans", 14, 14));
+
                 bouton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        message.addFraction(Float.parseFloat(bouton.getName()));    
+                        message.addFraction(Float.parseFloat(bouton.getName()));
                         if (etape == enigme.getNbEtapes()) {
                             observateur.notification(message);
-                            
+
                         } else {
                             etape++;
                             selectionnerBouton();
                         }
                     }
                 });
-                
+
                 etapes.get(i - 1).add(bouton);
                 i--;
-                
+
             }
-            
-            
+
         }
     }
-    private void affichage(){
-        float x = 0.25f;
-        float y = 0.25f;
-        for (ArrayList<JButton> places : etapes){
+//////////////////////////////////////////////////////////////
+    private void affichage() {
+        //affiche les boutons de la vue aléatoirement
+        float x = 0.50f;
+        float y = 0.60f;
+        for (ArrayList<JButton> places : etapes) {
             Collections.shuffle(places);
-            y = 0.25f;
-            for (JButton bouton : places){
+            x = 0.50f;
+            for (JButton bouton : places) {
                 bouton.setLocation((int) (x * largeur), (int) (y * hauteur));
                 this.add(bouton);
-                y = y + 0.2f;
+                x = x - 0.2f;
             }
-            x = x + 0.1f;
-
+            y = y - 0.2f;
 
         }
     }
+///////////////////////////////////////////////////////////////////
     private void initEtapes() {
+        //initialise les arraylist en fonction du nombre d'étapes
         for (int i = 0; i < enigme.getNbEtapes(); i++) {
             ArrayList<JButton> etape = new ArrayList<JButton>();
             etapes.add(etape);
         }
     }
-    
+/////////////////////////////////////////////////////////////////
+    private void afficherResultat() {
+        //affiche l'énoncé de l'énigme
+        JLabel enonce = new JLabel(enigme.getEnonce());
+        enonce.setSize(250, 100);
+        enonce.setLocation((int) (0.4 * largeur), (int) (0 * hauteur));
+        enonce.setFont(new Font("Liberation Sans", 14, 14));
+        this.add(enonce);
+    }
+/////////////////////////////////////////////////////////////////////////
     public void boutonRetour() {
+        //affiche le bouton retour du jeu
         //met en place tous les boutons sur le Jpanel
         JButton retour = new JButton("retour");
         //taille par défault du bouton
-        retour.setSize(70, 70);
+        retour.setSize(100, 100);
+        retour.setFont(new Font("Liberation Sans", 14, 14));
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            retour.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
         //action listener pour retourner "retour" a l'appuye du bouton
@@ -129,25 +163,57 @@ public class PanelEnigmeChemin extends JPanel {
         //ajouter une image pour le bouton retour!!!
         this.add(retour);
     }
-
-    
-    private void selectionnerBouton(){
+//////////////////////////////////////////////////////
+    private void selectionnerBouton() {
+        //permet de séléctionner l'étape courante
         //selectionner et deselectionner les boutons en fonction de l'étape
-        for (ArrayList<JButton> places : etapes){
-            for (JButton bouton : places){
+        for (ArrayList<JButton> places : etapes) {
+            for (JButton bouton : places) {
                 bouton.setEnabled(false);
             }
         }
         //selectionne le bon : 
-        for (JButton bouton : etapes.get(etape-1)){
+        for (JButton bouton : etapes.get(etape - 1)) {
             bouton.setEnabled(true);
         }
-        
-    }
-    
 
+    }
+//////////////////////////////////////////////////////////////
+    private void indice() {
+        //permet d'afficher l'indice, si il y en a un
+        if (enigme.getIndice() != null) {
+            JButton indice = new JButton("indice");
+            indice.setFont(new Font("Liberation Sans", 14, 14));
+
+            indice.setSize(100, 100);
+            indice.setLocation(this.getWidth() - 100, 0);
+            indice.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    FenetreIndice ind = new FenetreIndice();
+                    ind.setIndice(enigme.getIndice());
+                    ind.setVisible(true);
+                }
+
+            });
+            this.add(indice);
+        }
+    }
+//////////////////////////////////////////////////////////////////////
     public void setObservateur(Observateur observateur) {
         this.observateur = observateur;
+    }
+    
+    /////////////////////////////////////////////////////////////////////////////////
+    private Image getScaledImage(Image srcImg, int w, int h) {
+        //pour redimensionner une image pour un bouton
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
     }
 
 }

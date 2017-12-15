@@ -10,6 +10,7 @@ import Controleur.Observateur;
 import Modele.Carte;
 import Modele.Lieu;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -17,11 +18,16 @@ import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import static javax.sound.sampled.Clip.LOOP_CONTINUOUSLY;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -36,15 +42,24 @@ public class PanelNavigation extends JPanel {
     private Observateur observateur;
     private Carte carte;
     private Message m;
+    private String son;
 
     /////////////////////////////////////////////////////////////////
     //constructeur
-    public PanelNavigation(HashMap<String, Lieu> cartes,int largeur, int hauteur) {
+    public PanelNavigation(Carte carte, int largeur, int hauteur) {
         this.setLayout(null);
         this.setSize(largeur, hauteur);
+        this.carte=carte;
+        setFond();
         //cree les boutons
         this.repaint();
-        initBoutons(cartes);
+        initBoutons(carte.getContiens());
+        son=carte.getSon();
+        if (son!=null){
+            File sonDeFond= new File(son);
+            PlaySound(sonDeFond);
+        }
+        
     }
 //////////////////////////////////////////////////////////////////////////////
 
@@ -57,7 +72,7 @@ public class PanelNavigation extends JPanel {
             //rend le bouton trensparent
             bouton.setOpaque(false);
             bouton.setContentAreaFilled(false);
-            bouton.setBorderPainted(true);
+            bouton.setBorderPainted(false);
             //taille du bouton (a modifier avec des valeurs de icone)!!!
             bouton.setSize(cartes.get(string).getIcone().getLargeur(), cartes.get(string).getIcone().getHauteur());
             //si un icone est defini
@@ -98,10 +113,24 @@ public class PanelNavigation extends JPanel {
         //met en place tous les boutons sur le Jpanel
         JButton retour = new JButton("retour");
         //taille par défault du bouton
-        retour.setSize(70, 70);
+        retour.setSize(100, 100);
+        retour.setFont(new Font("Liberation Sans", 14, 14));
+
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
         //action listener pour retourner "retour" a l'appuye du bouton
+
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            retour.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        retour.setLocation(0, 0);
+
         retour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -117,10 +146,7 @@ public class PanelNavigation extends JPanel {
     }
 
     //////////////////////////////////////////////7
-    public void setFond(Carte carte) {
-        //met le fond du JPanel
-        //met la carte utilisé pour le fond en attribut
-        this.carte = carte;
+    private void setFond() {
         //redessine le jpanel
         this.repaint();
     }
@@ -147,6 +173,7 @@ public class PanelNavigation extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g); // paint the background image and scale it to fill the entire space
         //si l'image est rentrée l'afficher
+        String fond = carte.getFond();
         if (carte.getFond() != null) {
             try {
                 //affiche l'image de la carte
@@ -158,4 +185,18 @@ public class PanelNavigation extends JPanel {
         }
 
     }
+    ///////////////////////////////////////////////////////
+    static void PlaySound(File sound){
+        try{
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(sound);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+            clip.loop(LOOP_CONTINUOUSLY);
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
 }

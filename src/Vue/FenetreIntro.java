@@ -43,6 +43,8 @@ public class FenetreIntro extends javax.swing.JFrame {
         partie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                FenetreChargement fenetre = new FenetreChargement();
+                fenetre.setVisible(true);
                 dispose();
             }
 
@@ -106,6 +108,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
         getContentPane().setLayout(layout);
 
+        partie.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         partie.setText("Charger une partie");
         partie.setPreferredSize(new java.awt.Dimension(150, 50));
         partie.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +125,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(partie, gridBagConstraints);
 
+        para.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         para.setText("Parametres");
         para.setPreferredSize(new java.awt.Dimension(150, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -133,6 +137,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(para, gridBagConstraints);
 
+        start.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         start.setText("Nouvelle Partie");
         start.setPreferredSize(new java.awt.Dimension(150, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -144,6 +149,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(start, gridBagConstraints);
 
+        credits.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         credits.setText("Credits");
         credits.setPreferredSize(new java.awt.Dimension(75, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -155,6 +161,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(credits, gridBagConstraints);
 
+        quitter.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         quitter.setText("Quitter");
         quitter.setPreferredSize(new java.awt.Dimension(73, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -166,6 +173,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(quitter, gridBagConstraints);
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/logo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -174,7 +182,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 7;
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("Open Sans", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
         jLabel2.setText("Enigmarium");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

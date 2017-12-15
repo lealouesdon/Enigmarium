@@ -6,6 +6,8 @@
 package test;
 
 import Modele.Fraction;
+import Modele.Trajet;
+
 
 /**
  *
@@ -18,8 +20,18 @@ public class testPlace {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Fraction place=new Fraction(1.26f);
-        System.out.print(place.getFraction());
+        /*Trajet trajet=new Trajet(1f,3,1);
+        for(int i=0;i<3;i++){
+            System.out.println("valeur "+i+" "+trajet.getPlaces().get(i).getRes());
+        }*/
+        /*float i= ((int)((float)(Math.random()* (0.33 +1f - 0f )+0f)*10))/10f;
+        Fraction place=new Fraction(i);
+        System.out.println(i);
+        System.out.println(place.getFraction());
+        System.out.println(place.getRes());*/
+        for(int i=0;i<10;i++){
+            System.out.println(((int)((float)(Math.random()* (66f +1f - 33f )+33f)*10))/10f);
+        }
     }
     
 }
