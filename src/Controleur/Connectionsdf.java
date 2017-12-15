@@ -4,16 +4,15 @@
  * and open the template in the editor.
  */
 package Controleur;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 /**
  *
- * @author Léa
+ * @author etien
  */
-public class Connexion {
+public class Connectionsdf {
     
-    public static void main(String[] args) {   
-        
-    }
     public static Connection ConnexterDB(){
     try {
       //Class.forName("com.mysql.jdbc.Driver"); /* chemin du driver*/
@@ -34,4 +33,3 @@ public class Connexion {
     }      
   }
 }
-
