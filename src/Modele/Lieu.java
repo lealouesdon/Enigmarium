@@ -12,12 +12,13 @@ import java.util.ArrayList;
  * @author Léa
  */
 public abstract class Lieu {
-
+  
     private String nom;
     private String fond;
     private Icone icone;
     private boolean retour;
     private ArrayList<Lieu> prerequis;
+    private String descriptife;
     
    
 

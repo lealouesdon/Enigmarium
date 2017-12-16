@@ -16,6 +16,7 @@ import Modele.EnigmeChemin;
 import Modele.EnigmeComposite;
 import Modele.Icone;
 import Modele.Lieu;
+import Modele.Personnage;
 import Vue.FenetreIndice;
 import Vue.FenetreIntro;
 import Vue.FenetrePrincipale;
@@ -66,7 +67,7 @@ public class Controleur implements Observateur {
         ///////////////////////////////PERSONAGE ET ENIGMES/////////////////////////////////////
         //monde de la nouriture
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
-        EnigmeComposite pBoul = new EnigmeComposite(icone, "enigmeVolume", "images/vueJeu.png");
+        EnigmeComposite pBoul = new EnigmeComposite(icone, "enigmeVolume", "images/vueJeu.png");  
         mMedie.addContien(pBoul);
         EnigmeChemin psoupe = new EnigmeChemin(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "enigmeChemin", null,2,3,1);
         mMedie.addContien(psoupe);
@@ -132,8 +133,7 @@ public class Controleur implements Observateur {
                 retourCarte();
             } else {
                 fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
-            }
-
+            }  
         } else if (m.getEtat() == "MessageChampsDeTexte") {
             EnigmeChampsDeTexte e = (EnigmeChampsDeTexte) enigmeCoutante;
             boolean juste;
@@ -146,7 +146,6 @@ public class Controleur implements Observateur {
             } else {
                 fenetrePrincipale.creeVueEnigmeChampsDeTexte((EnigmeChampsDeTexte) enigmeCoutante);
             }
-            
         }else if(m.getEtat() == "MessageChemin"){
             EnigmeChemin e = (EnigmeChemin) enigmeCoutante;
             if (e.proposition(m)) {
@@ -166,7 +165,7 @@ public class Controleur implements Observateur {
         Carte c = (Carte) ((Carte) this.cartes.peek()).getContiens().get(titre);
         this.addCarte(c);
         fenetrePrincipale.creeVue((Carte) this.cartes.peek());
-    }
+    }  
 
     public void retourCarte() {//Si l'utilisateur clique sur le bouton retour
         this.delCarte();
