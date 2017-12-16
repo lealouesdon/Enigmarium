@@ -85,7 +85,6 @@ public class PanelNavigation extends JPanel {
             //set l'action listener
             //FenetreInfoPerso fInfo;
             String nom = cartes.get(string).getNom();
-            System.out.print(nom);
             bouton.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
