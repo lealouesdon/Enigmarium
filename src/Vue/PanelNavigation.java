@@ -20,16 +20,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import static javax.sound.sampled.Clip.LOOP_CONTINUOUSLY;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -51,13 +46,12 @@ public class PanelNavigation extends JPanel {
     public PanelNavigation(Carte carte, int largeur, int hauteur) {
         this.setLayout(null);
         this.setSize(largeur, hauteur);
-        this.carte=carte;
+        this.carte = carte;
         setFond();
         //cree les boutons
         this.repaint();
         initBoutons(carte.getContiens());
-        
-        
+
     }
 //////////////////////////////////////////////////////////////////////////////
 
@@ -90,7 +84,7 @@ public class PanelNavigation extends JPanel {
             bouton.setLocation((int) (cartes.get(string).getIcone().getX() * this.getWidth()), (int) (cartes.get(string).getIcone().getY() * this.getHeight()));
             //set l'action listener
             //FenetreInfoPerso fInfo;
-            bouton.addMouseListener(new MouseListener(){
+            bouton.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
                     m = new Message();
@@ -103,7 +97,7 @@ public class PanelNavigation extends JPanel {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     //changer par les vrai valeurs SI ELLES EXISTENT!!
-                    fInfo= new FenetreInfoPerso("monNom","MaDeskjsnfvjndfkbqlmv");
+                    fInfo = new FenetreInfoPerso("monNom", "MaDeskjsnfvjndfkbqlmv");
                     fInfo.setVisible(true);
                 }
 
@@ -119,9 +113,9 @@ public class PanelNavigation extends JPanel {
                 @Override
                 public void mouseExited(MouseEvent e) {
                 }
-                
+
             });
-            
+
             this.add(bouton);
         }
     }
@@ -142,7 +136,7 @@ public class PanelNavigation extends JPanel {
             //ouvre l'image et la met dans le bouton
             Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 100));
             retour.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
@@ -203,7 +197,5 @@ public class PanelNavigation extends JPanel {
         }
 
     }
-    ///////////////////////////////////////////////////////
-    
-    
+
 }
