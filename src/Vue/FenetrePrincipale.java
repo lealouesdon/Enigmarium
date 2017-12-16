@@ -31,13 +31,13 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     private JPanel cardPanel, panelHaut;
     //pour le panel haut
     JLabel mascotte, message;
-    //attributs pour la taille de l'écrant
+    //attributs pour la taille de l'écran
     int hauteur, largeur;
     private CardLayout cardLayout = new CardLayout();
 
     public FenetrePrincipale() {
         setResizable(false);
-        //initialise la taille de l'écrant
+        //initialise la taille de l'écran
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         largeur = gd.getDisplayMode().getWidth();
         hauteur = gd.getDisplayMode().getHeight();
@@ -99,7 +99,6 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     /////////////////////////////////////////////////////////////////////////////////////////
     public void creeVueEnigmeChampsDeTexte(EnigmeChampsDeTexte e) {
         PanelEnigmeCDT panel = new PanelEnigmeCDT(e, this.getWidth(), this.getHeight());
-
         //donne le nom de la carte au panel
         panel.setName(e.getNom());
         panel.setObservateur(this);

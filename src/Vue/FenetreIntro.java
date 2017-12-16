@@ -100,15 +100,14 @@ public class FenetreIntro extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 204, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1500, 1500));
         setResizable(false);
-        setSize(new java.awt.Dimension(0, 0));
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
         layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
         getContentPane().setLayout(layout);
 
-        partie.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        partie.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
+        partie.setForeground(new java.awt.Color(51, 204, 0));
         partie.setText("Charger une partie");
         partie.setPreferredSize(new java.awt.Dimension(150, 50));
         partie.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +124,8 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(partie, gridBagConstraints);
 
-        para.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        para.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
+        para.setForeground(new java.awt.Color(153, 153, 153));
         para.setText("Parametres");
         para.setPreferredSize(new java.awt.Dimension(150, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -137,9 +137,15 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(para, gridBagConstraints);
 
-        start.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        start.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
+        start.setForeground(new java.awt.Color(0, 51, 255));
         start.setText("Nouvelle Partie");
         start.setPreferredSize(new java.awt.Dimension(150, 50));
+        start.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
@@ -149,7 +155,8 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(start, gridBagConstraints);
 
-        credits.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        credits.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
+        credits.setForeground(new java.awt.Color(102, 102, 102));
         credits.setText("Credits");
         credits.setPreferredSize(new java.awt.Dimension(75, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -161,7 +168,8 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(credits, gridBagConstraints);
 
-        quitter.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        quitter.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
+        quitter.setForeground(new java.awt.Color(255, 0, 0));
         quitter.setText("Quitter");
         quitter.setPreferredSize(new java.awt.Dimension(73, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -173,7 +181,8 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(quitter, gridBagConstraints);
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/logo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -182,7 +191,8 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 7;
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Chiller", 3, 78)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 153, 255));
         jLabel2.setText("Enigmarium");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -197,6 +207,10 @@ public class FenetreIntro extends javax.swing.JFrame {
     private void partieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partieActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_partieActionPerformed
+
+    private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_startActionPerformed
 
     /**
      * @param args the command line arguments

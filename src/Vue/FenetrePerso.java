@@ -103,7 +103,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         jPanel1Layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0};
         jPanel1.setLayout(jPanel1Layout);
 
-        valider.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        valider.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         valider.setText("Valider");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -121,7 +121,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(pseudo, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Balthazar", 1, 18)); // NOI18N
         jLabel1.setText("Choisir un personnage et son pseudo :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -149,7 +149,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(fille, gridBagConstraints);
 
-        retour.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        retour.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         retour.setText("Retour");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;

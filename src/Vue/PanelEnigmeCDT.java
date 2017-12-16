@@ -131,8 +131,13 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
 
         setLayout(null);
 
-        valider.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        valider.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         valider.setText("Valider");
+        valider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                validerActionPerformed(evt);
+            }
+        });
         add(valider);
         valider.setBounds(150, 120, 90, 40);
 
@@ -154,6 +159,10 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
     private void reponseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reponseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_reponseActionPerformed
+
+    private void validerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_validerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
