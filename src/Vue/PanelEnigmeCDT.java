@@ -34,6 +34,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
     
     public PanelEnigmeCDT(EnigmeChampsDeTexte e, int largeur, int hauteur) {
         initComponents();
+        enigme = e;
         this.setSize(largeur, hauteur);
         question.setText(e.getQuestion());
         valider.addActionListener(new ActionListener(){

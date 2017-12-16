@@ -56,30 +56,32 @@ public class Controleur implements Observateur {
         cartes.push(monde);
         /////////////////////////////////MONDE///////////////////////////////////////
         Icone icone = new Icone((float) 0.05, (float) 0.2, "images/mondeCuisiniers.png", 300, 450);
-        Carte mMedie = new Carte(icone, "carte medieval", "images/placeMarche.jpg");
+        Carte mMedie = new Carte(icone, "Monde des Cuisiniers", "images/placeMarche.jpg");
         icone = new Icone((float) 0.3, (float) 0.1, "images/mondeArcheologue.png", 350, 400);
-        Carte mArche = new Carte(icone, "carte archeologie", "images/mondeA.jpg");
+        Carte mArche = new Carte(icone, "Monde des Archeologue", "images/mondeA.jpg");
         icone = new Icone((float) 0.6, (float) 0.3, "images/mondeLasVegas.png", 350, 400);
-        Carte mLasVegas = new Carte(icone, "carte lasVegas", "images/mondeLasVegas.jpg");
+        Carte mLasVegas = new Carte(icone, "Monde de Las Vegas", "images/mondeLasVegas.jpg");
         monde.addContien(mMedie);
         monde.addContien(mArche);
         monde.addContien(mLasVegas);
         ///////////////////////////////PERSONAGE ET ENIGMES/////////////////////////////////////
         //monde de la nouriture
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
-        EnigmeComposite pBoul = new EnigmeComposite(icone, "enigmeVolume", "images/vueJeu.png");  
+        EnigmeComposite pBoul = new EnigmeComposite(icone, "Hervé le Boulanger", "images/vueJeu.png");  
         mMedie.addContien(pBoul);
-        EnigmeChemin psoupe = new EnigmeChemin(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "enigmeChemin", null,2,3,1);
-        mMedie.addContien(psoupe);
+        //EnigmeChemin psoupe = new EnigmeChemin(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "Les Machines a sous", null,2,3,1);
+        //mMedie.addContien(psoupe);
+        EnigmeChampsDeTexte pBergere =new EnigmeChampsDeTexte(new Icone((float) 0.10, (float) 0.39, null, 200, 200),"Bérengere la bergere",null);
+        mMedie.addContien(pBergere);
         //monde des archéologues
-        //personnage a déveloper
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
-        EnigmeComposite perso = new EnigmeComposite(icone, "enigmeExpression", "images/enigme v2.jpg");
+        EnigmeComposite perso = new EnigmeComposite(icone, "La Porte de La Pyramide", "images/enigme v2.jpg");
         mArche.addContien(perso);
+        //Monde de las vegas
+        EnigmeChemin machines = new EnigmeChemin(new Icone((float) 0.0, (float) 0.2, null, 300, 600), "Les Machines a sous", null,2,3,1);
+        mLasVegas.addContien(machines);
         ///////////////////////////////ENIGMES/////////////////////////////////////
-        icone = new Icone((float)0.75, (float) 0.35, null, 300, 200);
-        EnigmeChampsDeTexte persojesaispluscommentilsapelleducoutjimprovise =new EnigmeChampsDeTexte(icone,"enigmeChampsDeTextes",null);
-        mMedie.addContien(persojesaispluscommentilsapelleducoutjimprovise);
+        
     }
 
     //controleur et un observateur de la fenetre principale, la fenetre parametre et la fenetre 
@@ -88,28 +90,28 @@ public class Controleur implements Observateur {
         if (m.getEtat() == "retour") {
             retourCarte();
         } ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
-        else if (m.getMessage() == "enigmeVolume") {
+        else if (m.getMessage() == "Hervé le Boulanger") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.enigmeVolume();
             this.cartes.push(enigmeCoutante);
             //trouve la carte énigme volume et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
-        } else if (m.getMessage() == "enigmeExpression") {
+        } else if (m.getMessage() == "La Porte de La Pyramide") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.enigmeExpression();
             this.cartes.push(enigmeCoutante);
             //trouve la carte énigme expression et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
-        }else if(m.getMessage() == "enigmeChemin"){
+        }else if(m.getMessage() == "Les Machines a sous"){
             EnigmeChemin e = (EnigmeChemin) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.initialiserEnigme();
             this.cartes.push(enigmeCoutante);
             //trouve la carte énigme expression et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeChemin((EnigmeChemin) enigmeCoutante);
-        } else if (m.getMessage() == "enigmeChampsDeTextes") {
+        } else if (m.getMessage() == "Bérengere la bergere") {
             EnigmeChampsDeTexte e = (EnigmeChampsDeTexte) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.initialiseEnigme1();
@@ -119,7 +121,6 @@ public class Controleur implements Observateur {
         }
         ////////////////////////////Navigation///////////////////// ////////////
         else if (m.getEtat() == "carteChoisi") {
-            System.out.print(m.getMessage());
             this.carteChoisi(m.getMessage());
         } //////////////////////////Traitement Message énigme///////////////////////////////
         else if (m.getEtat() == "MessageComposite") {
