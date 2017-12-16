@@ -18,7 +18,7 @@ public abstract class Lieu {
     private Icone icone;
     private boolean retour;
     private ArrayList<Lieu> prerequis;
-    private String descriptife;
+    private String descriptif;
     
    
 
@@ -36,8 +36,22 @@ public abstract class Lieu {
         setFond(fond);
         this.retour = retour;
         prerequis = new ArrayList();
-
     }
+
+    public Lieu(String nom, String fond, Icone icone, boolean retour, ArrayList<Lieu> prerequis, String descriptif) {
+        this.nom = nom;
+        this.fond = fond;
+        this.icone = icone;
+        this.retour = retour;
+        this.prerequis = prerequis;
+        this.descriptif = descriptif;
+    }
+
+    public String getDescriptif() {
+        return descriptif;
+    }
+    
+    
  
     public void setFond(String fond) {
         this.fond = fond;

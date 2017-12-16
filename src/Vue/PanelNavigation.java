@@ -37,7 +37,7 @@ public class PanelNavigation extends JPanel {
 
     //attributs
     private Observateur observateur;
-    private Carte carte;
+    private Lieu carte;
     private Message m;
     private FenetreInfoPerso fInfo;
 
@@ -84,6 +84,8 @@ public class PanelNavigation extends JPanel {
             bouton.setLocation((int) (cartes.get(string).getIcone().getX() * this.getWidth()), (int) (cartes.get(string).getIcone().getY() * this.getHeight()));
             //set l'action listener
             //FenetreInfoPerso fInfo;
+            String nom = cartes.get(string).getNom();
+            System.out.print(nom);
             bouton.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -96,9 +98,13 @@ public class PanelNavigation extends JPanel {
 
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    //changer par les vrai valeurs SI ELLES EXISTENT!!
-                    fInfo = new FenetreInfoPerso("monNom", "MaDeskjsnfvjndfkbqlmv");
-                    fInfo.setVisible(true);
+                    if (carte.getDescriptif()!= null){
+                        fInfo = new FenetreInfoPerso(nom, carte.getDescriptif());
+                        fInfo.setVisible(true);
+                    } else {
+                        fInfo = new FenetreInfoPerso(nom);
+                        fInfo.setVisible(true);
+                    }
                 }
 
                 @Override
@@ -108,10 +114,12 @@ public class PanelNavigation extends JPanel {
 
                 @Override
                 public void mouseEntered(MouseEvent e) {
+                    
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
+                    
                 }
 
             });

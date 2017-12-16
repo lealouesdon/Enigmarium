@@ -119,6 +119,7 @@ public class Controleur implements Observateur {
         }
         ////////////////////////////Navigation///////////////////// ////////////
         else if (m.getEtat() == "carteChoisi") {
+            System.out.print(m.getMessage());
             this.carteChoisi(m.getMessage());
         } //////////////////////////Traitement Message énigme///////////////////////////////
         else if (m.getEtat() == "MessageComposite") {

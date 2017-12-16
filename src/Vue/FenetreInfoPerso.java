@@ -23,6 +23,15 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
         this.setLocation(MouseInfo.getPointerInfo().getLocation());
         
     }
+    
+    public FenetreInfoPerso(String nom) {
+        initComponents();
+        this.nom.setText(nom);
+        this.desc.setText("");
+        this.setSize(200, 100);
+        this.setLocation(MouseInfo.getPointerInfo().getLocation());
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
