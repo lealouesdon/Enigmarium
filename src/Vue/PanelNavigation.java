@@ -51,6 +51,9 @@ public class PanelNavigation extends JPanel {
         //cree les boutons
         this.repaint();
         initBoutons(carte.getContiens());
+        if (carte.getRetour()) {
+            boutonRetour();
+        }
 
     }
 //////////////////////////////////////////////////////////////////////////////

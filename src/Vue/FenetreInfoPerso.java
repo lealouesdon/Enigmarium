@@ -17,6 +17,7 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
      * Creates new form FenetreInfoPerso
      */
     public FenetreInfoPerso(String nom,String desc) {
+        //pour une fenetre avec le nom du personnage et sa description
         initComponents();
         this.nom.setText(nom);
         this.desc.setText(desc);
@@ -25,6 +26,7 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
     }
     
     public FenetreInfoPerso(String nom) {
+        //pour une fenetre avec le nom du personnage
         initComponents();
         this.nom.setText(nom);
         this.desc.setText("");

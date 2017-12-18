@@ -21,15 +21,8 @@ public class FenetreIntro extends javax.swing.JFrame {
      * Creates new form FenetreIntro
      */
     public FenetreIntro() {
-        initComponents();
-        setResizable(false);
-        //initialise la taille de l'écrant
-        GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-        int largeur = gd.getDisplayMode().getWidth();
-        int hauteur = gd.getDisplayMode().getHeight();
-        setSize(largeur, hauteur);
+        initComponents();  
         //bouton crée une nouvelle partie
-        
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,7 +66,7 @@ public class FenetreIntro extends javax.swing.JFrame {
             }
 
         });
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //pour mettre la fenetre en grand
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
     }
