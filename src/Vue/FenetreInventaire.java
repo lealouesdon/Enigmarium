@@ -21,11 +21,11 @@ public class FenetreInventaire extends javax.swing.JFrame {
      */
     public FenetreInventaire() {
         initComponents();
+        //recupere la hauteur de l'écran
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-        //int largeur = gd.getDisplayMode().getWidth();
-        
         int hauteur = gd.getDisplayMode().getHeight();
         this.setSize(500, hauteur);
+        //bouton fermer
         fermer.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {

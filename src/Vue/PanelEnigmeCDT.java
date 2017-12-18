@@ -64,12 +64,15 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         //met en place tous les boutons sur le Jpanel
         JButton retour = new JButton("retour");
         //taille par défault du bouton
-        retour.setSize(70, 70);
+        retour.setSize(100, 100);
+        retour.setContentAreaFilled(false);
+        retour.setBorderPainted(false);
+
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
         try {
             //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            Image img = ImageIO.read(getClass().getResource("images/retour.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
             ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
             retour.setIcon(icon);
