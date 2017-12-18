@@ -21,9 +21,12 @@ public class EnigmeChampsDeTexte extends Enigme{
     }
     
     public void initialiseEnigme1(){
-        this.valAttendu="10";
-        this.question="La reponce est dix en chifre";
-        
+        int a= (int) (Math.random() * (1 + 1 - 20) + 20);
+        int b=(int) (Math.random() * (1 + 1 - 20) + 20);
+        int c=a*a+b*b;
+        System.out.println(c);
+        this.valAttendu= String.valueOf(c);
+        this.question="Coter a= "+String.valueOf(a)+" Coter b= "+String.valueOf(b)+"rep "+String.valueOf(this.valAttendu);
     }
 
     public String getValAttendu() {
