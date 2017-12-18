@@ -26,7 +26,7 @@ public class EnigmeChampsDeTexte extends Enigme{
         int c=a*a+b*b;
         System.out.println(c);
         this.valAttendu= String.valueOf(c);
-        this.question="Coter a= "+String.valueOf(a)+" Coter b= "+String.valueOf(b)+"rep "+String.valueOf(this.valAttendu);
+        this.question="<html>Coter a= "+String.valueOf(a)+" <br /> "+"Coter b= "+String.valueOf(b)+" <br /> "+"rep "+String.valueOf(this.valAttendu)+"</html>";
     }
 
     public String getValAttendu() {
