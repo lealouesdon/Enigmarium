@@ -97,7 +97,7 @@ public class PanelNavigation extends JPanel {
 
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    if (carte.getDescriptif()!= null){
+                    if (carte.getDescriptif() != null) {
                         fInfo = new FenetreInfoPerso(nom, carte.getDescriptif());
                         fInfo.setVisible(true);
                     } else {
@@ -113,12 +113,12 @@ public class PanelNavigation extends JPanel {
 
                 @Override
                 public void mouseEntered(MouseEvent e) {
-                    
+
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-                    
+
                 }
 
             });
@@ -134,6 +134,8 @@ public class PanelNavigation extends JPanel {
         //taille par défault du bouton
         retour.setSize(100, 100);
         retour.setFont(new Font("Liberation Sans", 14, 14));
+        retour.setContentAreaFilled(false);
+        retour.setBorderPainted(false);
 
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
@@ -141,7 +143,7 @@ public class PanelNavigation extends JPanel {
 
         try {
             //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            Image img = ImageIO.read(getClass().getResource("images/retour.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
             ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 100));
             retour.setIcon(icon);

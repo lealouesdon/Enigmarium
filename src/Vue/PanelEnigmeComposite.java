@@ -71,9 +71,8 @@ public class PanelEnigmeComposite extends JPanel {
         indice();
         repaint();
         /////////////////////Retour//////////////////
-        if (e.getRetour()) {
-            boutonRetour();
-        }
+
+        boutonRetour();
 
     }
 
@@ -196,13 +195,16 @@ public class PanelEnigmeComposite extends JPanel {
         JButton retour = new JButton("retour");
         //taille par défault du bouton
         retour.setSize(100, 100);
+        retour.setContentAreaFilled(false);
+        retour.setBorderPainted(false);
+
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
         try {
             //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            Image img = ImageIO.read(getClass().getResource("images/retour.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 100));
             retour.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
@@ -218,7 +220,7 @@ public class PanelEnigmeComposite extends JPanel {
             }
         }
         );
-        
+
         retour.setFont(new Font("Liberation Sans", 14, 14));
 
         this.add(retour);

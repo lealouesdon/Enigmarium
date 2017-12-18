@@ -140,11 +140,12 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     //////////////////////////////////////////////
     private void boutonMenu() {
         JButton menu = new JButton();
-        menu.setLocation(largeur - 100, 0);
+        /*menu.setLocation(largeur - 100, 0);
         menu.setSize(50, 70);
         menu.setOpaque(false);
         menu.setContentAreaFilled(false);
-        menu.setBorderPainted(false);
+        menu.setBorderPainted(false);*/
+        //menu.setContentAreaFilled(false);
         menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -155,30 +156,31 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         });
         menu.setFont(new Font("Liberation Sans", 14, 14));
 
-        panelHaut.add(menu, BorderLayout.WEST);
+        
 
         try {
             //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/menu.jpg"));
+            Image img = ImageIO.read(getClass().getResource("images/menu.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, menu.getHeight(), menu.getWidth()));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 70, 50));
             menu.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
         }
+        panelHaut.add(menu, BorderLayout.WEST);
     }
 
     private void boutonInventaire() {
-        JButton inventaire = new JButton("Inventaire");
-        /*try {
+        JButton inventaire = new JButton();
+        try {
             //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            Image img = ImageIO.read(getClass().getResource("images/inventaire.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            ImageIcon icon = new ImageIcon(getScaledImage(img,70, 70));
             inventaire.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
         inventaire.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -194,18 +196,18 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     }
 
     private void boutonFermer() {
-        JButton fermer = new JButton("fermer");
+        JButton fermer = new JButton();
         fermer.setLocation(0, 0);
         fermer.setSize(100, 100);
-        /*try {
+        try {
             //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            Image img = ImageIO.read(getClass().getResource("images/fermer.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            ImageIcon icon = new ImageIcon(getScaledImage(img,70, 70));
             fermer.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
         fermer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

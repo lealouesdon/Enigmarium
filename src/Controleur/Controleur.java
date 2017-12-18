@@ -75,10 +75,10 @@ public class Controleur implements Observateur {
         mMedie.addContien(pBergere);
         //monde des archéologues
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
-        EnigmeComposite perso = new EnigmeComposite(icone, "La Porte de La Pyramide", "images/enigme v2.jpg");
+        EnigmeComposite perso = new EnigmeComposite(icone, "La Porte de La Pyramide", "images/enigme 1.jpg");
         mArche.addContien(perso);
         //Monde de las vegas
-        EnigmeChemin machines = new EnigmeChemin(new Icone((float) 0.0, (float) 0.2, null, 300, 600), "Les Machines a sous", null,2,3,1);
+        EnigmeChemin machines = new EnigmeChemin(new Icone((float) 0.0, (float) 0.2, null, 300, 600), "Les Machines a sous", "images/jeuMachines.jpg",3,3,1);
         mLasVegas.addContien(machines);
         ///////////////////////////////ENIGMES/////////////////////////////////////
         
