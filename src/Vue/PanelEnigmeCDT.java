@@ -7,7 +7,9 @@ package Vue;
 import Controleur.Message;
 import Controleur.Observateur;
 import Modele.EnigmeChampsDeTexte;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -36,6 +38,9 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         initComponents();
         enigme = e;
         this.setSize(largeur, hauteur);
+        question.setLocation((int)(largeur*0.9),(int)(hauteur*0.1));
+        reponse.setLocation((int)(largeur*0.9),(int)(hauteur*0.7));
+        valider.setLocation((int)(largeur*0.9),(int)(hauteur*0.8));
         question.setText(e.getQuestion());
         valider.addActionListener(new ActionListener(){
             @Override
@@ -116,6 +121,21 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
 
         return resizedImg;
     }
+        @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); // paint the background image and scale it to fill the entire space
+        //si l'image est rentrée l'afficher
+        if (enigme.getFond() != null) {
+            try {
+                //affiche l'image de la carte
+                Image img = ImageIO.read(getClass().getResource(enigme.getFond()));
+                g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), Color.white, this);
+            } catch (IOException ex) {
+                Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -125,6 +145,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         valider = new javax.swing.JButton();
         reponse = new javax.swing.JTextField();
@@ -135,7 +156,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         valider.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
         valider.setText("Valider");
         add(valider);
-        valider.setBounds(150, 120, 90, 40);
+        valider.setBounds(770, 500, 90, 40);
 
         reponse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,13 +164,13 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
             }
         });
         add(reponse);
-        reponse.setBounds(126, 80, 159, 20);
+        reponse.setBounds(770, 460, 90, 20);
 
         question.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         question.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         question.setText("---");
         add(question);
-        question.setBounds(0, 32, 388, 30);
+        question.setBounds(740, 80, 140, 270);
     }// </editor-fold>//GEN-END:initComponents
 
     private void reponseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reponseActionPerformed
