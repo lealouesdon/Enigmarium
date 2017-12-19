@@ -65,6 +65,10 @@ public abstract class Lieu {
         return this.nom;
     }
 
+    public void setDescriptif(String descriptif) {
+        this.descriptif = descriptif;
+    }
+
     public Icone getIcone() {
         return icone;
     }

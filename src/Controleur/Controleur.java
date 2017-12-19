@@ -71,7 +71,8 @@ public class Controleur implements Observateur {
         mMedie.addContien(pBoul);
         //EnigmeChemin psoupe = new EnigmeChemin(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "Les Machines a sous", null,2,3,1);
         //mMedie.addContien(psoupe);
-        EnigmeChampsDeTexte pBergere =new EnigmeChampsDeTexte(new Icone((float) 0.10, (float) 0.39, null, 200, 200),"Bérengere la bergere",null);
+        EnigmeChampsDeTexte pBergere =new EnigmeChampsDeTexte(new Icone((float) 0.10, (float) 0.39, null, 200, 200),"Bérengere la bergere","images/prés_final.jpg");
+        pBergere.setDescriptif("kkzkzkzkzkzkzkzkzk");
         mMedie.addContien(pBergere);
         //monde des archéologues
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
