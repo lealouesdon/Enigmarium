@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author lorentzr
  */
 public class Quete {
+    private String nom;
     private ArrayList<Enigme> enigmeAFaire;
     
     public Quete(ArrayList<Enigme> enigmeAFaire) {

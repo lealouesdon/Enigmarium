@@ -105,6 +105,7 @@ public class PanelNavigation extends JPanel {
                         fInfo.setVisible(true);
                     } else {
                         fInfo = new FenetreInfoPerso(nom);
+                        fInfo = new FenetreInfoPerso(nom, carte.getDescriptif());
                         fInfo.setVisible(true);
                     }
                 }
