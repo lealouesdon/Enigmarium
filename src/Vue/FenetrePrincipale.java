@@ -137,13 +137,13 @@ public class FenetrePrincipale extends JFrame implements Observateur {
             //ouvre l'image et la met dans le bouton
             Image img = ImageIO.read(getClass().getResource("images/menu.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, 70, 50));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 70));
             menu.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
         }
         //placement du bouton
-        panelHaut.add(menu, BorderLayout.WEST);
+        panelHaut.add(menu, BorderLayout.CENTER);
     }
 
     private void boutonInventaire() {
@@ -152,9 +152,9 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         //image du bouton
         try {
             //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/menu.png"));
+            Image img = ImageIO.read(getClass().getResource("images/inventaire.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 70));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 70, 70));
             inventaire.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
@@ -170,7 +170,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
 
         });
         //place le bouton
-        panelHaut.add(inventaire, BorderLayout.CENTER);
+        panelHaut.add(inventaire, BorderLayout.WEST);
     }
 
     private void boutonFermer() {
