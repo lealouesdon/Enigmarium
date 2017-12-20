@@ -9,6 +9,7 @@ package Controleur;
  *
  * @author Léa
  */
+import static Controleur.ConnectionDB.ConnecterDB;
 import Modele.Carte;
 import Modele.Enigme;
 import Modele.EnigmeChampsDeTexte;
@@ -21,6 +22,11 @@ import Vue.FenetreIndice;
 import Vue.FenetreIntro;
 import Vue.FenetrePrincipale;
 import Vue.FenetreResultat;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Stack;
 
 public class Controleur implements Observateur {
@@ -32,7 +38,7 @@ public class Controleur implements Observateur {
     private Enigme enigmeCoutante;
 
     //Constructeur
-    public Controleur() {
+    public Controleur() throws SQLException {
 
         cartes = new Stack();
         InitialiserModel();
@@ -50,10 +56,17 @@ public class Controleur implements Observateur {
         fenetrePrincipale.setObservateur(this);
     }
 
-    private void InitialiserModel() {//initialise toute les carte du model
+    private void InitialiserModel() throws SQLException {//initialise toute les carte du model
         Carte monde = new Carte(null, "Carte des mondes", "images/galaxy.jpg", false);
 
         cartes.push(monde);
+        ///////////////////////////////BASE DE DONNES////////////////////////////////
+        Connection conn = ConnecterDB();
+        Statement state = conn.createStatement();
+        ResultSet res = state.executeQuery("Select nomM from Monde;");
+        ResultSetMetaData resFin = res.getMetaData();
+        res.close();
+        state.close();
         /////////////////////////////////MONDE///////////////////////////////////////
         Icone icone = new Icone((float) 0.05, (float) 0.2, "images/mondeCuisiniers.png", 300, 450);
         Carte mMedie = new Carte(icone, "Monde des Cuisiniers", "images/placeMarche.jpg");
