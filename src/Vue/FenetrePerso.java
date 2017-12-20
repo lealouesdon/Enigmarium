@@ -23,8 +23,10 @@ public class FenetrePerso extends javax.swing.JFrame {
 
     public FenetrePerso() {
         initComponents();
+        //variables pour connaitre le choix de l'utilsateur
         fille.setName("fille");
         garcon.setName("garcon");
+        //possibilité de validé que en cas de selection du personnages
         valider.setEnabled(false);
         //bouton valider
         valider.addActionListener(new ActionListener() {
@@ -60,7 +62,7 @@ public class FenetrePerso extends javax.swing.JFrame {
             }
 
         });
-        //bouton perso mec
+        //bouton perso garcon
         garcon.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,7 +75,7 @@ public class FenetrePerso extends javax.swing.JFrame {
 
         });
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //pour mettre la fenetre sur tout l'écran
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 

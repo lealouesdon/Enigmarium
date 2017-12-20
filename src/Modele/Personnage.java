@@ -19,6 +19,14 @@ public abstract class Personnage extends Lieu{
         this.sexe = sexe;
     }
 
+    public String getNomPersonnage() {
+        return nomPersonnage;
+    }
+
+    public String getSexe() {
+        return sexe;
+    }
+
     
     
     

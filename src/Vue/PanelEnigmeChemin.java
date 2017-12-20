@@ -12,7 +12,9 @@ import Modele.Place;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import Modele.Trajet;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -70,8 +72,8 @@ public class PanelEnigmeChemin extends JPanel {
 
             for (Place place : trajet.getPlaces().values()) {
                 JButton bouton = new JButton(place.afficher());
-
-                bouton.setSize(150, 100);
+                bouton.setBorderPainted(false);
+                bouton.setSize(150, 75);
                 bouton.setName(String.valueOf(place.getRes()));
                 bouton.setFont(new Font("Liberation Sans", 14, 14));
 
@@ -100,16 +102,27 @@ public class PanelEnigmeChemin extends JPanel {
     private void affichage() {
         //affiche les boutons de la vue aléatoirement
         float x = 0.50f;
-        float y = 0.60f;
+        int i = 1;
+        float y = 0.65f;
         for (ArrayList<JButton> places : etapes) {
             Collections.shuffle(places);
-            x = 0.50f;
+            if (i==1){
+                x = 0.72f;
+            }else {
+                x = 0.60f;
+            }
+            
             for (JButton bouton : places) {
                 bouton.setLocation((int) (x * largeur), (int) (y * hauteur));
                 this.add(bouton);
-                x = x - 0.2f;
+                x = x - 0.28f;
             }
             y = y - 0.2f;
+            if (i==1){
+                i=2;
+            }else {
+                i=1;
+            }
 
         }
     }
@@ -137,10 +150,12 @@ public class PanelEnigmeChemin extends JPanel {
         JButton retour = new JButton("retour");
         //taille par défault du bouton
         retour.setSize(100, 100);
+        retour.setContentAreaFilled(false);
+        retour.setBorderPainted(false);
         retour.setFont(new Font("Liberation Sans", 14, 14));
         try {
             //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            Image img = ImageIO.read(getClass().getResource("images/retour.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
             ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
             retour.setIcon(icon);
@@ -214,6 +229,22 @@ public class PanelEnigmeChemin extends JPanel {
         g2.dispose();
 
         return resizedImg;
+    }
+    
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g); // paint the background image and scale it to fill the entire space
+        //si l'image est rentrée l'afficher
+        if (enigme.getFond() != null) {
+            try {
+                //affiche l'image de la carte
+                Image img = ImageIO.read(getClass().getResource(enigme.getFond()));
+                g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), Color.white, this);
+            } catch (IOException ex) {
+                Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
     }
 
 }

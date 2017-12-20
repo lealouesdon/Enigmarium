@@ -17,11 +17,7 @@ public class Carte extends Lieu {
     //Atribut
     private HashMap<String, Lieu> contiens;
 
-    public Carte(Icone icone, String nom, String fond,String son) {
-        super(icone, nom, fond, son);
-        this.contiens = new HashMap();
- 
-    }
+    
 
     public Carte(Icone icone, String nom, String fond) {
         super(icone, nom, fond);
