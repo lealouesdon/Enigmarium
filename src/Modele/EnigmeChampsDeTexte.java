@@ -20,7 +20,8 @@ public class EnigmeChampsDeTexte extends Enigme{
         super(icone, nom, fond);
     }
     
-    public void initialiseEnigme1(){
+    public void initialiseEnigme1(){//initialisation pour l'enigme de Bérangere la bergere
+        //créeation d un triangle rectange ave des valeurs de coter comprise entre 1 et 20
         int a= (int) (Math.random() * (1 + 1 - 20) + 20);
         int b=(int) (Math.random() * (1 + 1 - 20) + 20);
         int c=a*a+b*b;
