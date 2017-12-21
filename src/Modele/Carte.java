@@ -21,6 +21,7 @@ public class Carte extends Lieu {
 
     public Carte(Icone icone, String nom, String fond) {
         super(icone, nom, fond);
+        //contient corespond aux lieux present dans cette carte
         this.contiens = new HashMap();
  
     }
