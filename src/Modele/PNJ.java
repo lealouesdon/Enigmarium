@@ -18,6 +18,10 @@ public abstract class PNJ extends Personnage{
         this.description = description;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
   
     
 }

@@ -100,8 +100,8 @@ public class PanelNavigation extends JPanel {
 
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    if (carte.getDescriptif() != null) {
-                        fInfo = new FenetreInfoPerso(nom, carte.getDescriptif());
+                    if (cartes.get(string).getDescriptif() != null) {
+                        fInfo = new FenetreInfoPerso(nom, cartes.get(string).getDescriptif());
                         fInfo.setVisible(true);
                     } else {
                         fInfo = new FenetreInfoPerso(nom);

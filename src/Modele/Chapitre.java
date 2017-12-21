@@ -21,6 +21,15 @@ public class Chapitre {
         this.nbQuetes = nbQuetes;
         this.description = description;
     }
+
+    public ArrayList<String> getParties() {
+        return parties;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    
     
     
     
