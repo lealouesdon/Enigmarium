@@ -5,11 +5,21 @@
  */
 package Vue;
 
+import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -69,6 +79,33 @@ public class FenetreIntro extends javax.swing.JFrame {
         //pour mettre la fenetre en grand
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+        /////////////////////////////////////////
+        //partie esthétique
+        //logo
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/logo_transparent.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 350, 350));
+            logo.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //start
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            start.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        start.setVerticalTextPosition(SwingConstants.CENTER);
+        start.setHorizontalTextPosition(SwingConstants.CENTER);
+        start.setOpaque(false);
+        start.setContentAreaFilled(false);
+        start.setBorderPainted(false);
     }
 
     /**
@@ -86,7 +123,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         start = new javax.swing.JButton();
         credits = new javax.swing.JButton();
         quitter = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setAlwaysOnTop(true);
@@ -174,15 +211,15 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(quitter, gridBagConstraints);
 
-        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/logo.png"))); // NOI18N
+        logo.setBackground(new java.awt.Color(153, 153, 153));
+        logo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/logo.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 7;
-        getContentPane().add(jLabel1, gridBagConstraints);
+        getContentPane().add(logo, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Chiller", 3, 78)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 255));
@@ -239,11 +276,22 @@ public class FenetreIntro extends javax.swing.JFrame {
             }
         });
     }
+    
+    private Image getScaledImage(Image srcImg, int w, int h) {
+        //pour redimensionner une image pour un bouton
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton credits;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel logo;
     private javax.swing.JButton para;
     private javax.swing.JButton partie;
     private javax.swing.JButton quitter;
