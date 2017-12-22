@@ -67,10 +67,10 @@ public class PanelEnigmeChemin extends JPanel {
     private void initBoutons() {
         //initialise les boutons de la vue
         int i;
-        for (Trajet trajet : enigme.getTrajets().values()) {
+        for (Trajet trajet : enigme.getTrajets()) {
             i = enigme.getNbEtapes();
 
-            for (Place place : trajet.getPlaces().values()) {
+            for (Place place : trajet.getPlaces()) {
                 JButton bouton = new JButton(place.afficher());
                 bouton.setBorderPainted(false);
                 bouton.setSize(150, 75);

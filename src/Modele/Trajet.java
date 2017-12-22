@@ -6,7 +6,6 @@
 package Modele;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
@@ -14,10 +13,10 @@ import java.util.HashMap;
  */
 public class Trajet {
     private float resultat;
-    private HashMap<Integer,Place> places; 
+    private ArrayList<Place> places; 
     public Trajet(float resultat, int nbEtapes, int typeEnigme) {
        this.resultat=resultat;
-       this.places=new HashMap();
+       this.places=new ArrayList();
        initialyserTrajet(nbEtapes,typeEnigme);
     }
 
@@ -34,33 +33,15 @@ public class Trajet {
                 int nouv2=(int) nouv;
                 nouv= (float)(nouv2/100f);
                 resMa=resMa-nouv;
-                places.put(i,new Fraction(nouv));
+                places.add(new Fraction(nouv));
             }
             float derniere = (int)(resMa*100)/100f;
-            places.put(i,new Fraction(derniere));
+            places.add(new Fraction(derniere));
         }
     }
  
-    public HashMap<Integer,Place> getPlaces() {
+    public ArrayList<Place> getPlaces() {
         return places;
     }
     
 }
-//(int) (Math.random() * (MAXHAU + 1 - MINHAU) + MINHAU)
-/*
-if(typeEnigme==1){
-            float resMa=resultat;
-            float resMi=0;
-            int i=0;
-            for(;i<nbEtapes-1;i++){
-                float nouv=(float)(Math.random()* (resMa +1f - resMi )+resMi);
-                nouv=((int)(nouv*100))/100f;
-                resMa=resMa-nouv;
-                places.put(i,new Fraction(nouv));
-            }
-            places.put(i,new Fraction(resMa));
-        }
-    }
-*/
-//(float)(Math.random()* (interval +1f - interval/2f )+interval/2f)
-//((int)((float)(Math.random()* (0.33 +1f - 0.33/2f )+0.33/2f)*10))/10f;

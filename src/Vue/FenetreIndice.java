@@ -52,11 +52,11 @@ public class FenetreIndice extends JFrame {
         Indice = new javax.swing.JLabel();
         fermer = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Balthazar", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Indice :");
 
-        fermer.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        fermer.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         fermer.setText("Fermer");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
