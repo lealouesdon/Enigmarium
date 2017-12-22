@@ -8,7 +8,15 @@ package Vue;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import static Controleur.ConnectionDB.ConnecterDB;
+import java.sql.ResultSetMetaData;
 
 /**
  *
@@ -32,11 +40,20 @@ public class FenetrePerso extends javax.swing.JFrame {
         valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(perso!=null){
-                    //update base de données
-                    dispose();
+                if (perso != null) {
+                    try {
+                        Connection conn = ConnecterDB();
+                        Statement state;
+                        state = conn.createStatement();
+                        String insert = "INSERT INTO Joueurs(pseudo) VALUES('" + pseudo.getText() + "');";
+                        state.executeUpdate(insert);
+                        state.close();
+                        dispose();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-                
+
             }
 
         });
