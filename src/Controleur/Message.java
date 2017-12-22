@@ -48,6 +48,7 @@ public class Message {
     public void setMessage(String message) {
         this.message = message;
     }
+    
     public void setEtat(String etat) {
         this.etat = etat;
     }
@@ -55,9 +56,11 @@ public class Message {
     public String getEtat() {
         return etat;
     }
+    
     public ArrayList<Float> getFractions(){
         return fractions;
     }
+    
     public void addFraction(float f){
         fractions.add(f);
     }

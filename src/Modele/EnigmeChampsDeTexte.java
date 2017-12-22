@@ -20,11 +20,11 @@ public class EnigmeChampsDeTexte extends Enigme{
         super(icone, nom, fond);
     }
     
-    public void initialiseEnigme1(){
+    public void initialiseEnigme1(){//initialisation pour l'enigme de Bérangere la bergere
+        //créeation d un triangle rectange ave des valeurs de coter comprise entre 1 et 20
         int a= (int) (Math.random() * (1 + 1 - 20) + 20);
         int b=(int) (Math.random() * (1 + 1 - 20) + 20);
         int c=a*a+b*b;
-        System.out.println(c);
         this.valAttendu= String.valueOf(c);
         this.question="<html>Coter a= "+String.valueOf(a)+" <br /> "+"Coter b= "+String.valueOf(b)+" <br /> "+"rep "+String.valueOf(this.valAttendu)+"</html>";
     }
@@ -32,6 +32,12 @@ public class EnigmeChampsDeTexte extends Enigme{
     public String getValAttendu() {
         return valAttendu;
     }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+    
+    
 
     public String getQuestion() {
         return question;

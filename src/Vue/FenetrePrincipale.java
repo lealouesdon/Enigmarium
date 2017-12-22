@@ -29,6 +29,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
 
     private Observateur observateur;//observateur de la fenetre est controleur
     private JPanel cardPanel, panelHaut;
+    //attributs pour la taille de l'écrant
     int hauteur, largeur;
     private CardLayout cardLayout = new CardLayout();
 
@@ -104,7 +105,6 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         cardLayout.show(cardPanel, e.getNom());
     }
 
-
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //methode pour ajuter l'observateur
     public void setObservateur(Observateur o) {
@@ -120,6 +120,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
 
     //////////////////////////////////////////////
     private void boutonMenu() {
+        //initialise et place le bouton menu
         JButton menu = new JButton();
         menu.addActionListener(new ActionListener() {
             @Override
@@ -129,30 +130,34 @@ public class FenetrePrincipale extends JFrame implements Observateur {
             }
 
         });
-        menu.setFont(new Font("Liberation Sans", 14, 14));
+        //image du bouton
         try {
             //ouvre l'image et la met dans le bouton
             Image img = ImageIO.read(getClass().getResource("images/menu.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, 70, 50));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 70));
             menu.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
         }
-        panelHaut.add(menu, BorderLayout.WEST);
+        //placement du bouton
+        panelHaut.add(menu, BorderLayout.CENTER);
     }
 
     private void boutonInventaire() {
+        //methode qui crée et initialise le bouton invetaire
         JButton inventaire = new JButton();
+        //image du bouton
         try {
             //ouvre l'image et la met dans le bouton
             Image img = ImageIO.read(getClass().getResource("images/inventaire.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img,70, 70));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 70, 70));
             inventaire.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         inventaire.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -162,24 +167,24 @@ public class FenetrePrincipale extends JFrame implements Observateur {
             }
 
         });
-        inventaire.setFont(new Font("Liberation Sans", 14, 14));
-
-        panelHaut.add(inventaire, BorderLayout.CENTER);
+        //place le bouton
+        panelHaut.add(inventaire, BorderLayout.WEST);
     }
 
     private void boutonFermer() {
+        //methode qui crée et place le bouton fermer
         JButton fermer = new JButton();
-        fermer.setLocation(0, 0);
-        fermer.setSize(100, 100);
+        //image du bouton
         try {
             //ouvre l'image et la met dans le bouton
             Image img = ImageIO.read(getClass().getResource("images/fermer.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img,70, 70));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 70, 70));
             fermer.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         fermer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -188,6 +193,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
 
         });
         fermer.setFont(new Font("Liberation Sans", 14, 14));
+        //positionnement du bouton
         panelHaut.add(fermer, BorderLayout.EAST);
     }
 

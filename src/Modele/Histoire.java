@@ -18,6 +18,10 @@ public class Histoire {
     public Histoire(ArrayList<Chapitre> chapitres) {
         this.chapitres = chapitres;
     }
+
+    public ArrayList<Chapitre> getChapitres() {
+        return chapitres;
+    }
     
     
 }

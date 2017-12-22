@@ -15,6 +15,7 @@ public class PersonnagePrincipal extends PNJ{
         super(icone, nom, fond, nomPersonnage, sexe, description);
     }
 
+    
   
   
     

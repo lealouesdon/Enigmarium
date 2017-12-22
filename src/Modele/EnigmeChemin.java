@@ -6,7 +6,7 @@
 package Modele;
 
 import Controleur.Message;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,7 +16,7 @@ public class EnigmeChemin extends Enigme {
     private static float resultat=1f;
     private int nbChemins;
     private int nbEtapes;
-    private HashMap<Integer,Trajet> trajets;
+    private ArrayList<Trajet> trajets;
     private int typeEnigme;
     private String enonce;
     
@@ -26,13 +26,13 @@ public class EnigmeChemin extends Enigme {
         this.nbEtapes=nbEtapes;
         enonce = "La probabilité a avoir est : "+String.valueOf(resultat);
         this.typeEnigme=typeEnigme;
-        this.trajets=new HashMap();
+        this.trajets=new ArrayList();
     }
 
     public void initialiserEnigme() {
         this.trajets.clear();
         for(int i=0;i<this.getNbChemins();i++){
-            trajets.put(i,new Trajet(this.getResultat(),this.getNbEtapes(),this.getTypeEnigme()));
+            trajets.add(new Trajet(this.getResultat(),this.getNbEtapes(),this.getTypeEnigme()));
         }
         
     }
@@ -67,7 +67,7 @@ public class EnigmeChemin extends Enigme {
         return resultat;
     }
 
-    public HashMap<Integer,Trajet> getTrajets() {
+    public ArrayList<Trajet> getTrajets() {
         return trajets;
     }
 

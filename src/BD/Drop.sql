@@ -1,0 +1,16 @@
+Drop table Testee;
+Drop table Reussie;
+Drop table EAppartientQ;
+Drop table QAppartientH;
+Drop table Enigme;
+Drop table Quete;
+Drop table Histoire;
+Drop table Personnage;
+Drop table Monde;
+Drop table OAppartientC;
+Drop table CAppartientI;
+Drop table Objet;
+Drop table Cases;
+Drop table Inventaire;
+Drop table Avatar;
+Drop table Joueur;
