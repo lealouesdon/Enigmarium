@@ -50,7 +50,6 @@ public class Joueur extends Personnage{
                 break;
             case 10 :
                 break;
-                
             case 20 :
                 break;
             case 30 :
