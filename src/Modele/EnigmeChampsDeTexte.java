@@ -25,7 +25,6 @@ public class EnigmeChampsDeTexte extends Enigme{
         int a= (int) (Math.random() * (1 + 1 - 20) + 20);
         int b=(int) (Math.random() * (1 + 1 - 20) + 20);
         int c=a*a+b*b;
-        double m = Math.sqrt(c);
         this.valAttendu= String.valueOf(((int)((Math.sqrt(c))*100))/100f);
         this.question="<html>Coter a= "+String.valueOf(a)+" <br /> "+"Coter b= "+String.valueOf(b)+" <br /> "+"rep "+String.valueOf(this.valAttendu)+"</html>";
     }
