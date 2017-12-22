@@ -1,7 +1,7 @@
 /*--------------------------------MONDE------------------------------------------*/
-insert into Monde(nomM, nbpers, prerequis) values ("Monde des cuisiniers", 3, null);
-insert into Monde(nomM, nbpers, prerequis) values ("Monde des archéologues", 5, null);
-insert into Monde(nomM, nbpers, prerequis) values ("Le refuge", 2, null);
+insert into Monde(nomM, nbpers) values ("Monde des cuisiniers", 3);
+insert into Monde(nomM, nbpers) values ("Monde des archéologues", 5);
+insert into Monde(nomM, nbpers) values ("Le refuge", 2);
 /*------------------------------------------------------------------------------*/
 
 /*------------------------------PERSONNAGES-------------------------------------*/

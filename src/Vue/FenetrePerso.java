@@ -8,7 +8,14 @@ package Vue;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
 import javax.swing.JFrame;
+import java.sql.Statement;
+import static Controleur.ConnectionDB.ConnecterDB;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -34,6 +41,15 @@ public class FenetrePerso extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(perso!=null){
                     //update base de données
+                    /*Connection conn = ConnecterDB();
+                    Statement state;
+                    try {
+                        state = conn.createStatement();
+                        int insert = state.executeUpdate("INSERT INTO AVATAR VALUES(, );");
+                        state.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
+                    }*/
                     dispose();
                 }
                 
@@ -44,7 +60,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         retour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FenetreIntro f = new FenetreIntro();
+                FenetreInscription f = new FenetreInscription();
                 f.setVisible(true);
                 dispose();
             }
