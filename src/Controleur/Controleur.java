@@ -15,6 +15,7 @@ import Modele.Enigme;
 import Modele.EnigmeChampsDeTexte;
 import Modele.EnigmeChemin;
 import Modele.EnigmeComposite;
+import Modele.Histoire;
 import Modele.Icone;
 import Modele.Lieu;
 import Modele.Personnage;
@@ -27,6 +28,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Controleur implements Observateur {
@@ -36,10 +38,13 @@ public class Controleur implements Observateur {
     private FenetreIndice fenetreIndice;
     private FenetrePrincipale fenetrePrincipale;
     private Enigme enigmeCoutante;
+    private ArrayList<Histoire> histoire;
+    private int iterHistoire;
 
     //Constructeur
     public Controleur() throws SQLException {
-
+        this.histoire=new ArrayList<Histoire>();
+        this.iterHistoire=0;
         cartes = new Stack();
         InitialiserModel();
         InitialiserVue();
@@ -48,6 +53,7 @@ public class Controleur implements Observateur {
         fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
         fIntro.setVisible(true);
         fIntro.toFront();
+        this.checkHistoire();
     }
     //methodes
 
@@ -111,6 +117,11 @@ public class Controleur implements Observateur {
         Carte lePoulpe = new Carte(new Icone((float) 0.30, (float) 0.15, null, 300, 200),"LePoulpe",null);
         MondeLasVegas.addContien(lePoulpe);
         ///////////////////////////////ENIGMES/////////////////////////////////////
+        ////////////////////////////////HISTOIRE////////////////////////////////////
+        Histoire etape1=new Histoire(monde,"test histoire","senar1");
+        histoire.add(etape1);
+        Histoire etape2=new Histoire(mondeMedievale,"lasuite","senar2");
+        histoire.add(etape2);
         
     }
 
@@ -124,28 +135,28 @@ public class Controleur implements Observateur {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.enigmeVolume();
-            this.cartes.push(enigmeCoutante);
+            addCarte(enigmeCoutante);
             //trouve la carte énigme volume et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
         } else if (m.getMessage() == "La Porte de La Pyramide") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.enigmeExpression();
-            this.cartes.push(enigmeCoutante);
+            addCarte(enigmeCoutante);
             //trouve la carte énigme expression et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeComposite((EnigmeComposite) enigmeCoutante);
         }else if(m.getMessage() == "Les Machines a sous"){
             EnigmeChemin e = (EnigmeChemin) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.initialiserEnigme();
-            this.cartes.push(enigmeCoutante);
+            addCarte(enigmeCoutante);
             //trouve la carte énigme expression et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeChemin((EnigmeChemin) enigmeCoutante);
         } else if (m.getMessage() == "Bérengere la bergere") {
             EnigmeChampsDeTexte e = (EnigmeChampsDeTexte) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
             e.initialiseEnigme1();
-            this.cartes.push(enigmeCoutante);
+            addCarte(enigmeCoutante);
             //trouve la carte énigme volume et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeChampsDeTexte((EnigmeChampsDeTexte) enigmeCoutante);
         }
@@ -204,11 +215,20 @@ public class Controleur implements Observateur {
         fenetrePrincipale.creeVue((Carte) this.cartes.peek());
     }
 
-    private void addCarte(Carte carte) {
-        this.cartes.push(carte);
+    private void addCarte(Lieu lieu) {
+        this.cartes.push(lieu);
+        checkHistoire();
     }
 
     private void delCarte() {
         this.cartes.pop();
+        checkHistoire();
+    }
+    public void checkHistoire(){
+        if(histoire.get(iterHistoire).getLieu()==cartes.peek()){
+            System.out.print(histoire.get(iterHistoire).getDialogue());
+            this.iterHistoire++;
+        }
     }
 }
+//histoire[iterHistoire].getLieu()==cartes.peek(

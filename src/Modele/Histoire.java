@@ -12,8 +12,31 @@ import java.util.ArrayList;
  * @author lorentzr
  */
 public class Histoire {
+    private Lieu lieu;
+    private String dialogue;
+    private String senario;
     
-    private ArrayList<Chapitre> chapitres;
+    public Histoire(Lieu lieu, String dialogue,String senario) {
+        this.lieu = lieu;
+        this.dialogue = dialogue;
+        this.senario=senario;
+    }
+    
+    /*public boolean suivant(){
+           return this.nbPointPourSuivant > 3;
+    }  */
+
+    public Lieu getLieu() {
+        return lieu;
+    }
+
+    public String getDialogue() {
+        return dialogue;
+    }
+    
+    
+}
+/*private ArrayList<Chapitre> chapitres;
 
     public Histoire(ArrayList<Chapitre> chapitres) {
         this.chapitres = chapitres;
@@ -21,7 +44,4 @@ public class Histoire {
 
     public ArrayList<Chapitre> getChapitres() {
         return chapitres;
-    }
-    
-    
-}
+    }*/
