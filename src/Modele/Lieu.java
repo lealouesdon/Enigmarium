@@ -12,22 +12,15 @@ import java.util.ArrayList;
  * @author Léa
  */
 public abstract class Lieu {
-
+  
     private String nom;
-    private String son;
     private String fond;
     private Icone icone;
     private boolean retour;
     private ArrayList<Lieu> prerequis;
+    private String descriptif;
     
-    public Lieu(Icone icone, String nom, String fond,String son) {
-        this.icone = icone;
-        this.nom = nom;
-        setFond(fond);
-        this.retour = true;
-        prerequis = new ArrayList();
-        this.son=son;
-    }
+   
 
     public Lieu(Icone icone, String nom, String fond) {
         this.icone = icone;
@@ -35,7 +28,6 @@ public abstract class Lieu {
         setFond(fond);
         this.retour = true;
         prerequis = new ArrayList();
-        this.son=null;
     }
 
     public Lieu(Icone icone, String nom, String fond, boolean retour) {
@@ -44,8 +36,22 @@ public abstract class Lieu {
         setFond(fond);
         this.retour = retour;
         prerequis = new ArrayList();
-        this.son=null;
     }
+
+    public Lieu(String nom, String fond, Icone icone, boolean retour, ArrayList<Lieu> prerequis, String descriptif) {
+        this.nom = nom;
+        this.fond = fond;
+        this.icone = icone;
+        this.retour = retour;
+        this.prerequis = prerequis;
+        this.descriptif = descriptif;
+    }
+
+    public String getDescriptif() {
+        return descriptif;
+    }
+    
+    
  
     public void setFond(String fond) {
         this.fond = fond;
@@ -67,8 +73,6 @@ public abstract class Lieu {
         return retour;
     }
 
-    public String getSon() {
-        return son;
-    }
+
     
 }

@@ -21,17 +21,15 @@ public class FenetreResultat extends JFrame {
      * Creates new form FenetreResultat
      */
     public FenetreResultat() {
-        this.setUndecorated(true);
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // Already there
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //permet de s'addapter à la taille de l'écran
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth()) / 3);
         int y = (int) ((dimension.getHeight() ) / 3);
         this.setLocation(x, y);
-        this.setResizable(false);
+        
 
         initComponents();
-
+        //bouton retour
         retour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -42,6 +40,7 @@ public class FenetreResultat extends JFrame {
     }
     
     public void setPoints(String s){
+        //pour modifier le nombre de points inscrit (par défault 100)
         points.setText(s);
     }
     /**
@@ -61,6 +60,7 @@ public class FenetreResultat extends JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 51, 51));

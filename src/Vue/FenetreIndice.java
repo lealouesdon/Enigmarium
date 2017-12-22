@@ -136,6 +136,7 @@ public class FenetreIndice extends JFrame {
     // End of variables declaration//GEN-END:variables
     public void setIndice(String image) {
         try {
+            //méthode applelé par la classe qui crée une fenetre indice
             //ouvre l'image et la met dans le bouton
             Image img = ImageIO.read(getClass().getResource(image));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone

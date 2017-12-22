@@ -17,17 +17,14 @@ import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import static javax.sound.sampled.Clip.LOOP_CONTINUOUSLY;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -40,26 +37,24 @@ public class PanelNavigation extends JPanel {
 
     //attributs
     private Observateur observateur;
-    private Carte carte;
+    private Lieu carte;
     private Message m;
-    private String son;
+    private FenetreInfoPerso fInfo;
 
     /////////////////////////////////////////////////////////////////
     //constructeur
     public PanelNavigation(Carte carte, int largeur, int hauteur) {
         this.setLayout(null);
         this.setSize(largeur, hauteur);
-        this.carte=carte;
+        this.carte = carte;
         setFond();
         //cree les boutons
         this.repaint();
         initBoutons(carte.getContiens());
-        son=carte.getSon();
-        if (son!=null){
-            File sonDeFond= new File(son);
-            PlaySound(sonDeFond);
+        if (carte.getRetour()) {
+            boutonRetour();
         }
-        
+
     }
 //////////////////////////////////////////////////////////////////////////////
 
@@ -91,19 +86,46 @@ public class PanelNavigation extends JPanel {
             //met la position du bouton en fonction des attributs de l'icone
             bouton.setLocation((int) (cartes.get(string).getIcone().getX() * this.getWidth()), (int) (cartes.get(string).getIcone().getY() * this.getHeight()));
             //set l'action listener
-            bouton.addActionListener(new ActionListener() {
+            //FenetreInfoPerso fInfo;
+            String nom = cartes.get(string).getNom();
+            bouton.addMouseListener(new MouseListener() {
                 @Override
-                public void actionPerformed(ActionEvent e) {
+                public void mouseClicked(MouseEvent e) {
                     m = new Message();
                     //renvoyer le nom du bouton pas le texte
                     m.setMessage(cartes.get(string).getNom());
                     m.setEtat("carteChoisi");
                     observateur.notification(m);
-                    //System.out.println("Message envoyé");
                 }
 
-            }
-            );
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    if (carte.getDescriptif() != null) {
+                        fInfo = new FenetreInfoPerso(nom, carte.getDescriptif());
+                        fInfo.setVisible(true);
+                    } else {
+                        fInfo = new FenetreInfoPerso(nom);
+                        fInfo.setVisible(true);
+                    }
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                    fInfo.dispose();
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+
+                }
+
+            });
+
             this.add(bouton);
         }
     }
@@ -115,6 +137,8 @@ public class PanelNavigation extends JPanel {
         //taille par défault du bouton
         retour.setSize(100, 100);
         retour.setFont(new Font("Liberation Sans", 14, 14));
+        retour.setContentAreaFilled(false);
+        retour.setBorderPainted(false);
 
         //localisation par défaut du bouton
         retour.setLocation(0, 0);
@@ -122,9 +146,9 @@ public class PanelNavigation extends JPanel {
 
         try {
             //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/retour.jpg"));
+            Image img = ImageIO.read(getClass().getResource("images/retour.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img,100, 100));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 100));
             retour.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
@@ -185,18 +209,5 @@ public class PanelNavigation extends JPanel {
         }
 
     }
-    ///////////////////////////////////////////////////////
-    static void PlaySound(File sound){
-        try{
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(sound);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioIn);
-            clip.start();
-            clip.loop(LOOP_CONTINUOUSLY);
-            
-        } catch(Exception e){
-            System.out.println(e);
-        }
-    }
-    
+
 }
