@@ -35,7 +35,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
 
     public FenetrePrincipale() {
         setResizable(false);
-        //initialise la taille de l'écrant
+        //initialise la taille de l'écran
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         largeur = gd.getDisplayMode().getWidth();
         hauteur = gd.getDisplayMode().getHeight();
@@ -122,8 +122,6 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     private void boutonMenu() {
         //initialise et place le bouton menu
         JButton menu = new JButton();
-        menu.setLocation(0, 0);
-        menu.setSize(100, 100);
         menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

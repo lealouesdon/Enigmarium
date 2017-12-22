@@ -5,9 +5,19 @@
  */
 package Vue;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -39,6 +49,13 @@ public class FenetreChargement extends javax.swing.JFrame {
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        //partie esthétique
+        //retour
+    }
+    
+    private void parties(){
+        
     }
 
     /**
@@ -65,7 +82,7 @@ public class FenetreChargement extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 321, Short.MAX_VALUE)
+            .addGap(0, 188, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,7 +98,7 @@ public class FenetreChargement extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(jPanel1, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Balthazar", 1, 18)); // NOI18N
         jLabel1.setText("Selectionner une partie : ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -89,7 +106,7 @@ public class FenetreChargement extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        charger.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        charger.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         charger.setText("Charger");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -97,7 +114,7 @@ public class FenetreChargement extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(charger, gridBagConstraints);
 
-        retour.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        retour.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         retour.setText("Retour");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;

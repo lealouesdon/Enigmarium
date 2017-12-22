@@ -25,8 +25,8 @@ public class EnigmeChampsDeTexte extends Enigme{
         int a= (int) (Math.random() * (1 + 1 - 20) + 20);
         int b=(int) (Math.random() * (1 + 1 - 20) + 20);
         int c=a*a+b*b;
-        this.valAttendu= String.valueOf(c);
-        this.question="<html>Coter a= "+String.valueOf(a)+" <br /> "+"Coter b= "+String.valueOf(b)+" <br /> "+"rep "+String.valueOf(this.valAttendu)+"</html>";
+        this.valAttendu= String.valueOf(((int)((Math.sqrt(c))*100))/100f);
+        this.question="<html>chercher le côté jaune et elle sait que: <br /> Le côté Bleu mesure "+String.valueOf(a)+" m<br /> "+"Le côté rouge mesure "+String.valueOf(b)+" <br /> "+"rep "+String.valueOf(this.valAttendu)+"</html>";
     }
 
     public String getValAttendu() {

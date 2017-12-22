@@ -9,13 +9,22 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
-import javax.swing.JFrame;
-import java.sql.Statement;
-import static Controleur.ConnectionDB.ConnecterDB;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import javax.swing.JFrame;
+import static Controleur.ConnectionDB.ConnecterDB;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.sql.ResultSetMetaData;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -52,7 +61,7 @@ public class FenetrePerso extends javax.swing.JFrame {
                     }*/
                     dispose();
                 }
-                
+
             }
 
         });
@@ -93,6 +102,46 @@ public class FenetrePerso extends javax.swing.JFrame {
 
         //pour mettre la fenetre sur tout l'écran
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+         try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            retour.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        retour.setVerticalTextPosition(SwingConstants.CENTER);
+        retour.setHorizontalTextPosition(SwingConstants.CENTER);
+        retour.setOpaque(false);
+        retour.setContentAreaFilled(false);
+        retour.setBorderPainted(false);
+        //valider
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            valider.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        valider.setVerticalTextPosition(SwingConstants.CENTER);
+        valider.setHorizontalTextPosition(SwingConstants.CENTER);
+        valider.setOpaque(false);
+        valider.setContentAreaFilled(false);
+        valider.setBorderPainted(false);
+    }
+    
+    private Image getScaledImage(Image srcImg, int w, int h) {
+        //pour redimensionner une image pour un bouton
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
     }
 
     /**
@@ -121,7 +170,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         jPanel1Layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0};
         jPanel1.setLayout(jPanel1Layout);
 
-        valider.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        valider.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         valider.setText("Valider");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -139,7 +188,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(pseudo, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Balthazar", 1, 18)); // NOI18N
         jLabel1.setText("Choisir un personnage et son pseudo :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -167,7 +216,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(fille, gridBagConstraints);
 
-        retour.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        retour.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         retour.setText("Retour");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;

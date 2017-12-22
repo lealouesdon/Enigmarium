@@ -6,10 +6,20 @@
 package Vue;
 
 import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -35,10 +45,33 @@ public class FenetreResultat extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
-
         });
+        
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 50));
+            retour.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        retour.setVerticalTextPosition(SwingConstants.CENTER);
+        retour.setHorizontalTextPosition(SwingConstants.CENTER);
+        retour.setOpaque(false);
+        retour.setContentAreaFilled(false);
+        retour.setBorderPainted(false);
     }
-    
+    private Image getScaledImage(Image srcImg, int w, int h) {
+        //pour redimensionner une image pour un bouton
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
+    }
     public void setPoints(String s){
         //pour modifier le nombre de points inscrit (par défault 100)
         points.setText(s);
@@ -63,19 +96,21 @@ public class FenetreResultat extends JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 48)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel1.setFont(new java.awt.Font("Balthazar", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 204, 204));
         jLabel1.setText("Bravo!");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 8;
         gridBagConstraints.ipadx = 8;
         gridBagConstraints.ipady = -8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(22, 116, 0, 0);
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        retour.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        retour.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         retour.setText("Retour");
         retour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,40 +118,41 @@ public class FenetreResultat extends JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(78, 18, 37, 0);
         getContentPane().add(retour, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         jLabel2.setText("Vous avez : ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridheight = 3;
         gridBagConstraints.ipadx = 40;
         gridBagConstraints.ipady = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(61, 12, 0, 0);
         getContentPane().add(jLabel2, gridBagConstraints);
 
-        points.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        points.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
+        points.setForeground(new java.awt.Color(255, 0, 0));
         points.setText("100");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(66, 33, 0, 0);
         getContentPane().add(points, gridBagConstraints);
 
-        jLabel3.setFont(new java.awt.Font("Liberation Sans", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         jLabel3.setText("points!");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.ipadx = 82;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(66, 22, 0, 12);
