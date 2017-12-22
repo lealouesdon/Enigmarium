@@ -84,6 +84,7 @@ public class Controleur implements Observateur {
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
         EnigmeComposite pBoul = new EnigmeComposite(icone, "Hervé le Boulanger", "images/vueJeu.png");  
         mMedie.addContien(pBoul);
+        //ivan le payisant
         //EnigmeChemin psoupe = new EnigmeChemin(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "Les Machines a sous", null,2,3,1);
         //mMedie.addContien(psoupe);
         EnigmeChampsDeTexte pBergere =new EnigmeChampsDeTexte(new Icone((float) 0.10, (float) 0.39, null, 200, 200),"Bérengere la bergere","images/prés_final.jpg");
@@ -93,9 +94,12 @@ public class Controleur implements Observateur {
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
         EnigmeComposite perso = new EnigmeComposite(icone, "La Porte de La Pyramide", "images/enigme 1.jpg");
         mArche.addContien(perso);
-        //Monde de las vegas
+        //les fouilles
+        //la grotte
+        //Le refuge
         EnigmeChemin machines = new EnigmeChemin(new Icone((float) 0.0, (float) 0.2, null, 300, 600), "Les Machines a sous", "images/jeuMachines.jpg",3,3,1);
         mLasVegas.addContien(machines);
+        //le poulpe
         ///////////////////////////////ENIGMES/////////////////////////////////////
         
     }
