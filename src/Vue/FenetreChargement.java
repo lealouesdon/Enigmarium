@@ -40,6 +40,10 @@ public class FenetreChargement extends javax.swing.JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
+    
+    private void parties(){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

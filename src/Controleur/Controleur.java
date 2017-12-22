@@ -61,12 +61,14 @@ public class Controleur implements Observateur {
 
         cartes.push(monde);
         ///////////////////////////////BASE DE DONNES////////////////////////////////
-        Connection conn = ConnecterDB();
+        /*Connection conn = ConnecterDB();
         Statement state = conn.createStatement();
         ResultSet res = state.executeQuery("Select nomM from Monde;");
         ResultSetMetaData resFin = res.getMetaData();
         res.close();
-        state.close();
+        state.close();*/
+        
+        
         /////////////////////////////////MONDE///////////////////////////////////////
         Icone icone = new Icone((float) 0.05, (float) 0.2, "images/mondeCuisiniers.png", 300, 450);
         Carte mMedie = new Carte(icone, "Monde des Cuisiniers", "images/placeMarche.jpg");
