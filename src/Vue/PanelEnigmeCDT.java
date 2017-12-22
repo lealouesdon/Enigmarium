@@ -38,9 +38,9 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         initComponents();
         enigme = e;
         this.setSize(largeur, hauteur);
-        question.setLocation((int)(largeur*0.9),(int)(hauteur*0.1));
-        reponse.setLocation((int)(largeur*0.9),(int)(hauteur*0.7));
-        valider.setLocation((int)(largeur*0.9),(int)(hauteur*0.8));
+        question.setLocation((int)(largeur*0.85),(int)(hauteur*0.1));
+        reponse.setLocation((int)(largeur*0.9),(int)(hauteur*0.4));
+        valider.setLocation((int)(largeur*0.87),(int)(hauteur*0.85));
         question.setText(e.getQuestion());
         valider.addActionListener(new ActionListener(){
             @Override
@@ -148,7 +148,6 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         valider = new javax.swing.JButton();
         reponse = new javax.swing.JTextField();
@@ -178,7 +177,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         question.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         question.setText("---");
         add(question);
-        question.setBounds(740, 80, 140, 270);
+        question.setBounds(640, 60, 240, 270);
     }// </editor-fold>//GEN-END:initComponents
 
     private void reponseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reponseActionPerformed
