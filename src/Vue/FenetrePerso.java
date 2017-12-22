@@ -48,18 +48,18 @@ public class FenetrePerso extends javax.swing.JFrame {
         valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (perso != null) {
+                if(perso!=null){
+                    //update base de données
+                    /*Connection conn = ConnecterDB();
+                    Statement state;
                     try {
-                        Connection conn = ConnecterDB();
-                        Statement state;
                         state = conn.createStatement();
-                        String insert = "INSERT INTO Joueurs(pseudo) VALUES('" + pseudo.getText() + "');";
-                        state.executeUpdate(insert);
+                        int insert = state.executeUpdate("INSERT INTO AVATAR VALUES(, );");
                         state.close();
-                        dispose();
                     } catch (SQLException ex) {
                         Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    }*/
+                    dispose();
                 }
 
             }
@@ -69,7 +69,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         retour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FenetreIntro f = new FenetreIntro();
+                FenetreInscription f = new FenetreInscription();
                 f.setVisible(true);
                 dispose();
             }

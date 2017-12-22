@@ -36,7 +36,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FenetrePerso fenetre = new FenetrePerso();
+                FenetreInscription fenetre = new FenetreInscription();
                 fenetre.setVisible(true);
                 dispose();
             }
@@ -46,6 +46,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         partie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //lancer directement la partie du joueur
                 FenetreChargement fenetre = new FenetreChargement();
                 fenetre.setVisible(true);
                 dispose();

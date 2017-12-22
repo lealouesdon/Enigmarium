@@ -241,7 +241,7 @@ public class PanelEnigmeComposite extends JPanel {
 
     private void indice() {
         if (carte.getIndice() != null) {
-            JButton indice = new JButton("indice");
+            JButton indice = new JButton("Indice");
             indice.setFont(new Font("Liberation Sans", 14, 14));
 
             indice.setSize(100, 100);
@@ -253,8 +253,21 @@ public class PanelEnigmeComposite extends JPanel {
                     ind.setIndice(carte.getIndice());
                     ind.setVisible(true);
                 }
-
             });
+            try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+                ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 50));
+                indice.setIcon(icon);
+            } catch (IOException ex) {
+                Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            indice.setVerticalTextPosition(SwingConstants.CENTER);
+            indice.setHorizontalTextPosition(SwingConstants.CENTER);
+            indice.setOpaque(false);
+            indice.setContentAreaFilled(false);
+            indice.setBorderPainted(false);
             this.add(indice);
         }
     }

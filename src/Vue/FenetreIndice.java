@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -35,9 +36,23 @@ public class FenetreIndice extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
-            
         });
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 50));
+            fermer.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        fermer.setVerticalTextPosition(SwingConstants.CENTER);
+        fermer.setHorizontalTextPosition(SwingConstants.CENTER);
+        fermer.setOpaque(false);
+        fermer.setContentAreaFilled(false);
+        fermer.setBorderPainted(false);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

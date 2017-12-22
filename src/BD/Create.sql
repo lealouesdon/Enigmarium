@@ -1,6 +1,6 @@
 Create table Joueur(
 	id int primary key, /* id du joueur*/
-	pseudo varchar(20) not null, /* pseudo du joueur*/
+	pseudo varchar(20) unique not null, /* pseudo du joueur*/
 	mdp varchar(20) not null,/*mot de passe du joueur*/
 	score int /* score total du joueur*/
 );
