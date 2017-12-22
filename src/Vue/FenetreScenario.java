@@ -5,6 +5,16 @@
  */
 package Vue;
 
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Léa
@@ -16,6 +26,15 @@ public class FenetreScenario extends javax.swing.JFrame {
      */
     public FenetreScenario() {
         initComponents();
+      
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+          suivant.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
     /**
@@ -28,24 +47,17 @@ public class FenetreScenario extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        jLabel1 = new javax.swing.JLabel();
+        suivant = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        setUndecorated(true);
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jLabel1.setText("<html>mdfsfhsqdhfkjqdfkhsqfk kfmsqdhf mhsdmf hsmdhf smhdf msqj<br> skdjfjshdfhsdfhshfsdhfsf jsfj ksd jsdlfj sdljf lsdjf jf sjdfskjfdl jlsdflkdfjsfdsdfjk dfjsfsdfqsfsdfddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddcccccccccc<br>ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccddd </html>");
+        getContentPane().add(jLabel1, java.awt.BorderLayout.CENTER);
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 354;
-        gridBagConstraints.ipady = 266;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        getContentPane().add(jScrollPane1, gridBagConstraints);
+        suivant.setText("suivant");
+        getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -87,7 +99,7 @@ public class FenetreScenario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton suivant;
     // End of variables declaration//GEN-END:variables
 }

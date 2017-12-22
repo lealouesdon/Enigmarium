@@ -8,12 +8,15 @@ package Vue;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 /**
  *
@@ -45,6 +48,14 @@ public class FenetreDialogue extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
+        suivant.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
     /**
@@ -66,8 +77,10 @@ public class FenetreDialogue extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         dialogueP1 = new javax.swing.JLabel();
         dialogueP2 = new javax.swing.JLabel();
+        suivant = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
         jPanel1Layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
@@ -141,6 +154,9 @@ public class FenetreDialogue extends javax.swing.JFrame {
         dialogueP2.setText("<html>laaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br> efsdfffffffffffffffffff");
         jPanel5.add(dialogueP2, java.awt.BorderLayout.LINE_END);
 
+        suivant.setText("Suivant");
+        jPanel5.add(suivant, java.awt.BorderLayout.PAGE_END);
+
         getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
 
         pack();
@@ -180,6 +196,7 @@ public class FenetreDialogue extends javax.swing.JFrame {
                 new FenetreDialogue().setVisible(true);
             }
         });
+        
     }
 
     private Image getScaledImage(Image srcImg, int w, int h) {
@@ -203,5 +220,6 @@ public class FenetreDialogue extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel perso1;
     private javax.swing.JLabel perso2;
+    private javax.swing.JButton suivant;
     // End of variables declaration//GEN-END:variables
 }
