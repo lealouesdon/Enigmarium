@@ -106,6 +106,66 @@ public class FenetreIntro extends javax.swing.JFrame {
         start.setOpaque(false);
         start.setContentAreaFilled(false);
         start.setBorderPainted(false);
+        //partie
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            partie.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        partie.setVerticalTextPosition(SwingConstants.CENTER);
+        partie.setHorizontalTextPosition(SwingConstants.CENTER);
+        partie.setOpaque(false);
+        partie.setContentAreaFilled(false);
+        partie.setBorderPainted(false);
+        //para
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            para.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        para.setVerticalTextPosition(SwingConstants.CENTER);
+        para.setHorizontalTextPosition(SwingConstants.CENTER);
+        para.setOpaque(false);
+        para.setContentAreaFilled(false);
+        para.setBorderPainted(false);
+        //credits
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            credits.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        credits.setVerticalTextPosition(SwingConstants.CENTER);
+        credits.setHorizontalTextPosition(SwingConstants.CENTER);
+        credits.setOpaque(false);
+        credits.setContentAreaFilled(false);
+        credits.setBorderPainted(false);
+        //quitter
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            quitter.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        quitter.setVerticalTextPosition(SwingConstants.CENTER);
+        quitter.setHorizontalTextPosition(SwingConstants.CENTER);
+        quitter.setOpaque(false);
+        quitter.setContentAreaFilled(false);
+        quitter.setBorderPainted(false);
     }
 
     /**
