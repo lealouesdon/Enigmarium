@@ -225,8 +225,7 @@ public class Controleur implements Observateur {
     }
     public void checkHistoire(){
         if(histoire.get(iterHistoire).getLieu()==cartes.peek()){
-            System.out.print(histoire.get(iterHistoire).getDialogue());
-            this.iterHistoire++;
+              this.iterHistoire++;
         }
     }
 }
