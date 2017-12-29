@@ -24,7 +24,10 @@ public class FenetreScenario extends javax.swing.JFrame {
     /**
      * Creates new form Fenetre
      */
-    public FenetreScenario() {
+    private String scenario;
+
+     public FenetreScenario(String scenario) {
+        this.scenario = scenario;
         initComponents();
       
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -91,11 +94,11 @@ public class FenetreScenario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FenetreScenario().setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

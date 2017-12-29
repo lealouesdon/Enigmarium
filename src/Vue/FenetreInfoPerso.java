@@ -22,6 +22,21 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
         this.nom.setText(nom);
         this.desc.setText(desc);
         this.setLocation(MouseInfo.getPointerInfo().getLocation());
+        if(nom == "Grasvz'in"){
+             this.setSize(200, 500);
+        }
+        else if( nom == "André le Boulanger"){
+              this.setSize(200, 400);
+        }
+        
+        else if( nom == "Ivan Le Paysant" || nom == "Bérengere la bergere" || nom == "Vo, Ame et Hune"){
+              this.setSize(200, 300);
+        }
+        
+        else{
+             this.setSize(200, 200);
+        }
+       
         
     }
     
