@@ -19,10 +19,12 @@ import Modele.Histoire;
 import Modele.Icone;
 import Modele.Lieu;
 import Modele.Personnage;
+import Vue.FenetreDialogue;
 import Vue.FenetreIndice;
 import Vue.FenetreIntro;
 import Vue.FenetrePrincipale;
 import Vue.FenetreResultat;
+import Vue.FenetreScenario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -117,9 +119,9 @@ public class Controleur implements Observateur {
         MondeLasVegas.addContien(lePoulpe);
         ///////////////////////////////ENIGMES/////////////////////////////////////
         ////////////////////////////////HISTOIRE////////////////////////////////////
-        Histoire etape1=new Histoire(monde,"test histoire","senar1");
+        Histoire etape1=new Histoire(monde,"test histoire");
         histoire.add(etape1);
-        Histoire etape2=new Histoire(mondeMedievale,"lasuite","senar2");
+        Histoire etape2=new Histoire(mondeMedievale,"lasuite");
         histoire.add(etape2);
         
     }
@@ -225,7 +227,9 @@ public class Controleur implements Observateur {
     }
     public void checkHistoire(){
         if(histoire.get(iterHistoire).getLieu()==cartes.peek()){
-              this.iterHistoire++;
+            FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getScenario());
+            fenetreScen.setVisible(true);
+            this.iterHistoire++;
         }
     }
 }
