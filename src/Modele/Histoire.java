@@ -16,7 +16,7 @@ public class Histoire {
     private String dialogue;
     private String senario;
     
-    public Histoire(Lieu lieu, String dialogue,String senario) {
+    public Histoire(Lieu lieu, String senario) {
         this.lieu = lieu;
         this.dialogue = dialogue;
         this.senario=senario;
@@ -30,8 +30,8 @@ public class Histoire {
         return lieu;
     }
 
-    public String getDialogue() {
-        return dialogue;
+    public String getSenario() {
+        return senario;
     }
     
     
