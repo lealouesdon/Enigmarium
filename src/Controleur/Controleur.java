@@ -237,11 +237,11 @@ public class Controleur implements Observateur {
         checkHistoire();
     }
     public void checkHistoire(){
-        if(histoire.get(iterHistoire).getLieu()==cartes.peek()){
+        /*if(histoire.get(iterHistoire).getLieu()==cartes.peek()){
             FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario());
             fenetreScen.setVisible(true);
             this.iterHistoire++;
-        }
+        }*/
     }
 }
 //histoire[iterHistoire].getLieu()==cartes.peek(

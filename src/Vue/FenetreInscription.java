@@ -7,6 +7,7 @@ package Vue;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 
 /**
  *
@@ -19,11 +20,13 @@ public class FenetreInscription extends javax.swing.JFrame {
      */
     public FenetreInscription() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
         //bouton btnValider
-        if(textMdp.getText()!=null && textPseudo.getText()!=null){
-        BtnValider.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        if (textMdp.getText() != null && textPseudo.getText() != null) {
+            BtnValider.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
                     //update base de données
                     /*Connection conn = ConnecterDB();
                     Statement state;
@@ -37,10 +40,10 @@ public class FenetreInscription extends javax.swing.JFrame {
                     FenetrePerso f = new FenetrePerso();
                     f.setVisible(true);
                     dispose();
-                
-            }
 
-        });
+                }
+
+            });
         }
         //bouton retour
         BtnAnnuler.addActionListener(new ActionListener() {
@@ -71,6 +74,7 @@ public class FenetreInscription extends javax.swing.JFrame {
         BtnAnnuler = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         labelPseudo.setText("Pseudo : ");
 

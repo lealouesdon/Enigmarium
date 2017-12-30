@@ -40,37 +40,37 @@ public class EnigmeComposite extends Enigme {
 
         //Création d'éléments et de compositions
         /////////////////////////////////////////////////////////
-        Recipient r1 = new Recipient("farine", new Icone((float) 0.19, (float) 0.13, "images/recipients/recipient22vide.png", 100, 100));
-        Ingredient i1 = new Ingredient("farine", new Icone((float) 0.19, (float) 0.37, "images/ingredients/pieuvre.png", 100, 100), r1.getHauteur(), r1.getRayon());
+        Recipient r1 = new Recipient("Farine", new Icone((float) 0.19, (float) 0.13, "images/recipients/recipient22vide.png", 100, 100));
+        Ingredient i1 = new Ingredient("Farine", new Icone((float) 0.19, (float) 0.37, "images/ingredients/pieuvre.png", 100, 100), r1.getHauteur(), r1.getRayon());
         Composition c1 = new Composition(r1, i1);
         //ajout de la compositio a la list
         compositions.add(c1);
         //ajout de la ligne de la recette a la description
-        enonce.add(i1.getNom() + " : " + i1.getVolIngredient());
+        enonce.add(i1.getNom() + " : " + i1.getVolIngredient()+" cm3");
         //////////////////////////////////////////////////////////
-        Recipient r2 = new Recipient("lait", new Icone((float) 0.29, (float) 0.13, "images/recipients/recipients12Vide.png", 100, 100));
-        Ingredient i2 = new Ingredient("lait", new Icone((float) 0.29, (float) 0.37, "images/ingredients/lait.png", 50, 100), r2.getHauteur(), r2.getRayon());
+        Recipient r2 = new Recipient("Lait", new Icone((float) 0.29, (float) 0.13, "images/recipients/recipients12Vide.png", 100, 100));
+        Ingredient i2 = new Ingredient("Lait", new Icone((float) 0.29, (float) 0.37, "images/ingredients/lait.png", 50, 100), r2.getHauteur(), r2.getRayon());
         Composition c2 = new Composition(r2, i2);
         //ajout de la compositio a la list
         compositions.add(c2);
         //ajout de la ligne de la recette a la description
-        enonce.add(i2.getNom() + " : " + i2.getVolIngredient());
+        enonce.add(i2.getNom() + " : " + i2.getVolIngredient()+" cm3");
         //////////////////////////////////////////////////////////
-        Recipient r3 = new Recipient("eau", new Icone((float) 0.39, (float) 0.13, "images/recipients/recipient22vide.png", 100, 100));
-        Ingredient i3 = new Ingredient("eau", new Icone((float) 0.39, (float) 0.37, "images/ingredients/eau.png", 100, 100), r3.getHauteur(), r3.getRayon());
+        Recipient r3 = new Recipient("Eau", new Icone((float) 0.39, (float) 0.13, "images/recipients/recipient22vide.png", 100, 100));
+        Ingredient i3 = new Ingredient("Eau", new Icone((float) 0.39, (float) 0.37, "images/ingredients/eau.png", 100, 100), r3.getHauteur(), r3.getRayon());
         Composition c3 = new Composition(r3, i3);
         //ajout de la compositio a la list
         compositions.add(c3);
         //ajout de la ligne de la recette a la description
-        enonce.add(i3.getNom() + " : " + i3.getVolIngredient());
+        enonce.add(i3.getNom() + " : " + i3.getVolIngredient()+" cm3");
         //////////////////////////////////////////////////////////
-        Recipient r4 = new Recipient("oeuf", new Icone((float) 0.49, (float) 0.13, "images/recipients/recipients12Vide.png", 100, 100));
-        Ingredient i4 = new Ingredient("oeuf", new Icone((float) 0.49, (float) 0.37, "images/ingredients/oeuf.png", 100, 100), r4.getHauteur(), r4.getRayon());
+        Recipient r4 = new Recipient("Oeuf", new Icone((float) 0.49, (float) 0.13, "images/recipients/recipients12Vide.png", 100, 100));
+        Ingredient i4 = new Ingredient("Oeuf", new Icone((float) 0.49, (float) 0.37, "images/ingredients/oeuf.png", 100, 100), r4.getHauteur(), r4.getRayon());
         Composition c4 = new Composition(r4, i4);
         //ajout de la compositio a la list
         compositions.add(c4);
         //ajout de la ligne de la recette a la description
-        enonce.add(i4.getNom() + " : " + i4.getVolIngredient());
+        enonce.add(i4.getNom() + " : " + i4.getVolIngredient()+" cm3");
         //////////////////////////////////////////////////////////
         //indice
         super.setIndice("images/indices/indice1.png");

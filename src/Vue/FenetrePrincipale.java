@@ -168,6 +168,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
 
         });
         //place le bouton
+        inventaire.setEnabled(false);
         panelHaut.add(inventaire, BorderLayout.WEST);
     }
 
