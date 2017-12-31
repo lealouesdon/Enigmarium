@@ -21,10 +21,11 @@ public class ConnectionDB {
       String url = "jdbc:derby://localhost:1527/Enigmarium"; /* url a changer en fonctio de la base 
       2-> localisation de la machine physique sur le reseau plus port
       3-> nom de la base de données*/
-      String user = "derby";
-      String passwd = "derby";
+      String user = "app";
+      String passwd = "app";
 
-      Connection conn = DriverManager.getConnection(url, user, passwd);
+      //Connection conn = DriverManager.getConnection(url, user, passwd);
+      Connection conn = DriverManager.getConnection(url);
       System.out.println("Connexion effective !");   
       return conn;
     } catch (Exception e) {
