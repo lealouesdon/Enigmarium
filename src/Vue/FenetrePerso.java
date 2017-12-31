@@ -50,14 +50,21 @@ public class FenetrePerso extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 if(perso!=null){
                     //update base de données
-                    /*Connection conn = ConnecterDB();
-                    Statement state;
+                   /* Connection conn = ConnecterDB();
                     try {
+                        Statement state = null;
+                        ResultSet res = state.executeQuery("SELECT id FROM joueur");
+                        ResultSetMetaData r = res.getMetaData();
                         state = conn.createStatement();
-                        int insert = state.executeUpdate("INSERT INTO AVATAR VALUES(, );");
+                        if (fille.isSelected()){
+                            int insert = state.executeUpdate("INSERT INTO AVATAR VALUES(res, pseudo.getText(), fille);");
+                        }else{
+                            int insert = state.executeUpdate("INSERT INTO AVATAR VALUES(res, pseudo.getText(), garçon);");
+                        }
                         state.close();
                     } catch (SQLException ex) {
-                        Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
+                        //Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("Exeption soulevé par la base de données");
                     }*/
                     dispose();
                 }
