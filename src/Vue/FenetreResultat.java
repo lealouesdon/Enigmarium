@@ -20,6 +20,10 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
+import java.sql.Connection;
+import static Controleur.ConnectionDB.ConnecterDB;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -75,6 +79,15 @@ public class FenetreResultat extends JFrame {
     public void setPoints(String s){
         //pour modifier le nombre de points inscrit (par défault 100)
         points.setText(s);
+        //update base de données
+        /*Connection con = ConnecterDB();
+        try{
+            Statement state = con.createStatement();
+            state.executeUpdate("Update Joueur set score = score + s where id = id;");
+        }catch(SQLException ex) {
+            Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Exeption soulevé par la base de données");
+        }*/        
     }
     /**
      * This method is called from within the constructor to initialize the form.

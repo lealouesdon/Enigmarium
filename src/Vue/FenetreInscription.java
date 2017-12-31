@@ -12,6 +12,8 @@ import static Controleur.ConnectionDB.ConnecterDB;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author morga
@@ -38,7 +40,7 @@ public class FenetreInscription extends javax.swing.JFrame {
                         int insert = state.executeUpdate("INSERT INTO JOUEUR VALUES((Select id from Joueur where id max)+1, textPseudo.getText(), textMdp.getText());");
                         state.close();
                     } catch (SQLException ex) {
-                        //Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("Exeption soulevé par la base de données");
                     }*/
                     FenetrePerso f = new FenetrePerso();

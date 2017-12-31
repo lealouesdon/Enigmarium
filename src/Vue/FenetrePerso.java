@@ -25,6 +25,8 @@ import java.sql.ResultSetMetaData;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -63,7 +65,7 @@ public class FenetrePerso extends javax.swing.JFrame {
                         }
                         state.close();
                     } catch (SQLException ex) {
-                        //Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("Exeption soulevé par la base de données");
                     }*/
                     dispose();

@@ -18,11 +18,11 @@ public class ConnectionDB {
       //Class.forName("com.mysql.jdbc.Driver"); /* chemin du driver*/
       System.out.println("Driver O.K.");
 
-      String url = "jdbc:postgresql://localhost:5432/Ecole"; /* url a changer en fonctio de la base 
+      String url = "jdbc:derby://localhost:1527/Enigmarium"; /* url a changer en fonctio de la base 
       2-> localisation de la machine physique sur le reseau plus port
       3-> nom de la base de données*/
-      String user = "postgres";
-      String passwd = "postgres";
+      String user = "derby";
+      String passwd = "derby";
 
       Connection conn = DriverManager.getConnection(url, user, passwd);
       System.out.println("Connexion effective !");   
