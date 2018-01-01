@@ -40,7 +40,7 @@ public class FenetreIntro extends javax.swing.JFrame {
             }
 
         });
-        //bouton chrger une partie
+        //bouton charger une partie
         partie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,7 +55,10 @@ public class FenetreIntro extends javax.swing.JFrame {
         para.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //dispose();
+                //ouvrir la fenetre des paramêtres
+                FenetreParam fenetreParam = new FenetreParam();
+                fenetreParam.setVisible(true);
+                dispose();
             }
 
         });
@@ -63,7 +66,10 @@ public class FenetreIntro extends javax.swing.JFrame {
         credits.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //dispose();
+                //ouvrir la fenetre des crédits
+                FenetreCredits fenetreCredits = new FenetreCredits();
+                fenetreCredits.setVisible(true);
+                dispose();
             }
 
         });
