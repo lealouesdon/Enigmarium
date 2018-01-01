@@ -100,6 +100,10 @@ public class FenetreParam extends javax.swing.JFrame {
         jSlider1 = new javax.swing.JSlider();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(204, 204, 255));
+        setUndecorated(true);
+        setResizable(false);
 
         jLabel1.setText("Musique");
 
