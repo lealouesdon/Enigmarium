@@ -94,7 +94,6 @@ public class Controleur implements Observateur {
         ///////////////////////////////PERSONAGE ET ENIGMES/////////////////////////////////////
         //monde de la nouriture
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
-        
         EnigmeComposite andreLePatissier = new EnigmeComposite(icone, "André le Boulanger", "images/vueJeu.png");  
         andreLePatissier.setDescriptif("<html>Ma famille et moi même sommes boulanger-pâtissier depuis des générations ! Je travaille avec les fournisseurs de notre monde pour vous offrir mes plus belles créations ! <br> Et si vous, Merlin ou un autre monde avez besoin de mes talents, n'hésitez pas ! </html>");
         mondeMedievale.addContien(andreLePatissier);
