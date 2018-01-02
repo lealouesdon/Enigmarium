@@ -45,20 +45,16 @@ public class FenetreIntro extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //lancer directement la partie du joueur
-                FenetreChargement fenetre = new FenetreChargement();
-                fenetre.setVisible(true);
                 dispose();
             }
 
         });
         //bouton para
+        para.setEnabled(false);
         para.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //ouvrir la fenetre des paramêtres
-                FenetreParam fenetreParam = new FenetreParam();
-                fenetreParam.setVisible(true);
-                dispose();
+                //pour une fenetre parametre quand utile
             }
 
         });
@@ -69,7 +65,7 @@ public class FenetreIntro extends javax.swing.JFrame {
                 //ouvrir la fenetre des crédits
                 FenetreCredits fenetreCredits = new FenetreCredits();
                 fenetreCredits.setVisible(true);
-                dispose();
+                
             }
 
         });
