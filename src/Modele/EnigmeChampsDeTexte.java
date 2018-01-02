@@ -27,6 +27,8 @@ public class EnigmeChampsDeTexte extends Enigme{
         int c=a*a+b*b;
         this.valAttendu= String.valueOf(((int)((Math.sqrt(c))*100))/100f);
         this.question="<html>chercher le côté jaune et elle sait que: <br /> Le côté Bleu mesure "+String.valueOf(a)+" m<br /> "+"Le côté rouge mesure "+String.valueOf(b)+" <br /> "+"rep "+String.valueOf(this.valAttendu)+"</html>";
+        //indice
+        super.setIndice("images/indices/indice_pytha.png");
     }
 
     public String getValAttendu() {

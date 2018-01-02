@@ -120,7 +120,8 @@ public class EnigmeComposite extends Enigme {
         compositions.add(c4);
         //ajout de la ligne de la recette a la description
         enonce.add("");
-        
+        //indice
+        super.setIndice("images/indices/indice_equa.png");
         melangeIconeConpositions(0.55f, 0.1f);
         //initialisation de nbCompositionsRestantes
         nbCompositionsRestantes=3;

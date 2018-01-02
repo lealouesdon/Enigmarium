@@ -20,10 +20,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.SwingConstants;
-import java.sql.Connection;
-import static Controleur.ConnectionDB.ConnecterDB;
-import java.sql.SQLException;
-import java.sql.Statement;
+
+
 
 /**
  *

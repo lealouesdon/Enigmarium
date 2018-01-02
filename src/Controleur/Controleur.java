@@ -100,8 +100,6 @@ public class Controleur implements Observateur {
         Carte ivanLePaysan = new Carte(new Icone((float) 0.75, (float) 0.35, null, 300, 200),"Ivan Le Paysan",null);
         ivanLePaysan.setDescriptif("<html>Aaaaah... avoir la main verte... C'est inné chez moi, l'amour de tout ce qui pousse. Le respect des terres et des plantes, c'est le secret pour faire pousser les meilleurs ingrédients, pour les meilleurs cuisiniers !</html>");
          mondeMedievale.addContien(ivanLePaysan);
-        //EnigmeChemin psoupe = new EnigmeChemin(new Icone((float) 0.10, (float) 0.39, null, 200, 200), "Les Machines a sous", null,2,3,1);
-        //mMedie.addContien(psoupe);
         EnigmeChampsDeTexte berengereLaBergere =new EnigmeChampsDeTexte(new Icone((float) 0.10, (float) 0.39, null, 200, 200),"Bérengere la bergere","images/prés_final_couleur.jpg");
         berengereLaBergere.setDescriptif("<html>J'adore l'air de la montagne. Les paturages à perte de vue, l'odeur des sous-bois, marcher au milieu des moutons ... <br>Tu devrais faire une nuit à la belle étoile au milieu des moutons un jour, y'a rien de plus reposant !</html>");
         mondeMedievale.addContien(berengereLaBergere);

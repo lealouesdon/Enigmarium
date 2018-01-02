@@ -29,6 +29,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -211,6 +212,20 @@ public class PanelEnigmeChemin extends JPanel {
                 }
 
             });
+            try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+                ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 50));
+                indice.setIcon(icon);
+            } catch (IOException ex) {
+                Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            indice.setVerticalTextPosition(SwingConstants.CENTER);
+            indice.setHorizontalTextPosition(SwingConstants.CENTER);
+            indice.setOpaque(false);
+            indice.setContentAreaFilled(false);
+            indice.setBorderPainted(false);
             this.add(indice);
         }
     }

@@ -34,6 +34,8 @@ public class EnigmeChemin extends Enigme {
         for(int i=0;i<this.getNbChemins();i++){
             trajets.add(new Trajet(this.getResultat(),this.getNbEtapes(),this.getTypeEnigme()));
         }
+        //indice
+        super.setIndice("images/indices/indice_proba.png");
         
     }
     @Override
