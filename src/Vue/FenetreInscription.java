@@ -33,7 +33,7 @@ public class FenetreInscription extends javax.swing.JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     //update base de données
-                    Connection conn = ConnecterDB();
+                    /*Connection conn = ConnecterDB();
                     Statement state;
                     try {
                         state = conn.createStatement();
@@ -42,7 +42,7 @@ public class FenetreInscription extends javax.swing.JFrame {
                     } catch (SQLException ex) {
                         Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
                         System.out.println("Exeption soulevé par la base de données");
-                    }
+                    }*/
                     FenetrePerso f = new FenetrePerso();
                     f.setVisible(true);
                     dispose();
