@@ -127,11 +127,19 @@ public class Controleur implements Observateur {
         lePoulpe.setDescriptif("<html>Le Refuge... Ce monde porte bien son nom. Peu nombreux sont ceux qui viennent vivre ici de leur plein grès. Ceux que tu vois autour de toi ont tout perdu. Lorena et son ancien apprenti nous ont sauvés lorsque les destructeurs sont venus dans nos mondes, les réduisants à l'état de débris. La joie et l'amusement ne sont qu'une facade, c'est la tristesse et la nostalgie qui s'emparent de nos coeurs... Jamais nous ne retrouverons nos foyers. <br> L'air empeste la peur, les destructeurs, avec Vagnar à leur tête, reviendront plus puissants que jamais. Soyez à la hauteur, et faites les bons choix ...<html>");
         MondeLasVegas.addContien(lePoulpe);
         ///////////////////////////////ENIGMES/////////////////////////////////////
-        ////////////////////////////////HISTOIRE////////////////////////////////////
+        ////////////////////////////////HISTOIRE DEBUT/////////////////////////////
         Histoire etape1=new Histoire(monde,"test histoire");
         histoire.add(etape1);
         Histoire etape2=new Histoire(mondeMedievale,"lasuite");
         histoire.add(etape2);
+        
+        
+        
+        
+        
+        
+        ////////////////////////////////HISTOIRE FIN/////////////////////////////        
+        histoire.add(null);// tres important pour qu'il n'y ai pas d'erreur une fois l'fisyoir fini
         
     }
 
@@ -234,12 +242,13 @@ public class Controleur implements Observateur {
         this.cartes.pop();
         checkHistoire();
     }
+    
     public void checkHistoire(){
-        /*if(histoire.get(iterHistoire).getLieu()==cartes.peek()){
+        if(histoire.get(iterHistoire)!=null && histoire.get(iterHistoire).getLieu()==cartes.peek()){
             FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario());
             fenetreScen.setVisible(true);
             this.iterHistoire++;
-        }*/
+        }
     }
 }
 //histoire[iterHistoire].getLieu()==cartes.peek(
