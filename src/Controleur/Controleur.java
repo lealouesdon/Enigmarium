@@ -91,7 +91,7 @@ public class Controleur implements Observateur {
         EnigmeComposite andreLePatissier = new EnigmeComposite(icone, "André le Boulanger", "images/vueJeu.png");  
         andreLePatissier.setDescriptif("<html>Ma famille et moi même sommes boulanger-pâtissier depuis des générations ! Je travaille avec les fournisseurs de notre monde pour vous offrir mes plus belles créations ! <br> Et si vous, Merlin ou un autre monde avez besoin de mes talents, n'hésitez pas ! </html>");
         mondeMedievale.addContien(andreLePatissier);
-        Carte ivanLePaysan = new Carte(new Icone((float) 0.75, (float) 0.35, null, 300, 200),"Ivan Le Paysan",null);
+        Carte ivanLePaysan = new Carte(new Icone((float) 0.75, (float) 0.35, null, 300, 200),"Ivan Le Paysan","images/WorkInProgress.png");
         ivanLePaysan.setDescriptif("<html>Aaaaah... avoir la main verte... C'est inné chez moi, l'amour de tout ce qui pousse. Le respect des terres et des plantes, c'est le secret pour faire pousser les meilleurs ingrédients, pour les meilleurs cuisiniers !</html>");
          mondeMedievale.addContien(ivanLePaysan);
         EnigmeChampsDeTexte berengereLaBergere =new EnigmeChampsDeTexte(new Icone((float) 0.10, (float) 0.39, null, 200, 200),"Bérengere la bergere","images/prés_final_couleur.jpg");
@@ -104,11 +104,11 @@ public class Controleur implements Observateur {
         mondeArcheologue.addContien(porteDeLaPyramide);
         
         //les fouilles
-        Carte lesFuilles = new Carte(new Icone((float) 0.05, (float) 0.55, null, 300, 200),"Fouilles abandonnées",null);
+        Carte lesFuilles = new Carte(new Icone((float) 0.05, (float) 0.55, null, 300, 200),"Fouilles abandonnées","images/WorkInProgress.png");
         lesFuilles.setDescriptif("<html>Ces sites de fouilles ont été abandonnés suite à une invasion de scorpions. Si tu souhaites continuer à fouiller, il va falloir que tu comprennes leur comportement !</html>");
         mondeArcheologue.addContien(lesFuilles);
         //la grotte
-        Carte laGrotte = new Carte(new Icone((float) 0.75, (float) 0.50, null, 300, 200),"Grotte",null);
+        Carte laGrotte = new Carte(new Icone((float) 0.75, (float) 0.50, null, 300, 200),"Grotte","images/WorkInProgress.png");
         laGrotte.setDescriptif("<html>Voici les grottes, elles sont truffées de pièges, si tu veux les éviter il va te falloir un compagnon programmable afin de passer dans les endroits les plus étriqués. </html>");
         mondeArcheologue.addContien(laGrotte);
         //Monde de LasVegas
@@ -117,7 +117,7 @@ public class Controleur implements Observateur {
         machines.setDescriptif("<html>C'est assez perturbant d'être avec des créatures aussi grandes ! C'est triste d'avoir perdu notre monde mais on s'amuse bien ici. C'est mieux que dériver dans l'espace en tout cas ! <br> Bon, tu joues avec nous maintenant ?</html>");
         MondeLasVegas.addContien(machines);
         //le poulpe
-        Carte lePoulpe = new Carte(new Icone((float) 0.30, (float) 0.15, null, 300, 200),"Grasvz'in",null);
+        Carte lePoulpe = new Carte(new Icone((float) 0.30, (float) 0.15, null, 300, 200),"Grasvz'in","images/WorkInProgress.png");
         lePoulpe.setDescriptif("<html>Le Refuge... Ce monde porte bien son nom. Peu nombreux sont ceux qui viennent vivre ici de leur plein grès. Ceux que tu vois autour de toi ont tout perdu. Lorena et son ancien apprenti nous ont sauvés lorsque les destructeurs sont venus dans nos mondes, les réduisants à l'état de débris. La joie et l'amusement ne sont qu'une facade, c'est la tristesse et la nostalgie qui s'emparent de nos coeurs... Jamais nous ne retrouverons nos foyers. <br> L'air empeste la peur, les destructeurs, avec Vagnar à leur tête, reviendront plus puissants que jamais. Soyez à la hauteur, et faites les bons choix ...<html>");
         MondeLasVegas.addContien(lePoulpe);
         ///////////////////////////////ENIGMES/////////////////////////////////////
