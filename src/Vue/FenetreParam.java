@@ -105,8 +105,10 @@ public class FenetreParam extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
+        jLabel1.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
         jLabel1.setText("Musique");
 
+        jButton1.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
         jButton1.setText("Retour");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +128,7 @@ public class FenetreParam extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                         .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21))))
             .addGroup(layout.createSequentialGroup()

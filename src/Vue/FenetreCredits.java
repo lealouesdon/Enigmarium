@@ -91,6 +91,7 @@ public class FenetreCredits extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
+        retour.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
         retour.setText("Retour");
         retour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +105,7 @@ public class FenetreCredits extends javax.swing.JFrame {
         gridBagConstraints.ipady = 50;
         getContentPane().add(retour, gridBagConstraints);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         jLabel1.setText("<html>\t<center>Enigmarium <br><br>  Réalisé par le BlueMinds Studio :<br><br>  Tangui ROBIN<br> Morgane HENRION<br> Etienne PESTRE<br> Lea LOUESDON<br> Romain LORENS<br> Yannis EPALLE<br> </center></html>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -113,7 +114,7 @@ public class FenetreCredits extends javax.swing.JFrame {
         gridBagConstraints.ipady = 50;
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Balthazar", 0, 48)); // NOI18N
         jLabel2.setText("Credits");
         getContentPane().add(jLabel2, new java.awt.GridBagConstraints());
 

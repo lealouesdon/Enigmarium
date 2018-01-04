@@ -5,15 +5,19 @@
  */
 package Vue;
 
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -38,8 +42,33 @@ public class FenetreScenario extends javax.swing.JFrame {
                 dispose();
             }
         });
+           //suivant
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            suivant.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        suivant.setVerticalTextPosition(SwingConstants.CENTER);
+        suivant.setHorizontalTextPosition(SwingConstants.CENTER);
+        suivant.setOpaque(false);
+        suivant.setContentAreaFilled(false);
+        suivant.setBorderPainted(false);
     }
 
+     private Image getScaledImage(Image srcImg, int w, int h) {
+        //pour redimensionner une image pour un bouton
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +77,6 @@ public class FenetreScenario extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
         suivant = new javax.swing.JButton();
@@ -59,7 +87,9 @@ public class FenetreScenario extends javax.swing.JFrame {
         jLabel1.setText("<html>mdfsfhsqdhfkjqdfkhsqfk kfmsqdhf mhsdmf hsmdhf smhdf msqj<br> skdjfjshdfhsdfhshfsdhfsf jsfj ksd jsdlfj sdljf lsdjf jf sjdfskjfdl jlsdflkdfjsfdsdfjk dfjsfsdfqsfsdfddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddcccccccccc<br>ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccddd </html>");
         getContentPane().add(jLabel1, java.awt.BorderLayout.CENTER);
 
-        suivant.setText("suivant");
+        suivant.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
+        suivant.setText("Suivant");
+        suivant.setActionCommand("Suivant");
         getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
 
         pack();

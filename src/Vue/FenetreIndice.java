@@ -59,6 +59,17 @@ public class FenetreIndice extends JFrame {
         fermer.setOpaque(false);
         fermer.setContentAreaFilled(false);
         fermer.setBorderPainted(false);
+        
+         //fermer
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 350, 350));
+            fermer.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 

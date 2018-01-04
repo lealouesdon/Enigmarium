@@ -33,6 +33,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="retour">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Balthazar" size="11" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Retour"/>
       </Properties>
       <Events>
@@ -47,7 +50,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="24" style="0"/>
+          <Font name="Balthazar" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&#x9;&lt;center&gt;Enigmarium &lt;br&gt;&lt;br&gt;  R&#xe9;alis&#xe9; par le BlueMinds Studio :&lt;br&gt;&lt;br&gt;  Tangui ROBIN&lt;br&gt; Morgane HENRION&lt;br&gt; Etienne PESTRE&lt;br&gt; Lea LOUESDON&lt;br&gt; Romain LORENS&lt;br&gt; Yannis EPALLE&lt;br&gt; &lt;/center&gt;&lt;/html&gt;"/>
       </Properties>
@@ -60,7 +63,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="48" style="0"/>
+          <Font name="Balthazar" size="48" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Credits"/>
       </Properties>

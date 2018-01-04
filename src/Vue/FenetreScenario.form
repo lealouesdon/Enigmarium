@@ -36,7 +36,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="suivant">
       <Properties>
-        <Property name="text" type="java.lang.String" value="suivant"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Balthazar" size="11" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Suivant"/>
+        <Property name="actionCommand" type="java.lang.String" value="Suivant"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">

@@ -63,15 +63,14 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
         desc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(200, 200));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(200, 250));
         setResizable(false);
-        setSize(new java.awt.Dimension(200, 250));
 
+        nom.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
         nom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nom.setText("jLabel1");
 
+        desc.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
         desc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         desc.setText("jLabel2");
 

@@ -56,6 +56,16 @@ public class FenetreDialogue extends javax.swing.JFrame {
                 dispose();
             }
         });
+         //suivant
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            suivant.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -154,6 +164,7 @@ public class FenetreDialogue extends javax.swing.JFrame {
         dialogueP2.setText("<html>laaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br> efsdfffffffffffffffffff");
         jPanel5.add(dialogueP2, java.awt.BorderLayout.LINE_END);
 
+        suivant.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
         suivant.setText("Suivant");
         jPanel5.add(suivant, java.awt.BorderLayout.PAGE_END);
 

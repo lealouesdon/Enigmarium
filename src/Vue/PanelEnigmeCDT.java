@@ -55,6 +55,22 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         });
         boutonRetour();
         indice();
+        
+           //valider
+        try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            valider.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        valider.setVerticalTextPosition(SwingConstants.CENTER);
+        valider.setHorizontalTextPosition(SwingConstants.CENTER);
+        valider.setOpaque(false);
+        valider.setContentAreaFilled(false);
+        valider.setBorderPainted(false);
     }
     
     public void setObservateur(Observateur observateur) {
