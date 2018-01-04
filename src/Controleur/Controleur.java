@@ -133,7 +133,7 @@ public class Controleur implements Observateur {
         
         
         ////////////////////////////////HISTOIRE FIN/////////////////////////////        
-        histoire.add(null);// tres important pour qu'il n'y ai pas d'erreur une fois l'fisyoir fini
+        histoire.add(null);// tres important pour qu'il n'y ai pas d'erreur une fois l'histoire fini
         
     }
 
@@ -143,14 +143,14 @@ public class Controleur implements Observateur {
         if (m.getEtat() == "retour") {
             retourCarte();
         } else if(m.getEtat()=="start"){
-            InitialiserVue();
-            fenetrePrincipale.creeVue((Carte) this.cartes.peek());
-            fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
-            this.checkHistoire();
+            if(fenetrePrincipale==null){
+                InitialiserVue();
+                fenetrePrincipale.creeVue((Carte) this.cartes.peek());
+                fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
+                this.checkHistoire();
+            }
+            
         }
-
-
-
         ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
         else if (m.getMessage() == "André le Boulanger") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
