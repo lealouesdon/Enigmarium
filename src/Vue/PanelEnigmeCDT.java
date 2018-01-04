@@ -39,7 +39,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         initComponents();
         enigme = e;
         this.setSize(largeur, hauteur);
-        question.setLocation((int)(largeur*0.85),(int)(hauteur*0.1));
+        question.setLocation((int)(largeur*0.83),(int)(hauteur*0.01));
         reponse.setLocation((int)(largeur*0.9),(int)(hauteur*0.4));
         valider.setLocation((int)(largeur*0.87),(int)(hauteur*0.85));
         question.setText(e.getQuestion());

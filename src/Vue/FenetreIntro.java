@@ -5,6 +5,8 @@
  */
 package Vue;
 
+import Controleur.Message;
+import Controleur.Observateur;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -28,9 +30,13 @@ public class FenetreIntro extends javax.swing.JFrame {
     /**
      * Creates new form FenetreIntro
      */
+    
+    private Observateur observateur;
+    
     public FenetreIntro() {
         initComponents();  
         //bouton crée une nouvelle partie
+        start.setEnabled(false);
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -38,13 +44,15 @@ public class FenetreIntro extends javax.swing.JFrame {
                 fenetre.setVisible(true);
                 dispose();
             }
-
         });
         //bouton charger une partie
         partie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //lancer directement la partie du joueur
+                Message m = new Message();
+                m.setEtat("start");
+                observateur.notification(m);
                 dispose();
             }
 
@@ -168,6 +176,11 @@ public class FenetreIntro extends javax.swing.JFrame {
         quitter.setContentAreaFilled(false);
         quitter.setBorderPainted(false);
     }
+    
+    //methode pour ajouter l'observateur
+    public void setObservateur(Observateur o) {
+        this.observateur = o;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -199,7 +212,7 @@ public class FenetreIntro extends javax.swing.JFrame {
 
         partie.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         partie.setForeground(new java.awt.Color(51, 204, 0));
-        partie.setText("Charger une partie");
+        partie.setText("Jouer");
         partie.setPreferredSize(new java.awt.Dimension(150, 50));
         partie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

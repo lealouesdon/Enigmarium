@@ -9,7 +9,6 @@ package Controleur;
  *
  * @author Léa
  */
-import static Controleur.ConnectionDB.ConnecterDB;
 import Modele.Carte;
 import Modele.Enigme;
 import Modele.EnigmeChampsDeTexte;
@@ -18,18 +17,12 @@ import Modele.EnigmeComposite;
 import Modele.Histoire;
 import Modele.Icone;
 import Modele.Lieu;
-import Modele.Personnage;
-import Vue.FenetreDialogue;
 import Vue.FenetreIndice;
 import Vue.FenetreIntro;
 import Vue.FenetrePrincipale;
 import Vue.FenetreResultat;
 import Vue.FenetreScenario;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -49,13 +42,14 @@ public class Controleur implements Observateur {
         this.iterHistoire=0;
         cartes = new Stack();
         InitialiserModel();
-        InitialiserVue();
-        fenetrePrincipale.creeVue((Carte) this.cartes.peek());
+        //InitialiserVue();
+        //fenetrePrincipale.creeVue((Carte) this.cartes.peek());
         FenetreIntro fIntro = new FenetreIntro();//pour la démo
-        fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
+        fIntro.setObservateur(this);
+        //fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
         fIntro.setVisible(true);
         fIntro.toFront();
-        this.checkHistoire();
+        
     }
     //methodes
 
@@ -148,7 +142,16 @@ public class Controleur implements Observateur {
     public void notification(Message m) {
         if (m.getEtat() == "retour") {
             retourCarte();
-        } ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
+        } else if(m.getEtat()=="start"){
+            InitialiserVue();
+            fenetrePrincipale.creeVue((Carte) this.cartes.peek());
+            fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
+            this.checkHistoire();
+        }
+
+
+
+        ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
         else if (m.getMessage() == "André le Boulanger") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;

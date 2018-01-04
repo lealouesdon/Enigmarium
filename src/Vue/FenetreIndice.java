@@ -20,7 +20,6 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 /**
@@ -36,8 +35,8 @@ public class FenetreIndice extends JFrame {
         initComponents();
         setResizable(false);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) ((dimension.getWidth()) / 3);
-        int y = (int) ((dimension.getHeight() ) / 3);
+        int x = (int) ((dimension.getWidth()) / 4);
+        int y = (int) ((dimension.getHeight() ) / 4);
         this.setLocation(x, y);
         fermer.addActionListener(new ActionListener() {
             @Override
@@ -49,7 +48,7 @@ public class FenetreIndice extends JFrame {
             //ouvre l'image et la met dans le bouton
             Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 50));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, fermer.getWidth(), fermer.getHeight()));
             fermer.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
@@ -60,16 +59,6 @@ public class FenetreIndice extends JFrame {
         fermer.setContentAreaFilled(false);
         fermer.setBorderPainted(false);
         
-         //fermer
-        try {
-            //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
-            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, 350, 350));
-            fermer.setIcon(icon);
-        } catch (IOException ex) {
-            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
 
