@@ -66,11 +66,11 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
 
-        nom.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
+        nom.setFont(new java.awt.Font("Balthazar", 0, 20)); // NOI18N
         nom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nom.setText("jLabel1");
 
-        desc.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
+        desc.setFont(new java.awt.Font("Balthazar", 0, 14)); // NOI18N
         desc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         desc.setText("jLabel2");
 
@@ -80,20 +80,18 @@ public class FenetreInfoPerso extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(desc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(desc, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(nom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(nom)
-                .addGap(46, 46, 46)
-                .addComponent(desc, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(desc, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
