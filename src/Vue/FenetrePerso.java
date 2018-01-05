@@ -17,7 +17,6 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import static Controleur.ConnectionDB.ConnecterDB;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -64,22 +63,6 @@ public class FenetrePerso extends javax.swing.JFrame {
                 if(perso!=null){
                     
                     //update base de données
-                   /* Connection conn = ConnecterDB();
-                    try {
-                        Statement state = null;
-                        ResultSet res = state.executeQuery("SELECT id FROM joueur");
-                        ResultSetMetaData r = res.getMetaData();
-                        state = conn.createStatement();
-                        if (fille.isSelected()){
-                            int insert = state.executeUpdate("INSERT INTO AVATAR VALUES(res, pseudo.getText(), fille);");
-                        }else{
-                            int insert = state.executeUpdate("INSERT INTO AVATAR VALUES(res, pseudo.getText(), garçon);");
-                        }
-                        state.close();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("Exeption soulevé par la base de données");
-                    }*/
                     dispose();
                 }
 

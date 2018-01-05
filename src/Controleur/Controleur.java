@@ -43,7 +43,6 @@ public class Controleur implements Observateur {
     private static String NOMSAUVEGARDE = "sauvegarde";    
     
     private Stack<Lieu> cartes;
-    private FenetreIndice fenetreIndice;
     private FenetrePrincipale fenetrePrincipale;
     private Enigme enigmeCoutante;
     private ArrayList<Histoire> histoire;
@@ -192,7 +191,7 @@ public class Controleur implements Observateur {
             addCarte(enigmeCoutante);
             //trouve la carte énigme volume et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeChampsDeTexte((EnigmeChampsDeTexte) enigmeCoutante);
-        } ////////////////////////////Navigation///////////////////// ////////////
+        } ////////////////////////////Navigation///////////////////// //////////////////////
         else if (m.getEtat() == "carteChoisi") {
             this.carteChoisi(m.getMessage());
         } //////////////////////////Traitement Message énigme///////////////////////////////

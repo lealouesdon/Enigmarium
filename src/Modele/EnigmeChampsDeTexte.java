@@ -29,6 +29,7 @@ public class EnigmeChampsDeTexte extends Enigme{
         this.question="<html>chercher le côté jaune et elle sait que: <br /> Le côté Bleu mesure "+String.valueOf(a)+" m<br /> "+"Le côté rouge mesure "+String.valueOf(b)+" <br /> "+"rep "+String.valueOf(this.valAttendu)+"</html>";
         //indice
         super.setIndice("images/indices/indice_pytha.png");
+        super.setRegle("<html>Vous devez trouver la longueur de la clôture que Bérangère devras acheter.</html>");
     }
 
     public String getValAttendu() {
@@ -51,6 +52,9 @@ public class EnigmeChampsDeTexte extends Enigme{
     public boolean proposition(Message m){
         return m.getAtt1().equals(valAttendu);
         
+    }
+    public int getPoint(){
+        return 100;
     }
     
     
