@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JLabel" name="dialogueP1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Balthazar" size="11" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;kfkjsdflsdkfsfffffff&lt;br&gt;dfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfd&lt;html&gt;"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="undecorated" type="boolean" value="true"/>
@@ -581,16 +591,6 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="dialogueP1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;kfkjsdflsdkfsfffffff&lt;br&gt;dfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfd&lt;html&gt;"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-              <BorderConstraints direction="Before"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JLabel" name="dialogueP2">
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;laaaaaaaaaaaaaaaaaaaaaaaaaaaaa&lt;br&gt; efsdfffffffffffffffffff"/>
@@ -604,7 +604,7 @@
         <Component class="javax.swing.JButton" name="suivant">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Balthazar" size="11" style="0"/>
+              <Font name="Balthazar" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Suivant"/>
           </Properties>

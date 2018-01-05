@@ -78,6 +78,7 @@ public class FenetreDialogue extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        dialogueP1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         perso1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -85,9 +86,11 @@ public class FenetreDialogue extends javax.swing.JFrame {
         perso2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        dialogueP1 = new javax.swing.JLabel();
         dialogueP2 = new javax.swing.JLabel();
         suivant = new javax.swing.JButton();
+
+        dialogueP1.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
+        dialogueP1.setText("<html>kfkjsdflsdkfsfffffff<br>dfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfd<html>");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -158,13 +161,10 @@ public class FenetreDialogue extends javax.swing.JFrame {
 
         jPanel5.setLayout(new java.awt.BorderLayout());
 
-        dialogueP1.setText("<html>kfkjsdflsdkfsfffffff<br>dfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfd<html>");
-        jPanel5.add(dialogueP1, java.awt.BorderLayout.LINE_START);
-
         dialogueP2.setText("<html>laaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br> efsdfffffffffffffffffff");
         jPanel5.add(dialogueP2, java.awt.BorderLayout.LINE_END);
 
-        suivant.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
+        suivant.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         suivant.setText("Suivant");
         jPanel5.add(suivant, java.awt.BorderLayout.PAGE_END);
 

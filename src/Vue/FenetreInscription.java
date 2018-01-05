@@ -82,13 +82,13 @@ public class FenetreInscription extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        labelPseudo.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
+        labelPseudo.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         labelPseudo.setText("Pseudo : ");
 
-        labelMdp.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
+        labelMdp.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         labelMdp.setText("Mot de passe :");
 
-        BtnValider.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
+        BtnValider.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         BtnValider.setText("Valider");
         BtnValider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class FenetreInscription extends javax.swing.JFrame {
             }
         });
 
-        BtnAnnuler.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
+        BtnAnnuler.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         BtnAnnuler.setText("Annuler");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,7 +119,7 @@ public class FenetreInscription extends javax.swing.JFrame {
                         .addComponent(BtnValider)
                         .addGap(88, 88, 88)
                         .addComponent(BtnAnnuler)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +132,7 @@ public class FenetreInscription extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelMdp)
                     .addComponent(textMdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnValider)
                     .addComponent(BtnAnnuler))

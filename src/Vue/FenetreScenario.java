@@ -87,7 +87,7 @@ public class FenetreScenario extends javax.swing.JFrame {
         jLabel1.setText("<html>mdfsfhsqdhfkjqdfkhsqfk kfmsqdhf mhsdmf hsmdhf smhdf msqj<br> skdjfjshdfhsdfhshfsdhfsf jsfj ksd jsdlfj sdljf lsdjf jf sjdfskjfdl jlsdflkdfjsfdsdfjk dfjsfsdfqsfsdfddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddcccccccccc<br>ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccddd </html>");
         getContentPane().add(jLabel1, java.awt.BorderLayout.CENTER);
 
-        suivant.setFont(new java.awt.Font("Balthazar", 0, 11)); // NOI18N
+        suivant.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         suivant.setText("Suivant");
         suivant.setActionCommand("Suivant");
         getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
