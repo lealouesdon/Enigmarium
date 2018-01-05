@@ -15,7 +15,7 @@ public class Joueur extends Personnage{
     
     private ArrayList<Enigme> enigmesFinies;
     private int nbEnigme;
-    private Chapitre chapitreCourant;
+    
     
     
     public Joueur(Icone icone, String nom, String fond, String nomPersonnage, String sexe) {
@@ -23,9 +23,7 @@ public class Joueur extends Personnage{
         nbEnigme = 0;
     }
     
-    public void setChapitreCourant(Chapitre chapitreCourant) {
-        this.chapitreCourant = chapitreCourant;
-    }
+    
 
     public ArrayList<Enigme> getEnigmesFinies() {
         return enigmesFinies;
