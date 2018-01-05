@@ -174,7 +174,7 @@ public class Controleur implements Observateur {
             addCarte(enigmeCoutante);
             //trouve la carte énigme volume et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeChampsDeTexte((EnigmeChampsDeTexte) enigmeCoutante);
-        } ////////////////////////////Navigation///////////////////// ////////////
+        } ////////////////////////////Navigation///////////////////// //////////////////////
         else if (m.getEtat() == "carteChoisi") {
             this.carteChoisi(m.getMessage());
         } //////////////////////////Traitement Message énigme///////////////////////////////

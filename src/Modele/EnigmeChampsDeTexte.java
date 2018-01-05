@@ -52,6 +52,9 @@ public class EnigmeChampsDeTexte extends Enigme{
         return m.getAtt1().equals(valAttendu);
         
     }
+    public int getPoint(){
+        return 100;
+    }
     
     
 }
