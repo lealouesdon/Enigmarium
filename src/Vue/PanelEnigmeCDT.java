@@ -176,6 +176,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
             regle.setContentAreaFilled(false);
             regle.setBorderPainted(false);
             this.add(regle);
+            
         }
     }
     /////////////////////////////////////////////////////////////////////////////////
