@@ -106,7 +106,7 @@ public class FenetreCredits extends javax.swing.JFrame {
         getContentPane().add(retour, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
-        jLabel1.setText("<html>\t<center>Enigmarium <br><br>  Réalisé par le BlueMinds Studio :<br><br>  Tangui ROBIN<br> Morgane HENRION<br> Etienne PESTRE<br> Lea LOUESDON<br> Romain LORENS<br> Yannis EPALLE<br> </center></html>");
+        jLabel1.setText("<html>\t<center>Enigmarium <br><br>  Réalisé par le BlueMinds Studio :<br><br>  Tangui ROBIN<br> Morgane HENRION<br> Etienne PESTRE<br> Lea LOUESDON<br> Romain LORENTZ<br> Yannis EPALLE<br> </center></html>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
