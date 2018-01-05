@@ -161,6 +161,12 @@ public class Controleur implements Observateur {
                 fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
                 this.checkHistoire();
             }
+            if(m.getAtt1().equals("fille") || m.getAtt1().equals("garçon")){
+                this.save.setPseudo(m.getMessage());
+                this.save.setSex(m.getAtt1());
+                this.enregistrerPartie();
+                System.out.println(this.save.toString());
+            }
 
         } ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
         else if (m.getMessage() == "André le Boulanger") {
