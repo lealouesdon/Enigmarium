@@ -76,7 +76,7 @@ public class Controleur implements Observateur {
         mondeMedievale.setDescriptif("<html>C'est dans ce monde que tu trouveras les meilleurs ingrédients ! Et des cuisiniers à leur hauteur ...</html>");
 
         icone = new Icone((float) 0.3, (float) 0.1, "images/mondeArcheologue.png", 350, 400);
-        Carte mondeArcheologue = new Carte(icone, "Monde des Archeologues", "images/mondeA.jpg");
+        Carte mondeArcheologue = new Carte(icone, "Vuala", "images/mondeA.jpg");
         mondeArcheologue.setDescriptif("<html> Si vous supportez la poussière, <br> et retournez la terre, <br>vous trouverez trésors, <br> et bien plus encore.</html>");
         icone = new Icone((float) 0.6, (float) 0.3, "images/mondeLasVegas.png", 350, 400);
         Carte MondeLasVegas = new Carte(icone, "Le Refuge", "images/mondeLasVegas.jpg");
