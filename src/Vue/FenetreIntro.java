@@ -40,9 +40,9 @@ public class FenetreIntro extends javax.swing.JFrame {
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FenetreInscription fenetre = new FenetreInscription();
-                fenetre.setVisible(true);
-                dispose();
+                //FenetreInscription fenetre = new FenetreInscription();
+                //fenetre.setVisible(true);
+                //dispose();
             }
         });
         //bouton charger une partie
