@@ -84,12 +84,11 @@ public class FenetreScenario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jLabel1.setText("<html>mdfsfhsqdhfkjqdfkhsqfk kfmsqdhf mhsdmf hsmdhf smhdf msqj<br> skdjfjshdfhsdfhshfsdhfsf jsfj ksd jsdlfj sdljf lsdjf jf sjdfskjfdl jlsdflkdfjsfdsdfjk dfjsfsdfqsfsdfddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddcccccccccc<br>ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccddd </html>");
+        jLabel1.setText("<html>  Le grincement du vieux plancher de ma cabane me sorti de ma somnolence. Je n’étais pas seul. J’entrouvris les yeux pour observer discrètement qui venait me rendre visite : un vieil homme ce tenais la, versant du thé fumant dans deux de mes tasses en céramiques. Une longue cape grise couvrait ses épaules et sa longue barbe grisonnante descendait jusqu’à son poitrail. Un grand bâton, surmonté d’un cristal bleu glace était posé sur l’encadrement de la fenêtre et un grimoire reposait sur mon coffre, au pied de mon lit. S’apercevant que je l’observais, le vieil homme se tourna vers moi : <br> -\tJe me suis permis de faire du thé, dit-il en souriant. <br> -\tEuh… Merci, je suppose. <br> -\tSais-tu qui je suis ? <br> -\tMerlin, c’est ça ? Je l’avais déjà aperçu sur la place du marché, discutant avec André, notre pâtissier. <br> -\tEn effet, et connais-tu mon rôle ? <br> -\tAndré est resté vague à ce-sujet répondis-je, l’esprit encore embrumé. <br> -\tJ’espère que tu ne lui en voudras pas, je sais que vous êtes très proche mais c’est aussi un vieil ami. Et je ne tiens pas à ce que tout le monde soit au courant de ma situation. Ainsi, je tiens à ce que toi aussi tu puisses tenir ta langue, peux-tu faire ça pour moi ? <br>   Je me lève, tire une chaise à moi et m’assis. Je ne reconnais pas l’odeur du thé, Merlin a dû l’apporter. Je trempe mes lèvres et repose la tasse aussitôt, le thé était encore brulant. <br> -\tJe ne suis pas du genre à divulguer les secrets des autres Merlin, Je vous écoute. <br> -\tUne bonne chose. <br> Il marque une pause, sont regard dirigé sur les vastes champs et collines que l’on apercevait par la fenêtre. <br> </html>");
         getContentPane().add(jLabel1, java.awt.BorderLayout.CENTER);
 
         suivant.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         suivant.setText("Suivant");
-        suivant.setActionCommand("Suivant");
         getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
 
         pack();
