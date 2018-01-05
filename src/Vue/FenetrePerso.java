@@ -56,7 +56,7 @@ public class FenetrePerso extends javax.swing.JFrame {
                 //mise à jour de la sauvegarde
                 message = new Message();
                 message.setMessage(pseudo.getText());
-                message.setAtt1(fille.isSelected() ? "fille" : "garçon");
+                message.setAtt1(perso);
                 message.setEtat("start");
                 observateur.notification(message);
                 dispose();
@@ -86,7 +86,6 @@ public class FenetrePerso extends javax.swing.JFrame {
                 garcon.setBackground(Color.LIGHT_GRAY);
                 fille.setBackground(Color.red);
                 perso = fille.getName();
-                System.out.println(perso);
                 valider.setEnabled(true);
             }
 
@@ -98,7 +97,6 @@ public class FenetrePerso extends javax.swing.JFrame {
                 fille.setBackground(Color.LIGHT_GRAY);
                 garcon.setBackground(Color.red);
                 perso = garcon.getName();
-                System.out.println(perso);
                 valider.setEnabled(true);
             }
 
