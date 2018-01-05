@@ -33,7 +33,6 @@ public class FenetreIndice extends JFrame {
      */
     public FenetreIndice() {
         initComponents();
-        setResizable(false);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth()) / 4);
         int y = (int) ((dimension.getHeight() ) / 4);

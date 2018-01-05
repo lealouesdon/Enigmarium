@@ -163,8 +163,6 @@ public class FenetrePrincipale extends JFrame implements Observateur {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //ouvre une fenetre inventaire
-                FenetreInventaire fenetre = new FenetreInventaire();
-                fenetre.setVisible(true);
             }
 
         });

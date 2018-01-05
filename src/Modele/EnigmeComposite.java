@@ -24,6 +24,7 @@ public class EnigmeComposite extends Enigme {
     private int points;
     private int nbCompositionsRestantes; //nombre de compositions pas encore trouvé
 
+
     public EnigmeComposite(Icone icone, String nom, String fond) {
         super(icone, nom, fond);
         compositions = new ArrayList<Composition>();
@@ -77,6 +78,8 @@ public class EnigmeComposite extends Enigme {
         melangeIconeConpositions(0.19f, 0.10f);
         //initialisation de nbCompositionsRestantes
         nbCompositionsRestantes=4;
+        //regle
+        super.setRegle("<html>regle</html>");
     }
 
     //////////////////////////////////////////////////////////////////////////////
@@ -125,6 +128,8 @@ public class EnigmeComposite extends Enigme {
         melangeIconeConpositions(0.55f, 0.1f);
         //initialisation de nbCompositionsRestantes
         nbCompositionsRestantes=3;
+        //regle
+        super.setRegle("<html>Pour ouvrir cette porte, il vous faut associer le bon résultat à l’équation correspondante ! </html>");
     }
 
     void melangeIconeConpositions(float valDepart, float ecartemment) {
@@ -179,7 +184,7 @@ public class EnigmeComposite extends Enigme {
         return compositions;
     }
 
-    public ArrayList<String> getDescription() {
+    public ArrayList<String> getEnonce() {
         return enonce;
     }
 
@@ -190,6 +195,8 @@ public class EnigmeComposite extends Enigme {
     public int getNbCompositionsRestantes() {
         return nbCompositionsRestantes;
     }
+
+
     
     
 

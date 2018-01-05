@@ -36,10 +36,11 @@ public class EnigmeChemin extends Enigme {
         }
         //indice
         super.setIndice("images/indices/indice_proba.png");
+        super.setRegle("<html>Vous devez trouver le chemin qui vous mènera à la pour grande probabilité de gagner.</html>");
         
     }
     @Override
-    //La vue envoi un message composé d'un arrayList de de place
+    //La vue envoie un message composé d'un arrayList de place
     //proposition doit donc verifier que la somme des place est 
     //egale a resultat.
     public boolean proposition(Message message){

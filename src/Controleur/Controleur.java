@@ -30,7 +30,6 @@ public class Controleur implements Observateur {
 
     //attributs
     private Stack<Lieu> cartes;
-    private FenetreIndice fenetreIndice;
     private FenetrePrincipale fenetrePrincipale;
     private Enigme enigmeCoutante;
     private ArrayList<Histoire> histoire;

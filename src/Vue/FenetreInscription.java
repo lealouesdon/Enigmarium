@@ -7,13 +7,8 @@ package Vue;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import static Controleur.ConnectionDB.ConnecterDB;
-import java.sql.SQLException;
 import javax.swing.JFrame;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 /**
  *
  * @author morga
@@ -32,17 +27,7 @@ public class FenetreInscription extends javax.swing.JFrame {
             BtnValider.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //update base de données
-                    /*Connection conn = ConnecterDB();
-                    Statement state;
-                    try {
-                        state = conn.createStatement();
-                        int insert = state.executeUpdate("INSERT INTO JOUEUR VALUES((Select id from Joueur where id max)+1, textPseudo.getText(), textMdp.getText());");
-                        state.close();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
-                        System.out.println("Exeption soulevé par la base de données");
-                    }*/
+                    //ancienement base de donnée
                     FenetrePerso f = new FenetrePerso();
                     f.setVisible(true);
                     dispose();
