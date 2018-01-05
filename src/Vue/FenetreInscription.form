@@ -45,7 +45,7 @@
                       <Component id="BtnAnnuler" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,7 +62,7 @@
                   <Component id="labelMdp" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="textMdp" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="112" max="32767" attributes="0"/>
+              <EmptySpace pref="76" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BtnValider" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BtnAnnuler" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -76,7 +76,7 @@
     <Component class="javax.swing.JLabel" name="labelPseudo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Balthazar" size="11" style="0"/>
+          <Font name="Balthazar" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Pseudo : "/>
       </Properties>
@@ -86,7 +86,7 @@
     <Component class="javax.swing.JLabel" name="labelMdp">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Balthazar" size="11" style="0"/>
+          <Font name="Balthazar" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Mot de passe :"/>
       </Properties>
@@ -96,7 +96,7 @@
     <Component class="javax.swing.JButton" name="BtnValider">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Balthazar" size="11" style="0"/>
+          <Font name="Balthazar" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Valider"/>
       </Properties>
@@ -107,7 +107,7 @@
     <Component class="javax.swing.JButton" name="BtnAnnuler">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Balthazar" size="11" style="0"/>
+          <Font name="Balthazar" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Annuler"/>
       </Properties>
