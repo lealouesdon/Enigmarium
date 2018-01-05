@@ -106,7 +106,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //methode pour ajuter l'observateur
+    //methode pour ajouter l'observateur
     public void setObservateur(Observateur o) {
         this.observateur = o;
     }
@@ -126,6 +126,7 @@ public class FenetrePrincipale extends JFrame implements Observateur {
             @Override
             public void actionPerformed(ActionEvent e) {
                 FenetreIntro f = new FenetreIntro();
+                f.setObservateur(observateur);
                 f.setVisible(true);
             }
 

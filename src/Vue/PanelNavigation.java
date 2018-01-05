@@ -64,10 +64,10 @@ public class PanelNavigation extends JPanel {
             JButton bouton = new JButton();
             //met le nom du bouton au nom de la carte
             bouton.setName(string);
-            //rend le bouton trensparent
+            //donne le bon aspect au bouton
             bouton.setOpaque(false);
             bouton.setContentAreaFilled(false);
-            bouton.setBorderPainted(false);
+            bouton.setBorderPainted(true);
             //taille du bouton (a modifier avec des valeurs de icone)!!!
             bouton.setSize(cartes.get(string).getIcone().getLargeur(), cartes.get(string).getIcone().getHauteur());
             //si un icone est defini
