@@ -40,8 +40,8 @@ import java.io.ObjectOutputStream;
 public class Controleur implements Observateur {
 
     //attributs
-    private static String NOMSAUVEGARDE = "sauvegarde";    
-    
+    private static String NOMSAUVEGARDE = "sauvegarde";
+
     private Stack<Lieu> cartes;
     private FenetrePrincipale fenetrePrincipale;
     private Enigme enigmeCoutante;
@@ -161,11 +161,13 @@ public class Controleur implements Observateur {
                 fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
                 this.checkHistoire();
             }
-            if(m.getAtt1().equals("fille") || m.getAtt1().equals("garçon")){
-                this.save.setPseudo(m.getMessage());
-                this.save.setSex(m.getAtt1());
-                this.enregistrerPartie();
-                System.out.println(this.save.toString());
+            if (m.getAtt1() != null) {
+                if (m.getAtt1() == "fille" || m.getAtt1() == "garçon") {
+                    this.save.setPseudo(m.getMessage());
+                    this.save.setSex(m.getAtt1());
+                    this.enregistrerPartie();
+                    System.out.println(this.save.toString());
+                }
             }
 
         } ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
