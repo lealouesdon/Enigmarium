@@ -137,6 +137,11 @@ public class FenetrePerso extends javax.swing.JFrame {
         valider.setBorderPainted(false);
     }
     
+    //methode pour ajouter l'observateur
+    public void setObservateur(Observateur o) {
+        this.observateur = o;
+    }
+    
     private Image getScaledImage(Image srcImg, int w, int h) {
         //pour redimensionner une image pour un bouton
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
