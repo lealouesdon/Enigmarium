@@ -25,22 +25,40 @@ import Vue.FenetreScenario;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Stack;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class Controleur implements Observateur {
 
     //attributs
+    private static String NOMSAUVEGARDE = "sauvegarde";    
+    
     private Stack<Lieu> cartes;
     private FenetreIndice fenetreIndice;
     private FenetrePrincipale fenetrePrincipale;
     private Enigme enigmeCoutante;
     private ArrayList<Histoire> histoire;
     private int iterHistoire;
+    private Sauvegarde save;
 
     //Constructeur
     public Controleur() throws SQLException {
         this.histoire = new ArrayList<Histoire>();
         this.iterHistoire = 0;
         cartes = new Stack();
+        this.chargerPartie();
+        System.out.println("Partie chargée : ");
+        System.out.println(this.save.toString());
+        this.enregistrerPartie();
         InitialiserModel();
         //InitialiserVue();
         //fenetrePrincipale.creeVue((Carte) this.cartes.peek());
@@ -244,6 +262,46 @@ public class Controleur implements Observateur {
             FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario());
             fenetreScen.setVisible(true);
             this.iterHistoire++;
+        }
+    }
+
+    public static String getNOMSAUVEGARDE() {
+        return NOMSAUVEGARDE;
+    }
+
+    public void enregistrerPartie() {
+        ObjectOutputStream oos;
+        try {
+            oos = new ObjectOutputStream(
+                    new BufferedOutputStream(
+                            new FileOutputStream(
+                                    new File(this.getNOMSAUVEGARDE()))));
+            oos.writeObject(this.save);
+            oos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void chargerPartie() {
+        ObjectInputStream ois;
+        try {
+            ois = new ObjectInputStream(
+                    new BufferedInputStream(
+                            new FileInputStream(
+                                    new File(this.getNOMSAUVEGARDE()))));
+            this.save = (Sauvegarde) ois.readObject();
+            ois.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            System.out.println("SAUVEGARDE INTROUVABLE. Création d'un nouveau fichier");
+            this.save = new Sauvegarde();
+        } catch (IOException e) {
+            e.printStackTrace();
+
         }
     }
 }

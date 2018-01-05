@@ -6,6 +6,9 @@
 package Controleur;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
@@ -15,15 +18,15 @@ public class ConnectionDB {
     
     public static Connection ConnecterDB(){
     try {
-      //Class.forName("com.mysql.jdbc.Driver"); /* chemin du driver*/
+      Class.forName( "com.mysql.jdbc.Driver" ); /* chemin du driver*/
       System.out.println("Driver O.K.");
 
-      String url = "jdbc:derby://localhost:1527/Enigmarium"; /* url a changer en fonctio de la base 
+      String url = "jdbc:mysql://localhost/Enigmarium"; /* url a changer en fonctio de la base 
       2-> localisation de la machine physique sur le reseau plus port
       3-> nom de la base de données*/
-      String user = "app";
-      String passwd = "app";
-
+      String user = "root";
+      String passwd = "";
+      
       //Connection conn = DriverManager.getConnection(url, user, passwd);
       Connection conn = DriverManager.getConnection(url);
       System.out.println("Connexion effective !");   

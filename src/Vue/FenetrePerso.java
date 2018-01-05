@@ -5,6 +5,8 @@
  */
 package Vue;
 
+import Controleur.Observateur;
+import Controleur.Message;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +40,8 @@ public class FenetrePerso extends javax.swing.JFrame {
      * Creates new form FenetrePerso
      */
     private String perso;
+    private Observateur observateur;
+    private Message message;
 
     public FenetrePerso() {
         initComponents();
@@ -50,7 +54,15 @@ public class FenetrePerso extends javax.swing.JFrame {
         valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //mise à jour de la sauvegarde
+                message = new Message();
+                message.setMessage(pseudo.getText());
+                message.setAtt1(fille.isSelected() ? "fille" : "garçon");
+                message.setEtat("start");
+                observateur.notification(message);
+                dispose();
                 if(perso!=null){
+                    
                     //update base de données
                    /* Connection conn = ConnecterDB();
                     try {
@@ -84,7 +96,7 @@ public class FenetrePerso extends javax.swing.JFrame {
             }
 
         });
-        //bouton perso file
+        //bouton perso fille
         fille.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,7 +108,7 @@ public class FenetrePerso extends javax.swing.JFrame {
             }
 
         });
-        //bouton perso garcon
+        //bouton perso garçon
         garcon.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -269,7 +281,7 @@ public class FenetrePerso extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FenetrePerso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+                
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
