@@ -36,7 +36,7 @@ public class FenetreIntro extends javax.swing.JFrame {
     public FenetreIntro() {
         initComponents();  
         //bouton crée une nouvelle partie
-        start.setEnabled(false);
+        //start.setEnabled(false);
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -212,7 +212,7 @@ public class FenetreIntro extends javax.swing.JFrame {
 
         partie.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         partie.setForeground(new java.awt.Color(51, 204, 0));
-        partie.setText("Jouer");
+        partie.setText("Charger Partie");
         partie.setPreferredSize(new java.awt.Dimension(150, 50));
         partie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
