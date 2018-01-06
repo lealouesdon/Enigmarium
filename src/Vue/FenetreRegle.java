@@ -30,10 +30,11 @@ public class FenetreRegle extends javax.swing.JFrame {
      * Creates new form FenetreRegle
      */
     public FenetreRegle() {
+        this.setAlwaysOnTop(true);
         initComponents();
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth()) / 4);
-        int y = (int) ((dimension.getHeight() ) / 4);
+        int y = (int) ((dimension.getHeight()) / 4);
         this.setLocation(x, y);
         fermer.addActionListener(new ActionListener() {
             @Override
@@ -56,8 +57,8 @@ public class FenetreRegle extends javax.swing.JFrame {
         fermer.setContentAreaFilled(false);
         fermer.setBorderPainted(false);
     }
-    
-    public void setRegle(String regleText){
+
+    public void setRegle(String regleText) {
         regle.setText(regleText);
     }
 
@@ -71,6 +72,7 @@ public class FenetreRegle extends javax.swing.JFrame {
 
         return resizedImg;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

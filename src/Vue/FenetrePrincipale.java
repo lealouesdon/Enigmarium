@@ -125,9 +125,10 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FenetreIntro f = new FenetreIntro();
-                f.setObservateur(observateur);
-                f.setVisible(true);
+                Message m = new Message();
+                m.setEtat("menu");
+                observateur.notification(m);
+                dispose();
             }
 
         });
@@ -188,7 +189,9 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         fermer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                Message m = new Message();
+                m.setEtat("fermer");
+                observateur.notification(m);
             }
 
         });

@@ -60,6 +60,7 @@ public class Controleur implements Observateur {
         //InitialiserVue();
         //fenetrePrincipale.creeVue((Carte) this.cartes.peek());
         FenetreIntro fIntro = new FenetreIntro();//pour la démo
+        fIntro.score(save);
         fIntro.setObservateur(this);
         //fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
         fIntro.setVisible(true);
@@ -158,6 +159,8 @@ public class Controleur implements Observateur {
                 fenetrePrincipale.creeVue((Carte) this.cartes.peek());
                 fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
                 this.checkHistoire();
+            }else{
+                fenetrePrincipale.setVisible(true);
             }
             if (m.getAtt1() != null) {
                 if (m.getAtt1() == "fille" || m.getAtt1() == "garçon") {
@@ -168,6 +171,12 @@ public class Controleur implements Observateur {
                 }
             }
 
+        } else if (m.getEtat() == "menu") {
+            FenetreIntro f = new FenetreIntro();
+            f.setObservateur(this);
+            f.score(save);
+            f.setVisible(true);
+            
         } ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
         else if (m.getMessage() == "André le Boulanger") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
