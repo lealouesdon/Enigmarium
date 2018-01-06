@@ -189,6 +189,21 @@ public class FenetreIntro extends javax.swing.JFrame {
     public void score(Sauvegarde save) {
         if (save.getPseudo() != null) {
             info.setText("<html>Nom du joueur : " + save.getPseudo() + " <br> Score : " + save.getScore() + "</html>");
+            try {
+            //ouvre l'image et la met dans le bouton
+            Image img;
+            if(save.getSex()=="fille"){
+                img = ImageIO.read(getClass().getResource("images/pf_tete.png"));
+            }else{
+                img = ImageIO.read(getClass().getResource("images/pm_tete.png"));
+            }
+            
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 200));
+            perso.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }else{
             partie.setEnabled(false);
         }
@@ -212,6 +227,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         info = new javax.swing.JLabel();
+        perso = new javax.swing.JLabel();
 
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -321,12 +337,16 @@ public class FenetreIntro extends javax.swing.JFrame {
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         info.setText("\n");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 11;
-        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         getContentPane().add(info, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 7;
+        getContentPane().add(perso, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -392,6 +412,7 @@ public class FenetreIntro extends javax.swing.JFrame {
     private javax.swing.JLabel logo;
     private javax.swing.JButton para;
     private javax.swing.JButton partie;
+    private javax.swing.JLabel perso;
     private javax.swing.JButton quitter;
     private javax.swing.JButton start;
     // End of variables declaration//GEN-END:variables
