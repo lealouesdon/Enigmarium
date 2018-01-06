@@ -53,8 +53,8 @@ public class FenetrePerso extends javax.swing.JFrame {
                 message.setEtat("start");
                 observateur.notification(message);
                 dispose();
-                if(perso!=null){
-                    
+                if (perso != null) {
+
                     //update base de données
                     dispose();
                 }
@@ -80,7 +80,9 @@ public class FenetrePerso extends javax.swing.JFrame {
                 garcon.setBackground(Color.LIGHT_GRAY);
                 fille.setBackground(Color.red);
                 perso = fille.getName();
-                valider.setEnabled(true);
+                if(!pseudo.getText().isEmpty()){
+                    valider.setEnabled(true);
+                }
             }
 
         });
@@ -91,14 +93,17 @@ public class FenetrePerso extends javax.swing.JFrame {
                 fille.setBackground(Color.LIGHT_GRAY);
                 garcon.setBackground(Color.red);
                 perso = garcon.getName();
-                valider.setEnabled(true);
+                if(!pseudo.getText().isEmpty()){
+                    valider.setEnabled(true);
+                }
+                
             }
 
         });
 
         //pour mettre la fenetre sur tout l'écran
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-         try {
+        try {
             //ouvre l'image et la met dans le bouton
             Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
@@ -128,12 +133,12 @@ public class FenetrePerso extends javax.swing.JFrame {
         valider.setContentAreaFilled(false);
         valider.setBorderPainted(false);
     }
-    
+
     //methode pour ajouter l'observateur
     public void setObservateur(Observateur o) {
         this.observateur = o;
     }
-    
+
     private Image getScaledImage(Image srcImg, int w, int h) {
         //pour redimensionner une image pour un bouton
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
@@ -162,6 +167,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         garcon = new javax.swing.JButton();
         fille = new javax.swing.JButton();
         retour = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setUndecorated(true);
 
@@ -181,7 +187,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         jPanel1.add(valider, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 136;
@@ -190,18 +196,16 @@ public class FenetrePerso extends javax.swing.JFrame {
         jPanel1.add(pseudo, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Balthazar", 1, 18)); // NOI18N
-        jLabel1.setText("Choisir un personnage et son pseudo :");
+        jLabel1.setText("Choisir son personnage :");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel1, gridBagConstraints);
 
         garcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vue/images/perso_masculin.png"))); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(garcon, gridBagConstraints);
 
@@ -213,7 +217,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(fille, gridBagConstraints);
 
@@ -225,6 +229,15 @@ public class FenetrePerso extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(retour, gridBagConstraints);
+
+        jLabel2.setFont(new java.awt.Font("Balthazar", 1, 18)); // NOI18N
+        jLabel2.setText("Choisir son pseudo :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        jPanel1.add(jLabel2, gridBagConstraints);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -261,7 +274,7 @@ public class FenetrePerso extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FenetrePerso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-                
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -274,6 +287,7 @@ public class FenetrePerso extends javax.swing.JFrame {
     private javax.swing.JButton fille;
     private javax.swing.JButton garcon;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField pseudo;
     private javax.swing.JButton retour;
