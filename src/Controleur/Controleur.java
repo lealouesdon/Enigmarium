@@ -176,7 +176,7 @@ public class Controleur implements Observateur {
                 }
             }
 
-            if (fenetrePrincipale == null) {
+            if (fenetrePrincipale == null||m.getMessage().equals("new")) {
                 InitialiserVue();
                 fenetrePrincipale.creeVue((Carte) this.cartes.peek());
                 fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer

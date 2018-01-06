@@ -51,6 +51,7 @@ public class FenetrePerso extends javax.swing.JFrame {
                 message.setMessage(pseudo.getText());
                 message.setAtt1(perso);
                 message.setEtat("start");
+                message.setMessage("new");
                 observateur.notification(message);
                 dispose();
                 if (perso != null) {
