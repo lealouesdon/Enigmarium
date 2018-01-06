@@ -67,8 +67,9 @@ public class PanelEnigmeComposite extends JPanel {
         this.add(enonce);
         ///////////////////Compositions////////////////////////////
         initBoutons(e.getCompositions());
-        //////////////////////////Indice///////////////////////////////
+        //////////////////////////Indice et regle///////////////////////////////
         indice();
+        regle();
         repaint();
         /////////////////////Retour//////////////////
 
@@ -184,7 +185,7 @@ public class PanelEnigmeComposite extends JPanel {
     }
 
     private void creeEnonce() {
-        for (String ligne : carte.getDescription()) {
+        for (String ligne : carte.getEnonce()) {
             JLabel label = new JLabel(ligne);
             enonce.add(label);
         }
@@ -269,6 +270,39 @@ public class PanelEnigmeComposite extends JPanel {
             indice.setContentAreaFilled(false);
             indice.setBorderPainted(false);
             this.add(indice);
+        }
+    }
+    
+    private void regle() {
+        if (carte.getRegle() != null) {
+            JButton regle = new JButton("Règle");
+            regle.setFont(new Font("Liberation Sans", 14, 14));
+
+            regle.setSize(100, 100);
+            regle.setLocation(this.getWidth() - 200, 0);
+            regle.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    FenetreRegle reg = new FenetreRegle();
+                    reg.setRegle(carte.getRegle());
+                    reg.setVisible(true);
+                }
+            });
+            try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+                ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 50));
+                regle.setIcon(icon);
+            } catch (IOException ex) {
+                Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            regle.setVerticalTextPosition(SwingConstants.CENTER);
+            regle.setHorizontalTextPosition(SwingConstants.CENTER);
+            regle.setOpaque(false);
+            regle.setContentAreaFilled(false);
+            regle.setBorderPainted(false);
+            this.add(regle);
         }
     }
 

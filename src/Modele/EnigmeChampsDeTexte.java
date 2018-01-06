@@ -26,9 +26,10 @@ public class EnigmeChampsDeTexte extends Enigme{
         int b=(int) (Math.random() * (1 + 1 - 20) + 20);
         int c=a*a+b*b;
         this.valAttendu= String.valueOf(((int)((Math.sqrt(c))*100))/100f);
-        this.question="<html>chercher le côté jaune et elle sait que: <br /> Le côté Bleu mesure "+String.valueOf(a)+" m<br /> "+"Le côté rouge mesure "+String.valueOf(b)+" <br /> "+"rep "+String.valueOf(this.valAttendu)+"</html>";
+        this.question="<html><center><br><br>Il faut chercher le côté jaune.<br> Berangère sait que: <br> -le côté Bleu mesure "+String.valueOf(a)+" mètres"+"<br>-le côté rouge mesure "+String.valueOf(b)+" mètres<br> "+"(rep "+String.valueOf(this.valAttendu)+")"+"</center></html>";
         //indice
         super.setIndice("images/indices/indice_pytha.png");
+        super.setRegle("<html>Vous devez trouver la longueur de la clôture que Bérangère devras acheter.</html>");
     }
 
     public String getValAttendu() {
@@ -51,6 +52,9 @@ public class EnigmeChampsDeTexte extends Enigme{
     public boolean proposition(Message m){
         return m.getAtt1().equals(valAttendu);
         
+    }
+    public int getPoint(){
+        return 100;
     }
     
     

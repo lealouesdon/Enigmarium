@@ -55,6 +55,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
         });
         boutonRetour();
         indice();
+        regle();
         
            //valider
         try {
@@ -142,6 +143,40 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
             indice.setContentAreaFilled(false);
             indice.setBorderPainted(false);
             this.add(indice);
+        }
+    }
+    
+    private void regle() {
+        if (enigme.getRegle() != null) {
+            JButton regle = new JButton("Règle");
+            regle.setFont(new Font("Liberation Sans", 14, 14));
+
+            regle.setSize(100, 100);
+            regle.setLocation(this.getWidth() - 200, 0);
+            regle.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    FenetreRegle reg = new FenetreRegle();
+                    reg.setRegle(enigme.getRegle());
+                    reg.setVisible(true);
+                }
+            });
+            try {
+            //ouvre l'image et la met dans le bouton
+            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+                ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 50));
+                regle.setIcon(icon);
+            } catch (IOException ex) {
+                Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            regle.setVerticalTextPosition(SwingConstants.CENTER);
+            regle.setHorizontalTextPosition(SwingConstants.CENTER);
+            regle.setOpaque(false);
+            regle.setContentAreaFilled(false);
+            regle.setBorderPainted(false);
+            this.add(regle);
+            
         }
     }
     /////////////////////////////////////////////////////////////////////////////////

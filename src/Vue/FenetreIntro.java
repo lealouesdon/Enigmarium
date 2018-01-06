@@ -7,6 +7,7 @@ package Vue;
 
 import Controleur.Message;
 import Controleur.Observateur;
+import Controleur.Sauvegarde;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -30,18 +31,18 @@ public class FenetreIntro extends javax.swing.JFrame {
     /**
      * Creates new form FenetreIntro
      */
-    
     private Observateur observateur;
-    
+
     public FenetreIntro() {
-        initComponents();  
+        initComponents();
         //bouton crée une nouvelle partie
-        start.setEnabled(false);
+        //start.setEnabled(false);
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FenetreInscription fenetre = new FenetreInscription();
+                FenetrePerso fenetre = new FenetrePerso();
                 fenetre.setVisible(true);
+                fenetre.setObservateur(observateur);
                 dispose();
             }
         });
@@ -73,7 +74,7 @@ public class FenetreIntro extends javax.swing.JFrame {
                 //ouvrir la fenetre des crédits
                 FenetreCredits fenetreCredits = new FenetreCredits();
                 fenetreCredits.setVisible(true);
-                
+
             }
 
         });
@@ -176,10 +177,16 @@ public class FenetreIntro extends javax.swing.JFrame {
         quitter.setContentAreaFilled(false);
         quitter.setBorderPainted(false);
     }
-    
+
     //methode pour ajouter l'observateur
     public void setObservateur(Observateur o) {
         this.observateur = o;
+    }
+
+    public void score(Sauvegarde save) {
+        if (save != null) {
+            info.setText("<html>Nom du joueur : " + save.getPseudo() + " <br> Score : " + save.getScore() + "</html>");
+        }
     }
 
     /**
@@ -199,6 +206,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         quitter = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        info = new javax.swing.JLabel();
 
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -206,13 +214,13 @@ public class FenetreIntro extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
+        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
         layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
         getContentPane().setLayout(layout);
 
         partie.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         partie.setForeground(new java.awt.Color(51, 204, 0));
-        partie.setText("Jouer");
+        partie.setText("Charger Partie");
         partie.setPreferredSize(new java.awt.Dimension(150, 50));
         partie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,7 +229,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -234,7 +242,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         para.setPreferredSize(new java.awt.Dimension(150, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -252,7 +260,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -265,7 +273,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         credits.setPreferredSize(new java.awt.Dimension(75, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -278,7 +286,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         quitter.setPreferredSize(new java.awt.Dimension(73, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -304,6 +312,16 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 3;
         getContentPane().add(jLabel2, gridBagConstraints);
+
+        info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        info.setText("<html>Nom du joueur : pas de joueur <br> Score: 0</html>");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        getContentPane().add(info, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -350,7 +368,7 @@ public class FenetreIntro extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private Image getScaledImage(Image srcImg, int w, int h) {
         //pour redimensionner une image pour un bouton
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
@@ -364,6 +382,7 @@ public class FenetreIntro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton credits;
+    private javax.swing.JLabel info;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel logo;
     private javax.swing.JButton para;

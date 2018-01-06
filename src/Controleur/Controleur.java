@@ -25,26 +25,44 @@ import Vue.FenetreScenario;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Stack;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class Controleur implements Observateur {
 
     //attributs
+    private static String NOMSAUVEGARDE = "sauvegarde";
+
     private Stack<Lieu> cartes;
-    private FenetreIndice fenetreIndice;
     private FenetrePrincipale fenetrePrincipale;
     private Enigme enigmeCoutante;
     private ArrayList<Histoire> histoire;
     private int iterHistoire;
+    private Sauvegarde save;
 
     //Constructeur
     public Controleur() throws SQLException {
         this.histoire = new ArrayList<Histoire>();
         this.iterHistoire = 0;
         cartes = new Stack();
+        this.chargerPartie();
+        System.out.println("Partie chargée : ");
+        System.out.println(this.save.toString());
+        this.enregistrerPartie();
         InitialiserModel();
         //InitialiserVue();
         //fenetrePrincipale.creeVue((Carte) this.cartes.peek());
         FenetreIntro fIntro = new FenetreIntro();//pour la démo
+        fIntro.score(save);
         fIntro.setObservateur(this);
         //fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
         fIntro.setVisible(true);
@@ -143,8 +161,24 @@ public class Controleur implements Observateur {
                 fenetrePrincipale.creeVue((Carte) this.cartes.peek());
                 fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
                 this.checkHistoire();
+            }else{
+                fenetrePrincipale.setVisible(true);
+            }
+            if (m.getAtt1() != null) {
+                if (m.getAtt1() == "fille" || m.getAtt1() == "garçon") {
+                    this.save.setPseudo(m.getMessage());
+                    this.save.setSex(m.getAtt1());
+                    this.enregistrerPartie();
+                    System.out.println(this.save.toString());
+                }
             }
 
+        } else if (m.getEtat() == "menu") {
+            FenetreIntro f = new FenetreIntro();
+            f.setObservateur(this);
+            f.score(save);
+            f.setVisible(true);
+            
         } ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
         else if (m.getMessage() == "André le Boulanger") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
@@ -174,7 +208,7 @@ public class Controleur implements Observateur {
             addCarte(enigmeCoutante);
             //trouve la carte énigme volume et la met en enigme courante
             fenetrePrincipale.creeVueEnigmeChampsDeTexte((EnigmeChampsDeTexte) enigmeCoutante);
-        } ////////////////////////////Navigation///////////////////// ////////////
+        } ////////////////////////////Navigation///////////////////// //////////////////////
         else if (m.getEtat() == "carteChoisi") {
             this.carteChoisi(m.getMessage());
         } //////////////////////////Traitement Message énigme///////////////////////////////
@@ -244,6 +278,46 @@ public class Controleur implements Observateur {
             FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario());
             fenetreScen.setVisible(true);
             this.iterHistoire++;
+        }
+    }
+
+    public static String getNOMSAUVEGARDE() {
+        return NOMSAUVEGARDE;
+    }
+
+    public void enregistrerPartie() {
+        ObjectOutputStream oos;
+        try {
+            oos = new ObjectOutputStream(
+                    new BufferedOutputStream(
+                            new FileOutputStream(
+                                    new File(this.getNOMSAUVEGARDE()))));
+            oos.writeObject(this.save);
+            oos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void chargerPartie() {
+        ObjectInputStream ois;
+        try {
+            ois = new ObjectInputStream(
+                    new BufferedInputStream(
+                            new FileInputStream(
+                                    new File(this.getNOMSAUVEGARDE()))));
+            this.save = (Sauvegarde) ois.readObject();
+            ois.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            System.out.println("SAUVEGARDE INTROUVABLE. Création d'un nouveau fichier");
+            this.save = new Sauvegarde();
+        } catch (IOException e) {
+            e.printStackTrace();
+
         }
     }
 }
