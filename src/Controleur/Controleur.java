@@ -121,13 +121,13 @@ public class Controleur implements Observateur {
         ///////////////////////////////ENIGMES/////////////////////////////////////
         ////////////////////////////////HISTOIRE DEBUT/////////////////////////////
         ArrayList personnages = new ArrayList<String>();
-        personnages.add("Joueur");
+        personnages.add("Garçon");
         personnages.add("Merlin");
         Histoire etape1 = new Histoire(monde, "test histoire", personnages);
         histoire.add(etape1);
         
         personnages.clear();
-        personnages.add("Joueur");
+        personnages.add("garçon");
         personnages.add("Merlin");
         personnages.add("André");
         Histoire etape2 = new Histoire(mondeMedievale, "lasuite", personnages);
@@ -274,7 +274,7 @@ public class Controleur implements Observateur {
     public void checkHistoire() {
         int iterHistoire = this.save.getHistoire();
         if (histoire.get(iterHistoire) != null && histoire.get(iterHistoire).getLieu() == cartes.peek()) {
-            FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario());
+            FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario(), histoire.get(iterHistoire).getPersonnages());
             fenetreScen.setVisible(true);
             this.save.setHistoire(this.save.getHistoire()+1);
             this.enregistrerPartie();

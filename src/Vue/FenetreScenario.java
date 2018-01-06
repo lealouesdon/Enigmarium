@@ -12,11 +12,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 /**
@@ -29,20 +31,22 @@ public class FenetreScenario extends javax.swing.JFrame {
      * Creates new form Fenetre
      */
     private String scenario;
+    private String personnages;
 
-     public FenetreScenario(String scenario) {
+    public FenetreScenario(String scenario, ArrayList<String> personnages) {
         this.scenario = scenario;
         initComponents();
-      
+
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        
-          suivant.addActionListener(new ActionListener() {
+
+        suivant.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
+
         });
-           //suivant
+        //suivant
         try {
             //ouvre l'image et la met dans le bouton
             Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
@@ -57,9 +61,64 @@ public class FenetreScenario extends javax.swing.JFrame {
         suivant.setOpaque(false);
         suivant.setContentAreaFilled(false);
         suivant.setBorderPainted(false);
+
+        ArrayList<JLabel> persos = new ArrayList<JLabel>();
+        persos.add(perso1);
+        persos.add(perso2);
+        persos.add(perso3);
+
+        for (int i = 0; i < personnages.size(); i++) {
+            switch (personnages.get(i)) {
+                case "Fille":
+                    try {
+                        //ouvre l'image et la met dans le bouton
+                        Image img = ImageIO.read(getClass().getResource("images/pf_tete.jpg"));
+                        //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+                        ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+                        perso1.setIcon(icon);
+                    } catch (IOException ex) {
+                        Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    break;
+                    
+                case "Garçon":
+                    try {
+                        //ouvre l'image et la met dans le bouton
+                        Image img = ImageIO.read(getClass().getResource("images/pm_tete.jpg"));
+                        //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+                        ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+                        perso1.setIcon(icon);
+                    } catch (IOException ex) {
+                        Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    break;
+                case "Merlin":
+                     try {
+                        //ouvre l'image et la met dans le bouton
+                        Image img = ImageIO.read(getClass().getResource("images/merlin.jpg"));
+                        //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+                        ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+                        perso1.setIcon(icon);
+                    } catch (IOException ex) {
+                        Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    break;
+                case "André":
+                     try {
+                        //ouvre l'image et la met dans le bouton
+                        Image img = ImageIO.read(getClass().getResource("images/AndréTete.jpg"));
+                        //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+                        ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+                        perso1.setIcon(icon);
+                    } catch (IOException ex) {
+                        Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    break;
+            }
+        }
     }
 
-     private Image getScaledImage(Image srcImg, int w, int h) {
+    private Image getScaledImage(Image srcImg, int w, int h) {
         //pour redimensionner une image pour un bouton
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = resizedImg.createGraphics();
@@ -69,6 +128,7 @@ public class FenetreScenario extends javax.swing.JFrame {
 
         return resizedImg;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,10 +142,10 @@ public class FenetreScenario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         champScenario = new javax.swing.JLabel();
         suivant = new javax.swing.JButton();
-        image1 = new javax.swing.JLabel();
+        perso1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        Perso3 = new javax.swing.JLabel();
-        Perso2 = new javax.swing.JLabel();
+        perso2 = new javax.swing.JLabel();
+        perso3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -97,19 +157,19 @@ public class FenetreScenario extends javax.swing.JFrame {
         suivant.setText("Suivant");
         getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
 
-        image1.setText("jLabel1");
-        getContentPane().add(image1, java.awt.BorderLayout.LINE_START);
+        perso1.setText("jLabel1");
+        getContentPane().add(perso1, java.awt.BorderLayout.LINE_START);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        Perso3.setText("jLabel1");
-        jPanel2.add(Perso3, new java.awt.GridBagConstraints());
+        perso2.setText("jLabel1");
+        jPanel2.add(perso2, new java.awt.GridBagConstraints());
 
-        Perso2.setText("jLabel1");
+        perso3.setText("jLabel1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        jPanel2.add(Perso2, gridBagConstraints);
+        jPanel2.add(perso3, gridBagConstraints);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_END);
 
@@ -145,20 +205,21 @@ public class FenetreScenario extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
+ /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FenetreScenario().setVisible(true);
             }
         });*/
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Perso2;
-    private javax.swing.JLabel Perso3;
     private javax.swing.JLabel champScenario;
-    private javax.swing.JLabel image1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel perso1;
+    private javax.swing.JLabel perso2;
+    private javax.swing.JLabel perso3;
     private javax.swing.JButton suivant;
     // End of variables declaration//GEN-END:variables
 }
