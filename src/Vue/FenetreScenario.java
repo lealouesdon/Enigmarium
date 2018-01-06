@@ -94,6 +94,7 @@ public class FenetreScenario extends javax.swing.JFrame {
                     }
                 break;
         }
+        
         for (int i = 0; i < personnages.size(); i++) {
             switch (personnages.get(i)) {
                 case "Merlin":
