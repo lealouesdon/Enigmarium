@@ -67,7 +67,7 @@ public class PanelNavigation extends JPanel {
             //donne le bon aspect au bouton
             bouton.setOpaque(false);
             bouton.setContentAreaFilled(false);
-            bouton.setBorderPainted(true);
+            bouton.setBorderPainted(false);
             //taille du bouton (a modifier avec des valeurs de icone)!!!
             bouton.setSize(cartes.get(string).getIcone().getLargeur(), cartes.get(string).getIcone().getHauteur());
             //si un icone est defini
@@ -116,12 +116,12 @@ public class PanelNavigation extends JPanel {
 
                 @Override
                 public void mouseEntered(MouseEvent e) {
-
+                    bouton.setBorderPainted(true);
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-
+                    bouton.setBorderPainted(false);
                 }
 
             });
