@@ -187,8 +187,10 @@ public class FenetreIntro extends javax.swing.JFrame {
     }
 
     public void score(Sauvegarde save) {
-        if (save != null) {
+        if (save.getPseudo() != null) {
             info.setText("<html>Nom du joueur : " + save.getPseudo() + " <br> Score : " + save.getScore() + "</html>");
+        }else{
+            partie.setEnabled(false);
         }
     }
 
@@ -317,7 +319,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         getContentPane().add(jLabel2, gridBagConstraints);
 
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info.setText("<html>Nom du joueur : pas de joueur <br> Score: 0</html>");
+        info.setText("\n");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 11;
