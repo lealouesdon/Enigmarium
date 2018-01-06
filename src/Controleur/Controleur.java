@@ -142,8 +142,15 @@ public class Controleur implements Observateur {
                 fenetrePrincipale.creeVue((Carte) this.cartes.peek());
                 fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
                 this.checkHistoire();
+            }else{
+                fenetrePrincipale.setVisible(true);
             }
 
+        } else if (m.getEtat() == "menu") {
+            FenetreIntro f = new FenetreIntro();
+            f.setObservateur(this);
+            f.setVisible(true);
+            
         } ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
         else if (m.getMessage() == "André le Boulanger") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
