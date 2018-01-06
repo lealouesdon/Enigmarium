@@ -162,6 +162,7 @@ public class FenetreIntro extends javax.swing.JFrame {
 
     public void score(Sauvegarde save) {
         if (save.getPseudo() != null) {
+            
             info.setText("<html>Nom du joueur : " + save.getPseudo() + " <br> Score : " + save.getScore() + "</html>");
             try {
             //ouvre l'image et la met dans le bouton
