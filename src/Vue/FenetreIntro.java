@@ -7,6 +7,7 @@ package Vue;
 
 import Controleur.Message;
 import Controleur.Observateur;
+import Controleur.Sauvegarde;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -30,11 +31,10 @@ public class FenetreIntro extends javax.swing.JFrame {
     /**
      * Creates new form FenetreIntro
      */
-    
     private Observateur observateur;
-    
+
     public FenetreIntro() {
-        initComponents();  
+        initComponents();
         //bouton crée une nouvelle partie
         //start.setEnabled(false);
         start.addActionListener(new ActionListener() {
@@ -74,7 +74,7 @@ public class FenetreIntro extends javax.swing.JFrame {
                 //ouvrir la fenetre des crédits
                 FenetreCredits fenetreCredits = new FenetreCredits();
                 fenetreCredits.setVisible(true);
-                
+
             }
 
         });
@@ -177,15 +177,18 @@ public class FenetreIntro extends javax.swing.JFrame {
         quitter.setContentAreaFilled(false);
         quitter.setBorderPainted(false);
     }
-    
+
     //methode pour ajouter l'observateur
     public void setObservateur(Observateur o) {
         this.observateur = o;
     }
-    
-    public void score(){
-        
+
+    public void score(Sauvegarde save) {
+        if (save != null) {
+            info.setText("<html>Nom du joueur : " + save.getPseudo() + " <br> Score : " + save.getScore() + "</html>");
+        }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -317,6 +320,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.gridy = 11;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         getContentPane().add(info, gridBagConstraints);
 
         pack();
@@ -364,7 +368,7 @@ public class FenetreIntro extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private Image getScaledImage(Image srcImg, int w, int h) {
         //pour redimensionner une image pour un bouton
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
