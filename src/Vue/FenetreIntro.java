@@ -166,7 +166,7 @@ public class FenetreIntro extends javax.swing.JFrame {
             try {
             //ouvre l'image et la met dans le bouton
             Image img;
-            if(save.getSex()=="fille"){
+            if(save.getSex().equals("fille")){
                 img = ImageIO.read(getClass().getResource("images/pf_tete.png"));
             }else{
                 img = ImageIO.read(getClass().getResource("images/pm_tete.png"));
