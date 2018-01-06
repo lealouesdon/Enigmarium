@@ -45,13 +45,12 @@ public class Controleur implements Observateur {
     private Sauvegarde save;
 
     //Constructeur
-    public Controleur() throws SQLException {
+    public Controleur() {
         this.histoire = new ArrayList<Histoire>();
         cartes = new Stack();
         this.chargerPartie();
         System.out.println("Partie chargée : ");
         System.out.println(this.save.toString());
-        this.enregistrerPartie();
         InitialiserModel();
         FenetreIntro fIntro = new FenetreIntro();
         fIntro.score(save);
@@ -66,7 +65,7 @@ public class Controleur implements Observateur {
         fenetrePrincipale.setObservateur(this);
     }
 
-    private void InitialiserModel() throws SQLException {//initialise toute les carte du model
+    private void InitialiserModel() {//initialise toute les carte du model
         Carte monde = new Carte(null, "Carte des mondes", "images/galaxy.jpg", false);
         cartes.push(monde);
         /////////////////////////////////MONDE///////////////////////////////////////
@@ -83,7 +82,7 @@ public class Controleur implements Observateur {
         monde.addContien(mondeArcheologue);
         monde.addContien(MondeLasVegas);
 
-        ///////////////////////////////PERSONAGE ET ENIGMES/////////////////////////////////////
+        ///////////////////////////////PERSONNAGE ET ENIGMES/////////////////////////////////////
         //monde de la nouriture
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
         EnigmeComposite andreLePatissier = new EnigmeComposite(icone, "André le Boulanger", "images/vueJeu.png");
@@ -174,7 +173,6 @@ public class Controleur implements Observateur {
                 if (m.getAtt1() == "fille" || m.getAtt1() == "garçon") {
                     this.save.setPseudo(m.getMessage());
                     this.save.setSex(m.getAtt1());
-                    this.enregistrerPartie();
                     System.out.println(this.save.toString());
                 }
             }
@@ -194,7 +192,8 @@ public class Controleur implements Observateur {
             f.score(save);
             f.setVisible(true);
 
-        } else if (m.getEtat() == "fermer") {
+        } else if(m.getEtat() == "fermer"){
+            this.enregistrerPartie();
             System.exit(0);
         } ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
         else if (m.getMessage() == "André le Boulanger") {
@@ -237,7 +236,6 @@ public class Controleur implements Observateur {
                 //ouvrir une fenetre resultat
                 FenetreResultat f = new FenetreResultat();
                 this.save.setScore(this.save.getScore() + e.getPoints());
-                this.enregistrerPartie();
                 f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
@@ -250,8 +248,7 @@ public class Controleur implements Observateur {
             juste = e.proposition(m);
             if (juste) {
                 FenetreResultat f = new FenetreResultat();
-                this.save.setScore(this.save.getScore() + e.getPoints());
-                this.enregistrerPartie();
+                this.save.setScore(this.save.getScore() + e.getPoints());           
                 //f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
@@ -263,7 +260,6 @@ public class Controleur implements Observateur {
             if (e.proposition(m)) {
                 FenetreResultat f = new FenetreResultat();
                 this.save.setScore(this.save.getScore() + e.getPoints());
-                this.enregistrerPartie();
                 //f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
@@ -302,8 +298,7 @@ public class Controleur implements Observateur {
             System.out.println(save.getSex());
             FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario(), histoire.get(iterHistoire).getPersonnages(), save.getSex());
             fenetreScen.setVisible(true);
-            this.save.setHistoire(this.save.getHistoire() + 1);
-            this.enregistrerPartie();
+            this.save.setHistoire(this.save.getHistoire()+1);
         }
     }
 
@@ -311,7 +306,7 @@ public class Controleur implements Observateur {
         return NOMSAUVEGARDE;
     }
 
-    public void enregistrerPartie() {
+    private void enregistrerPartie() {
         ObjectOutputStream oos;
         try {
             oos = new ObjectOutputStream(
@@ -327,7 +322,7 @@ public class Controleur implements Observateur {
         }
     }
 
-    public void chargerPartie() {
+    private void chargerPartie() {
         ObjectInputStream ois;
         try {
             ois = new ObjectInputStream(
