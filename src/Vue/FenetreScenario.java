@@ -77,9 +77,15 @@ public class FenetreScenario extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
+        jPanel1 = new javax.swing.JPanel();
         champScenario = new javax.swing.JLabel();
         suivant = new javax.swing.JButton();
+        image1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        Perso3 = new javax.swing.JLabel();
+        Perso2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -90,6 +96,22 @@ public class FenetreScenario extends javax.swing.JFrame {
         suivant.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         suivant.setText("Suivant");
         getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
+
+        image1.setText("jLabel1");
+        getContentPane().add(image1, java.awt.BorderLayout.LINE_START);
+
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        Perso3.setText("jLabel1");
+        jPanel2.add(Perso3, new java.awt.GridBagConstraints());
+
+        Perso2.setText("jLabel1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        jPanel2.add(Perso2, gridBagConstraints);
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -131,7 +153,12 @@ public class FenetreScenario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Perso2;
+    private javax.swing.JLabel Perso3;
     private javax.swing.JLabel champScenario;
+    private javax.swing.JLabel image1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton suivant;
     // End of variables declaration//GEN-END:variables
 }

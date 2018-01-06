@@ -187,7 +187,7 @@ public class EnigmeComposite extends Enigme {
     public ArrayList<String> getEnonce() {
         return enonce;
     }
-
+    @Override 
     public int getPoints() {
         return points;
     }

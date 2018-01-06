@@ -66,9 +66,10 @@ public class FenetrePerso extends javax.swing.JFrame {
         retour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //FenetreInscription f = new FenetreInscription();
-                //f.setVisible(true);
-                //dispose();
+                FenetreIntro f = new FenetreIntro();
+                f.setVisible(true);
+                f.setObservateur(observateur);
+                dispose();
             }
 
         });

@@ -50,5 +50,8 @@ public abstract class Enigme extends Lieu {
     public String getRegle() {
         return regle;
     }
-
+    
+    public int getPoints(){
+        return 100;
+    }
 }

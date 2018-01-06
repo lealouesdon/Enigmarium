@@ -77,9 +77,6 @@ public class EnigmeChemin extends Enigme {
     public String getEnonce() {
         return enonce;
     }
-    public int getPoint(){
-        return 100;
-    }
     
     
 }
