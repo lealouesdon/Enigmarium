@@ -189,7 +189,9 @@ public class FenetrePrincipale extends JFrame implements Observateur {
         fermer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                Message m = new Message();
+                m.setEtat("fermer");
+                observateur.notification(m);
             }
 
         });
