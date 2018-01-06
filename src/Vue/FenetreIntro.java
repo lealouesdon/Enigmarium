@@ -82,7 +82,10 @@ public class FenetreIntro extends javax.swing.JFrame {
         quitter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                Message m = new Message();
+                m.setEtat("fermer");
+                observateur.notification(m);
+                
             }
 
         });

@@ -17,7 +17,6 @@ import Modele.EnigmeComposite;
 import Modele.Histoire;
 import Modele.Icone;
 import Modele.Lieu;
-import Vue.FenetreIndice;
 import Vue.FenetreIntro;
 import Vue.FenetrePrincipale;
 import Vue.FenetreResultat;
@@ -27,8 +26,6 @@ import java.util.ArrayList;
 import java.util.Stack;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,7 +38,6 @@ public class Controleur implements Observateur {
 
     //attributs
     private static String NOMSAUVEGARDE = "sauvegarde";
-
     private Stack<Lieu> cartes;
     private FenetrePrincipale fenetrePrincipale;
     private Enigme enigmeCoutante;
@@ -59,14 +55,10 @@ public class Controleur implements Observateur {
         System.out.println(this.save.toString());
         this.enregistrerPartie();
         InitialiserModel();
-        //InitialiserVue();
-        //fenetrePrincipale.creeVue((Carte) this.cartes.peek());
-        FenetreIntro fIntro = new FenetreIntro();//pour la démo
+        FenetreIntro fIntro = new FenetreIntro();
         fIntro.score(save);
         fIntro.setObservateur(this);
-        //fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
         fIntro.setVisible(true);
-        fIntro.toFront();
 
     }
     //methodes
@@ -78,21 +70,11 @@ public class Controleur implements Observateur {
 
     private void InitialiserModel() throws SQLException {//initialise toute les carte du model
         Carte monde = new Carte(null, "Carte des mondes", "images/galaxy.jpg", false);
-
         cartes.push(monde);
-        ///////////////////////////////BASE DE DONNES////////////////////////////////
-        /*Connection conn = ConnecterDB();
-        Statement state = conn.createStatement();
-        ResultSet res = state.executeQuery("Select nomM from Monde;");
-        ResultSetMetaData resFin = res.getMetaData();
-        res.close();
-        state.close();
-         */
         /////////////////////////////////MONDE///////////////////////////////////////
         Icone icone = new Icone((float) 0.05, (float) 0.2, "images/mondeCuisiniers.png", 300, 450);
         Carte mondeMedievale = new Carte(icone, "Ferte Ylia", "images/placeMarche.jpg");
         mondeMedievale.setDescriptif("<html>C'est dans ce monde que tu trouveras les meilleurs ingrédients ! Et des cuisiniers à leur hauteur ...</html>");
-
         icone = new Icone((float) 0.3, (float) 0.1, "images/mondeArcheologue.png", 350, 400);
         Carte mondeArcheologue = new Carte(icone, "Vuyala", "images/mondeA.jpg");
         mondeArcheologue.setDescriptif("<html> Si vous supportez la poussière, <br> et retournez la terre, <br>vous trouverez trésors, <br> et bien plus encore.</html>");
@@ -161,7 +143,7 @@ public class Controleur implements Observateur {
                 fenetrePrincipale.creeVue((Carte) this.cartes.peek());
                 fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
                 this.checkHistoire();
-            }else{
+            } else {
                 fenetrePrincipale.setVisible(true);
             }
             if (m.getAtt1() != null) {
@@ -178,8 +160,12 @@ public class Controleur implements Observateur {
             f.setObservateur(this);
             f.score(save);
             f.setVisible(true);
-            
-        } ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
+
+        } else if(m.getEtat() == "fermer"){
+            System.exit(0);
+        }
+
+        ////////////////////////Initialisation d'énigme//////////////////////////////////////////////
         else if (m.getMessage() == "André le Boulanger") {
             EnigmeComposite e = (EnigmeComposite) ((Carte) this.cartes.peek()).getContiens().get(m.getMessage());
             enigmeCoutante = e;
