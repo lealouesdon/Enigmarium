@@ -45,7 +45,7 @@ public class Controleur implements Observateur {
     private Sauvegarde save;
 
     //Constructeur
-    public Controleur() throws SQLException {
+    public Controleur() {
         this.histoire = new ArrayList<Histoire>();
         cartes = new Stack();
         this.chargerPartie();
@@ -65,7 +65,7 @@ public class Controleur implements Observateur {
         fenetrePrincipale.setObservateur(this);
     }
 
-    private void InitialiserModel() throws SQLException {//initialise toute les carte du model
+    private void InitialiserModel() {//initialise toute les carte du model
         Carte monde = new Carte(null, "Carte des mondes", "images/galaxy.jpg", false);
         cartes.push(monde);
         /////////////////////////////////MONDE///////////////////////////////////////
