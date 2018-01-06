@@ -46,13 +46,11 @@ public class Controleur implements Observateur {
     private FenetrePrincipale fenetrePrincipale;
     private Enigme enigmeCoutante;
     private ArrayList<Histoire> histoire;
-    private int iterHistoire;
     private Sauvegarde save;
 
     //Constructeur
     public Controleur() throws SQLException {
         this.histoire = new ArrayList<Histoire>();
-        this.iterHistoire = 0;
         cartes = new Stack();
         this.chargerPartie();
         System.out.println("Partie chargée : ");
@@ -210,6 +208,8 @@ public class Controleur implements Observateur {
             if (fini) {
                 //ouvrir une fenetre resultat
                 FenetreResultat f = new FenetreResultat();
+                this.save.setScore(this.save.getScore() + e.getPoints());
+                this.enregistrerPartie();
                 f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
@@ -222,6 +222,8 @@ public class Controleur implements Observateur {
             juste = e.proposition(m);
             if (juste) {
                 FenetreResultat f = new FenetreResultat();
+                this.save.setScore(this.save.getScore() + e.getPoints());
+                this.enregistrerPartie();                
                 //f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
@@ -232,6 +234,8 @@ public class Controleur implements Observateur {
             EnigmeChemin e = (EnigmeChemin) enigmeCoutante;
             if (e.proposition(m)) {
                 FenetreResultat f = new FenetreResultat();
+                this.save.setScore(this.save.getScore() + e.getPoints());
+                this.enregistrerPartie();
                 //f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
@@ -265,10 +269,12 @@ public class Controleur implements Observateur {
     }
 
     public void checkHistoire() {
+        int iterHistoire = this.save.getHistoire();
         if (histoire.get(iterHistoire) != null && histoire.get(iterHistoire).getLieu() == cartes.peek()) {
             FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario());
             fenetreScen.setVisible(true);
-            this.iterHistoire++;
+            this.save.setHistoire(this.save.getHistoire()+1);
+            this.enregistrerPartie();
         }
     }
 

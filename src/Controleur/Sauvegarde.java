@@ -63,7 +63,7 @@ public class Sauvegarde implements Serializable{
     public void setScore(double score) {
         this.score = score;
     }
-
+       
     public int getHistoire() {
         return histoire;
     }
