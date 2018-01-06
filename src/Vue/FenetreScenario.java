@@ -39,7 +39,7 @@ public class FenetreScenario extends javax.swing.JFrame {
         this.scenario = scenario;
         this.sexe = sexe;
         initComponents();
-
+        this.setAlwaysOnTop(true);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         suivant.addActionListener(new ActionListener() {
@@ -69,8 +69,8 @@ public class FenetreScenario extends javax.swing.JFrame {
         persos.add(perso2);
         persos.add(perso3);
 
-        switch(this.sexe) {
-            case "fille":
+        if(this.sexe == "fille"){
+            
                  try {
                         //ouvre l'image et la met dans le bouton
                         Image img = ImageIO.read(getClass().getResource("images/pf_tete.png"));
@@ -80,9 +80,10 @@ public class FenetreScenario extends javax.swing.JFrame {
                     } catch (IOException ex) {
                         Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                break;
+        }
                 
-            case "garçon":
+        else if(this.sexe == "garçon"){
+            
                   try {
                         //ouvre l'image et la met dans le bouton
                         Image img = ImageIO.read(getClass().getResource("images/pm_tete.png"));
@@ -92,7 +93,6 @@ public class FenetreScenario extends javax.swing.JFrame {
                     } catch (IOException ex) {
                         Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                break;
         }
         
         for (int i = 0; i < personnages.size(); i++) {
