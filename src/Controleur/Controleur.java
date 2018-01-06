@@ -51,7 +51,6 @@ public class Controleur implements Observateur {
         this.chargerPartie();
         System.out.println("Partie chargée : ");
         System.out.println(this.save.toString());
-        this.enregistrerPartie();
         InitialiserModel();
         FenetreIntro fIntro = new FenetreIntro();
         fIntro.score(save);
@@ -83,7 +82,7 @@ public class Controleur implements Observateur {
         monde.addContien(mondeArcheologue);
         monde.addContien(MondeLasVegas);
 
-        ///////////////////////////////PERSONAGE ET ENIGMES/////////////////////////////////////
+        ///////////////////////////////PERSONNAGE ET ENIGMES/////////////////////////////////////
         //monde de la nouriture
         icone = new Icone((float) 0.38, (float) 0.30, null, 300, 200);
         EnigmeComposite andreLePatissier = new EnigmeComposite(icone, "André le Boulanger", "images/vueJeu.png");
@@ -148,7 +147,6 @@ public class Controleur implements Observateur {
                 if (m.getAtt1() == "fille" || m.getAtt1() == "garçon") {
                     this.save.setPseudo(m.getMessage());
                     this.save.setSex(m.getAtt1());
-                    this.enregistrerPartie();
                     System.out.println(this.save.toString());
                 }
             }
@@ -160,6 +158,7 @@ public class Controleur implements Observateur {
             f.setVisible(true);
 
         } else if(m.getEtat() == "fermer"){
+            this.enregistrerPartie();
             System.exit(0);
         }
 
@@ -204,7 +203,6 @@ public class Controleur implements Observateur {
                 //ouvrir une fenetre resultat
                 FenetreResultat f = new FenetreResultat();
                 this.save.setScore(this.save.getScore() + e.getPoints());
-                this.enregistrerPartie();
                 f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
@@ -217,8 +215,7 @@ public class Controleur implements Observateur {
             juste = e.proposition(m);
             if (juste) {
                 FenetreResultat f = new FenetreResultat();
-                this.save.setScore(this.save.getScore() + e.getPoints());
-                this.enregistrerPartie();                
+                this.save.setScore(this.save.getScore() + e.getPoints());           
                 //f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
@@ -230,7 +227,6 @@ public class Controleur implements Observateur {
             if (e.proposition(m)) {
                 FenetreResultat f = new FenetreResultat();
                 this.save.setScore(this.save.getScore() + e.getPoints());
-                this.enregistrerPartie();
                 //f.setPoints(String.valueOf(e.getPoints()));
                 f.setVisible(true);
                 retourCarte();
@@ -269,7 +265,6 @@ public class Controleur implements Observateur {
             FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario());
             fenetreScen.setVisible(true);
             this.save.setHistoire(this.save.getHistoire()+1);
-            this.enregistrerPartie();
         }
     }
 
@@ -277,7 +272,7 @@ public class Controleur implements Observateur {
         return NOMSAUVEGARDE;
     }
 
-    public void enregistrerPartie() {
+    private void enregistrerPartie() {
         ObjectOutputStream oos;
         try {
             oos = new ObjectOutputStream(
@@ -293,7 +288,7 @@ public class Controleur implements Observateur {
         }
     }
 
-    public void chargerPartie() {
+    private void chargerPartie() {
         ObjectInputStream ois;
         try {
             ois = new ObjectInputStream(
