@@ -39,7 +39,7 @@ public class FenetrePerso extends javax.swing.JFrame {
         initComponents();
         //variables pour connaitre le choix de l'utilsateur
         fille.setName("fille");
-        garcon.setName("garcon");
+        garcon.setName("garçon");
         //possibilité de validé que en cas de selection du personnages
         valider.setEnabled(false);
         //bouton valider
