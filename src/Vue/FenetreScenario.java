@@ -82,7 +82,7 @@ public class FenetreScenario extends javax.swing.JFrame {
                     }
         }
                 
-        else if(this.sexe == "garçon"){
+        else{
             
                   try {
                         //ouvre l'image et la met dans le bouton
