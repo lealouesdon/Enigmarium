@@ -7,6 +7,7 @@ package Vue;
 
 import Controleur.Message;
 import Controleur.Observateur;
+import Controleur.Sauvegarde;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -30,18 +31,18 @@ public class FenetreIntro extends javax.swing.JFrame {
     /**
      * Creates new form FenetreIntro
      */
-    
     private Observateur observateur;
-    
+
     public FenetreIntro() {
-        initComponents();  
+        initComponents();
         //bouton crée une nouvelle partie
-        start.setEnabled(false);
+        //start.setEnabled(false);
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                FenetreInscription fenetre = new FenetreInscription();
+                FenetrePerso fenetre = new FenetrePerso();
                 fenetre.setVisible(true);
+                fenetre.setObservateur(observateur);
                 dispose();
             }
         });
@@ -73,7 +74,7 @@ public class FenetreIntro extends javax.swing.JFrame {
                 //ouvrir la fenetre des crédits
                 FenetreCredits fenetreCredits = new FenetreCredits();
                 fenetreCredits.setVisible(true);
-                
+
             }
 
         });
@@ -81,7 +82,10 @@ public class FenetreIntro extends javax.swing.JFrame {
         quitter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                Message m = new Message();
+                m.setEtat("fermer");
+                observateur.notification(m);
+                
             }
 
         });
@@ -97,6 +101,8 @@ public class FenetreIntro extends javax.swing.JFrame {
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
             ImageIcon icon = new ImageIcon(getScaledImage(img, 350, 350));
             logo.setIcon(icon);
+            start.setIcon(icon);
+            partie.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -107,6 +113,10 @@ public class FenetreIntro extends javax.swing.JFrame {
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
             ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
             start.setIcon(icon);
+            partie.setIcon(icon);
+            quitter.setIcon(icon);
+            para.setIcon(icon);
+            credits.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -116,70 +126,62 @@ public class FenetreIntro extends javax.swing.JFrame {
         start.setContentAreaFilled(false);
         start.setBorderPainted(false);
         //partie
-        try {
-            //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
-            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
-            partie.setIcon(icon);
-        } catch (IOException ex) {
-            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         partie.setVerticalTextPosition(SwingConstants.CENTER);
         partie.setHorizontalTextPosition(SwingConstants.CENTER);
         partie.setOpaque(false);
         partie.setContentAreaFilled(false);
         partie.setBorderPainted(false);
         //para
-        try {
-            //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
-            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
-            para.setIcon(icon);
-        } catch (IOException ex) {
-            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         para.setVerticalTextPosition(SwingConstants.CENTER);
         para.setHorizontalTextPosition(SwingConstants.CENTER);
         para.setOpaque(false);
         para.setContentAreaFilled(false);
         para.setBorderPainted(false);
         //credits
-        try {
-            //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
-            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
-            credits.setIcon(icon);
-        } catch (IOException ex) {
-            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         credits.setVerticalTextPosition(SwingConstants.CENTER);
         credits.setHorizontalTextPosition(SwingConstants.CENTER);
         credits.setOpaque(false);
         credits.setContentAreaFilled(false);
         credits.setBorderPainted(false);
         //quitter
-        try {
-            //ouvre l'image et la met dans le bouton
-            Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
-            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
-            quitter.setIcon(icon);
-        } catch (IOException ex) {
-            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
         quitter.setVerticalTextPosition(SwingConstants.CENTER);
         quitter.setHorizontalTextPosition(SwingConstants.CENTER);
         quitter.setOpaque(false);
         quitter.setContentAreaFilled(false);
         quitter.setBorderPainted(false);
     }
-    
+
     //methode pour ajouter l'observateur
     public void setObservateur(Observateur o) {
         this.observateur = o;
+    }
+
+    public void score(Sauvegarde save) {
+        if (save.getPseudo() != null) {
+            
+            info.setText("<html>Nom du joueur : " + save.getPseudo() + " <br> Score : " + save.getScore() + "</html>");
+            try {
+            //ouvre l'image et la met dans le bouton
+            Image img;
+            if(save.getSex().equals("fille")){
+                img = ImageIO.read(getClass().getResource("images/pf_tete.png"));
+            }else{
+                img = ImageIO.read(getClass().getResource("images/pm_tete.png"));
+            }
+            
+            //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
+            ImageIcon icon = new ImageIcon(getScaledImage(img, 100, 100));
+            perso.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }else{
+            partie.setEnabled(false);
+        }
     }
 
     /**
@@ -199,6 +201,9 @@ public class FenetreIntro extends javax.swing.JFrame {
         quitter = new javax.swing.JButton();
         logo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        carte = new javax.swing.JPanel();
+        perso = new javax.swing.JLabel();
+        info = new javax.swing.JLabel();
 
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -206,13 +211,13 @@ public class FenetreIntro extends javax.swing.JFrame {
         setUndecorated(true);
         setResizable(false);
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
+        layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
         layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
         getContentPane().setLayout(layout);
 
         partie.setFont(new java.awt.Font("Balthazar", 1, 14)); // NOI18N
         partie.setForeground(new java.awt.Color(51, 204, 0));
-        partie.setText("Jouer");
+        partie.setText("Charger Partie");
         partie.setPreferredSize(new java.awt.Dimension(150, 50));
         partie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,7 +226,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -234,7 +239,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         para.setPreferredSize(new java.awt.Dimension(150, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
+        gridBagConstraints.gridy = 18;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -252,7 +257,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -265,7 +270,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         credits.setPreferredSize(new java.awt.Dimension(75, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 18;
+        gridBagConstraints.gridy = 20;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -278,7 +283,7 @@ public class FenetreIntro extends javax.swing.JFrame {
         quitter.setPreferredSize(new java.awt.Dimension(73, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 20;
+        gridBagConstraints.gridy = 22;
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -304,6 +309,23 @@ public class FenetreIntro extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 7;
         gridBagConstraints.gridheight = 3;
         getContentPane().add(jLabel2, gridBagConstraints);
+
+        carte.setBackground(new java.awt.Color(204, 204, 255));
+        carte.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
+        carte.setLayout(new javax.swing.BoxLayout(carte, javax.swing.BoxLayout.LINE_AXIS));
+        carte.add(perso);
+
+        info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        info.setText("\n");
+        carte.add(info);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        getContentPane().add(carte, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -350,7 +372,7 @@ public class FenetreIntro extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private Image getScaledImage(Image srcImg, int w, int h) {
         //pour redimensionner une image pour un bouton
         BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
@@ -363,11 +385,14 @@ public class FenetreIntro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel carte;
     private javax.swing.JButton credits;
+    private javax.swing.JLabel info;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel logo;
     private javax.swing.JButton para;
     private javax.swing.JButton partie;
+    private javax.swing.JLabel perso;
     private javax.swing.JButton quitter;
     private javax.swing.JButton start;
     // End of variables declaration//GEN-END:variables

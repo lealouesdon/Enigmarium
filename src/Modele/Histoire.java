@@ -13,13 +13,13 @@ import java.util.ArrayList;
  */
 public class Histoire {
     private Lieu lieu;
-    private String dialogue;
     private String senario;
+    private ArrayList<String> personnages;
     
-    public Histoire(Lieu lieu, String senario) {
+    public Histoire(Lieu lieu, String senario, ArrayList<String> personnages) {
         this.lieu = lieu;
-        this.dialogue = dialogue;
         this.senario=senario;
+        this.personnages = personnages;
     }
     
     /*public boolean suivant(){
@@ -33,6 +33,11 @@ public class Histoire {
     public String getSenario() {
         return senario;
     }
+
+    public ArrayList<String> getPersonnages() {
+        return personnages;
+    }
+    
     
     
 }

@@ -6,7 +6,6 @@
 package Vue;
 
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
@@ -32,8 +31,8 @@ public class FenetreIndice extends JFrame {
      * Creates new form FenetreIndice
      */
     public FenetreIndice() {
+        this.setAlwaysOnTop( true );
         initComponents();
-        setResizable(false);
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth()) / 4);
         int y = (int) ((dimension.getHeight() ) / 4);

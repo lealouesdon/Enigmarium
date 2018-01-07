@@ -24,6 +24,7 @@ public class EnigmeComposite extends Enigme {
     private int points;
     private int nbCompositionsRestantes; //nombre de compositions pas encore trouvé
 
+
     public EnigmeComposite(Icone icone, String nom, String fond) {
         super(icone, nom, fond);
         compositions = new ArrayList<Composition>();
@@ -77,6 +78,8 @@ public class EnigmeComposite extends Enigme {
         melangeIconeConpositions(0.19f, 0.10f);
         //initialisation de nbCompositionsRestantes
         nbCompositionsRestantes=4;
+        //regle
+        super.setRegle("<html>Il vous faut asssocier le bon récipient au bonne ingrédients en suivant les quatité données sur le livre de recette.</html>");
     }
 
     //////////////////////////////////////////////////////////////////////////////
@@ -90,31 +93,31 @@ public class EnigmeComposite extends Enigme {
 
         //Création d'éléments et de compositions
         /////////////////////////////////////////////////////////
-        Expression e1 = new Expression("e1", new Icone((float) 0.59, (float) 0.05, null, 400, 100));
-        Resultat r1 = new Resultat("r1", new Icone((float) 0.65, (float) 0.65, null, 100, 100), e1.getX());
+        Expression e1 = new Expression("e1", new Icone((float) 0.59, (float) 0.05, null, 300, 75));
+        Resultat r1 = new Resultat("r1", new Icone((float) 0.65, (float) 0.55, null, 100, 100), e1.getX());
         Composition c1 = new Composition(r1, e1);
         //ajout de la compositio a la list
         compositions.add(c1);
         //ajout de la ligne de la recette a la description
         enonce.add("");
         /////////////////////////////////////////////////////
-        Expression e2 = new Expression("e2", new Icone((float) 0.59, (float) 0.2, null, 400, 100));
-        Resultat r2 = new Resultat("r2", new Icone((float) 0.55, (float) 0.65, null, 100, 100), e2.getX());
+        Expression e2 = new Expression("e2", new Icone((float) 0.59, (float) 0.18, null, 300, 75));
+        Resultat r2 = new Resultat("r2", new Icone((float) 0.55, (float) 0.55, null, 100, 100), e2.getX());
         Composition c2 = new Composition(r2, e2);
         //ajout de la compositio a la list
         compositions.add(c2);
         //ajout de la ligne de la recette a la description
         enonce.add("");
         ///////////////////////////////////
-        Expression e3 = new Expression("e3", new Icone((float) 0.59, (float) 0.38, null, 400, 100));
-        Resultat r3 = new Resultat("r3", new Icone((float) 0.70, (float) 0.65, null, 100, 100), e3.getX());
+        Expression e3 = new Expression("e3", new Icone((float) 0.59, (float) 0.31, null, 300, 75));
+        Resultat r3 = new Resultat("r3", new Icone((float) 0.70, (float) 0.55, null, 100, 100), e3.getX());
         Composition c3 = new Composition(r3, e3);
         //ajout de la compositio a la list
         compositions.add(c3);
         //ajout de la ligne de la recette a la description
         enonce.add("");
         ///////////////////////////////////////////////////
-        Resultat r4 = new Resultat("r4", new Icone((float) 0.75, (float) 0.65, null, 100, 100));
+        Resultat r4 = new Resultat("r4", new Icone((float) 0.75, (float) 0.55, null, 100, 100));
         Composition c4 = new Composition(r4, null);
         //ajout de la compositio a la list
         compositions.add(c4);
@@ -122,9 +125,11 @@ public class EnigmeComposite extends Enigme {
         enonce.add("");
         //indice
         super.setIndice("images/indices/indice_equa.png");
-        melangeIconeConpositions(0.55f, 0.1f);
+        melangeIconeConpositions(0.58f, 0.08f);
         //initialisation de nbCompositionsRestantes
         nbCompositionsRestantes=3;
+        //regle
+        super.setRegle("<html>Pour ouvrir cette porte, il vous faut associer le bon résultat à l’équation correspondante ! </html>");
     }
 
     void melangeIconeConpositions(float valDepart, float ecartemment) {
@@ -179,10 +184,10 @@ public class EnigmeComposite extends Enigme {
         return compositions;
     }
 
-    public ArrayList<String> getDescription() {
+    public ArrayList<String> getEnonce() {
         return enonce;
     }
-
+    @Override 
     public int getPoints() {
         return points;
     }
@@ -190,6 +195,8 @@ public class EnigmeComposite extends Enigme {
     public int getNbCompositionsRestantes() {
         return nbCompositionsRestantes;
     }
+
+
     
     
 
