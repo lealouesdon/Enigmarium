@@ -114,7 +114,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
     
     private void indice() {
         if (enigme.getIndice() != null) {
-            JButton indice = new JButton("indice");
+            JButton indice = new JButton("Indice");
             indice.setFont(new Font("Liberation Sans", 14, 14));
 
             indice.setSize(100, 100);
