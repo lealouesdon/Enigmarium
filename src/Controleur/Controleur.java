@@ -171,7 +171,7 @@ public class Controleur implements Observateur {
         } else if (m.getEtat() == "start") {
             if (m.getAtt1() != null) {
                 if (m.getAtt1() == "fille" || m.getAtt1() == "garçon") {
-                    this.save = new Sauvegarde(m.getMessage(),m.getAtt1(),0,0);
+                    this.save = new Sauvegarde(m.getAtt2(),m.getAtt1(),0,0);
                     System.out.println(this.save.toString());
                 }
             }
