@@ -199,7 +199,7 @@ public class PanelEnigmeChemin extends JPanel {
     private void indice() {
         //permet d'afficher l'indice, si il y en a un
         if (enigme.getIndice() != null) {
-            JButton indice = new JButton("indice");
+            JButton indice = new JButton("Indice");
             indice.setFont(new Font("Liberation Sans", 14, 14));
 
             indice.setSize(100, 100);
@@ -233,7 +233,7 @@ public class PanelEnigmeChemin extends JPanel {
     
     private void regle() {
         if (enigme.getRegle() != null) {
-            JButton regle = new JButton("Règle");
+            JButton regle = new JButton("Règles");
             regle.setFont(new Font("Liberation Sans", 14, 14));
 
             regle.setSize(100, 100);
