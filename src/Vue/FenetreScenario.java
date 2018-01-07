@@ -68,6 +68,9 @@ public class FenetreScenario extends javax.swing.JFrame {
         ArrayList<JLabel> persos = new ArrayList<JLabel>();
         persos.add(perso2);
         persos.add(perso3);
+        
+        
+          champScenario.setSize(jPanel3.getSize());
 
         if(this.sexe == "fille"){
             
@@ -176,11 +179,6 @@ public class FenetreScenario extends javax.swing.JFrame {
         suivant.setBackground(new java.awt.Color(255, 255, 255));
         suivant.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         suivant.setText("Suivant");
-        suivant.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                suivantActionPerformed(evt);
-            }
-        });
         getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
 
         perso1.setBackground(new java.awt.Color(255, 255, 255));
@@ -208,11 +206,7 @@ public class FenetreScenario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void suivantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suivantActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_suivantActionPerformed
-
+  
     /**
      * @param args the command line arguments
      */
@@ -248,7 +242,7 @@ public class FenetreScenario extends javax.swing.JFrame {
             }
         });*/
     }
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel champScenario;
