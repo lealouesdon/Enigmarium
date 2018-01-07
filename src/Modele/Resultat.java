@@ -5,6 +5,8 @@
  */
 package Modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Léa
@@ -18,9 +20,18 @@ public class Resultat extends Element{
         super(nom, icone);
         this.x=x;
     }
-    public Resultat(String nom, Icone icone) {
+    public Resultat(String nom, Icone icone,ArrayList resultat) {
         super(nom, icone);
-        this.x=(int)(Math.random() * (MAX + 1 - MIN) + MIN);
+        boolean existDeja =true;
+        while(existDeja){
+            existDeja=false;
+           this.x = (int) (Math.random() * (MAX + 1 - MIN) + MIN);
+           for(int i = 0;i<resultat.size();i++){
+               if((float)resultat.get(i)==this.x){
+                   existDeja=true;
+               }
+           }
+        }
     }
 
     @Override

@@ -18,7 +18,6 @@ import java.util.Iterator;
  * @author Léa
  */
 public class EnigmeComposite extends Enigme {
-
     private ArrayList<Composition> compositions;
     private ArrayList<String> enonce;  //équivalent de la recette pour enigmeVolume
     private int points;
@@ -93,31 +92,36 @@ public class EnigmeComposite extends Enigme {
 
         //Création d'éléments et de compositions
         /////////////////////////////////////////////////////////
-        Expression e1 = new Expression("e1", new Icone((float) 0.59, (float) 0.05, null, 300, 75));
+        ArrayList<Float> resultat = new ArrayList<Float>();
+        
+        Expression e1 = new Expression("e1", new Icone((float) 0.59, (float) 0.05, null, 300, 75),resultat);
         Resultat r1 = new Resultat("r1", new Icone((float) 0.65, (float) 0.55, null, 100, 100), e1.getX());
         Composition c1 = new Composition(r1, e1);
+        resultat.add( e1.getX());
         //ajout de la compositio a la list
         compositions.add(c1);
         //ajout de la ligne de la recette a la description
         enonce.add("");
         /////////////////////////////////////////////////////
-        Expression e2 = new Expression("e2", new Icone((float) 0.59, (float) 0.18, null, 300, 75));
+        Expression e2 = new Expression("e2", new Icone((float) 0.59, (float) 0.18, null, 300, 75),resultat);
         Resultat r2 = new Resultat("r2", new Icone((float) 0.55, (float) 0.55, null, 100, 100), e2.getX());
         Composition c2 = new Composition(r2, e2);
+        resultat.add( e2.getX());
         //ajout de la compositio a la list
         compositions.add(c2);
         //ajout de la ligne de la recette a la description
         enonce.add("");
         ///////////////////////////////////
-        Expression e3 = new Expression("e3", new Icone((float) 0.59, (float) 0.31, null, 300, 75));
+        Expression e3 = new Expression("e3", new Icone((float) 0.59, (float) 0.31, null, 300, 75),resultat);
         Resultat r3 = new Resultat("r3", new Icone((float) 0.70, (float) 0.55, null, 100, 100), e3.getX());
         Composition c3 = new Composition(r3, e3);
+        resultat.add( e3.getX());
         //ajout de la compositio a la list
         compositions.add(c3);
         //ajout de la ligne de la recette a la description
         enonce.add("");
         ///////////////////////////////////////////////////
-        Resultat r4 = new Resultat("r4", new Icone((float) 0.75, (float) 0.55, null, 100, 100));
+        Resultat r4 = new Resultat("r4", new Icone((float) 0.75, (float) 0.55, null, 100, 100),resultat);
         Composition c4 = new Composition(r4, null);
         //ajout de la compositio a la list
         compositions.add(c4);
