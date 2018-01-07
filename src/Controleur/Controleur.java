@@ -235,6 +235,7 @@ public class Controleur implements Observateur {
         } ////////////////////////////Navigation///////////////////// //////////////////////
         else if (m.getEtat() == "carteChoisi") {
             this.carteChoisi(m.getMessage());
+            checkHistoire();
         } //////////////////////////Traitement Message énigme///////////////////////////////
         else if (m.getEtat() == "MessageComposite") {
             //anayler comment lire la répose
