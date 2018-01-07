@@ -21,7 +21,6 @@ import Vue.FenetreIntro;
 import Vue.FenetrePrincipale;
 import Vue.FenetreResultat;
 import Vue.FenetreScenario;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Stack;
 import java.io.BufferedInputStream;
@@ -245,8 +244,8 @@ public class Controleur implements Observateur {
             if (fini) {
                 //ouvrir une fenetre resultat
                 FenetreResultat f = new FenetreResultat();
-                this.save.setScore(this.save.getScore() + e.getPoints());
-                f.setPoints(String.valueOf(e.getPoints()));
+                this.save.setScore(this.save.getScore() + e.getPoint());
+                f.setPoints(String.valueOf(e.getPoint()));
                 f.setVisible(true);
                 retourCarte();
             } else {
@@ -258,8 +257,8 @@ public class Controleur implements Observateur {
             juste = e.proposition(m);
             if (juste) {
                 FenetreResultat f = new FenetreResultat();
-                this.save.setScore(this.save.getScore() + e.getPoints());           
-                //f.setPoints(String.valueOf(e.getPoints()));
+                this.save.setScore(this.save.getScore() + e.getPoint());           
+                f.setPoints(String.valueOf(e.getPoint()));
                 f.setVisible(true);
                 retourCarte();
             } else {
@@ -269,8 +268,8 @@ public class Controleur implements Observateur {
             EnigmeChemin e = (EnigmeChemin) enigmeCoutante;
             if (e.proposition(m)) {
                 FenetreResultat f = new FenetreResultat();
-                this.save.setScore(this.save.getScore() + e.getPoints());
-                //f.setPoints(String.valueOf(e.getPoints()));
+                this.save.setScore(this.save.getScore() + e.getPoint());
+                f.setPoints(String.valueOf(e.getPoint()));
                 f.setVisible(true);
                 retourCarte();
             } else {

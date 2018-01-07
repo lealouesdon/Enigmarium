@@ -50,13 +50,14 @@ public class EnigmeChampsDeTexte extends Enigme{
     //proposition verifi que la valeur envoyer dans le message 
     //correspond a valAttendu.
     public boolean proposition(Message m){
+        if(!m.getAtt1().equals(valAttendu)){
+            super.calculPoints();
+        }
         return m.getAtt1().equals(valAttendu);
         
     }
     
-    public int getPoint(){
-        return 100;
-    }
+    
     
     
 }
