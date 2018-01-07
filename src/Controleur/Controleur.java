@@ -210,8 +210,6 @@ public class Controleur implements Observateur {
                 + "Sur-ce, il me tend la main. Non sans quelques réticences, je ferme les yeux et l’attrape. <br>\n"
                 + "</p><br></html>", personnageEtape5);
         histoire.add(etape5);
-        ////////////////////////////////HISTOIRE FIN/////////////////////////////        
-        histoire.add(null);// tres important pour qu'il n'y ai pas d'erreur une fois l'histoire fini
 
         ArrayList personnageEtape6 = new ArrayList<String>();
         personnageEtape6.add("Merlin");
@@ -233,7 +231,6 @@ public class Controleur implements Observateur {
 
         ArrayList personnageEtape7 = new ArrayList<String>();
         personnageEtape7.add("Merlin");
-        personnageEtape7.add("André");
         Histoire etape7 = new Histoire(andreLePatissier, "<html><style>html {margin:15px;}</style>"
                 + "<p>   Nous nous dirigeons vers les cuisines, du côté pâtisserie lorsque que Merlin me demande :\n"
                 + "-	Tu as déjà réalisé une recette d’André ?\n"
