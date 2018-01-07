@@ -133,9 +133,9 @@ public class Controleur implements Observateur {
                 + "-	Sais-tu qui je suis ? <br>\n"
                 + "-	Merlin, c’est ça ? Je l’avais déjà aperçu sur la place du marché, discutant avec André, notre pâtissier. <br>\n"
                 + "-	En effet, et connais-tu mon rôle ? <br>\n"
-                + "-	André est resté vague à ce-sujet répondis-je, l’esprit encore embrumé. <br>\n"
+                + "-	André est resté vague à ce sujet répondis-je, l’esprit encore embrumé. <br>\n"
                 + "-	J’espère que tu ne lui en voudras pas, je sais que vous êtes très proche mais c’est aussi un vieil ami. Et je ne tiens pas à ce que tout le monde soit au courant de ma situation. Ainsi, je tiens à ce que toi aussi tu puisses tenir ta langue, peux-tu faire ça pour moi ? <br>\n"
-                + "  Je me lève, tire une chaise à moi et m’assis. Je ne reconnais pas l’odeur du thé, Merlin a dû l’apporter. Je trempe mes lèvres et repose la tasse aussitôt, le thé était encore brulant.  <br>\n"
+                + "  Je me lève, tire une de mes chaise et m’assois. Je ne reconnais pas l’odeur du thé, Merlin a dû l’apporter. Je trempe mes lèvres et repose la tasse aussitôt, le thé était encore brulant.  <br>\n"
                 + "-	Je ne suis pas du genre à divulguer les secrets des autres Merlin, soyez en assuré. Je vous écoute. <br>\n"
                 + "-	Voilà une bonne chose...  <br>\n"
                 + "Il marque une pause, sont regard dirigé sur les vastes champs et collines que l’on apercevait par la fenêtre. </p> <br></html>", personnageEtape1);
@@ -153,7 +153,7 @@ public class Controleur implements Observateur {
                 + "-	En effet mon ami, répondit celui-ci. <br>\n"
                 + "-	Alors, qu’en penses-tu? me demande André, le sourire jusqu’aux oreilles. <br>\n"
                 + "-	J’ai seulement visité la grotte de Merlin pour l’instant mais ça à l’air passionnant! <br>\n"
-                + "-	Il ne peut pas juger pour l’instant, me repris Merlin. Dis moi André, peut-on emprunter ta cuisine un moment? J’aurais besoin de faire un cake à la pieuvre pour nos amis archéologues. Mon jeune compagnon va m’aider. <br>\n"
+                + "-	Il ne peut pas en juger pour l’instant, me repris Merlin. Dis moi André, peut-on emprunter ta cuisine un moment? J’aurais besoin de faire un cake à la pieuvre pour nos amis archéologues. Mon jeune compagnon va m’aider. <br>\n"
                 + "-	Vas-y, tu connais la route. Toujours leurs problèmes de scorpion ? <br>\n"
                 + "-	Oui, je te remercie. Désolé, mais tu vas devoir attendre avant de parler à ton ami jeune homme. Cette journée sera chargée. </p><br></html>", personnageEtape2);
         histoire.add(etape2);
