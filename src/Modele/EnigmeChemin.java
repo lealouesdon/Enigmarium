@@ -36,7 +36,7 @@ public class EnigmeChemin extends Enigme {
         }
         //indice
         super.setIndice("images/indices/indice_proba.png");
-        super.setRegle("<html>Vous devez trouver le chemin qui vous mènera à la pour grande probabilité de gagner.</html>");
+        super.setRegle("<html>Vous devez trouver le chemin qui vous mènera à la plus grande probabilité de gagner.</html>");
         
     }
     @Override
