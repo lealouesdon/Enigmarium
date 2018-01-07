@@ -77,7 +77,7 @@ public class Controleur implements Observateur {
         mondeArcheologue.setDescriptif("<html> Si vous supportez la poussière, <br> et retournez la terre, <br>vous trouverez trésors, <br> et bien plus encore.</html>");
         icone = new Icone((float) 0.6, (float) 0.3, "images/mondeLasVegas.png", 350, 400);
         Carte MondeLasVegas = new Carte(icone, "Le Refuge", "images/mondeLasVegas.jpg");
-        MondeLasVegas.setDescriptif("<html>La gaïté n'est qu'apparente, mais l'espoir subsiste... Lorena a trouvé ce monde, pour tout ceux qui ont perdu le leur.</html>");
+        MondeLasVegas.setDescriptif("<html>La gaïté n'est qu'apparente, mais l'espoir subsiste... Lorena a trouvé ce monde, pour tout ceux qui ont perdu les leurs.</html>");
         monde.addContien(mondeMedievale);
         monde.addContien(mondeArcheologue);
         monde.addContien(MondeLasVegas);
