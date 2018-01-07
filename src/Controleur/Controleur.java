@@ -129,12 +129,12 @@ public class Controleur implements Observateur {
                 + "-	Sais-tu qui je suis ? <br>\n"
                 + "-	Merlin, c’est ça ? Je l’avais déjà aperçu sur la place du marché, discutant avec André, notre pâtissier. <br>\n"
                 + "-	En effet, et connais-tu mon rôle ? <br>\n"
-                + "-	André est resté vague à ce-sujet répondis-je, l’esprit encore embrumé. <br>\n"
+                + "-	André est resté vague à ce sujet répondis-je, l’esprit encore embrumé. <br>\n"
                 + "-	J’espère que tu ne lui en voudras pas, je sais que vous êtes très proche mais c’est aussi un vieil ami. Et je ne tiens pas à ce que tout le monde soit au courant de ma situation. Ainsi, je tiens à ce que toi aussi tu puisses tenir ta langue, peux-tu faire ça pour moi ? <br>\n"
-                + "  Je me lève, tire une chaise à moi et m’assis. Je ne reconnais pas l’odeur du thé, Merlin a dû l’apporter. Je trempe mes lèvres et repose la tasse aussitôt, le thé était encore brulant.  <br>\n"
+                + "  Je me lève, tire une de mes chaise et m’assois. Je ne reconnais pas l’odeur du thé, Merlin a dû l’apporter. Je trempe mes lèvres et repose la tasse aussitôt, le thé était encore brulant.  <br>\n"
                 + "-	Je ne suis pas du genre à divulguer les secrets des autres Merlin, soyez en assuré. Je vous écoute. <br>\n"
                 + "-	Voilà une bonne chose...  <br>\n"
-                + "Il marque une pause, sont regard dirigé sur les vastes champs et collines que l’on apercevait par la fenêtre.  <br></html>", personnageEtape1);
+                + "Il marque une pause, son regard dirigé sur les vastes champs et colines que l’on apercevait par la fenêtre.  <br></html>", personnageEtape1);
         histoire.add(etape1);
         
         ArrayList personnageEtape2 = new ArrayList<String>();
