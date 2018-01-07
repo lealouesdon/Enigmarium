@@ -21,7 +21,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
 
 /**
  *
@@ -70,7 +69,7 @@ public class FenetreScenario extends javax.swing.JFrame {
         persos.add(perso2);
         persos.add(perso3);
 
-        champScenario.setSize(panelSenario.getSize());
+        //champScenario.setSize(panelSenario.getSize());
 
         if (this.sexe == "fille") {
 
@@ -125,8 +124,7 @@ public class FenetreScenario extends javax.swing.JFrame {
         champScenario.setText(scenario);
         Font font = new Font("FreeSans", Font.BOLD, 16);
         champScenario.setFont(font);
-        champScenario.setSize(panelSenario.getSize());
-        champScenario.setPreferredSize(panelSenario.getSize());
+        //champScenario.setSize(panelSenario.getSize());
 
     }
 
@@ -151,7 +149,6 @@ public class FenetreScenario extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        panelSenario = new javax.swing.JPanel();
         champScenario = new javax.swing.JLabel();
         suivant = new javax.swing.JButton();
         perso1 = new javax.swing.JLabel();
@@ -163,14 +160,11 @@ public class FenetreScenario extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
 
-        panelSenario.setBackground(new java.awt.Color(255, 255, 204));
-        panelSenario.setLayout(new java.awt.GridBagLayout());
-
         champScenario.setBackground(new java.awt.Color(255, 255, 255));
         champScenario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        panelSenario.add(champScenario, new java.awt.GridBagConstraints());
-
-        getContentPane().add(panelSenario, java.awt.BorderLayout.CENTER);
+        champScenario.setMaximumSize(new java.awt.Dimension(200, 200));
+        champScenario.setMinimumSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(champScenario, java.awt.BorderLayout.CENTER);
 
         suivant.setBackground(new java.awt.Color(255, 255, 255));
         suivant.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
@@ -243,7 +237,6 @@ public class FenetreScenario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel champScenario;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel panelSenario;
     private javax.swing.JLabel perso1;
     private javax.swing.JLabel perso2;
     private javax.swing.JLabel perso3;

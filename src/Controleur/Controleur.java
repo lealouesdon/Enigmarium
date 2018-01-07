@@ -121,11 +121,12 @@ public class Controleur implements Observateur {
         ////////////////////////////////HISTOIRE DEBUT/////////////////////////////
         
         
-        //////////////////////////////CECI EST UN APPERCU DE SCENARIO/////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////CECI EST UN APPERCU DE SCENARIO//////////////
         ArrayList personnageEtape1 = new ArrayList<String>();
 
         personnageEtape1.add("Merlin");
-        Histoire etape1 = new Histoire(monde, "<html>Le grincement du vieux plancher de ma cabane me sorti de ma somnolence. Je n’étais pas seul. J’entrouvris les yeux pour observer discrètement qui venait donc me rendre visite : un vieil homme se tenait là, versant un thé fumant dans deux de mes tasses en céramique. Une longue cape grise couvrait ses épaules et sa longue barbe grisonnante descendait jusqu’à son poitrail. Un grand bâton, surmonté d’un cristal bleu glace était posé sur l’encadrement de la fenêtre et un grimoire reposait sur le coffre, au pied de mon lit.\n"
+        Histoire etape1 = new Histoire(monde, "<html> <style>html {margin:15px;}</style> "
+                + "<p>Le grincement du vieux plancher de ma cabane me sorti de ma somnolence. Je n’étais pas seul. J’entrouvris les yeux pour observer discrètement qui venait donc me rendre visite : un vieil homme se tenait là, versant un thé fumant dans deux de mes tasses en céramique. Une longue cape grise couvrait ses épaules et sa longue barbe grisonnante descendait jusqu’à son poitrail. Un grand bâton, surmonté d’un cristal bleu glace était posé sur l’encadrement de la fenêtre et un grimoire reposait sur le coffre, au pied de mon lit.\n"
                 + "S’apercevant que je l’observais, le vieil homme se tourna vers moi : <br>\n"
                 + "-	Je me suis permis de faire du thé, dit-il en souriant. <br>\n"
                 + "-	Euh… Merci, je suppose. <br>\n"
@@ -137,7 +138,7 @@ public class Controleur implements Observateur {
                 + "  Je me lève, tire une chaise à moi et m’assis. Je ne reconnais pas l’odeur du thé, Merlin a dû l’apporter. Je trempe mes lèvres et repose la tasse aussitôt, le thé était encore brulant.  <br>\n"
                 + "-	Je ne suis pas du genre à divulguer les secrets des autres Merlin, soyez en assuré. Je vous écoute. <br>\n"
                 + "-	Voilà une bonne chose...  <br>\n"
-                + "Il marque une pause, sont regard dirigé sur les vastes champs et collines que l’on apercevait par la fenêtre.  <br></html>", personnageEtape1);
+                + "Il marque une pause, sont regard dirigé sur les vastes champs et collines que l’on apercevait par la fenêtre. </p> <br></html>", personnageEtape1);
         histoire.add(etape1);
         
         ArrayList personnageEtape2 = new ArrayList<String>();
@@ -145,7 +146,8 @@ public class Controleur implements Observateur {
 
         personnageEtape2.add("Merlin");
         personnageEtape2.add("André");
-        Histoire etape2 = new Histoire(mondeMedievale, "<html>  J’aperçois André qui, de son étal, me fait de grands signes. J’accours dans sa direction. <br>\n"
+        Histoire etape2 = new Histoire(mondeMedievale, "<html>  <style>html {margin:15px;}</style>"
+                + "<p>J’aperçois André qui, de son étal, me fait de grands signes. J’accours dans sa direction. <br>\n"
                 + "-	André! J’ai plein de trucs à te raconter! <br>\n"
                 + "-	Bonjour mon petit! Alors Merlin s’est enfin décidé? <br>\n"
                 + "-	En effet mon ami, répondit celui-ci. <br>\n"
@@ -153,17 +155,18 @@ public class Controleur implements Observateur {
                 + "-	J’ai seulement visité la grotte de Merlin pour l’instant mais ça à l’air passionnant! <br>\n"
                 + "-	Il ne peut pas juger pour l’instant, me repris Merlin. Dis moi André, peut-on emprunter ta cuisine un moment? J’aurais besoin de faire un cake à la pieuvre pour nos amis archéologues. Mon jeune compagnon va m’aider. <br>\n"
                 + "-	Vas-y, tu connais la route. Toujours leurs problèmes de scorpion ? <br>\n"
-                + "-	Oui, je te remercie. Désolé, mais tu vas devoir attendre avant de parler à ton ami jeune homme. Cette journée sera chargée. <br></html>", personnageEtape2);
+                + "-	Oui, je te remercie. Désolé, mais tu vas devoir attendre avant de parler à ton ami jeune homme. Cette journée sera chargée. </p><br></html>", personnageEtape2);
         histoire.add(etape2);
         
         ArrayList personnageEtape3 = new ArrayList<String>();
         personnageEtape3.add("Merlin");
         personnageEtape3.add("André");
-        Histoire etape3 = new Histoire(andreLePatissier, "<html>Nous nous dirigeons vers les cuisines, du côté pâtisserie lorsque que Merlin me demande : <br>\n"
+        Histoire etape3 = new Histoire(andreLePatissier, "<html><style>html {margin:15px;}</style>"
+                + "<p>Nous nous dirigeons vers les cuisines, du côté pâtisserie lorsque que Merlin me demande : <br>\n"
                 + "-	Tu as déjà réalisé une recette d’André ? <br>\n"
                 + "-	Je l’ai déjà regardé, je lui donnais des fois ce dont il avait besoin mais je n’ai jamais fait une recette tout seul. <br>"
                 + "Nous entrons dans la cuisine, le livre de recette est posé sur son plan de travail et les ingrédients sur des étagères en bois. Tout les ustensiles sont étiquetés et organisés en dessous des ingrédients. Un vrai maniaque ce moustachu! Merlin ouvre le livre à la page du cake à la pieuvre et me montre la recette : <br> \n"
-                + "-	Tiens, ce sera simple. Tu as les mesures des pots et les quantités nécessaires pour chaque ingrédient. À toi de trouver le bon contenant, et de les associer aux bons aliments! Si tu as besoins d’aide, tu peux me demander. <br></html>", personnageEtape3);
+                + "-	Tiens, ce sera simple. Tu as les mesures des pots et les quantités nécessaires pour chaque ingrédient. À toi de trouver le bon contenant, et de les associer aux bons aliments! Si tu as besoins d’aide, tu peux me demander. </p><br></html>", personnageEtape3);
        histoire.add(etape3);
         ////////////////////////////////HISTOIRE FIN/////////////////////////////        
         histoire.add(null);// tres important pour qu'il n'y ai pas d'erreur une fois l'histoire fini
