@@ -148,7 +148,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
     
     private void regle() {
         if (enigme.getRegle() != null) {
-            JButton regle = new JButton("Règle");
+            JButton regle = new JButton("Règles");
             regle.setFont(new Font("Liberation Sans", 14, 14));
 
             regle.setSize(100, 100);
