@@ -77,7 +77,7 @@ public class Controleur implements Observateur {
         mondeArcheologue.setDescriptif("<html> Si vous supportez la poussière, <br> et retournez la terre, <br>vous trouverez trésors, <br> et bien plus encore.</html>");
         icone = new Icone((float) 0.6, (float) 0.3, "images/mondeLasVegas.png", 350, 400);
         Carte MondeLasVegas = new Carte(icone, "Le Refuge", "images/mondeLasVegas.jpg");
-        MondeLasVegas.setDescriptif("<html>La gaïté n'est qu'apparente, mais l'espoir subsiste... Lorena a trouvé ce monde, pour tout ceux qui ont perdu le leur.</html>");
+        MondeLasVegas.setDescriptif("<html>La gaïté n'est qu'apparente, mais l'espoir subsiste... Lorena a trouvé ce monde, pour tout ceux qui ont perdu les leurs.</html>");
         monde.addContien(mondeMedievale);
         monde.addContien(mondeArcheologue);
         monde.addContien(MondeLasVegas);
@@ -111,7 +111,7 @@ public class Controleur implements Observateur {
         //Monde de LasVegas
 
         EnigmeChemin machines = new EnigmeChemin(new Icone((float) 0.0, (float) 0.2, null, 300, 600), "Vo, Ame et Hune", "images/jeuMachines.jpg", 3, 3, 1);
-        machines.setDescriptif("<html>C'est assez perturbant d'être avec des créatures aussi grandes ! C'est triste d'avoir perdu notre monde mais on s'amuse bien ici. C'est mieux que dériver dans l'espace en tout cas ! <br> Bon, tu joues avec nous maintenant ?</html>");
+        machines.setDescriptif("<html>C'est assez perturbant d'être avec des créatures aussi grandes ! C'est triste d'avoir perdu notre monde mais on s'amuse bien ici. C'est mieux que de dériver dans l'espace en tout cas ! <br> Bon, tu joues avec nous maintenant ?</html>");
         MondeLasVegas.addContien(machines);
         //le poulpe
         Carte lePoulpe = new Carte(new Icone((float) 0.40, (float) 0.2, null, 300, 500), "Grasvz'in", "images/WorkInProgress.png");
