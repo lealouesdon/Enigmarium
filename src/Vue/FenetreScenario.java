@@ -173,6 +173,7 @@ public class FenetreScenario extends javax.swing.JFrame {
         getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
 
         perso1.setBackground(new java.awt.Color(255, 255, 255));
+        perso1.setOpaque(true);
         getContentPane().add(perso1, java.awt.BorderLayout.LINE_START);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
