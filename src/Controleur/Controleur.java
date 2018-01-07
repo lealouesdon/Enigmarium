@@ -134,7 +134,7 @@ public class Controleur implements Observateur {
                 + "  Je me lève, tire une de mes chaise et m’assois. Je ne reconnais pas l’odeur du thé, Merlin a dû l’apporter. Je trempe mes lèvres et repose la tasse aussitôt, le thé était encore brulant.  <br>\n"
                 + "-	Je ne suis pas du genre à divulguer les secrets des autres Merlin, soyez en assuré. Je vous écoute. <br>\n"
                 + "-	Voilà une bonne chose...  <br>\n"
-                + "Il marque une pause, son regard dirigé sur les vastes champs et colines que l’on apercevait par la fenêtre.  <br></html>", personnageEtape1);
+                + "Il marque une pause, son regard dirigé sur les vastes champs et collines que l’on apercevait par la fenêtre.  <br></html>", personnageEtape1);
         histoire.add(etape1);
         
         ArrayList personnageEtape2 = new ArrayList<String>();
