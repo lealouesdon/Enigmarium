@@ -148,7 +148,7 @@ public class Controleur implements Observateur {
                 + "-	En effet mon ami, répondit celui-ci. <br>\n"
                 + "-	Alors, qu’en penses-tu? me demande André, le sourire jusqu’aux oreilles. <br>\n"
                 + "-	J’ai seulement visité la grotte de Merlin pour l’instant mais ça à l’air passionnant! <br>\n"
-                + "-	Il ne peut pas juger pour l’instant, me repris Merlin. Dis moi André, peut-on emprunter ta cuisine un moment? J’aurais besoin de faire un cake à la pieuvre pour nos amis archéologues. Mon jeune compagnon va m’aider. <br>\n"
+                + "-	Il ne peut pas en juger pour l’instant, me repris Merlin. Dis moi André, peut-on emprunter ta cuisine un moment? J’aurais besoin de faire un cake à la pieuvre pour nos amis archéologues. Mon jeune compagnon va m’aider. <br>\n"
                 + "-	Vas-y, tu connais la route. Toujours leurs problèmes de scorpion ? <br>\n"
                 + "-	Oui, je te remercie. Désolé, mais tu vas devoir attendre avant de parler à ton ami jeune homme. Cette journée sera chargée. <br></html>", personnageEtape2);
         histoire.add(etape2);
