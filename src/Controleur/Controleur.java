@@ -49,8 +49,6 @@ public class Controleur implements Observateur {
         this.histoire = new ArrayList<Histoire>();
         cartes = new Stack();
         this.chargerPartie();
-        System.out.println("Partie chargée : ");
-        System.out.println(this.save.toString());
         InitialiserModel();
         FenetreIntro fIntro = new FenetreIntro();
         fIntro.score(save);
@@ -176,7 +174,6 @@ public class Controleur implements Observateur {
             if (m.getAtt1() != null) {
                 if (m.getAtt1() == "fille" || m.getAtt1() == "garçon") {
                     this.save = new Sauvegarde(m.getAtt2(),m.getAtt1(),0,0);
-                    System.out.println(this.save.toString());
                 }
             }
 
@@ -299,7 +296,6 @@ public class Controleur implements Observateur {
     public void checkHistoire() {
         int iterHistoire = this.save.getHistoire();
         if (histoire.get(iterHistoire) != null && histoire.get(iterHistoire).getLieu() == cartes.peek()) {
-            System.out.println(save.getSex());
             FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario(), histoire.get(iterHistoire).getPersonnages(), save.getSex());
             fenetreScen.setVisible(true);
             this.save.setHistoire(this.save.getHistoire()+1);
@@ -338,7 +334,6 @@ public class Controleur implements Observateur {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {
-            System.out.println("SAUVEGARDE INTROUVABLE. Création d'un nouveau fichier");
             this.save = new Sauvegarde();
         } catch (IOException e) {
             e.printStackTrace();
