@@ -50,7 +50,9 @@ public class EnigmeChampsDeTexte extends Enigme{
     //proposition verifi que la valeur envoyer dans le message 
     //correspond a valAttendu.
     public boolean proposition(Message m){
-        return m.getAtt1().equals(valAttendu);
+        String unZero=m.getAtt1()+"0";
+        String deuxZero=m.getAtt1()+".00";
+        return m.getAtt1().equals(valAttendu) ||unZero.equals(valAttendu)||deuxZero.equals(valAttendu);
         
     }
     
