@@ -177,7 +177,9 @@ public class Controleur implements Observateur {
     public void notification(Message m) {
         if (m.getEtat() == "retour") {
             retourCarte();
-        } else if (m.getEtat() == "start") {
+        } else if(m.getEtat() == "suivantHistoire"){
+            checkHistoire();
+        }else if (m.getEtat() == "start") {
             if (m.getAtt1() != null) {
                 if (m.getAtt1() == "fille" || m.getAtt1() == "garçon") {
                     this.save = new Sauvegarde(m.getAtt2(),m.getAtt1(),0,0);
@@ -306,6 +308,7 @@ public class Controleur implements Observateur {
         if (histoire.get(iterHistoire) != null && histoire.get(iterHistoire).getLieu() == cartes.peek()) {
             System.out.println(save.getSex());
             FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario(), histoire.get(iterHistoire).getPersonnages(), save.getSex());
+            fenetreScen.setObservateur(this);
             fenetreScen.setVisible(true);
             this.save.setHistoire(this.save.getHistoire()+1);
         }

@@ -5,6 +5,8 @@
  */
 package Vue;
 
+import Controleur.Message;
+import Controleur.Observateur;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -34,6 +36,7 @@ public class FenetreScenario extends javax.swing.JFrame {
     private String scenario;
     private String personnages;
     private String sexe;
+    private Observateur observateur;
 
     public FenetreScenario(String scenario, ArrayList<String> personnages, String sexe) {
         this.scenario = scenario;
@@ -45,6 +48,9 @@ public class FenetreScenario extends javax.swing.JFrame {
         suivant.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Message m = new Message();
+                m.setEtat("suivantHistoire");
+                observateur.notification(m);
                 dispose();
             }
 
@@ -139,6 +145,10 @@ public class FenetreScenario extends javax.swing.JFrame {
         return resizedImg;
     }
 
+    public void setObservateur(Observateur observateur) {
+        this.observateur = observateur;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
