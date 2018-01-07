@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
 
 /**
  *
@@ -70,7 +71,8 @@ public class FenetreScenario extends javax.swing.JFrame {
         persos.add(perso3);
         
         
-          champScenario.setSize(jPanel3.getSize());
+         champScenario.setSize(jPanel3.getSize());
+         jPanel3.setBorder(new javax.swing.border.BevelBorder(BevelBorder.RAISED));
 
         if(this.sexe == "fille"){
             
@@ -127,6 +129,7 @@ public class FenetreScenario extends javax.swing.JFrame {
         champScenario.setText(scenario);
         Font font = new Font("FreeSans", Font.BOLD, 16);
         champScenario.setFont(font);
+           champScenario.setSize(jPanel3.getSize());
         
     }
     
