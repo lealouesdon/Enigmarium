@@ -127,6 +127,7 @@ public class FenetreScenario extends javax.swing.JFrame {
         champScenario.setText(scenario);
         Font font = new Font("FreeSans", Font.BOLD, 16);
         champScenario.setFont(font);
+        jPanel3.getSize();
         
     }
     
