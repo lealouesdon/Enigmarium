@@ -159,7 +159,7 @@ public class Controleur implements Observateur {
         Histoire etape3 = new Histoire(andreLePatissier, "<html>Nous nous dirigeons vers les cuisines, du côté pâtisserie lorsque que Merlin me demande : <br>\n"
                 + "-	Tu as déjà réalisé une recette d’André ? <br>\n"
                 + "-	Je l’ai déjà regardé, je lui donnais des fois ce dont il avait besoin mais je n’ai jamais fait une recette tout seul. <br>"
-                + "Nous entrons dans la cuisine, le livre de recette est posé sur son plan de travail et les ingrédients sur des étagères en bois. Tout les ustensiles sont étiquetés et organisés en dessous des ingrédients. Un vrai maniaque ce moustachu! Merlin ouvre le livre à la page du cake à la pieuvre et me montre la recette : <br> \n"
+                + "Nous entrons dans la cuisine, le livre de recette est posé sur son plan de travail et les ingrédients sur des étagères en bois. Tout les ustensiles sont étiquetés et organisés au dessus des ingrédients. Un vrai maniaque ce moustachu! Merlin ouvre le livre à la page du cake à la pieuvre et me montre la recette : <br> \n"
                 + "-	Tiens, ce sera simple. Tu as les mesures des pots et les quantités nécessaires pour chaque ingrédient. À toi de trouver le bon contenant, et de les associer aux bons aliments! Si tu as besoins d’aide, tu peux me demander. <br></html>", personnageEtape3);
        histoire.add(etape3);
         ////////////////////////////////HISTOIRE FIN/////////////////////////////        
