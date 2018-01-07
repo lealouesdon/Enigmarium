@@ -176,13 +176,14 @@ public class Controleur implements Observateur {
                 }
             }
 
-            if (fenetrePrincipale == null||m.getMessage().equals("new")) {
+            if (fenetrePrincipale == null||(m.getMessage()!=null && m.getMessage().equals("new"))) {
                 InitialiserVue();
                 fenetrePrincipale.creeVue((Carte) this.cartes.peek());
                 fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
                 this.checkHistoire();
             } else {
                 fenetrePrincipale.setVisible(true);
+                
             }
 
         } else if (m.getEtat() == "menu") {
