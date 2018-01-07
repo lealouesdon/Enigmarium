@@ -70,7 +70,7 @@ public class FenetreScenario extends javax.swing.JFrame {
         persos.add(perso3);
         
         
-          champScenario.setSize(panelTotal.getSize());
+          champScenario.setSize(jPanel3.getSize());
 
         if(this.sexe == "fille"){
             
@@ -153,7 +153,7 @@ public class FenetreScenario extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        panelTotal = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         champScenario = new javax.swing.JLabel();
         suivant = new javax.swing.JButton();
         perso1 = new javax.swing.JLabel();
@@ -165,25 +165,20 @@ public class FenetreScenario extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
 
-        panelTotal.setBackground(new java.awt.Color(255, 255, 204));
-        panelTotal.setLayout(new java.awt.GridBagLayout());
+        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
 
         champScenario.setBackground(new java.awt.Color(255, 255, 255));
         champScenario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         champScenario.setMaximumSize(new java.awt.Dimension(2147483647, 18888888));
         champScenario.setMinimumSize(new java.awt.Dimension(935, 568));
-        panelTotal.add(champScenario, new java.awt.GridBagConstraints());
+        jPanel3.add(champScenario, new java.awt.GridBagConstraints());
 
-        getContentPane().add(panelTotal, java.awt.BorderLayout.CENTER);
+        getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
         suivant.setBackground(new java.awt.Color(255, 255, 255));
         suivant.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         suivant.setText("Suivant");
-        suivant.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                suivantActionPerformed(evt);
-            }
-        });
         getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
 
         perso1.setBackground(new java.awt.Color(255, 255, 255));
@@ -211,10 +206,6 @@ public class FenetreScenario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void suivantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suivantActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_suivantActionPerformed
   
     /**
      * @param args the command line arguments
@@ -251,12 +242,12 @@ public class FenetreScenario extends javax.swing.JFrame {
             }
         });*/
     }
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel champScenario;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel panelTotal;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel perso1;
     private javax.swing.JLabel perso2;
     private javax.swing.JLabel perso3;
