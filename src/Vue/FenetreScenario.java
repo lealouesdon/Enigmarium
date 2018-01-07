@@ -160,10 +160,11 @@ public class FenetreScenario extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
 
-        champScenario.setBackground(new java.awt.Color(255, 255, 255));
+        champScenario.setBackground(new java.awt.Color(255, 255, 204));
         champScenario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         champScenario.setMaximumSize(new java.awt.Dimension(200, 200));
         champScenario.setMinimumSize(new java.awt.Dimension(100, 100));
+        champScenario.setOpaque(true);
         getContentPane().add(champScenario, java.awt.BorderLayout.CENTER);
 
         suivant.setBackground(new java.awt.Color(255, 255, 255));
