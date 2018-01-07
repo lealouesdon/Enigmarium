@@ -48,7 +48,7 @@ public class FenetrePerso extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 //mise à jour de la sauvegarde
                 message = new Message();
-                message.setMessage(pseudo.getText());
+                message.setAtt2(pseudo.getText());
                 message.setAtt1(perso);
                 message.setEtat("start");
                 message.setMessage("new");
