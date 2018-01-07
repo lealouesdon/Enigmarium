@@ -21,7 +21,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.border.BevelBorder;
 
 /**
  *
@@ -161,10 +160,11 @@ public class FenetreScenario extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
 
-        champScenario.setBackground(new java.awt.Color(255, 255, 255));
+        champScenario.setBackground(new java.awt.Color(255, 255, 204));
         champScenario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         champScenario.setMaximumSize(new java.awt.Dimension(200, 200));
         champScenario.setMinimumSize(new java.awt.Dimension(100, 100));
+        champScenario.setOpaque(true);
         getContentPane().add(champScenario, java.awt.BorderLayout.CENTER);
 
         suivant.setBackground(new java.awt.Color(255, 255, 255));
@@ -173,6 +173,7 @@ public class FenetreScenario extends javax.swing.JFrame {
         getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
 
         perso1.setBackground(new java.awt.Color(255, 255, 255));
+        perso1.setOpaque(true);
         getContentPane().add(perso1, java.awt.BorderLayout.LINE_START);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));

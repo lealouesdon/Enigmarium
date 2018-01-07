@@ -91,7 +91,7 @@ public class FenetreRegle extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Règle");
+        jLabel1.setText("Règles");
 
         regle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         regle.setText("jLabel2");
@@ -108,11 +108,11 @@ public class FenetreRegle extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(regle, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
-                        .addComponent(fermer)))
+                        .addComponent(fermer))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
