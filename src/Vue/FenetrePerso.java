@@ -21,6 +21,8 @@ import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -54,11 +56,7 @@ public class FenetrePerso extends javax.swing.JFrame {
                 message.setMessage("new");
                 observateur.notification(message);
                 dispose();
-                if (perso != null) {
 
-                    //update base de données
-                    dispose();
-                }
 
             }
 
@@ -81,7 +79,7 @@ public class FenetrePerso extends javax.swing.JFrame {
                 garcon.setBackground(Color.LIGHT_GRAY);
                 fille.setBackground(Color.red);
                 perso = fille.getName();
-                if(!pseudo.getText().isEmpty()){
+                if(!(pseudo.getText().isEmpty())){
                     valider.setEnabled(true);
                 }
             }
@@ -94,14 +92,36 @@ public class FenetrePerso extends javax.swing.JFrame {
                 fille.setBackground(Color.LIGHT_GRAY);
                 garcon.setBackground(Color.red);
                 perso = garcon.getName();
-                if(!pseudo.getText().isEmpty()){
+                if(!(pseudo.getText().isEmpty())){
                     valider.setEnabled(true);
                 }
-                
             }
 
         });
 
+        
+        //champs de texte du pseudo
+        pseudo.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                    if(perso == fille.getName() || perso == garcon.getName()){
+                        valider.setEnabled(true);
+                    }
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                if (pseudo.getText().isEmpty() || !(perso != garcon.getText() && perso != garcon.getText())) {
+                    valider.setEnabled(false);
+                }
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+
+            }
+
+        });
         //pour mettre la fenetre sur tout l'écran
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         try {
