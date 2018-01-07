@@ -84,7 +84,6 @@ public class FenetreResultat extends JFrame {
             state.executeUpdate("Update Joueur set score = score + s where id = id;");
         }catch(SQLException ex) {
             Logger.getLogger(FenetrePerso.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Exeption soulevé par la base de données");
         }*/        
     }
     /**
