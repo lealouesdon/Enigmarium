@@ -5,6 +5,8 @@
  */
 package Modele;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Léa
@@ -22,10 +24,23 @@ public class Expression extends Element {
     private int b;
     private float x;
 
-    public Expression(String nom, Icone icone) {
+    public Expression(String nom, Icone icone, ArrayList resultat) {
         super(nom, icone);
         //initialiser a et b
-        init();
+        boolean existDeja = true;
+        this.a = (int) (Math.random() * (MAXa + 1 - MINa) + MINa);
+        this.b = (int) (Math.random() * (MAXb + 1 - MINb) + MINb);
+        while(existDeja){
+            existDeja=false;
+           this.x = (int) (Math.random() * (MAXx + 1 - MINx) + MINx);
+           for(int i = 0;i<resultat.size();i++){
+               if((float)resultat.get(i)==this.x){
+                   existDeja=true;
+               }
+           }
+        }
+        int i =(int) (a*x+b);
+        b=b-i;
     }
 
     @Override
@@ -46,14 +61,6 @@ public class Expression extends Element {
 
     public int getB() {
         return b;
-    }
-
-    private void init() {
-        this.a = (int) (Math.random() * (MAXa + 1 - MINa) + MINa);
-        this.b = (int) (Math.random() * (MAXb + 1 - MINb) + MINb);
-        this.x = (int) (Math.random() * (MAXx + 1 - MINx) + MINx);
-        int i =(int) (a*x+b);
-        b=b-i;
     }
     public float getX(){
         return this.x;
