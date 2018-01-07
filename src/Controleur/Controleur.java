@@ -21,7 +21,6 @@ import Vue.FenetreIntro;
 import Vue.FenetrePrincipale;
 import Vue.FenetreResultat;
 import Vue.FenetreScenario;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Stack;
 import java.io.BufferedInputStream;
@@ -49,8 +48,6 @@ public class Controleur implements Observateur {
         this.histoire = new ArrayList<Histoire>();
         cartes = new Stack();
         this.chargerPartie();
-        System.out.println("Partie chargée : ");
-        System.out.println(this.save.toString());
         InitialiserModel();
         FenetreIntro fIntro = new FenetreIntro();
         fIntro.score(save);
@@ -251,11 +248,12 @@ public class Controleur implements Observateur {
     public void notification(Message m) {
         if (m.getEtat() == "retour") {
             retourCarte();
-        } else if (m.getEtat() == "start") {
+        } else if(m.getEtat() == "suivantHistoire"){
+            checkHistoire();
+        }else if (m.getEtat() == "start") {
             if (m.getAtt1() != null) {
                 if (m.getAtt1() == "fille" || m.getAtt1() == "garçon") {
                     this.save = new Sauvegarde(m.getAtt2(),m.getAtt1(),0,0);
-                    System.out.println(this.save.toString());
                 }
             }
 
@@ -318,8 +316,8 @@ public class Controleur implements Observateur {
             if (fini) {
                 //ouvrir une fenetre resultat
                 FenetreResultat f = new FenetreResultat();
-                this.save.setScore(this.save.getScore() + e.getPoints());
-                f.setPoints(String.valueOf(e.getPoints()));
+                this.save.setScore(this.save.getScore() + e.getPoint());
+                f.setPoints(String.valueOf(e.getPoint()));
                 f.setVisible(true);
                 retourCarte();
             } else {
@@ -331,8 +329,8 @@ public class Controleur implements Observateur {
             juste = e.proposition(m);
             if (juste) {
                 FenetreResultat f = new FenetreResultat();
-                this.save.setScore(this.save.getScore() + e.getPoints());           
-                //f.setPoints(String.valueOf(e.getPoints()));
+                this.save.setScore(this.save.getScore() + e.getPoint());           
+                f.setPoints(String.valueOf(e.getPoint()));
                 f.setVisible(true);
                 retourCarte();
             } else {
@@ -342,8 +340,8 @@ public class Controleur implements Observateur {
             EnigmeChemin e = (EnigmeChemin) enigmeCoutante;
             if (e.proposition(m)) {
                 FenetreResultat f = new FenetreResultat();
-                this.save.setScore(this.save.getScore() + e.getPoints());
-                //f.setPoints(String.valueOf(e.getPoints()));
+                this.save.setScore(this.save.getScore() + e.getPoint());
+                f.setPoints(String.valueOf(e.getPoint()));
                 f.setVisible(true);
                 retourCarte();
             } else {
@@ -378,8 +376,8 @@ public class Controleur implements Observateur {
     public void checkHistoire() {
         int iterHistoire = this.save.getHistoire();
         if (histoire.get(iterHistoire) != null && histoire.get(iterHistoire).getLieu() == cartes.peek()) {
-            System.out.println(save.getSex());
             FenetreScenario fenetreScen = new FenetreScenario(histoire.get(iterHistoire).getSenario(), histoire.get(iterHistoire).getPersonnages(), save.getSex());
+            fenetreScen.setObservateur(this);
             fenetreScen.setVisible(true);
             this.save.setHistoire(this.save.getHistoire()+1);
         }
@@ -417,7 +415,6 @@ public class Controleur implements Observateur {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {
-            System.out.println("SAUVEGARDE INTROUVABLE. Création d'un nouveau fichier");
             this.save = new Sauvegarde();
         } catch (IOException e) {
             e.printStackTrace();

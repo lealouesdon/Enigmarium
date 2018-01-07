@@ -6,11 +6,8 @@
 package Modele;
 
 import Controleur.Message;
-import static java.nio.file.Files.list;
-import static java.rmi.Naming.list;
 import java.util.ArrayList;
 import java.util.Collections;
-import static java.util.Collections.list;
 import java.util.Iterator;
 
 /**
@@ -20,7 +17,6 @@ import java.util.Iterator;
 public class EnigmeComposite extends Enigme {
     private ArrayList<Composition> compositions;
     private ArrayList<String> enonce;  //équivalent de la recette pour enigmeVolume
-    private int points;
     private int nbCompositionsRestantes; //nombre de compositions pas encore trouvé
 
 
@@ -33,7 +29,6 @@ public class EnigmeComposite extends Enigme {
     public void enigmeVolume() {
         compositions.clear();
         enonce.clear();
-        points = 0;
         //defiition des attributs:
         //atributs 1 = recipients
         //attributs 2= ingredients
@@ -85,7 +80,7 @@ public class EnigmeComposite extends Enigme {
     public void enigmeExpression() {
         compositions.clear();
         enonce.clear();
-        points = 0;
+        
         //defiition des attributs:
         //atributs 1 = reponses
         //attributs 2= expression 
@@ -166,7 +161,6 @@ public class EnigmeComposite extends Enigme {
             if (c.getElem1() != null && c.getElem2() != null) {
                 if (c.getElem1().getNom() == message.getAtt1()) {
                     if (c.getElem2().getNom() == message.getAtt2()) {
-                        points = points + 200;
                         passe = true;
                         iterator.remove();
                         nbCompositionsRestantes=nbCompositionsRestantes-1;
@@ -176,10 +170,7 @@ public class EnigmeComposite extends Enigme {
         }
 
         if (passe == false) {
-            points = points - 100;
-            if (points < 0) {
-                points = 0;
-            }
+            super.calculPoints();
         }
         return getNbCompositionsRestantes() == 0;
     }
@@ -191,10 +182,7 @@ public class EnigmeComposite extends Enigme {
     public ArrayList<String> getEnonce() {
         return enonce;
     }
-    @Override 
-    public int getPoints() {
-        return points;
-    }
+    
 
     public int getNbCompositionsRestantes() {
         return nbCompositionsRestantes;

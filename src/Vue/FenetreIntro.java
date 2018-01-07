@@ -36,7 +36,6 @@ public class FenetreIntro extends javax.swing.JFrame {
     public FenetreIntro() {
         initComponents();
         //bouton crée une nouvelle partie
-        //start.setEnabled(false);
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

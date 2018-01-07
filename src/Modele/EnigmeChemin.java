@@ -49,6 +49,9 @@ public class EnigmeChemin extends Enigme {
         for (int i=0;i<message.getFractions().size();i++ ){
             res=res+message.getFractions().get(i);
         }
+        if(!(res==this.resultat)){
+            super.calculPoints();
+        }
         return res==this.resultat;
         
     }
