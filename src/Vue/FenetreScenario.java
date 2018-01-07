@@ -124,7 +124,10 @@ public class FenetreScenario extends javax.swing.JFrame {
         champScenario.setText(scenario);
         Font font = new Font("FreeSans", Font.BOLD, 16);
         champScenario.setFont(font);
+        
     }
+    
+     
 
     private Image getScaledImage(Image srcImg, int w, int h) {
         //pour redimensionner une image pour un bouton
@@ -147,7 +150,6 @@ public class FenetreScenario extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         champScenario = new javax.swing.JLabel();
         suivant = new javax.swing.JButton();
@@ -157,10 +159,13 @@ public class FenetreScenario extends javax.swing.JFrame {
         perso3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
+        champScenario.setBackground(new java.awt.Color(255, 255, 255));
         champScenario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         champScenario.setMaximumSize(new java.awt.Dimension(2147483647, 18888888));
         champScenario.setMinimumSize(new java.awt.Dimension(935, 568));
@@ -168,19 +173,27 @@ public class FenetreScenario extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
+        suivant.setBackground(new java.awt.Color(255, 255, 255));
         suivant.setFont(new java.awt.Font("Balthazar", 0, 24)); // NOI18N
         suivant.setText("Suivant");
         getContentPane().add(suivant, java.awt.BorderLayout.PAGE_END);
+
+        perso1.setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().add(perso1, java.awt.BorderLayout.LINE_START);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
         jPanel2Layout.columnWidths = new int[] {0, 5, 0};
         jPanel2Layout.rowHeights = new int[] {0, 20, 0, 20, 0, 20, 0};
         jPanel2.setLayout(jPanel2Layout);
+
+        perso2.setBackground(new java.awt.Color(255, 255, 255));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         jPanel2.add(perso2, gridBagConstraints);
+
+        perso3.setBackground(new java.awt.Color(255, 255, 255));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -230,7 +243,6 @@ public class FenetreScenario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel champScenario;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel perso1;
