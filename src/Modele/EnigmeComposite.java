@@ -79,7 +79,7 @@ public class EnigmeComposite extends Enigme {
         //initialisation de nbCompositionsRestantes
         nbCompositionsRestantes=4;
         //regle
-        super.setRegle("<html>regle</html>");
+        super.setRegle("<html>Il vous faut asssocier le bon récipient au bonne ingrédients en suivant les quatité données sur le livre de recette.</html>");
     }
 
     //////////////////////////////////////////////////////////////////////////////
