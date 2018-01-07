@@ -54,5 +54,9 @@ public class EnigmeChampsDeTexte extends Enigme{
         
     }
     
+    public int getPoint(){
+        return 100;
+    }
+    
     
 }
