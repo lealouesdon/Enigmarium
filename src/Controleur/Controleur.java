@@ -232,7 +232,6 @@ public class Controleur implements Observateur {
 
         ArrayList personnageEtape7 = new ArrayList<String>();
         personnageEtape7.add("Merlin");
-        personnageEtape7.add("André");
         Histoire etape7 = new Histoire(andreLePatissier, "<html><style>html {margin:15px;}</style>"
                 + "<p>   Nous nous dirigeons vers les cuisines, du côté pâtisserie lorsque que Merlin me demande :\n"
                 + "-	Tu as déjà réalisé une recette d’André ?\n"
