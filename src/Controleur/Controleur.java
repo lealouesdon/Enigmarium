@@ -63,6 +63,7 @@ public class Controleur implements Observateur {
     }
 
     private void InitialiserModel() {//initialise toute les carte du model
+        this.cartes.clear();
         Carte monde = new Carte(null, "Carte des mondes", "images/galaxy.jpg", false);
         cartes.push(monde);
         /////////////////////////////////MONDE///////////////////////////////////////
@@ -258,6 +259,7 @@ public class Controleur implements Observateur {
             }
 
             if (fenetrePrincipale == null || (m.getMessage() != null && m.getMessage().equals("new"))) {
+                cleanCarte();
                 InitialiserVue();
                 fenetrePrincipale.creeVue((Carte) this.cartes.peek());
                 fenetrePrincipale.setVisible(true);//lance la vue pour pouveoir jouer
@@ -420,6 +422,15 @@ public class Controleur implements Observateur {
             e.printStackTrace();
 
         }
+    }
+
+    private void cleanCarte() {
+        Lieu l=null;
+        while(!this.cartes.empty()){
+            l=this.cartes.peek();
+            this.cartes.pop();
+        }
+        this.cartes.add(l);
     }
 }
 //histoire[iterHistoire].getLieu()==cartes.peek(
