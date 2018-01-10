@@ -20,7 +20,7 @@ public abstract class Lieu {
     private ArrayList<Lieu> prerequis;
     private String descriptif;
     
-   
+  
 
     public Lieu(Icone icone, String nom, String fond) {
         this.icone = icone;
