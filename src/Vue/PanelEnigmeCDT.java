@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -37,11 +38,15 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
     
     public PanelEnigmeCDT(EnigmeChampsDeTexte e, int largeur, int hauteur) {
         initComponents();
+        
         enigme = e;
         this.setSize(largeur, hauteur);
-        question.setLocation((int)(largeur*0.83),(int)(hauteur*0.01));
-        reponse.setLocation((int)(largeur*0.9),(int)(hauteur*0.4));
-        valider.setLocation((int)(largeur*0.87),(int)(hauteur*0.85));
+        question.setSize((int)(this.getWidth()*0.15f),(int) (this.getHeight()*0.25));
+        question.setLocation((int)(largeur*0.83),(int)(hauteur*0.06));
+        reponse.setLocation((int)(largeur*0.83),(int)(hauteur*0.4));
+        reponse.setSize((int)(this.getWidth()*0.16f),(int) (this.getHeight()*0.05));
+        valider.setLocation((int)(largeur*0.87),(int)(hauteur*0.83));
+        valider.setSize((int)(this.getWidth()*0.08f),(int) (this.getHeight()*0.08));
         question.setText(e.getQuestion());
         valider.addActionListener(new ActionListener(){
             @Override
@@ -62,7 +67,7 @@ public class PanelEnigmeCDT extends javax.swing.JPanel {
             //ouvre l'image et la met dans le bouton
             Image img = ImageIO.read(getClass().getResource("images/bouton.png"));
             //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
-            ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 50));
+            ImageIcon icon = new ImageIcon(getScaledImage(img, valider.getWidth(), valider.getHeight()));
             valider.setIcon(icon);
         } catch (IOException ex) {
             Logger.getLogger(PanelNavigation.class.getName()).log(Level.SEVERE, null, ex);
