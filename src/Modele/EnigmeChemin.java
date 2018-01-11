@@ -30,6 +30,7 @@ public class EnigmeChemin extends Enigme {
     }
 
     public void initialiserEnigme() {
+        super.setPoint(1000);
         this.trajets.clear();
         for(int i=0;i<this.getNbChemins();i++){
             trajets.add(new Trajet(this.getResultat(),this.getNbEtapes(),this.getTypeEnigme()));

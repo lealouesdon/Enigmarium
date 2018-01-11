@@ -63,4 +63,7 @@ public abstract class Enigme extends Lieu {
             points = 0;
         }
     }
+    public void setPoint(int points){
+        this.points=points;
+    }
 }
