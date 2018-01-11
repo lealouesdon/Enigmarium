@@ -69,7 +69,7 @@ public class EnigmeComposite extends Enigme {
         //////////////////////////////////////////////////////////
         //indice
         super.setIndice("images/indices/indice1.png");
-        melangeIconeConpositions(0.19f, 0.10f);
+        //melangeIconeConpositions(0.19f, 0.10f);
         //initialisation de nbCompositionsRestantes
         nbCompositionsRestantes=4;
         //regle
@@ -124,7 +124,7 @@ public class EnigmeComposite extends Enigme {
         enonce.add("");
         //indice
         super.setIndice("images/indices/indice_equa.png");
-        melangeIconeConpositions(0.58f, 0.08f);
+        //melangeIconeConpositions(0.58f, 0.08f);
         //initialisation de nbCompositionsRestantes
         nbCompositionsRestantes=3;
         //regle

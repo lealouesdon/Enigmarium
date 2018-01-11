@@ -107,7 +107,7 @@ public class PanelEnigmeChemin extends JPanel {
         int i = 1;
         float y = 0.65f;
         for (ArrayList<JButton> places : etapes) {
-            Collections.shuffle(places);
+            //Collections.shuffle(places);
             if (i==1){
                 x = 0.72f;
             }else {
