@@ -106,7 +106,7 @@ public class FenetreScenario extends javax.swing.JFrame {
                 case "Merlin":
                     try {
                         //ouvre l'image et la met dans le bouton
-                        Image img = ImageIO.read(getClass().getResource("images/Merlin.png"));
+                        Image img = ImageIO.read(getClass().getResource("images/merlin.png"));
                         //redimensionement de l'image(taille a modifier en fonction des attributs de l'icone
                         ImageIcon icon = new ImageIcon(getScaledImage(img, 250, 250));
                         persos.get(i).setIcon(icon);
