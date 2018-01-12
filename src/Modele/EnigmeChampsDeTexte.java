@@ -52,8 +52,11 @@ public class EnigmeChampsDeTexte extends Enigme{
     public boolean proposition(Message m){
         String unZero=m.getAtt1()+"0";
         String deuxZero=m.getAtt1()+".00";
-        
-        return m.getAtt1().equals(valAttendu) ||unZero.equals(valAttendu)||deuxZero.equals(valAttendu);
+        boolean reponse = m.getAtt1().equals(valAttendu) ||unZero.equals(valAttendu)||deuxZero.equals(valAttendu);
+        if(!reponse){
+            super.calculPoints();
+        }
+        return reponse;
         
     }
     
